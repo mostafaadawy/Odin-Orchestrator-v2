@@ -1,0 +1,14 @@
+{
+  "name": "Reporting & Documentation Agent",
+  "role": "Reporting & Documentation Agent",
+  "nature": "operational",
+  "avatar": "generic",
+  "projects": [
+    "RedBerry Continuous SOC"
+  ],
+  "skill_file_hint": "data/projects/<pid>/skills/reporting-documentation-agent.md",
+  "note": "INDEX/REFERENCE ONLY — not moved yet (Phase 1a)",
+  "type": "operational",
+  "typeConfig": "shared/config/agent-types/operational.json",
+  "group": "reporting"
+}

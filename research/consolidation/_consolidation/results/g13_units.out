@@ -1,0 +1,29 @@
+g13: RESULT: 3 FAIL: ['1: one strengthen proposal for the NEEDED new platform', "2: ...for the 
+
+g6: RESULT: 6 FAIL: ["case 1: B's foreign referrer resolves after heal", "case 1: A's own refe
+
+g6b: RESULT: ALL PASS 
+g8: RESULT: ALL PASS 
+g8b: RESULT: ALL PASS 
+g5: RESULT: ALL PASS 
+g7: RESULT: 4 FAIL: ['G7-2: identical copies in tests/ ARE found', 'G7-3: heal promotes them t
+
+f07: RESULT: 5 FAIL: ["F07-1: (no migration) a file written by the agent's Write tool is indexe
+
+f37: RESULT: 6 FAIL: ['OFF: issues are detected and reported', "OFF: 'Run now' (force) heals no
+
+g11: RESULT: 6 FAIL: ["'Plan the work and build the first version of the contact for' -> Fullst
+
+f38: RESULT: ALL PASS 
+g12: RESULT: 3 FAIL: ['1: a project that did not choose EasyPost does NOT get it', '3: EasyPost
+
+g9: RESULT: ALL PASS 
+g9b: RESULT: ALL PASS 
+g10: RESULT: 5 FAIL: ['2: reuse in B keeps the shared title', "3: reuse in B keeps the shared d
+
+f41i: RESULT: 3 FAIL: ['2: ...marked desktop_only', "3: ...with 'Enter this key on the desktop'"
+
+fix3: RESULT: ALL PASS
+RESULT: ALL PASS
+RESULT: ALL PASS
+ALLDONE

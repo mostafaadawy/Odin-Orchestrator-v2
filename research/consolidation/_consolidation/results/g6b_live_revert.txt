@@ -1,0 +1,13 @@
+{
+  "ok": true,
+  "batch": "8ced7321f959",
+  "done": [
+    "restored workspace/projects/hubspot-crm-operator/code/from_revealer-6978_r5.py (shared/testing/dup_test_r5.py -> projects/revealer-6978/code/helper_s6_r5.py)",
+    "restored workspace/projects/revealer-6978/dependencies/manifest.json (+ dependency on shared/testing/dup_test_r5.py -> (dependency manifest))",
+    "restored workspace/projects/hubspot-crm-operator/dependencies/manifest.json (+ dependency on shared/testing/dup_test_r5.py -> (dependency manifest))",
+    "restored projects/revealer-6978/code/helper_s6_r5.py (copy of shared/testing/dup_test_r5.py, which existed before this action)",
+    "moved back shared/testing/dup_test_r5.py -> projects/hubspot-crm-operator/code/dup_test_r5.py (its dependency rows removed)"
+  ],
+  "skipped": [],
+  "held": true
+}

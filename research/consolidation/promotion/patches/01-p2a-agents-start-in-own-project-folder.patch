@@ -1,0 +1,40 @@
+diff --git a/server/api_v2.py b/server/api_v2.py
+index 2a43cb2..d04438a 100644
+--- a/server/api_v2.py
++++ b/server/api_v2.py
+@@ -3444,7 +3444,7 @@ def _scoped_gen(scope: str, text: str, lang: str, cid: str):
+                                             + _flow[:4000] + "\n")
+                 except Exception:
+                     pass
+-                fp = _p.get("localPath")
++                fp = _p.get("localPath") or _pj.agent_workdir(pid)   # P2: own project folder by default
+                 _srcs = _p.get("sources") or []
+                 if _srcs:
+                     folder_note += (f"[Existing source folders (READ-ONLY unless I ask to modify): "
+diff --git a/server/projects.py b/server/projects.py
+index d51b20a..19a152c 100644
+--- a/server/projects.py
++++ b/server/projects.py
+@@ -659,6 +662,22 @@ def list_projects() -> list:
+     return out
+ 
+ 
++def agent_workdir(pid: str) -> str:
++    """P2 — where a project's agents START: the project's own working folder (localPath) if it has one,
++    otherwise its own canonical code slot workspace/projects/<pid>/code (created if missing). Agents never
++    start at the Odin repo root, so relative writes land inside their own project."""
++    p = get_project(pid) or {}
++    lp = (p.get("localPath") or "").strip()
++    if lp:
++        return lp
++    d = store.WS / "projects" / pid / "code"
++    try:
++        d.mkdir(parents=True, exist_ok=True)
++    except Exception:
++        pass
++    return str(d)
++
++
+ def get_project(pid: str):
+     for p in list_projects():
+         if p["id"] == pid:

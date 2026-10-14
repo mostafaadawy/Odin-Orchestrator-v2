@@ -1,0 +1,30 @@
+{
+  "note": "STAGING ONLY. Never RBO-Production, never bendcore/organics prod folders or redberryorganics.com.",
+  "host": "52.180.154.225",
+  "user": "mostafa",
+  "reboot": false,
+  "restart_services": ["bendcore-staging", "organics-staging"],
+  "domain": { "frontend": "f-staging.redberryorganics.com", "backend": "b-staging.redberryorganics.com" },
+  "targets": [
+    {
+      "name": "backend",
+      "local": "/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Isolated/_external/VolatileWorkSpace/RBO-Staging/b",
+      "vm": "/home/mostafa/RBO-Staging/b",
+      "service": "bendcore-staging",
+      "port": 4014,
+      "migration": "new",
+      "build": "npm run build",
+      "excludes": [".env*", "node_modules/**", "dist/**", "logs/**", "package-lock.json", "*.tsbuildinfo", "uploads"]
+    },
+    {
+      "name": "frontend",
+      "local": "/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Isolated/_external/VolatileWorkSpace/RBO-Staging/f",
+      "vm": "/home/mostafa/RBO-Staging/f",
+      "service": "organics-staging",
+      "port": 3001,
+      "migration": "none",
+      "build": "npm run build",
+      "excludes": [".env*", "node_modules/**", ".next/**", "logs/**", "package-lock.json", "next-env.d.ts", "*.tsbuildinfo"]
+    }
+  ]
+}

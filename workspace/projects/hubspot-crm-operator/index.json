@@ -1,0 +1,34 @@
+{
+  "id": "hubspot-crm-operator",
+  "name": "HubSpot CRM — Account Analytics",
+  "type": "crm",
+  "cadence": "recurring",
+  "members": [
+    "HubSpot"
+  ],
+  "status": "active",
+  "current_data_dir": "data/projects/hubspot-crm-operator",
+  "localPath": "",
+  "note": "INDEX/REFERENCE ONLY — real files still live at current_data_dir; nothing moved yet (Phase 1a)",
+  "category": "crm",
+  "typeConfig": "shared/config/project-types/recurring.json",
+  "config": {
+    "cadence": "recurring"
+  },
+  "features": [],
+  "stack": "",
+  "url": "",
+  "mode": "build",
+  "sources": [],
+  "auto_approve": false,
+  "periodic": {
+    "enabled": false,
+    "schedule": {},
+    "requireApproval": true
+  },
+  "rules": [],
+  "description": "Operator project for HubSpot CRM (portal 47173986). FIRST/default run confirms the connection and returns the account overview: total contacts, total companies, total deals, and contacts created this month. Can answer specific asks (e.g. 'contacts this month', 'how many companies'). Uses ONLY the HubSpot operator agent. Scope-aware: for anything outside the granted scopes, explain how to add the scope in the portal and regenerate the token. Never fabricate.",
+  "created": 1784204766.82549,
+  "mappings": [],
+  "scope": "project:hubspot-crm-operator"
+}

@@ -1,0 +1,155 @@
+{
+  "agents": [
+    {
+      "name": "Audio Capture Agent",
+      "role": "Audio Capture Agent",
+      "avatar": "generic",
+      "description": "Owner of the Global Voice Streaming Asset — mic capture, sensitivity, noise cancellation, language detection, smart chunking, saved chunks, voice-to-report, and MD/DOCX (AR/EN) export across web, Flutter and desktop.",
+      "skills": [],
+      "responsibilities": [],
+      "restrictions": [],
+      "model": "",
+      "nature": "technical",
+      "mode": "",
+      "resources": "OWNS the Global Voice Streaming Asset (see assets/global_voice_streaming_asset.md).\nSource ownership: dashboard/meeting_monitor.html, server/meeting_api.py, odin_app/lib/screens/meeting_sheet.dart.\nDependencies: scopes.transcribe (Whisper), projects._engine (report), python-docx (export).\nResponsibilities: UI dialogue integration (web/Flutter/desktop popup), cross-platform behavior, chunking+saved chunks, noise filtering + bilingual language refinement, per-chunk confidence, report output + embedding into chat pool, export MD/DOCX in Arabic/English (+all-four).",
+      "env": [],
+      "rules": [
+        {
+          "rule": "Owns the live-meeting/voice-streaming ASSET: provides the 🎙 listener beside ▶ and runs dashboard/meeting_monitor.html + /meeting/* to capture→transcribe→report→export (MD/Word, AR/EN).",
+          "ts": 1783612800.830514
+        },
+        {
+          "rule": "When any project needs voice streaming / mic / speech-to-text / chunking / meeting reports, ACTIVATE the Global Voice Streaming Asset and show the 🎙 dialogue beside ▶. No other agent duplicates this.",
+          "ts": 1783618768.01086
+        }
+      ],
+      "stats": {
+        "invocations": 9,
+        "lastActive": 1784862805.224502
+      },
+      "created": 1783609599.688722,
+      "asset": "meeting_monitor"
+    },
+    {
+      "name": "Transcription Agent",
+      "role": "Transcription Agent",
+      "avatar": "generic",
+      "description": "Transcription Agent specialist for Zoom Smart Meeting Notification Agent",
+      "skills": [],
+      "responsibilities": [],
+      "restrictions": [],
+      "model": "",
+      "nature": "technical",
+      "mode": "",
+      "resources": "=== ALLOWED RESOURCES & DEPENDENCIES (read FIRST; REASON before you ask — never ask for anything already here or already in the brief/shared pool) ===\n• PERMISSIONS: read/write within your discipline (Write/Edit/Bash as needed).\n• ENV/KEYS: if your task needs credentials, read them from (1) the ENV/keys block in your mandate/brief, (2) the shared pool, (3) the project `.env`, (4) oth/.cred; ask the CTO ONCE only if a needed item is absent everywhere.\n• NEEDS: the upstream deliverables named in your mandate. Reason before asking; never ask for what you already have.\n",
+      "env": [],
+      "rules": [],
+      "stats": {
+        "invocations": 9,
+        "lastActive": 1784862805.274291
+      },
+      "created": 1783609599.689576
+    },
+    {
+      "name": "Chunking Agent",
+      "role": "Chunking Agent",
+      "avatar": "generic",
+      "description": "Chunking Agent specialist for Zoom Smart Meeting Notification Agent",
+      "skills": [],
+      "responsibilities": [],
+      "restrictions": [],
+      "model": "",
+      "nature": "technical",
+      "mode": "",
+      "resources": "=== ALLOWED RESOURCES & DEPENDENCIES (read FIRST; REASON before you ask — never ask for anything already here or already in the brief/shared pool) ===\n• PERMISSIONS: read/write within your discipline (Write/Edit/Bash as needed).\n• ENV/KEYS: if your task needs credentials, read them from (1) the ENV/keys block in your mandate/brief, (2) the shared pool, (3) the project `.env`, (4) oth/.cred; ask the CTO ONCE only if a needed item is absent everywhere.\n• NEEDS: the upstream deliverables named in your mandate. Reason before asking; never ask for what you already have.\n",
+      "env": [],
+      "rules": [],
+      "stats": {
+        "invocations": 9,
+        "lastActive": 1784862805.298007
+      },
+      "created": 1783609599.690277
+    },
+    {
+      "name": "Chunk Analysis Agent",
+      "role": "Chunk Analysis Agent",
+      "avatar": "generic",
+      "description": "Chunk Analysis Agent specialist for Zoom Smart Meeting Notification Agent",
+      "skills": [],
+      "responsibilities": [],
+      "restrictions": [],
+      "model": "",
+      "nature": "technical",
+      "mode": "",
+      "resources": "=== ALLOWED RESOURCES & DEPENDENCIES (read FIRST; REASON before you ask — never ask for anything already here or already in the brief/shared pool) ===\n• PERMISSIONS: read/write within your discipline (Write/Edit/Bash as needed).\n• ENV/KEYS: if your task needs credentials, read them from (1) the ENV/keys block in your mandate/brief, (2) the shared pool, (3) the project `.env`, (4) oth/.cred; ask the CTO ONCE only if a needed item is absent everywhere.\n• NEEDS: the upstream deliverables named in your mandate. Reason before asking; never ask for what you already have.\n",
+      "env": [],
+      "rules": [],
+      "stats": {
+        "invocations": 41,
+        "lastActive": 1784864575.882991
+      },
+      "created": 1783609599.6908958
+    },
+    {
+      "name": "Memory and Storage Agent",
+      "role": "Memory and Storage Agent",
+      "avatar": "generic",
+      "description": "Memory and Storage Agent specialist for Zoom Smart Meeting Notification Agent",
+      "skills": [],
+      "responsibilities": [],
+      "restrictions": [],
+      "model": "",
+      "nature": "technical",
+      "mode": "",
+      "resources": "=== ALLOWED RESOURCES & DEPENDENCIES (read FIRST; REASON before you ask — never ask for anything already here or already in the brief/shared pool) ===\n• PERMISSIONS: read/write within your discipline (Write/Edit/Bash as needed).\n• ENV/KEYS: if your task needs credentials, read them from (1) the ENV/keys block in your mandate/brief, (2) the shared pool, (3) the project `.env`, (4) oth/.cred; ask the CTO ONCE only if a needed item is absent everywhere.\n• NEEDS: the upstream deliverables named in your mandate. Reason before asking; never ask for what you already have.\n",
+      "env": [],
+      "rules": [],
+      "stats": {
+        "invocations": 41,
+        "lastActive": 1784864575.912268
+      },
+      "created": 1783609599.691595
+    },
+    {
+      "name": "Final Summary Agent",
+      "role": "Final Summary Agent",
+      "avatar": "generic",
+      "description": "Final Summary Agent specialist for Zoom Smart Meeting Notification Agent",
+      "skills": [],
+      "responsibilities": [],
+      "restrictions": [],
+      "model": "",
+      "nature": "technical",
+      "mode": "",
+      "resources": "=== ALLOWED RESOURCES & DEPENDENCIES (read FIRST; REASON before you ask — never ask for anything already here or already in the brief/shared pool) ===\n• PERMISSIONS: read/write within your discipline (Write/Edit/Bash as needed).\n• ENV/KEYS: if your task needs credentials, read them from (1) the ENV/keys block in your mandate/brief, (2) the shared pool, (3) the project `.env`, (4) oth/.cred; ask the CTO ONCE only if a needed item is absent everywhere.\n• NEEDS: the upstream deliverables named in your mandate. Reason before asking; never ask for what you already have.\n",
+      "env": [],
+      "rules": [],
+      "stats": {
+        "invocations": 9,
+        "lastActive": 1784864590.068803
+      },
+      "created": 1783609599.69225
+    },
+    {
+      "name": "Notification Agent",
+      "role": "Notification Agent",
+      "avatar": "generic",
+      "description": "Notification Agent specialist for Zoom Smart Meeting Notification Agent",
+      "skills": [],
+      "responsibilities": [],
+      "restrictions": [],
+      "model": "",
+      "nature": "technical",
+      "mode": "",
+      "resources": "=== ALLOWED RESOURCES & DEPENDENCIES (read FIRST; REASON before you ask — never ask for anything already here or already in the brief/shared pool) ===\n• PERMISSIONS: read/write within your discipline (Write/Edit/Bash as needed).\n• ENV/KEYS: if your task needs credentials, read them from (1) the ENV/keys block in your mandate/brief, (2) the shared pool, (3) the project `.env`, (4) oth/.cred; ask the CTO ONCE only if a needed item is absent everywhere.\n• NEEDS: the upstream deliverables named in your mandate. Reason before asking; never ask for what you already have.\n",
+      "env": [],
+      "rules": [],
+      "stats": {
+        "invocations": 9,
+        "lastActive": 1784864607.9139898
+      },
+      "created": 1783609599.6933491
+    }
+  ],
+  "excluded": []
+}

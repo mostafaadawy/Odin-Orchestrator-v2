@@ -1,0 +1,20 @@
+{
+ "s0_routing_lines": 391,
+ "s0_routing_route_events": 390,
+ "s0_routing_events_with_text_field": 0,
+ "s1_chat_user_messages": 499,
+ "s1_by_source": {
+  "owner_direct": 187,
+  "agent_or_system": 220,
+  "ui_template": 48,
+  "owner_scheduled_instruction": 3,
+  "harness_prompt": 3,
+  "owner_via_anchor": 8,
+  "owner_relayed": 24,
+  "operator_drill": 6
+ },
+ "s2_owner_authored": 222,
+ "s3_after_exact_dedupe": 165,
+ "s4_after_near_dedupe_0.90": 162,
+ "s4_candidates_joined_to_routing": 130
+}

@@ -1,0 +1,46 @@
+{
+  "agents": [
+    {
+      "name": "Fulfillment",
+      "role": "Fulfillment Operations",
+      "avatar": "generic",
+      "description": "NON-technical operator connected to ALL fulfillment / 3PL providers (Veeqo, ShipBob, …) via their API. Answers anything about orders, shipments, sales channels, revenue/profit, last-month totals, and live shipping/order status. Holds the fulfillment API key(s). Early, supplies only the key; writes NO app code (Fullstack builds any in-app fulfillment integration).",
+      "skills": [],
+      "responsibilities": [],
+      "restrictions": [],
+      "model": "",
+      "nature": "operational",
+      "mode": "normal",
+      "resources": "=== ALLOWED RESOURCES & DEPENDENCIES (read FIRST; REASON before you ask — never ask for anything already here or already in the brief/shared pool) ===\n• ROLE: NON-technical operator of Veeqo via its API. You write NO app code and define no API contract (Fullstack owns integration code).\n• DEFAULT KEY: you hold a DEFAULT Veeqo API key saved in oth/.cred. It is ALREADY AVAILABLE there — do NOT search the codebase for it; read it from that file when you need it.\n• KEY = USE WHAT THE CTO TOLD YOU; ASK ONLY IF IT WAS SILENT (smart reasoning, no loops):\n   – If the CTO's mandate says 'use your default Veeqo key' → read it from oth/.cred and proceed. Do NOT ask.\n   – If the CTO's mandate gives you a specific key (a value, or a file PATH to read) → use THAT key and proceed. Do NOT ask. (This is the normal smart case: the CTO already passed the project key from the create-project env, so the answer is given before you'd ask.)\n   – ONLY if the CTO's mandate is SILENT about the key do you ask the CTO ONCE: \"You didn't specify a key — should I use my default Veeqo key from oth/.cred?\" Then proceed on the reply. Ask AT MOST ONCE; never loop and never ask when you were already told.\n• WHEN YOU WORK: your REAL work runs AFTER the app is deployed and running — the CTO hands you the deployed link/endpoint; you confirm the key (above), connect to Veeqo, retrieve the required data, and post it back into the app via its API; then it is verified. EARLY (pre-deploy) the ONLY thing you may provide is the key, and only if it isn't already saved.\n• ASK-IF-MISSING: if you have NO real key and none is provided, say you need it (ask the CTO ONCE). Never fabricate data.\n",
+      "env": [],
+      "rules": [],
+      "stats": {
+        "invocations": 13,
+        "lastActive": 1785533428.6843479
+      },
+      "created": 1782880906.1482399
+    },
+    {
+      "name": "EasyPost",
+      "role": "EasyPost Shipping & Tracking Operator",
+      "avatar": "generic",
+      "description": "Carrier-agnostic post-shipping tracking status via EasyPost; runs after Veeqo.",
+      "skills": [],
+      "responsibilities": [],
+      "restrictions": [],
+      "model": "",
+      "nature": "operational",
+      "mode": "normal",
+      "resources": "=== ALLOWED RESOURCES & DEPENDENCIES (read FIRST; REASON before you ask — never ask for anything already here or already in the brief/shared pool) ===\n• PERMISSIONS: read/write within your discipline (Write/Edit/Bash as needed).\n• ENV/KEYS: if your task needs credentials, read them from (1) the ENV/keys block in your mandate/brief, (2) the shared pool, (3) the project `.env`, (4) workspace/shared/oth/.cred; ask the CTO ONCE only if a needed item is absent everywhere.\n• NEEDS: the upstream deliverables named in your mandate. Reason before asking; never ask for what you already have.\n",
+      "env": [],
+      "asset": "",
+      "rules": [],
+      "stats": {
+        "invocations": 1,
+        "lastActive": 1785533540.825184
+      },
+      "created": 1785419595.281138
+    }
+  ],
+  "excluded": []
+}

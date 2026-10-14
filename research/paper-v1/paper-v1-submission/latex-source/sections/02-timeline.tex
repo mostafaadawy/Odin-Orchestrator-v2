@@ -1,0 +1,28 @@
+\section{Origin: Each Failure Forced a Component}\label{sec:timeline}
+\sys{} began as a learning exercise. Its builder first evaluated a widely used multi-agent framework, judged it unsuitable for consistent and safe use, and deliberately chose a lean, deterministic dispatcher instead of a swarm (decision log, 21 June). The architecture was then grown one failure at a time. Table~\ref{tab:timeline} lists every failure for which we found evidence in the system's own decision log, audit log, middleware-correction log, design documents or version history. Each row names the component that the failure forced into existence. Several components are independent re-discoveries of known patterns (Section~\ref{sec:related}); we cite those patterns rather than claim them.
+
+\begin{table*}[t]
+\caption{Failure timeline (2026). Evidence paths are relative to the system's repository. Only failures with evidence are listed.}\label{tab:timeline}
+\centering\scriptsize
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{@{}p{0.6cm}p{5.6cm}p{4.6cm}p{5.6cm}@{}}
+\toprule
+Date & Failure & Evidence & Component it forced \\
+\midrule
+06-21 & A widely used multi-agent framework was judged unsuitable for consistent, safe use at scale & decision log (``reject swarm scale, self-evolving rules'') & Lean deterministic dispatcher, explicitly not a swarm; later the truth gate \\
+06-21 & The ``brain'' ran on a small local model instead of the intended coding agent & decision log (``CORRECTION'') & The Claude Code CLI as the engine; the local model only as an offline fallback \\
+06-22 & An owner's ``approved'' did not attach to the engine's own pending proposal & decision log & Approval gate bound to the engine's session memory \\
+06-22 & Requests stopped mid-way: the dev reloader killed workers because the server wrote its own data files & decision log (``ROOT CAUSE'') & Runtime data separated from watched code \\
+06-22 & Keyword routing sent a folder named \texttt{*-frontend} to the Frontend agent & decision log (two entries) & Semantic router over a deterministic keyword floor (F2) \\
+06-23 & Owner's end-to-end run: 33 pass, 1 fail (the planner hallucinated agents from ``no backend'') & decision log (FIX) & Negation-aware team inference; later the scoped organisation \\
+06-23 & The engine could read and run but not \emph{safely} sync local code to the VM & decision log (NOTE) & Mapping-file deploy flow and smart CI/CD (F9, F10) \\
+06-21 & Dynamic home IP: SSH lock-out after every IP change & decision log; firewall-rotation module & Dynamic-IP firewall: one /32 rule, replaced, never stacked (F8) \\
+07-04 & Web and mobile could not reach the desktop without a static IP & isolation-state document & \hub{} with a pulled queue and callbacks (F5, F6) \\
+07-04 & Live sync broke across devices: the \hub{} kept its mirror in memory, so every restart or offline period wiped it & isolation-state document (``NEW ROOT CAUSE''); scope sequencer & Durable mirror, per-scope sequence numbers, stale flag (F4) \\
+07-16 & \textbf{Second-project interference}: files landed in the wrong place, the CTO duplicated agents it already had, rules were ignored & structuring plan (``Why this kills the failures you keep hitting'') & One creation door, a schema, the database as the only registry (F3) \\
+07-17--30 & Measured violations, caught and healed: 18 misplaced, 16 duplicates, 15 foreign references, 5 external writes, 3 parallel registries; 33 wrong-folder writes redirected & audit log; middleware-correction log & Audit layer (F11); duplicates promoted to the shared library (F1) \\
+07-19 & First run of a 4-new-project journey: 0/4; five root causes (agents missing from cards, incomplete delete, one-directional audit, copies instead of reuse) & phase-7 results report & Bidirectional audit, clean delete, pointer-plus-delta reuse. Second run: 4/4 \\
+07-30 & Connector keys were tracked in version control & commit history & Secrets kept out of git \\
+\bottomrule
+\end{tabular}
+\end{table*}

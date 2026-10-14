@@ -1,0 +1,40 @@
+{
+  "project": {
+    "name": "Odin Markets Platform",
+    "owner": "Mostafa",
+    "ownerEmail": "tech@odinmarkets.com",
+    "domain": "fintech / payments / trading",
+    "description": "Web applications, mobile apps, fintech/payment systems, cloud infrastructure on Azure, with security, DevOps, and compliance requirements."
+  },
+  "techProfile": {
+    "cloud": "Azure",
+    "compute": "Azure VM (Linux)",
+    "deployment": "TBD — confirm with owner",
+    "frontend": "TBD — confirm with owner",
+    "backend": "TBD — confirm with owner",
+    "database": "TBD — confirm with owner",
+    "ssl": "managed via runbook (Let's Encrypt / Azure) — confirm",
+    "sync": "owner's existing synchronization method — must be respected, not replaced"
+  },
+  "compliance": {
+    "regimes": ["fintech-payments", "HIPAA (where applicable)"],
+    "notes": "Security & Compliance agent must review anything touching PII/PHI/payment data."
+  },
+  "securityPosture": {
+    "networkAccess": "closed ports, IP-based allowlist",
+    "principle": "respect existing closed-port / IP-restricted access; never widen exposure without approval"
+  },
+  "phases": {
+    "phase1": "Foundation & folder structure — DONE",
+    "phase2": "Specialized agent team definitions",
+    "phase3": "Approval & safety gate system",
+    "phase4": "Dashboard (static + live)",
+    "phase5": "Azure VM connection framework"
+  },
+  "openQuestions": [
+    "Exact stack (frontend/backend/db) for Odin Markets?",
+    "Azure VM host/IP, OS, SSH access method, and which user the orchestrator may use?",
+    "Existing CI/CD or sync method to respect?",
+    "Details of the custom subscription/billing model (placeholder recorded in core-rules.md)."
+  ]
+}

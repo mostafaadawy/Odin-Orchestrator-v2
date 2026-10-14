@@ -1,0 +1,9 @@
+[
+  {
+    "name": "vm_connection",
+    "source": "shared/infra/ensure-connection.sh",
+    "kind": "shell",
+    "mode": "as-is",
+    "overlay": null
+  }
+]

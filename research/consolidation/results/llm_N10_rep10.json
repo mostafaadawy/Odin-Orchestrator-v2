@@ -1,0 +1,327 @@
+{
+ "N": 10,
+ "rep": 10,
+ "model": "haiku",
+ "cap_s": 1800,
+ "env_start": {
+  "label": "llm N=10 rep=10 start",
+  "utc": "2026-10-06T16:51:09.755095Z",
+  "machine": {
+   "cpu": "",
+   "ncpu": 12,
+   "ram_gb": 24.0,
+   "os": "26.5.2",
+   "arch": "arm64"
+  },
+  "load": {
+   "loadavg": [
+    2.751953125,
+    3.19921875,
+    2.666015625
+   ],
+   "cpu_pct_total": 37.2,
+   "mem_used_pct": 85.5
+  },
+  "competing_top": [
+   {
+    "pid": 33593,
+    "name": "com.apple.WebKit.WebContent",
+    "cpu_pct": 47.4,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 65725,
+    "name": "com.apple.WebKit.WebContent",
+    "cpu_pct": 40.7,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 34831,
+    "name": "mdworker_shared",
+    "cpu_pct": 39.6,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 41966,
+    "name": "Claude Helper",
+    "cpu_pct": 17.1,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 42398,
+    "name": "Claude Helper (Renderer)",
+    "cpu_pct": 13.6,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 62930,
+    "name": "com.apple.WebKit.Networking",
+    "cpu_pct": 9.6,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 34574,
+    "name": "CGPDFService",
+    "cpu_pct": 6.9,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 34571,
+    "name": "CGPDFService",
+    "cpu_pct": 5.7,
+    "is_real_odin": false,
+    "is_isolated": false
+   }
+  ],
+  "real_odin_cpu_pct": 0,
+  "soc_reports_last_hour": []
+ },
+ "env_end": {
+  "label": "end",
+  "utc": "2026-10-06T16:56:09.316720Z",
+  "machine": {
+   "cpu": "",
+   "ncpu": 12,
+   "ram_gb": 24.0,
+   "os": "26.5.2",
+   "arch": "arm64"
+  },
+  "load": {
+   "loadavg": [
+    3.69384765625,
+    3.4267578125,
+    2.96435546875
+   ],
+   "cpu_pct_total": 17.5,
+   "mem_used_pct": 73.1
+  },
+  "competing_top": [
+   {
+    "pid": 46967,
+    "name": "Firefox GPU Helper",
+    "cpu_pct": 21.9,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 41966,
+    "name": "Claude Helper",
+    "cpu_pct": 14.3,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 62918,
+    "name": "Safari",
+    "cpu_pct": 14.2,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 42398,
+    "name": "Claude Helper (Renderer)",
+    "cpu_pct": 9.8,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 61113,
+    "name": "plugin-container",
+    "cpu_pct": 9.0,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 62958,
+    "name": "com.apple.WebKit.WebContent",
+    "cpu_pct": 8.5,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46964,
+    "name": "firefox",
+    "cpu_pct": 7.1,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 41917,
+    "name": "Claude",
+    "cpu_pct": 6.6,
+    "is_real_odin": false,
+    "is_isolated": false
+   }
+  ],
+  "real_odin_cpu_pct": 0,
+  "soc_reports_last_hour": []
+ },
+ "projects": [
+  {
+   "pid": "llm10-n10-p0",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.12563648886150783
+  },
+  {
+   "pid": "llm10-n10-p1",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.16183610558509826
+  },
+  {
+   "pid": "llm10-n10-p2",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.13399909337361654
+  },
+  {
+   "pid": "llm10-n10-p3",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.1033169310622745
+  },
+  {
+   "pid": "llm10-n10-p4",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.1479253249698215
+  },
+  {
+   "pid": "llm10-n10-p5",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.12006253666347927
+  },
+  {
+   "pid": "llm10-n10-p6",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.11169554286532932
+  },
+  {
+   "pid": "llm10-n10-p7",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.1256418906317817
+  },
+  {
+   "pid": "llm10-n10-p8",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.1116975027985043
+  },
+  {
+   "pid": "llm10-n10-p9",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.13400113383928935
+  }
+ ],
+ "writes_changed_files": 30,
+ "own_project_files": {
+  "llm10-n10-p0": 3,
+  "llm10-n10-p1": 3,
+  "llm10-n10-p2": 3,
+  "llm10-n10-p3": 3,
+  "llm10-n10-p4": 3,
+  "llm10-n10-p5": 3,
+  "llm10-n10-p6": 3,
+  "llm10-n10-p7": 3,
+  "llm10-n10-p8": 3,
+  "llm10-n10-p9": 3
+ },
+ "cross_project_files": 0,
+ "stray_outside_projects": [],
+ "n_stray": 0,
+ "wrong_folder": 0,
+ "audit_issues": 30,
+ "audit_types": {
+  "unindexed": 30
+ },
+ "claude_calls": 10,
+ "cost_usd": 0.7865736,
+ "cost_per_task_usd": 0.07865736,
+ "tokens": {
+  "input_tokens": 676,
+  "cache_creation_input_tokens": 176987,
+  "cache_read_input_tokens": 2632826,
+  "output_tokens": 29850
+ },
+ "llm_busy_share_of_wall": 0.9918392158836172,
+ "orchestration_overhead_share": 0.008160784116382769,
+ "server_tree": {
+  "wall_s": 296.3067228794098,
+  "cpu_s": 2.396305152,
+  "cpu_share_of_wall": 0.008087245300118426,
+  "cpu_share_of_machine": 0.0006739371083432022,
+  "rss_mb_end": 43.234375
+ }
+}

@@ -1,0 +1,60 @@
+=== is it in Trash? ===
+
+=== macOS + XProtect versions ===
+ProductName:		macOS
+ProductVersion:		26.5.2
+BuildVersion:		25F84
+    XProtectPlistConfigData:
+
+--
+    XProtectPlistConfigData:
+
+--
+    XProtectPayloads:
+
+XProtect bundle:
+5287
+
+=== last kill reason from unified log (Electron / XProtect / AMFI / syspolicy, last 15m) ===
+2026-07-24 00:44:49.160 Df Electron[17533:23b59] [com.apple.runningboard:connection] Identity resolved as anon<Electron>(501)
+2026-07-24 00:44:49.167 Df distnoted[581:235cf] [com.apple.distnoted:diagnostic] register name: com.apple.xctest.FakeForceTouchDevice object: com.github.Electron token: 1e0000001d pid: 17533
+ -Unable to get teamId from com.github.Electron PID [17533]
+ -Unable to get teamId from com.github.Electron PID [17533]
+ -Unable to get teamId from com.github.Electron PID [17533]
+ -Unable to get teamId from com.github.Electron PID [17533]
+2026-07-24 00:44:49.231 E  diagnostics_agent[823:239ab] [com.apple.appstorefoundation:Default] Failed to parse receipt at /Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/desktop/node_modules/electron/dist/Electron.app/Contents/_MASReceipt/receipt: Error Domain=NSCocoaErrorDomain Code=260 "The file “receipt” couldn’t be opened because there is no such file." UserInfo={NSFilePath=/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/desktop/node_modules/electron/dist/Electron.app/Contents/_MASReceipt/receipt, NSURL=file:///Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/desktop/node_modules/electron/dist/Electron.app/Contents/_MASReceipt/receipt, NSUnderlyingError=0xc14cc1050 {Error Domain=NSPOSIXErrorDomain Code=2 "No such file or directory"}}
+2026-07-24 00:44:49.241 Df WindowServer[400:1092] [com.apple.SkyLight.processes:Lifecycle] 0[outside of RPC]: Process death: 0x0-0xa90a9 (Electron) connectionID: BD2B3 pid: 17533 in session 0x101
+2026-07-24 00:44:49.241 Df WindowServer[400:1092] [com.apple.SkyLight.processes:Focus] <BSCompoundAssertion:0xbbf015600> ([FocusManager:257]-deferringPolicyEvaluationSuppression) acquire for reason:process death - 0x0-0xa90a9 (Electron) acq:0xbbee07640 count:1
+    "process death - 0x0-0xa90a9 (Electron)"
+    "process death - 0x0-0xa90a9 (Electron)"
+2026-07-24 00:44:49.241 Df runningboardd[406:239a8] [com.apple.runningboard:process] XPC connection invalidated: [anon<Electron>(501):17533]
+2026-07-24 00:44:49.242 E  storekitagent[1113:2264c] [com.apple.appstorefoundation:Default] Failed to parse receipt at /Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/desktop/node_modules/electron/dist/Electron.app/Contents/_MASReceipt/receipt: Error Domain=NSCocoaErrorDomain Code=260 "The file “receipt” couldn’t be opened because there is no such file." UserInfo={NSFilePath=/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/desktop/node_modules/electron/dist/Electron.app/Contents/_MASReceipt/receipt, NSURL=file:///Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/desktop/node_modules/electron/dist/Electron.app/Contents/_MASReceipt/receipt, NSUnderlyingError=0xab7300990 {Error Domain=NSPOSIXErrorDomain Code=2 "No such file or directory"}}
+2026-07-24 00:44:49.243 Df storekitagent[1113:2264c] Accepting new connection Electron[17533]
+2026-07-24 00:44:49.243 Df storekitagent[1113:2264c] [com.apple.storekit:Default] [8032072d_SK1] Running task with context: ([Client] com.github.Electron (Electron) Sandbox)
+2026-07-24 00:44:49.244 Df storekitagent[1113:23b82] [com.apple.storekit:Default] [Default] Running task with context: ([Client] com.github.Electron (Electron) Sandbox)
+2026-07-24 00:44:49.244 Df storekitagent[1113:23b80] Connection to Electron[17533] invalidated
+2026-07-24 00:44:49.244 Df storekitagent[1113:23b83] [com.apple.storekit:Default] [Default] Running task with context: ([Client] com.github.Electron (Electron) Sandbox)
+2026-07-24 00:44:49.244 Df storekitagent[1113:23b83] [com.apple.storekit:Default] Querying com.github.Electron purchase intents
+2026-07-24 00:44:49.244 Df runningboardd[406:239a8] [com.apple.runningboard:process] [anon<Electron>(501):17533] termination reported by proc_exit
+2026-07-24 00:44:49.244 Df gamepolicyd[855:239a3] [com.apple.runningboard:monitor] Received state update for 17533 (anon<Electron>(501), running-NotVisible
+2026-07-24 00:44:49.248 Df loginwindow[403:10bd] [com.apple.loginwindow.logging:AppExit] -[ApplicationManager handleCASEvent:withData:] | CAS notification for appDeath for com.github.Electron with asn: LSASN:{hi=0x0;lo=0xa90a9} for bundle path: /Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/desktop/node_modules/electron/dist/Electron.app with URL: file:///Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/desktop/node_modules/electron/dist/Electron.app/
+2026-07-24 00:44:49.248 Df loginwindow[403:10bd] [com.apple.loginwindow.logging:Standard] -[Application setState:] | enter: <Application: 0x9e28d0960: Electron> state 3
+2026-07-24 00:44:49.248 Df loginwindow[403:10bd] [com.apple.loginwindow.logging:TAL] -[PersistentAppsSupport applicationQuit:] | for app:Electron, _appTrackingState = 2
+2026-07-24 00:44:49.248 Df loginwindow[403:10bd] [com.apple.loginwindow.logging:TAL] -[PersistentAppsSupport applicationQuit:] | App: Electron, quit, updating active tracking timer
+2026-07-24 00:44:49.250 Df runningboardd[406:239a2] [com.apple.runningboard:ttl] Invalidating assertion 406-370-3402 (target:[anon<Electron>(501):17533]) from originator [osservice<com.apple.coreservices.launchservicesd>:370]
+2026-07-24 00:44:49.251 Df loginwindow[403:10bd] [com.apple.loginwindow.logging:Standard] -[Application setState:] | enter: <Application: 0x9e28d0960: Electron> state 4
+2026-07-24 00:44:49.251 Df loginwindow[403:10bd] [com.apple.loginwindow.logging:TAL] -[PersistentAppsSupport applicationQuit:] | for app:Electron, _appTrackingState = 2
+2026-07-24 00:44:49.251 Df loginwindow[403:10bd] [com.apple.loginwindow.logging:TAL] -[PersistentAppsSupport applicationQuit:] | App: Electron, quit, updating active tracking timer
+2026-07-24 00:44:49.251 Df gamepolicyd[855:239a5] [com.apple.runningboard:monitor] Received state update for 17533 (anon<Electron>(501), none-NotVisible
+2026-07-24 00:44:49.351 Df runningboardd[406:239a7] [com.apple.runningboard:process] Removing process: [anon<Electron>(501):17533]
+2026-07-24 00:44:49.351 Df runningboardd[406:239a7] [com.apple.runningboard:general] removeJobWithInstance called for identity without existing job [anon<Electron>(501):17533]
+2026-07-24 00:44:49.351 Df runningboardd[406:239a7] [com.apple.runningboard:process] Removing assertions for terminated process: [anon<Electron>(501):17533]
+2026-07-24 00:44:49.352 Df gamepolicyd[855:2352d] [com.apple.runningboard:monitor] Received state update for 17533 (anon<Electron>(501), none-NotVisible
+2026-07-24 00:44:57.934 E  kernel[0:239b0] (Sandbox) 4 duplicate reports for Sandbox: siriknowledged(789) deny(1) file-read-data /Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/desktop/node_modules/electron/dist/Electron.app
+2026-07-24 00:45:02.931 Df dasd[379:23db4] [com.apple.duetactivityscheduler:scoring] 0:com.apple.XProtect.PluginService.daemon.fast.scan:8A54A4:[
+2026-07-24 00:45:02.931 Df dasd[379:23db4] [com.apple.duetactivityscheduler:scoring] 501:com.apple.XProtect.PluginService.agent.fast.scan:30E9D5:[
+2026-07-24 00:45:47.936 Df dasd[379:24726] [com.apple.duetactivityscheduler:scoring] 0:com.apple.XProtect.PluginService.daemon.fast.scan:8A54A4:[
+2026-07-24 00:45:47.936 Df dasd[379:24726] [com.apple.duetactivityscheduler:scoring] 501:com.apple.XProtect.PluginService.agent.fast.scan:30E9D5:[
+2026-07-24 00:46:30.261 Df log[19656:25788] [com.apple.log:] log run noninteractively, parent: 19643 (bash), args: 'log' 'show' '--last' '15m' '--style' 'compact' '--predicate' 'eventMessage CONTAINS[c] "Electron" OR eventMessage CONTAINS[c] "XProtect" OR eventMessage CONTAINS[c] "malware" OR (process == "syspolicy
+(end log)
+DONE_KILL

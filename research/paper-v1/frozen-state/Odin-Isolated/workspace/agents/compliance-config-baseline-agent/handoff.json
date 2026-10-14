@@ -1,0 +1,14 @@
+{
+  "runs_after": [
+    "Asset, Exposure & Attack-Surface Agent",
+    "Identity & Access Governance Agent"
+  ],
+  "runs_before": [
+    "Reporting & Documentation Agent",
+    "CTO Orchestrator"
+  ],
+  "collaborates_with": [
+    "Identity & Access Governance Agent",
+    "Vulnerability & Patch-Management Agent"
+  ]
+}

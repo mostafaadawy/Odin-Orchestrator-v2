@@ -1,0 +1,15 @@
+The following plugins do not support Swift Package Manager for ios:
+  - flutter_tts
+  - flutter_local_notifications
+This will become an error in a future version of Flutter. Please contact the plugin maintainers to request Swift Package Manager adoption.
+Launching lib/main.dart on iPhone MOSTAFA  in release mode...
+Automatically signing iOS for device deployment using specified development team in Xcode project: 23F32WWDLT
+Running Xcode build...                                          
+Xcode build done.                                            6.7s
+Installing and launching...                                     
+Could not run build/ios/iphoneos/Runner.app on 8ddfda0a249ee6108ed6e7e33d50a2864557a338.
+Try launching Xcode and selecting "Product > Run" to fix the problem:
+  open ios/Runner.xcworkspace
+
+Installing and launching...                                        12.8s
+Error running application on iPhone MOSTAFA .

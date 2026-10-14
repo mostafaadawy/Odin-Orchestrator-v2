@@ -1,0 +1,59 @@
+{
+  "id": "daily-egypt-amazon-product-poster",
+  "name": "Egypt Amazon Daily Social Content Agent",
+  "type": "content",
+  "cadence": "periodical",
+  "members": [
+    "Content Creator",
+    "QA / Reviewer (operational)"
+  ],
+  "status": "active",
+  "current_data_dir": "data/projects/daily-egypt-amazon-product-poster",
+  "localPath": "/Users/mostafaadawy/Desktop/Odin Testing/testing/daily-egypt-amazon-product-poster",
+  "note": "INDEX/REFERENCE ONLY — real files still live at current_data_dir; nothing moved yet (Phase 1a)",
+  "category": "content",
+  "typeConfig": "shared/config/project-types/periodical.json",
+  "config": {
+    "period": "periodical"
+  },
+  "features": [],
+  "stack": "Operational mode on THIS machine — Claude engine (web search + content generation) driven by a local daily scheduler (cron/launchd at 09:00). Working files live in the owner's test folder: /Users/mostafaadawy/Desktop/Odin Testing/testing. NOTHING is built or deployed to the Azure VM; no DevOps.",
+  "url": "",
+  "mode": "build",
+  "sources": [],
+  "auto_approve": false,
+  "periodic": {
+    "enabled": true,
+    "schedule": {
+      "kind": "daily",
+      "hhmm": "09:00"
+    },
+    "requireApproval": true
+  },
+  "rules": [],
+  "description": "OWNER'S INSTRUCTIONS — verbatim, follow EXACTLY (no omission):\nHey, what I need here from you in this project is to periodically, every day at 9 o'clock as I selected before, and using the folder that I already pointed to in the beginning of the creation of this project. I need you to work every day at the time that we defined together to search the web to find the most featured product from Egypt, from Amazon for example. Maybe the number of this give me only three products that are most featured with their prices and description about this and links.\n\nFrom Zest, please create a very impressive content that matches a post that I can post under correct consent that matches posters, one for Facebook and the other for Instagram.\n\nI stopped you and I made back again to refine some points. First, I see you selected full stack and DevOps. And other rules, agent rules that is not actually including the content creator, although I already selected from the beginning content creator agent operational role. So that there is no need to handle anything in the DevOps. Nothing is to be deployed to the VM. Everything will be handled from this machine. But scheduled as I selected at a certain time as what I selected, like 9 o'clock every day. What you have to make is to create this internally using the operational mode. And you can use the test folder I created, I provided the path to it, just to set the templates files and your research and your work files.\n\nI stopped you and I made back again to refine some points. First, I see you selected full stack and DevOps. And other rules, agent rules that is not actually including the content creator, although I already selected from the beginning content creator agent operational role. So that there is no need to handle anything in the DevOps. Nothing is to be deployed to the VM. Everything will be handled from this machine. But scheduled as I selected at a certain time as what I selected, like 9 o'clock every day. What you have to make is to create this internally using the operational mode. And you can use the test folder I created, I provided the path to it, just to set the templates files and your research and your work files.\n\n———\nCTO's understanding (supporting):\nOBJECTIVE: A daily, fully-local operational agent (Content Creator role) that runs every day at 09:00 (the time the owner selected during setup) and produces ready-to-post social content — with NOTHING deployed to the VM; everything runs on this machine in operational mode. WORKFLOW EACH RUN: (1) Search the web to find the most FEATURED products from Egypt on Amazon (e.g. amazon.eg). Return ONLY THREE products — the most featured — each with its price, a description, and its link. (2) From those products, create very impressive, post-ready content that matches proper posters: exactly TWO posts per run — ONE for Facebook and ONE for Instagram — written to match each platform's poster style, under correct/appropriate consent (post-ready copy the owner can publish). FOLDER: use the folder the owner pointed to at project creation — /Users/mostafaadawy/Desktop/Odin Testing/testing — for template files, research files, and the agent's work/output files (research notes, product findings, generated Facebook + Instagram post copy, poster templates). SCHEDULING: fires daily at 09:00 as selected; local scheduler only. SCOPE CORRECTIONS FROM OWNER: remove the earlier Fullstack + DevOps selection — this is NOT a full-stack/deploy project; the operational role is Content Creator (selected from the start). No VM, no deploy, no infra. Everything handled locally and scheduled at the defined 09:00 time. Posting itself is done by the owner (content is generated for manual posting) unless a Meta connector is later added.\n\nAPPROVED RECOMMENDED FEATURES:\n- Auto-publish to Facebook & Instagram — Right now the owner posts manually; connecting the Meta Graph API would let the agent publish the two posts automatically at 09:00 instead of just drafting them.\n- Poster image generation — The request mentions 'matches posters' — generating an actual poster image (not just copy) would make each post publish-ready; needs an image-generation service since none is connected.\n- Approval preview step — Optionally hold each day's 2 posts for a quick owner glance/approve before they're treated as final, to keep brand/consent control.",
+  "created": 1783574754.641238,
+  "mappings": [],
+  "scope": "project:daily-egypt-amazon-product-poster",
+  "qa_declined": true,
+  "allowedExtraFiles": [
+    "/Users/mostafaadawy/Library/LaunchAgents/com.odin.egypt-amazon-poster.plist"
+  ],
+  "ownerRemoved": [
+    {
+      "path": "/Users/mostafaadawy/Library/LaunchAgents/com.odin.egypt-amazon-poster.plist",
+      "approval": "876bba23bdfb",
+      "ts": 1791811415.570821
+    },
+    {
+      "path": "/Users/mostafaadawy/Desktop/Odin Testing/testing/daily-egypt-amazon-product-poster/daily-egypt-amazon-product-poster/scheduler",
+      "approval": "876bba23bdfb",
+      "ts": 1791811415.570822
+    },
+    {
+      "path": "/Users/mostafaadawy/Library/LaunchAgents/com.odin.egypt-amazon-poster.plist",
+      "approval": "876bba23bdfb",
+      "ts": 1791811415.570822
+    }
+  ]
+}

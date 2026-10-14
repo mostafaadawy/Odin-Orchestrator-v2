@@ -1,0 +1,15 @@
+\begin{table}[t]\centering\scriptsize
+\caption{Layer comparison on the synthetic held-out validation split (15\% of the generated data). Mean = mean accuracy over the five decisions; $\star$ = kept. \textbf{PROVISIONAL -- pending human labels}.}
+\label{tab:layers}\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{lrrr rrr}\toprule
+ & \multicolumn{3}{c}{Qwen2.5-0.5B (24 layers)} & \multicolumn{3}{c}{Qwen2.5-1.5B (28 layers)}\\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+Layer & Mean & R/C acc & R/C ECE & Mean & R/C acc & R/C ECE\\\midrule
+12 & 91.6 & 92.9 & 0.052 & 91.2 & 93.6 & 0.063 \\
+16 & 91.6 & 96.2 & 0.042 & 91.1 & 95.5 & 0.044 \\
+20 & 91.6 & 94.9 & 0.043 & 91.7 & 96.2 & 0.043 \\
+24 & 91.9 & 96.8 & 0.039 & 93.7 $\star$ & 97.4 & 0.030 \\
+28 & n/a & n/a & n/a & 93.6 & 96.8 & 0.034 \\
+mean 16--24 & 93.0 $\star$ & 95.5 & 0.045 & 93.4 & 95.5 & 0.041 \\
+final (normed) & 92.2 & 96.8 & 0.037 & 93.2 & 96.8 & 0.031 \\
+\bottomrule\end{tabular}\end{table}

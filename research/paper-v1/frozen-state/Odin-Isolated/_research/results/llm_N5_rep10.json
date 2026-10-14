@@ -1,0 +1,262 @@
+{
+ "N": 5,
+ "rep": 10,
+ "model": "haiku",
+ "cap_s": 1200,
+ "env_start": {
+  "label": "llm N=5 rep=10 start",
+  "utc": "2026-10-06T16:48:44.959581Z",
+  "machine": {
+   "cpu": "",
+   "ncpu": 12,
+   "ram_gb": 24.0,
+   "os": "26.5.2",
+   "arch": "arm64"
+  },
+  "load": {
+   "loadavg": [
+    5.341796875,
+    3.611328125,
+    2.69189453125
+   ],
+   "cpu_pct_total": 33.4,
+   "mem_used_pct": 83.6
+  },
+  "competing_top": [
+   {
+    "pid": 62958,
+    "name": "com.apple.WebKit.WebContent",
+    "cpu_pct": 77.9,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 27235,
+    "name": "Python",
+    "cpu_pct": 39.1,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 41966,
+    "name": "Claude Helper",
+    "cpu_pct": 17.3,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 42398,
+    "name": "Claude Helper (Renderer)",
+    "cpu_pct": 11.7,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 27272,
+    "name": "mdworker_shared",
+    "cpu_pct": 10.0,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 28009,
+    "name": "mdworker_shared",
+    "cpu_pct": 5.9,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 62918,
+    "name": "Safari",
+    "cpu_pct": 2.9,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 15124,
+    "name": "WhatsApp",
+    "cpu_pct": 2.6,
+    "is_real_odin": false,
+    "is_isolated": false
+   }
+  ],
+  "real_odin_cpu_pct": 0,
+  "soc_reports_last_hour": []
+ },
+ "env_end": {
+  "label": "end",
+  "utc": "2026-10-06T16:51:03.322482Z",
+  "machine": {
+   "cpu": "",
+   "ncpu": 12,
+   "ram_gb": 24.0,
+   "os": "26.5.2",
+   "arch": "arm64"
+  },
+  "load": {
+   "loadavg": [
+    2.46923828125,
+    3.15234375,
+    2.646484375
+   ],
+   "cpu_pct_total": 16.3,
+   "mem_used_pct": 83.8
+  },
+  "competing_top": [
+   {
+    "pid": 65725,
+    "name": "com.apple.WebKit.WebContent",
+    "cpu_pct": 38.3,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 42398,
+    "name": "Claude Helper (Renderer)",
+    "cpu_pct": 17.0,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 41966,
+    "name": "Claude Helper",
+    "cpu_pct": 15.4,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 62940,
+    "name": "com.apple.WebKit.GPU",
+    "cpu_pct": 14.1,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 62918,
+    "name": "Safari",
+    "cpu_pct": 12.3,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 62930,
+    "name": "com.apple.WebKit.Networking",
+    "cpu_pct": 9.7,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 33479,
+    "name": "com.apple.WebKit.WebContent",
+    "cpu_pct": 9.3,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 750,
+    "name": "spotlightknowledged.updater",
+    "cpu_pct": 3.6,
+    "is_real_odin": false,
+    "is_isolated": false
+   }
+  ],
+  "real_odin_cpu_pct": 0,
+  "soc_reports_last_hour": []
+ },
+ "projects": [
+  {
+   "pid": "llm10-n5-p0",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.07943446318308513
+  },
+  {
+   "pid": "llm10-n5-p1",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.09196011245250701
+  },
+  {
+   "pid": "llm10-n5-p2",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.06272338489691416
+  },
+  {
+   "pid": "llm10-n5-p3",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.05854788402716319
+  },
+  {
+   "pid": "llm10-n5-p4",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.10865382075309754
+  }
+ ],
+ "writes_changed_files": 15,
+ "own_project_files": {
+  "llm10-n5-p0": 3,
+  "llm10-n5-p1": 3,
+  "llm10-n5-p2": 3,
+  "llm10-n5-p3": 3,
+  "llm10-n5-p4": 3
+ },
+ "cross_project_files": 0,
+ "stray_outside_projects": [],
+ "n_stray": 0,
+ "wrong_folder": 0,
+ "audit_issues": 15,
+ "audit_types": {
+  "unindexed": 15
+ },
+ "claude_calls": 5,
+ "cost_usd": 0.3353385,
+ "cost_per_task_usd": 0.0670677,
+ "tokens": {
+  "input_tokens": 242,
+  "cache_creation_input_tokens": 85590,
+  "cache_read_input_tokens": 886485,
+  "output_tokens": 13122
+ },
+ "llm_busy_share_of_wall": 0.9802815275878539,
+ "orchestration_overhead_share": 0.019718472412146082,
+ "server_tree": {
+  "wall_s": 135.38991522789001,
+  "cpu_s": 0.9501603840000001,
+  "cpu_share_of_wall": 0.0070179553802118735,
+  "cpu_share_of_machine": 0.0005848296150176561,
+  "rss_mb_end": 46.90625
+ }
+}

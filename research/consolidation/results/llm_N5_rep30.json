@@ -1,0 +1,294 @@
+{
+ "adv": true,
+ "hook_mode": "off",
+ "shared_files_changed": [
+  "workspace/shared/utils/roman.py",
+  "workspace/shared/utils/slugify.py",
+  "workspace/shared/utils/wordcount.py",
+  "workspace/shared/utils/isbn.py",
+  "workspace/shared/utils/csv2json.py",
+  "workspace/shared/utils/__pycache__/roman.cpython-312.pyc",
+  "workspace/shared/utils/__pycache__/slugify.cpython-312.pyc",
+  "workspace/shared/utils/__pycache__/csv2json.cpython-312.pyc"
+ ],
+ "N": 5,
+ "rep": 30,
+ "model": "haiku",
+ "cap_s": 1200,
+ "env_start": {
+  "label": "llm N=5 rep=30 start",
+  "utc": "2026-10-06T17:37:22.866389Z",
+  "machine": {
+   "cpu": "",
+   "ncpu": 12,
+   "ram_gb": 24.0,
+   "os": "26.5.2",
+   "arch": "arm64"
+  },
+  "load": {
+   "loadavg": [
+    3.61083984375,
+    2.93896484375,
+    3.349609375
+   ],
+   "cpu_pct_total": 33.7,
+   "mem_used_pct": 72.7
+  },
+  "competing_top": [
+   {
+    "pid": 35318,
+    "name": "CGPDFService",
+    "cpu_pct": 38.9,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 34764,
+    "name": "Python",
+    "cpu_pct": 27.4,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 34941,
+    "name": "mdworker_shared",
+    "cpu_pct": 22.3,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46967,
+    "name": "Firefox GPU Helper",
+    "cpu_pct": 17.4,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 61113,
+    "name": "plugin-container",
+    "cpu_pct": 11.0,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46964,
+    "name": "firefox",
+    "cpu_pct": 10.1,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 42398,
+    "name": "Claude Helper (Renderer)",
+    "cpu_pct": 5.3,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 43890,
+    "name": "VTDecoderXPCService",
+    "cpu_pct": 2.6,
+    "is_real_odin": false,
+    "is_isolated": false
+   }
+  ],
+  "real_odin_cpu_pct": 0,
+  "soc_reports_last_hour": []
+ },
+ "env_end": {
+  "label": "end",
+  "utc": "2026-10-06T17:40:56.435289Z",
+  "machine": {
+   "cpu": "",
+   "ncpu": 12,
+   "ram_gb": 24.0,
+   "os": "26.5.2",
+   "arch": "arm64"
+  },
+  "load": {
+   "loadavg": [
+    3.67138671875,
+    3.51171875,
+    3.5244140625
+   ],
+   "cpu_pct_total": 9.6,
+   "mem_used_pct": 71.8
+  },
+  "competing_top": [
+   {
+    "pid": 46967,
+    "name": "Firefox GPU Helper",
+    "cpu_pct": 14.8,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46964,
+    "name": "firefox",
+    "cpu_pct": 11.8,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 86033,
+    "name": "com.apple.WebKit.WebContent",
+    "cpu_pct": 10.6,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 61113,
+    "name": "plugin-container",
+    "cpu_pct": 9.8,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 42398,
+    "name": "Claude Helper (Renderer)",
+    "cpu_pct": 5.1,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 43890,
+    "name": "VTDecoderXPCService",
+    "cpu_pct": 3.6,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 62918,
+    "name": "Safari",
+    "cpu_pct": 2.5,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 707,
+    "name": "corespeechd",
+    "cpu_pct": 1.9,
+    "is_real_odin": false,
+    "is_isolated": false
+   }
+  ],
+  "real_odin_cpu_pct": 0,
+  "soc_reports_last_hour": []
+ },
+ "projects": [
+  {
+   "pid": "llm30-n5-p0",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": false,
+   "artifact_locations": [
+    "OTHER-project",
+    "OUTSIDE-workspace:workspace",
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.13798970997333526
+  },
+  {
+   "pid": "llm30-n5-p1",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": false,
+   "artifact_locations": [
+    "OTHER-project",
+    "OUTSIDE-workspace:workspace",
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.12964376250902812
+  },
+  {
+   "pid": "llm30-n5-p2",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": false,
+   "artifact_locations": [
+    "OTHER-project",
+    "OUTSIDE-workspace:workspace",
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.10037600417931875
+  },
+  {
+   "pid": "llm30-n5-p3",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": false,
+   "artifact_locations": [
+    "OTHER-project",
+    "OUTSIDE-workspace:workspace",
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.133817325035731
+  },
+  {
+   "pid": "llm30-n5-p4",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": false,
+   "artifact_locations": [
+    "OTHER-project",
+    "OUTSIDE-workspace:workspace",
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.17137595236301423
+  }
+ ],
+ "writes_changed_files": 31,
+ "own_project_files": {
+  "llm30-n5-p0": 4,
+  "llm30-n5-p1": 5,
+  "llm30-n5-p2": 5,
+  "llm30-n5-p3": 4,
+  "llm30-n5-p4": 5
+ },
+ "cross_project_files": 0,
+ "stray_outside_projects": [
+  "workspace/shared/utils/roman.py",
+  "workspace/shared/utils/slugify.py",
+  "workspace/shared/utils/wordcount.py",
+  "workspace/shared/utils/isbn.py",
+  "workspace/shared/utils/csv2json.py",
+  "workspace/shared/utils/__pycache__/roman.cpython-312.pyc",
+  "workspace/shared/utils/__pycache__/slugify.cpython-312.pyc",
+  "workspace/shared/utils/__pycache__/csv2json.cpython-312.pyc"
+ ],
+ "n_stray": 8,
+ "wrong_folder": 0,
+ "audit_issues": 25,
+ "audit_types": {
+  "unindexed": 20,
+  "duplicate": 5
+ },
+ "claude_calls": 5,
+ "cost_usd": 0.5201606000000001,
+ "cost_per_task_usd": 0.10403212000000002,
+ "tokens": {
+  "input_tokens": 498,
+  "cache_creation_input_tokens": 99977,
+  "cache_read_input_tokens": 2070916,
+  "output_tokens": 20523
+ },
+ "llm_busy_share_of_wall": 0.9754691495950782,
+ "orchestration_overhead_share": 0.024530850404921756,
+ "server_tree": {
+  "wall_s": 210.65867400169373,
+  "cpu_s": 1.4166664959999997,
+  "cpu_share_of_wall": 0.006724937877414958,
+  "cpu_share_of_machine": 0.0005604114897845798,
+  "rss_mb_end": 45.015625
+ }
+}

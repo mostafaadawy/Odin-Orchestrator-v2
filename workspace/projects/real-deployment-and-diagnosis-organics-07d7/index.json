@@ -1,0 +1,40 @@
+{
+  "id": "real-deployment-and-diagnosis-organics-07d7",
+  "name": "Real Deployment & Diagnosis — Organics",
+  "type": "operational",
+  "category": "Azure 2VM deploy + read-only cloud diagnosis",
+  "description": "OPERATIONAL project: DEPLOY + READ-ONLY DIAGNOSIS for the Organics STAGING app (2VM). STAGING ONLY — never production. Everything is driven from THIS prompt; no one-off code is embedded elsewhere.\n\nSOURCE (EXTERNAL, READ-ONLY — never modify): the STAGING codebase ONLY — local folders /Users/mostafaadawy/Desktop/VolatileWorkSpace/RBO-Staging/b (backend, NestJS) and /Users/mostafaadawy/Desktop/VolatileWorkSpace/RBO-Staging/f (frontend, Next.js). DEPLOY TARGETS (staging): VM /home/mostafa/RBO-Staging/b (service bendcore-staging, port 4014, domain b-staging.redberryorganics.com) and VM /home/mostafa/RBO-Staging/f (service organics-staging, port 3001, domain f-staging.redberryorganics.com). ABSOLUTE RULE: NEVER touch RBO-Production, the old organics-backend/organics-frontend/organics_flutter folders, the bendcore/organics production services, or redberryorganics.com. This project never edits that code, the production system, or the VM app logic.\n\nCAPABILITY 1 — DEPLOY (unchanged shared rules): use the shared deploy flow exactly as today — refresh the dynamic-IP firewall rule first, then SSH as the 'mostafa' account, rsync local->VM, build on VM, and the DB rebase/remigrate ONLY with explicit owner approval. Deploy ONLY when the change-detection script finds modified files vs the deployment copies; if nothing changed, DO NOT deploy. Never force. Do not break the shared/remote promotion protocol.\n\nCAPABILITY 2 — READ-ONLY DIAGNOSIS by borrowing operational helper agents, each using its own DELTA. Agents: Fulfillment (Veeqo order/status), Email (Klaviyo), HubSpot (CRM), Analytics (comparison/reasoning), a Cloud-Diagnosis/SRE agent (reads the deployed VM: project domain, folder, systemd/start unit, live files and logs to find root cause), and Reporter (writes the report); CTO aggregates all reports into the final verdict. Helpers are STRICTLY read-only (GET/list/show, read logs) — they never write to any provider or the VM.\n\nDELTA / AGENT SCOPE: each helper first reads its DELTA. The delta names the SCOPED key reference this project must use (a pointer to the seeded runtime_settings entry: Veeqo=getVeeqoConfig, Klaviyo=getKlaviyoConfig, HubSpot=getHubspotConfig), resolved from the seeded DB at runtime — never a copied secret. If the delta names a key, the agent MUST use that scoped key (different account) for this project; if no delta is present, the agent falls back to its DEFAULT key (as other projects do). Delta-first is NON-BLOCKING: the agent reports credential_source (delta|default) so we can confirm it used the scoped key; using default in a helper context is a scope-hygiene signal, not a hard stop.\n\nHAND-OFF (single-file external rule): the ONLY write allowed outside the workspace is EXACTLY ONE file, AI_DIAGNOSIS_REPORT.md, at the local root /Users/mostafaadawy/Desktop/VolatileWorkSpace/RBO-Staging/ . No other external file/dir may be created there (any other = violation). It contains findings + evidence + a RECOMMENDATION only (advisory, never auto-executed); the owner acts on it from a separate chat. The odin_core DB stores a reference to this external report path.\n\nDIAGNOSIS EXAMPLE (real): Veeqo order-status frozen — the Fulfillment helper fetches the live Veeqo order status, Analytics compares it to our stored order status, and the Cloud-Diagnosis agent reads the VM logs + veeqo-order-sync (getOrderLifecyclePollMs / order lifecycle cron) to find WHY the status never updated. Report-only.\n\nGOVERNANCE: odin_core DB is the only source of truth; governed by the SAME middleware + audit + project-scope AND the new agent-scope; all existing rules, project scopes and cross-violation checks remain unaffected.",
+  "cadence": "recurring",
+  "config": {
+    "cadence": "recurring",
+    "schedule": {}
+  },
+  "stack": "Azure 2VM deploy + read-only cloud diagnosis",
+  "url": "",
+  "mode": "build",
+  "sources": [],
+  "auto_approve": false,
+  "periodic": {
+    "enabled": false,
+    "schedule": {},
+    "requireApproval": true
+  },
+  "rules": [
+    "VEEQO CATALOG RULE: whenever Veeqo is used, the Fulfillment agent MUST derive every field name and status value from the OFFICIAL Veeqo API catalog (https://developers.veeqo.com/api/) and from workspace/shared/tutorials/veeqo_fulfillment_api.md (READ FIRST). Never guess/intuit field names or reuse a prior buggy assumption. order.status enum stops at 'shipped'; out_for_delivery/delivered come ONLY from GET /shipping/tracking_events/{shipment_id} (or the carrier when the label wasn't bought in Veeqo)."
+  ],
+  "localPath": "/Users/mostafaadawy/Desktop/VolatileWorkSpace/RBO-Staging",
+  "created": 1784720005.699248,
+  "mappings": [],
+  "members": [
+    "DevOps",
+    "Fulfillment",
+    "Email",
+    "Analytics",
+    "Reporter",
+    "HubSpot",
+    "CloudDebug"
+  ],
+  "scope": "project:real-deployment-and-diagnosis-organics-07d7",
+  "status": "active",
+  "qa_declined": true
+}

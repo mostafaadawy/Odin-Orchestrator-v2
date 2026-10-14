@@ -1,0 +1,18 @@
+\begin{table}[t]\centering\scriptsize
+\caption{Temperature scaling: ECE before ($T{=}1$) and after, on the synthetic validation split and on the real held-out test split. Target $<0.05$. \emph{off} = head disabled (fewer than 5 independent validation labels): the LLM decides. \textbf{PROVISIONAL -- pending human labels}.}
+\label{tab:calib}\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{l l r rr rr l}\toprule
+ & & & \multicolumn{2}{c}{Synthetic val} & \multicolumn{2}{c}{Real test} & \\
+\cmidrule(lr){4-5}\cmidrule(lr){6-7}
+Model & Decision & $T$ & before & after & before & after & Head\\\midrule
+0.5B & Mode (direct / orchestrate) & 6.76 & 0.032 & 0.026 & 0.000 & 0.007 & on \\
+0.5B & Specialist & 5.58 & 0.195 & 0.064 & -- & -- & off \\
+0.5B & Read / change & 5.07 & 0.045 & 0.017 & 0.126 & 0.090 & on \\
+0.5B & QA gate & 9.93 & 0.042 & 0.069 & 0.571 & 0.544 & off \\
+0.5B & Agent nature & 6.14 & 0.019 & 0.018 & -- & -- & off \\
+1.5B & Mode (direct / orchestrate) & 9.93 & 0.036 & 0.054 & 0.000 & 0.014 & on \\
+1.5B & Specialist & 4.60 & 0.143 & 0.037 & -- & -- & off \\
+1.5B & Read / change & 4.60 & 0.030 & 0.030 & 0.098 & 0.153 & on \\
+1.5B & QA gate & 13.26 & 0.066 & 0.070 & 0.000 & 0.247 & off \\
+1.5B & Agent nature & 6.14 & 0.017 & 0.014 & -- & -- & off \\
+\bottomrule\end{tabular}\end{table}

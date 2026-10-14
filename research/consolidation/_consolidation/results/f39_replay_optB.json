@@ -1,0 +1,19 @@
+{
+ "declared_in_memory": {
+  "real-deployment-and-diagnosis-organics-07d7": "/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/_external/VolatileWorkSpace",
+  "redberry-continuous-soc": "/Users/mostafaadawy/Desktop/AiAgentWorkSpace/RedBerry-Continuous-SOC"
+ },
+ "proposals_checked": 62,
+ "refused": 1,
+ "refused_list": [
+  {
+   "id": "715256548145",
+   "project": "leads-landing-page",
+   "status": "pending",
+   "why": [
+    "file ~/Desktop/leads-landing/package.json",
+    "file ~/Desktop/leads-landing/server.js"
+   ]
+  }
+ ]
+}

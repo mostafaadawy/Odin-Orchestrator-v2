@@ -1,0 +1,123 @@
+{
+ "declared_in_memory": {},
+ "proposals_checked": 62,
+ "refused": 14,
+ "refused_list": [
+  {
+   "id": "6b89443f6616",
+   "project": "real-deployment-and-diagnosis-organics-07d7",
+   "status": "approved",
+   "why": [
+    "file /Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/_external/VolatileWorkSpace/organics-backe"
+   ]
+  },
+  {
+   "id": "f74209cd7cb8",
+   "project": "real-deployment-and-diagnosis-organics-07d7",
+   "status": "approved",
+   "why": [
+    "file /Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/_external/VolatileWorkSpace/organics-backe",
+    "file /Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/_external/VolatileWorkSpace/organics-backe"
+   ]
+  },
+  {
+   "id": "ae8e79831af3",
+   "project": "real-deployment-and-diagnosis-organics-07d7",
+   "status": "approved",
+   "why": [
+    "file /Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/_external/VolatileWorkSpace/AI_DIAGNOSIS_R"
+   ]
+  },
+  {
+   "id": "99441fb4eed2",
+   "project": "real-deployment-and-diagnosis-organics-07d7",
+   "status": "approved",
+   "why": [
+    "file /Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/_external/VolatileWorkSpace/AI_DIAGNOSIS_R"
+   ]
+  },
+  {
+   "id": "245fef2de291",
+   "project": "real-deployment-and-diagnosis-organics-07d7",
+   "status": "approved",
+   "why": [
+    "file /Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/_external/VolatileWorkSpace/AI_DIAGNOSIS_R"
+   ]
+  },
+  {
+   "id": "d59839b8dce7",
+   "project": "real-deployment-and-diagnosis-organics-07d7",
+   "status": "approved",
+   "why": [
+    "file /Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/_external/VolatileWorkSpace/AI_DIAGNOSIS_R"
+   ]
+  },
+  {
+   "id": "3f13f19084bc",
+   "project": "real-deployment-and-diagnosis-organics-07d7",
+   "status": "approved",
+   "why": [
+    "file /Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/_external/VolatileWorkSpace/AI_DIAGNOSIS_R"
+   ]
+  },
+  {
+   "id": "0878e058188d",
+   "project": "real-deployment-and-diagnosis-organics-07d7",
+   "status": "approved",
+   "why": [
+    "file /Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/_external/VolatileWorkSpace/AI_DIAGNOSIS_R"
+   ]
+  },
+  {
+   "id": "e2318b3f5a4c",
+   "project": "real-deployment-and-diagnosis-organics-07d7",
+   "status": "rejected",
+   "why": [
+    "file /Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/_external/VolatileWorkSpace/AI_DIAGNOSIS_R"
+   ]
+  },
+  {
+   "id": "f0612f5ef369",
+   "project": "real-deployment-and-diagnosis-organics-07d7",
+   "status": "rejected",
+   "why": [
+    "file /Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/_external/VolatileWorkSpace/AI_DIAGNOSIS_R"
+   ]
+  },
+  {
+   "id": "71d9635f8639",
+   "project": "real-deployment-and-diagnosis-organics-07d7",
+   "status": "rejected",
+   "why": [
+    "file /Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/_external/VolatileWorkSpace/AI_DIAGNOSIS_R"
+   ]
+  },
+  {
+   "id": "715256548145",
+   "project": "leads-landing-page",
+   "status": "pending",
+   "why": [
+    "file ~/Desktop/leads-landing/package.json",
+    "file ~/Desktop/leads-landing/server.js"
+   ]
+  },
+  {
+   "id": "d946bb03be7c",
+   "project": "redberry-continuous-soc",
+   "status": "approved",
+   "why": [
+    "file soc/history/investigations/run-1784584358-charter.md",
+    "file soc/history/investigations/ACTIVE-RUN.lock"
+   ]
+  },
+  {
+   "id": "211282322806",
+   "project": "redberry-continuous-soc",
+   "status": "approved",
+   "why": [
+    "file soc/playbooks/fake-user-app-abuse-hunt.md",
+    "file soc/knowledge/incident-history.md"
+   ]
+  }
+ ]
+}

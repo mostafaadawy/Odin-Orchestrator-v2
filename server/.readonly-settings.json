@@ -1,0 +1,1 @@
+{"hooks": {"PreToolUse": [{"matcher": "Bash", "hooks": [{"type": "command", "command": "/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator-v2/.venv/bin/python3 /Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator-v2/server/readonly_hook.py"}]}]}}

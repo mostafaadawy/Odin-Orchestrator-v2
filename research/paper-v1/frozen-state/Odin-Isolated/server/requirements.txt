@@ -1,0 +1,7 @@
+# Odin-Orchestrator local server (lightweight — voice deps are separate).
+fastapi>=0.115
+uvicorn[standard]>=0.30
+pydantic>=2.7
+python-multipart>=0.0.9      # required for /voice/stt audio upload
+# Ollama is called over HTTP via stdlib (no python package needed).
+# Voice STT/TTS deps: see voice/backend/requirements-voice.txt

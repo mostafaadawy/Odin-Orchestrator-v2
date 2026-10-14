@@ -1,0 +1,10 @@
+#!/bin/bash
+# v2 safety: never push to the ORIGINAL (v1) repository, and only the clean `github-main` branch may be pushed.
+remote_url="$2"
+case "$remote_url" in
+  *mostafaadawy/Odin-Orchestrator.git|*mostafaadawy/Odin-Orchestrator) echo "BLOCKED: this is the v1 repository — v2 must go to its own new repo." >&2; exit 1;;
+esac
+while read -r local_ref local_sha remote_ref remote_sha; do
+  [ "$local_ref" = "refs/heads/github-main" ] || { echo "BLOCKED: only the clean branch 'github-main' may be pushed (it has no old history and no credentials). Tried: $local_ref" >&2; exit 1; }
+done
+exit 0

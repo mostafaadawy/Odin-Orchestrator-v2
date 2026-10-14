@@ -1,0 +1,21 @@
+# Odin-Orchestrator voice dependencies — neural EN + AR, fully local, NO macOS voices.
+# Install into the Odin backend venv:
+#   pip install -r voice/backend/requirements-voice.txt
+#
+# Engine choice:
+#   STT  -> faster-whisper (local Whisper, English + Arabic, auto-detect)
+#   TTS  -> Meta MMS-TTS (VITS) via transformers — genuine neural English AND Arabic
+#           (Kokoro was dropped: it has no Arabic.)
+
+# --- Speech-to-Text (local, offline, EN + AR) ---
+faster-whisper>=1.0.3
+
+# --- Text-to-Speech (neural, EN + AR) via MMS-TTS ---
+# NOTE: transformers + torch + soundfile + numpy are already installed (came with the
+# earlier voice install), so on this machine no NEW library download is needed — only the
+# two small MMS voice models (~145 MB each) download once on first use.
+transformers>=4.40          # VitsModel / MMS-TTS
+torch>=2.2
+soundfile>=0.12.1
+numpy>=1.26
+# uroman NOT required: facebook/mms-tts-ara has is_uroman=false (tokenizes Arabic directly).

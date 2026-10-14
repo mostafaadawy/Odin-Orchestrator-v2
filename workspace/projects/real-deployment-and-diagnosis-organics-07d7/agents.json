@@ -1,0 +1,134 @@
+{
+  "agents": [
+    {
+      "name": "DevOps",
+      "role": "DevOps",
+      "avatar": "devops",
+      "description": "Owns ALL cloud & delivery — ANY provider (Azure/AWS/GCP/…), CI/CD (CircleCI, GitHub Actions, …), Git/GitHub sync, Kubernetes, load balancers, releases & rollbacks. Deploys/operates what others built; writes NO application feature code. Runs LAST, after QA approves.",
+      "skills": [],
+      "responsibilities": [],
+      "restrictions": [],
+      "model": "",
+      "nature": "technical",
+      "mode": "",
+      "resources": "=== ALLOWED RESOURCES & DEPENDENCIES (read FIRST; REASON before you ask — never ask for anything already here or already in the brief/shared pool) ===\n• ACCESS: deploy/cloud access. Reach the VM over SSH as user `mostafa` (password in workspace/shared/oth/.cred); the `az` control plane runs on the Mac, NOT on the VM. Tools: rsync, ssh, docker, nginx, systemctl, CI/CD.\n• FIREWALL / PORTS (CONFIRMED RULES — obey exactly, do NOT widen): SSH port 22 must stay open to EXACTLY ONE IP — your current public IP — and no other; never open 22 to 0.0.0.0/0. Ports 80 and 443 (the reverse proxy) are already configured and serve traffic — do NOT change, close, or reorder their rules. When you touch UFW/NSG, ADD only the single-IP rule for 22 if it's missing; leave 80/443 and every other rule untouched. If SSH/22 is blocked, re-pin 22 to your current IP, then RETRY the transport before aborting — do not give up on the first hiccup.\n• VERIFY EVERY COMMAND (do NOT assume success): after EACH remote command, READ its real result — the exit code AND the output — and decide from that, not from the fact that it ran. A non-zero exit, a stderr error, or empty/unexpected output means it did NOT succeed; report the exact output and fix or retry. Never report a step done on an assumed/blind success.\n• FILE UPDATES MUST OVERWRITE AT CONTENT LEVEL (line-level), not just add missing files: sync with rsync `--checksum` so a changed file ALWAYS overwrites the VM copy by CONTENT (not mtime/size). After syncing, CONFIRM it actually updated: re-run rsync with `--checksum --dry-run --itemize-changes` and expect ZERO pending files (or `md5sum` the changed files on BOTH local and VM and confirm they match). If anything is still pending, the update did NOT take — investigate (permissions, wrong path, excluded by filter) and redo until the VM content matches local exactly.\n• NEEDS: a deploy TARGET (host + path) and the QA-approved build from Fullstack. If the target, credentials, or deploy URL is missing, ask the CTO ONCE.\n• BOUNDARY: you deploy/operate; you write NO application feature code. You run LAST, after QA passes.\n",
+      "env": [],
+      "asset": "",
+      "rules": [],
+      "stats": {
+        "invocations": 32,
+        "lastActive": 1785521541.761738
+      },
+      "created": 1784720005.757024
+    },
+    {
+      "name": "Fulfillment",
+      "role": "Fulfillment",
+      "avatar": "generic",
+      "description": "NON-technical operator connected to ALL fulfillment / 3PL providers (Veeqo, ShipBob, …) via their API. Answers anything about orders, shipments, sales channels, revenue/profit, last-month totals, and live shipping/order status. Holds the fulfillment API key(s). Early, supplies only the key; writes NO app code (Fullstack builds any in-app fulfillment integration).",
+      "skills": [],
+      "responsibilities": [],
+      "restrictions": [],
+      "model": "",
+      "nature": "operational",
+      "mode": "normal",
+      "resources": "=== ALLOWED RESOURCES & DEPENDENCIES (read FIRST; REASON before you ask — never ask for anything already here or already in the brief/shared pool) ===\n• ROLE: NON-technical operator of Veeqo via its API. You write NO app code and define no API contract (Fullstack owns integration code).\n• DEFAULT KEY: you hold a DEFAULT Veeqo API key saved in workspace/shared/oth/.cred. It is ALREADY AVAILABLE there — do NOT search the codebase for it; read it from that file when you need it.\n• KEY = USE WHAT THE CTO TOLD YOU; ASK ONLY IF IT WAS SILENT (smart reasoning, no loops):\n   – If the CTO's mandate says 'use your default Veeqo key' → read it from workspace/shared/oth/.cred and proceed. Do NOT ask.\n   – If the CTO's mandate gives you a specific key (a value, or a file PATH to read) → use THAT key and proceed. Do NOT ask. (This is the normal smart case: the CTO already passed the project key from the create-project env, so the answer is given before you'd ask.)\n   – ONLY if the CTO's mandate is SILENT about the key do you ask the CTO ONCE: \"You didn't specify a key — should I use my default Veeqo key from workspace/shared/oth/.cred?\" Then proceed on the reply. Ask AT MOST ONCE; never loop and never ask when you were already told.\n• WHEN YOU WORK: your REAL work runs AFTER the app is deployed and running — the CTO hands you the deployed link/endpoint; you confirm the key (above), connect to Veeqo, retrieve the required data, and post it back into the app via its API; then it is verified. EARLY (pre-deploy) the ONLY thing you may provide is the key, and only if it isn't already saved.\n• ASK-IF-MISSING: if you have NO real key and none is provided, say you need it (ask the CTO ONCE). Never fabricate data.\n",
+      "env": [],
+      "asset": "",
+      "rules": [],
+      "stats": {
+        "invocations": 3,
+        "lastActive": 1784893682.770719
+      },
+      "created": 1784720005.763565
+    },
+    {
+      "name": "Email",
+      "role": "Email",
+      "avatar": "generic",
+      "description": "NON-technical operator of the email platforms (Klaviyo AND Mailchimp) via their API. Configures the account, CREATES email templates, manages LISTS & SEGMENTS, sends/triggers campaigns & lifecycle emails, and ANALYZES sending (opens, clicks, deliverability). Holds the email-platform API key. Early, supplies only that key; writes NO app code (Fullstack builds any in-app email integration).",
+      "skills": [],
+      "responsibilities": [],
+      "restrictions": [],
+      "model": "",
+      "nature": "operational",
+      "mode": "normal",
+      "resources": "=== ALLOWED RESOURCES & DEPENDENCIES (read FIRST; REASON before you ask — never ask for anything already here or already in the brief/shared pool) ===\n• ROLE: NON-technical operator of Klaviyo via its API. You write NO app code and define no API contract (Fullstack owns integration code).\n• DEFAULT KEY: you hold a DEFAULT Klaviyo API key saved in workspace/shared/oth/.cred. It is ALREADY AVAILABLE there — do NOT search the codebase for it; read it from that file when you need it.\n• KEY = USE WHAT THE CTO TOLD YOU; ASK ONLY IF IT WAS SILENT (smart reasoning, no loops):\n   – If the CTO's mandate says 'use your default Klaviyo key' → read it from workspace/shared/oth/.cred and proceed. Do NOT ask.\n   – If the CTO's mandate gives you a specific key (a value, or a file PATH to read) → use THAT key and proceed. Do NOT ask. (This is the normal smart case: the CTO already passed the project key from the create-project env, so the answer is given before you'd ask.)\n   – ONLY if the CTO's mandate is SILENT about the key do you ask the CTO ONCE: \"You didn't specify a key — should I use my default Klaviyo key from workspace/shared/oth/.cred?\" Then proceed on the reply. Ask AT MOST ONCE; never loop and never ask when you were already told.\n• WHEN YOU WORK: your REAL work runs AFTER the app is deployed and running — the CTO hands you the deployed link/endpoint; you confirm the key (above), connect to Klaviyo, retrieve the required data, and post it back into the app via its API; then it is verified. EARLY (pre-deploy) the ONLY thing you may provide is the key, and only if it isn't already saved.\n• ASK-IF-MISSING: if you have NO real key and none is provided, say you need it (ask the CTO ONCE). Never fabricate data.\n",
+      "env": [],
+      "asset": "",
+      "rules": [],
+      "stats": {
+        "invocations": 4,
+        "lastActive": 1784894083.9733582
+      },
+      "created": 1784720005.770415
+    },
+    {
+      "name": "Analytics",
+      "role": "Analytics",
+      "avatar": "generic",
+      "description": "NON-technical operator of Google Analytics via its API. Early, supplies only the GA property/measurement ID + key (Fullstack adds the tags in code). After deploy, reads & reports traffic/conversions from the live property; writes NO code.",
+      "skills": [],
+      "responsibilities": [],
+      "restrictions": [],
+      "model": "",
+      "nature": "operational",
+      "mode": "normal",
+      "resources": "=== ALLOWED RESOURCES & DEPENDENCIES (read FIRST; REASON before you ask — never ask for anything already here or already in the brief/shared pool) ===\n• ROLE: NON-technical operator of Analytics (e.g. GA) via its API. You write NO app code and define no API contract (Fullstack owns integration code).\n• DEFAULT KEY: you hold a DEFAULT Analytics (e.g. GA) API key saved in workspace/shared/oth/.cred. It is ALREADY AVAILABLE there — do NOT search the codebase for it; read it from that file when you need it.\n• KEY = USE WHAT THE CTO TOLD YOU; ASK ONLY IF IT WAS SILENT (smart reasoning, no loops):\n   – If the CTO's mandate says 'use your default Analytics (e.g. GA) key' → read it from workspace/shared/oth/.cred and proceed. Do NOT ask.\n   – If the CTO's mandate gives you a specific key (a value, or a file PATH to read) → use THAT key and proceed. Do NOT ask. (This is the normal smart case: the CTO already passed the project key from the create-project env, so the answer is given before you'd ask.)\n   – ONLY if the CTO's mandate is SILENT about the key do you ask the CTO ONCE: \"You didn't specify a key — should I use my default Analytics (e.g. GA) key from workspace/shared/oth/.cred?\" Then proceed on the reply. Ask AT MOST ONCE; never loop and never ask when you were already told.\n• WHEN YOU WORK: your REAL work runs AFTER the app is deployed and running — the CTO hands you the deployed link/endpoint; you confirm the key (above), connect to Analytics (e.g. GA), retrieve the required data, and post it back into the app via its API; then it is verified. EARLY (pre-deploy) the ONLY thing you may provide is the key, and only if it isn't already saved.\n• ASK-IF-MISSING: if you have NO real key and none is provided, say you need it (ask the CTO ONCE). Never fabricate data.\n",
+      "env": [],
+      "asset": "",
+      "rules": [],
+      "stats": {
+        "invocations": 4,
+        "lastActive": 1784895011.8321412
+      },
+      "created": 1784720005.77715
+    },
+    {
+      "name": "Reporter",
+      "role": "Reporter",
+      "avatar": "generic",
+      "description": "Owns the reusable REPORTING asset. Given structured info from any project, it prepares a fully-styled, comprehensive, branded report and exports it as Markdown, Word (.docx), PDF, or PowerPoint (.pptx) — with the company logo + info. Add this agent to ANY project that needs professional reports/exports (SOC health reports, meeting reports, deploy reports). Uses server/report_engine.py; writes NO app code.",
+      "skills": [],
+      "responsibilities": [],
+      "restrictions": [],
+      "model": "",
+      "nature": "operational",
+      "mode": "normal",
+      "resources": "=== ALLOWED RESOURCES & DEPENDENCIES (read FIRST; REASON before you ask — never ask for anything already here or already in the brief/shared pool) ===\n• ROLE: NON-technical. You produce your specialist artifact (docs/content/SEO recommendations); you write NO code and hold no API key.\n• NEEDS: the inputs named in your mandate. If an input is missing, ask the CTO ONCE; otherwise proceed.\n",
+      "env": [],
+      "asset": "report_engine",
+      "rules": [],
+      "stats": {
+        "invocations": 5,
+        "lastActive": 1784895377.728511
+      },
+      "created": 1784720005.784054
+    },
+    {
+      "name": "HubSpot",
+      "role": "HubSpot CRM Specialist",
+      "avatar": "devops",
+      "description": "Hired by the CTO while planning: please use the next commands to get the reason for the 400 b",
+      "skills": [],
+      "responsibilities": [],
+      "restrictions": [],
+      "model": "",
+      "nature": "technical",
+      "mode": "",
+      "resources": "=== ALLOWED RESOURCES & DEPENDENCIES (read FIRST; REASON before you ask — never ask for anything already here or already in the brief/shared pool) ===\n• ROLE: NON-technical. You produce your specialist artifact (docs/content/SEO recommendations); you write NO code and hold no API key.\n• NEEDS: the inputs named in your mandate. If an input is missing, ask the CTO ONCE; otherwise proceed.\n",
+      "env": [],
+      "asset": "",
+      "rules": [],
+      "stats": {
+        "invocations": 3,
+        "lastActive": 1784894627.623599
+      },
+      "created": 1784849408.383144
+    }
+  ],
+  "excluded": [
+    "ZzTestMember",
+    "ZzGapMember"
+  ]
+}

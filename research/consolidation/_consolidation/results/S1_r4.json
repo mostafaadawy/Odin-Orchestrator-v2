@@ -1,0 +1,688 @@
+{
+ "scenario": "S1",
+ "rep": 4,
+ "pid": "customer-orders-internal-app-rep-4",
+ "seconds": 168.6,
+ "cost_usd": 0.9955,
+ "spent_total": 32.6169,
+ "record": {
+  "intake": [
+   {
+    "action": "propose",
+    "spec": {
+     "name": "Customer & Orders Internal App (rep 4)",
+     "type": "Internal web app (customer/order directory)",
+     "stack": "Our usual web stack \u2014 Next.js (React/TypeScript) frontend + NestJS (TypeScript) backend \u2014 with Supabase providing authentication and file storage instead of our usual auth/storage. Local development only; NOT deployed in this run.",
+     "description": "OBJECTIVE: Build a SMALL internal web app (this is rep 4) that lists our customers and their orders, for internal staff use. STACK: Use our usual web stack (Next.js frontend + NestJS backend, TypeScript throughout) \u2014 EXCEPT authentication and file storage, which MUST use Supabase (Supabase Auth + Supabase Storage), a platform we have NOT used before and must set up/learn for this project. DELIVERABLE SCOPE: internal directory UI that lists customers and, per customer, their orders; staff must authenticate (via Supabase Auth) to access it; any file attachments/documents use Supabase Storage. FOLDERS: build entirely inside this project's own folder (its localPath) \u2014 create frontend/ and backend/ subfolders there; do NOT scaffold anything at the Odin app repo root and do NOT touch any other project. INTEGRATIONS: Supabase (Auth + Storage) is the only mandated external integration; wire credentials via environment variables only \u2014 never commit secrets. Customer/order data source: start from a local database (seed/mock data acceptable for a small internal app) unless the owner points to a real source. DEPLOY: DO NOT deploy this yet \u2014 stop at a working local build. No VM sync, no firewall changes, no production touch in this run.",
+     "features": [
+      "Supabase Auth login/logout for internal staff (session-gated access to the whole app)",
+      "Customer list view (searchable/sortable list of customers)",
+      "Customer detail view showing that customer's orders",
+      "Orders list per customer (order id, date, status, total, line items)",
+      "File attachments per customer/order stored in Supabase Storage (upload + view/download)",
+      "Backend API (NestJS) exposing customers/orders endpoints, protected by Supabase-issued auth",
+      "Local seed/mock data for customers and orders so the app runs end-to-end without a live data source",
+      "Environment-based config for Supabase keys (no secrets committed)"
+     ],
+     "team": [
+      "Fullstack",
+      "Security",
+      "QA"
+     ],
+     "recommendations": {
+      "features": [
+       {
+        "name": "Role-based access (admin vs read-only staff)",
+        "why": "Internal customer/order data is sensitive; Supabase Auth supports roles/RLS cheaply and limits who can upload/delete files \u2014 worth adding before real data goes in."
+       },
+       {
+        "name": "Supabase Row-Level Security (RLS) policies",
+        "why": "Since Supabase owns auth, enforcing RLS on the data tables (not just the API) gives defense-in-depth so a leaked anon key can't read all customers."
+       }
+      ],
+      "members": [
+       {
+        "name": "Designer",
+        "why": "Only if the owner wants a polished internal UI; a small staff tool can ship with plain functional styling, so not auto-staffed."
+       }
+      ]
+     },
+     "readiness": [
+      {
+       "item": "Next.js + NestJS web app (our usual stack)",
+       "status": "ready",
+       "by": "team",
+       "need": ""
+      },
+      {
+       "item": "Build & verify the app locally (no deploy)",
+       "status": "ready",
+       "by": "team",
+       "need": ""
+      },
+      {
+       "item": "Supabase Auth + Storage (new platform \u2014 project, keys, buckets)",
+       "status": "needs",
+       "by": "connector",
+       "need": "Connect Supabase: create a Supabase project and provide its URL + anon key + service-role key (for backend) and a storage bucket; these go into env vars before build/testing"
+      },
+      {
+       "item": "Local models / Claude engine for code generation",
+       "status": "ready",
+       "by": "claude",
+       "need": ""
+      },
+      {
+       "item": "Deployment to Azure VM",
+       "status": "ready",
+       "by": "azure",
+       "need": "Not needed this run \u2014 owner said do NOT deploy yet"
+      }
+     ],
+     "dependencies": [
+      {
+       "name": "Supabase project (Auth + Storage) with URL + anon key + service-role key + storage bucket",
+       "status": "need",
+       "why": "Mandated for authentication and file storage; we have not used Supabase before, so it must be created and credentials provided before auth/storage can be built and tested"
+      },
+      {
+       "name": "Customer/order data source",
+       "status": "need",
+       "why": "If a real source is required instead of local seed/mock data, owner must point to it; otherwise we default to local seed data for this small internal app"
+      }
+     ],
+     "identifier": "customer-orders-internal-app-rep-4"
+    }
+   }
+  ],
+  "recommended_team": [
+   "Fullstack",
+   "Security",
+   "QA"
+  ],
+  "recommendations": {
+   "features": [
+    {
+     "name": "Role-based access (admin vs read-only staff)",
+     "why": "Internal customer/order data is sensitive; Supabase Auth supports roles/RLS cheaply and limits who can upload/delete files \u2014 worth adding before real data goes in."
+    },
+    {
+     "name": "Supabase Row-Level Security (RLS) policies",
+     "why": "Since Supabase owns auth, enforcing RLS on the data tables (not just the API) gives defense-in-depth so a leaked anon key can't read all customers."
+    }
+   ],
+   "members": [
+    {
+     "name": "Designer",
+     "why": "Only if the owner wants a polished internal UI; a small staff tool can ship with plain functional styling, so not auto-staffed."
+    }
+   ]
+  },
+  "readiness": [
+   {
+    "item": "Next.js + NestJS web app (our usual stack)",
+    "status": "ready",
+    "by": "team",
+    "need": ""
+   },
+   {
+    "item": "Build & verify the app locally (no deploy)",
+    "status": "ready",
+    "by": "team",
+    "need": ""
+   },
+   {
+    "item": "Supabase Auth + Storage (new platform \u2014 project, keys, buckets)",
+    "status": "needs",
+    "by": "connector",
+    "need": "Connect Supabase: create a Supabase project and provide its URL + anon key + service-role key (for backend) and a storage bucket; these go into env vars before build/testing"
+   },
+   {
+    "item": "Local models / Claude engine for code generation",
+    "status": "ready",
+    "by": "claude",
+    "need": ""
+   },
+   {
+    "item": "Deployment to Azure VM",
+    "status": "ready",
+    "by": "azure",
+    "need": "Not needed this run \u2014 owner said do NOT deploy yet"
+   }
+  ],
+  "dependencies": [
+   {
+    "name": "Supabase project (Auth + Storage) with URL + anon key + service-role key + storage bucket",
+    "status": "need",
+    "why": "Mandated for authentication and file storage; we have not used Supabase before, so it must be created and credentials provided before auth/storage can be built and tested"
+   },
+   {
+    "name": "Customer/order data source",
+    "status": "need",
+    "why": "If a real source is required instead of local seed/mock data, owner must point to it; otherwise we default to local seed data for this small internal app"
+   }
+  ],
+  "owner_decision": {
+   "dropped": [],
+   "kept": [
+    "Fullstack",
+    "Security",
+    "QA"
+   ]
+  },
+  "validate": {
+   "known": [
+    "Fullstack",
+    "Security",
+    "QA"
+   ],
+   "unknown": [],
+   "catalog": [
+    "Fullstack",
+    "Mobile",
+    "DevOps",
+    "QA",
+    "Security",
+    "Embedded",
+    "Data",
+    "GameDev",
+    "XR",
+    "Designer",
+    "HubSpot",
+    "CloudDebug",
+    "Marketing",
+    "Email",
+    "Content",
+    "Support",
+    "Sales",
+    "Fulfillment",
+    "EasyPost",
+    "Analytics",
+    "Writer",
+    "Finance",
+    "SEO",
+    "Reporter",
+    "SecCTO",
+    "SecArchitect",
+    "SecInvestigator",
+    "AssetSurface",
+    "Predictor",
+    "Recovery",
+    "BehaviorIDS",
+    "MeetingVoice"
+   ]
+  },
+  "create": {
+   "id": "customer-orders-internal-app-rep-4",
+   "name": "Supabase Customers r4",
+   "type": "internal_web_app_customer_order_directory",
+   "members": [
+    "Fullstack",
+    "Security",
+    "QA",
+    "EasyPost"
+   ],
+   "_error": null
+  },
+  "run": {
+   "events": [
+    [
+     "status",
+     {
+      "icon": "\ud83d\udd12",
+      "text": "This touches Azure/the VM \u2014 every change will wait for your Approve/Discard (read-only checks run free)."
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\ud83e\udded",
+      "text": "Project CTO is reviewing the team & resources, then planning\u2026"
+     }
+    ],
+    [
+     "plan",
+     {
+      "steps": "[{'member': 'Fullstack', 'depends_on': [], 'task': 'Plan this project and prepare the Supabase auth + storage integration skeleton. Do not deploy. Constraint: do NOT deploy, rsync, build on the VM, migrate, or reboot -- no VM/production state change. Local file/config edits the owner explicitly asked for (e.g. updating a list) ARE allowed -- only deployment is off-limits.', 'objective': 'Do EXACTLY what the owner asked -- nothing else.', 'deliverable': 'The exact thing asked, shown with real evidence (diff / command output / file).', 'acceptance_criteria': 'The request is satisfied and proven "
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u23f1\ufe0f",
+      "text": "E2E timer started (cached)"
+     }
+    ],
+    [
+     "delegate",
+     {
+      "pid": "customer-orders-internal-app-rep-4",
+      "to": "Fullstack",
+      "step": "1",
+      "of": "1",
+      "task": "Plan this project and prepare the Supabase auth + storage integration skeleton. Do not deploy. Constraint: do NOT deploy, rsync, build on the VM, migrate, or reboot -- no VM/production state change. Local file/config edits the owner explicitly asked for (e.g. updating a list) ARE allowed -- only deployment is off-limits."
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\ud83d\udde3\ufe0f",
+      "text": "CTO briefs Fullstack with a bounded mandate"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u2699\ufe0f",
+      "text": "Fullstack is working\u2026"
+     }
+    ],
+    [
+     "token",
+     {
+      "member": "Fullstack",
+      "t": "I'll do the readiness check. First, the one thing this mandate genuinely needs that I don't yet have is the project's folder (localPath) \u2014 the mandate says scaffold inside the project's own folder, but the brief explicitly says none is set. Let me search before concluding, per the \"search wider\" rule."
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u2699\ufe0f",
+      "text": "Fullstack: \u2699\ufe0f cd /Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated 2>/d\u2026"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u23f3",
+      "text": "Fullstack: still working\u2026 (2s since last output)"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u2705",
+      "text": "Fullstack: workspace/projects/_shared/ workspace/projects/backend-sandbox-rep-2/ workspace/projects/b"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u23f3",
+      "text": "Fullstack: still working\u2026 (2s since last output)"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u23f3",
+      "text": "Fullstack: still working\u2026 (18s since last output)"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u23f3",
+      "text": "Fullstack: still working\u2026 (34s since last output)"
+     }
+    ],
+    [
+     "token",
+     {
+      "member": "Fullstack",
+      "t": "No existing folder for \"Supabase Customers r4\" exists anywhere (only the Dart/pub-cache `supabase` packages, unrelated). So the project genuinely has no local path.\n\n## STEP 1 \u2014 Readiness check\n\n- **REQUIRES:** (1) a project folder to scaffold into; (2) stack choice; (3) Supabase credentials (URL / anon key / service-role).\n- **HAVE:**\n  - Stack \u2192 I'll default to **Next.js (App Router) + TypeScript + `@supabase/supabase-js` + `@supabase/ssr`**, the standard Supabase web integration.\n  - Credentials \u2192 **not needed for a skeleton.** The skeleton reads them from env at runtime; I ship a `.env.exa"
+     }
+    ],
+    [
+     "approval",
+     {
+      "id": "8efef7bd4f08",
+      "pid": "customer-orders-internal-app-rep-4",
+      "member": "Fullstack",
+      "title": "Fullstack: Plan this project and prepare the Supabase auth +  (try 1)",
+      "summary": "Scaffold Supabase auth + storage integration skeleton for 'Supabase Customers r4' at workspace/projects/supabase-customers-r4/ (no deploy)",
+      "files": "[{'path': 'workspace/projects/supabase-customers-r4/package.json', 'action': 'create', 'why': 'Next.js + Supabase deps and scripts', 'preview': ''}, {'path': 'workspace/projects/supabase-customers-r4/tsconfig.json', 'action': 'create', 'why': 'TypeScript config for typecheck', 'preview': ''}, {'path': 'workspace/projects/supabase-customers-r4/.env.example', 'action': 'create', 'why': 'Supabase URL/anon/service-role/bucket placeholders (no real secrets)', 'preview': ''}, {'path': 'workspace/projects/supabase-customers-r4/middleware.ts', 'action': 'create', 'why': 'Next.js middleware entry for s",
+      "commands": "[{'cmd': 'cd workspace/projects/supabase-customers-r4 && npm install && npm run typecheck', 'where': 'local', 'why': 'Verify the skeleton type-checks after scaffolding (local only, no deploy)'}]"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\ud83d\udd14",
+      "text": "Approval needed \u2014 Fullstack: 11 file(s) + 1 command(s). Approve in the popup or say 'approve' in chat; it runs the instant you do."
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\ud83d\udd0e",
+      "text": "CTO reviewing Fullstack"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u26a0\ufe0f",
+      "text": "Fullstack's part still has issues \u2014 review needs fix"
+     }
+    ],
+    [
+     "step_done",
+     {
+      "member": "Fullstack",
+      "step": "1",
+      "result": "QA skipped. Needs fix: The task was to prepare the Supabase auth + storage skeleton, but the report only produces a plan/readiness check and stops mid-sentence (\"browser client\") \u2014 no skeleton was actually created. I confirmed `workspace/projects/` contains no `supabase-customers-r4/` folder (no match for `*supabase*`), so no clients, `.env.example`, or any scaffold files exist; the report cites n"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u23f1\ufe0f",
+      "text": "E2E finished in 133.04s (cached)"
+     }
+    ],
+    [
+     "done",
+     {
+      "pid": "customer-orders-internal-app-rep-4",
+      "steps": "1",
+      "ok": "False",
+      "timing": "{'seconds': 133.04, 'cached': True, 'compare': {'cached': {'pid': 'customers-orders-portal', 'task': 'Plan this project and prepare the Supabase auth + storage integration skeleton. Do not deploy.', 'cached': True, 'ok': True, 'seconds': 107.69, 'ts': 1791664846}, 'non_cached': None, 'speedup': None, 'saved_seconds': None}}"
+     }
+    ]
+   ],
+   "n_events": 22,
+   "text": "[Fullstack] I'll do the readiness check. First, the one thing this mandate genuinely needs that I don't yet have is the project's folder (localPath) \u2014 the mandate says scaffold inside the project's own folder, but the brief explicitly says none is set. Let me search before concluding, per the \"search wider\" rule.[Fullstack] No existing folder for \"Supabase Customers r4\" exists anywhere (only the Dart/pub-cache `supabase` packages, unrelated). So the project genuinely has no local path.\n\n## STEP 1 \u2014 Readiness check\n\n- **REQUIRES:** (1) a project folder to scaffold into; (2) stack choice; (3) Supabase credentials (URL / anon key / service-role).\n- **HAVE:**\n  - Stack \u2192 I'll default to **Next.js (App Router) + TypeScript + `@supabase/supabase-js` + `@supabase/ssr`**, the standard Supabase web integration.\n  - Credentials \u2192 **not needed for a skeleton.** The skeleton reads them from env at runtime; I ship a `.env.example` with placeholders. No real keys required to build or verify the scaffold.\n- **MISSING:** the **project folder location**. The brief says this project has *no local folder set* and to **ASK before creating files** \u2014 and I must not write into the Odin app repo root.\n\nPer the rules I don't stall: I'll proceed with a stated default location and let you confirm/redirect it in the approval popup rather than blocking.\n\n**Assumption (one line):** project lives at `workspace/projects/supabase-customers-r4/` (same place as every other project in this workspace). Approve to use it, or name a different path.\n\n---\n\n## Project Plan \u2014 Supabase Customers r4\n\n**Scope:** A web app skeleton wiring Supabase **Auth** (email/password + session management) and **Storage** (per-customer file buckets). Skeleton only \u2014 no business features, no deploy.\n\n**Components**\n1. **Supabase clients** \u2014 browser client, server client (SSR cookie-based), and middleware for session refresh.\n2. **Auth layer** \u2014 sign up / sign in / sign out / `getUser` helpers + a protected-route guard.\n3. **Storage layer** \u2014 upload / download / list / remove helpers against a `customer-files` bucket, plus the bucket-creation + RLS policy SQL.\n4. **Config** \u2014 `.env.example`, `package.json`, `tsconfig`, Next.js middleware.\n\n**Implementation steps**\n1. Scaffold folder + `package.json` / `tsconfig` / env example.\n2. Build the three Supabase clients (browser / server / middleware).\n3. Build auth helpers + a guarded example server component.\n4. Build storage helpers + bucket/RLS SQL.\n5. Verify: `tsc --noEmit` type-checks (local only). **No deploy** (honoring the constraint).\n\n---\n\n## Skeleton file contents (what the proposal below will create)\n\n`package.json`\n```json\n{\n  \"name\": \"supabase-customers-r4\",\n  \"version\": \"0.1.0\",\n  \"private\": true,\n  \"scripts\": {\n    \"dev\": \"next dev\",\n    \"build\": \"next build\",\n    \"start\": \"next start\",\n    \"typecheck\": \"tsc --noEmit\"\n  },\n  \"dependencies\": {\n    \"@supabase/ssr\": \"^0.5.2\",\n    \"@supabase/supabase-js\": \"^2.45.0\",\n    \"next\": \"^14.2.5\",\n    \"react\": \"^18.3.1\",\n    \"react-dom\": \"^18.3.1\"\n  },\n  \"devDependencies\": {\n    \"@types/node\": \"^20.14.0\",\n    \"@types/react\": \"^18.3.3\",\n    \"typescript\": \"^5.5.4\"\n  }\n}\n```\n\n`.env.example`\n```bash\n# Supabase project \u2014 fill from Project Settings > API. DO NOT commit the real .env.\nNEXT_PUBLIC_SUPABASE_URL=https://YOUR-PROJECT.supabase.co\nNEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key\n# Server-only. Never expose to the browser.\nSUPABASE_SERVICE_ROLE_KEY=your-service-role-key\n# Storage bucket name used by the storage helpers\nSUPABASE_CUSTOMER_BUCKET=customer-files\n```\n\n`src/lib/supabase/client.ts` \u2014 browser client\n```ts\nimport { createBrowserClient } from '@supabase/ssr'\n\nexport function createClient() {\n  return createBrowserClient(\n    process.env.NEXT_PUBLIC_SUPABASE_URL!,\n    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!\n  )\n}\n```\n\n`src/lib/supabase/server.ts` \u2014 server (SSR, cookie-based) client\n```ts\nimport { createServerClient } from '@supabase/ssr'\nimport { cookies } from 'next/headers'\n\nexport function createClient() {\n  const cookieStore = cookies()\n  return createServerClient(\n    process.env.NEXT_PUBLIC_SUPABASE_URL!,\n    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,\n    {\n      cookies: {\n        getAll() {\n          return cookieStore.getAll()\n        },\n        setAll(cookiesToSet) {\n          try {\n            cookiesToSet.forEach(({ name, value, options }) =>\n              cookieStore.set(name, value, options)\n            )\n          } catch {\n            // Called from a Server Component \u2014 safe to ignore; middleware refreshes the session.\n          }\n        },\n      },\n    }\n  )\n}\n\n// Service-role client for privileged server-side ops (storage admin, etc.). NEVER import in client code.\nimport { createClient as createAdminClient } from '@supabase/supabase-js'\nexport function createServiceClient() {\n  return createAdminClient(\n    process.env.NEXT_PUBLIC_SUPABASE_URL!,\n    process.env.SUPABASE_SERVICE_ROLE_KEY!,\n    { auth: { persistSession: false, autoRefreshToken: false } }\n  )\n}\n```\n\n`src/lib/supabase/middleware.ts` \u2014 session refresh helper\n```ts\nimport { createServerClient } from '@supabase/ssr'\nimport { NextResponse, type NextRequest } from 'next/server'\n\nexport async function updateSession(request: NextRequest) {\n  let response = NextResponse.next({ request })\n\n  const supabase = createServerClient(\n    process.env.NEXT_PUBLIC_SUPABASE_URL!,\n    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,\n    {\n      cookies: {\n        getAll() {\n          return request.cookies.getAll()\n        },\n        setAll(cookiesToSet) {\n          cookiesToSet.forEach(({ name, value }) => request.cookies.set(name, value))\n          response = NextResponse.next({ request })\n          cookiesToSet.forEach(({ name, value, options }) =>\n            response.cookies.set(name, value, options)\n          )\n        },\n      },\n    }\n  )\n\n  // Refreshes the auth token and keeps the session alive.\n  await supabase.auth.getUser()\n  return response\n}\n```\n\n`middleware.ts` (project root)\n```ts\nimport { type NextRequest } from 'next/server'\nimport { updateSession } from './src/lib/supabase/middleware'\n\nexport async function middleware(request: NextRequest) {\n  return await updateSession(request)\n}\n\nexport const config = {\n  matcher: ['/((?!_next/static|_next/image|favicon.ico).*)'],\n}\n```\n\n`src/lib/auth.ts` \u2014 auth helpers\n```ts\nimport { createClient } from './supabase/server'\n\nexport async function getUser() {\n  const supabase = createClient()\n  const { data: { user } } = await supabase.auth.getUser()\n  return user\n}\n\nexport async function signInWithPassword(email: string, password: string) {\n  const supabase = createClient()\n  return supabase.auth.signInWithPassword({ email, password })\n}\n\nexport async function signUp(email: string, password: string) {\n  const supabase = createClient()\n  return supabase.auth.signUp({ email, password })\n}\n\nexport async function signOut() {\n  const supabase = createClient()\n  return supabase.auth.signOut()\n}\n```\n\n`src/lib/storage.ts` \u2014 storage helpers\n```ts\nimport { createClient } from './supabase/server'\n\nconst BUCKET = process.env.SUPABASE_CUSTOMER_BUCKET ?? 'customer-files'\n\nexport async function uploadCustomerFile(path: string, file: File | Blob) {\n  const supabase = createClient()\n  return supabase.storage.from(BUCKET).upload(path, file, { upsert: false })\n}\n\nexport async function downloadCustomerFile(path: string) {\n  const supabase = createClient()\n  return supabase.storage.from(BUCKET).download(path)\n}\n\nexport async function listCustomerFiles(prefix = '') {\n  const supabase = createClient()\n  return supabase.storage.from(BUCKET).list(prefix)\n}\n\nexport async function removeCustomerFile(paths: string[]) {\n  const supabase = createClient()\n  return supabase.storage.from(BUCKET).remove(paths)\n}\n\nexport async function signedUrl(path: string, expiresIn = 3600) {\n  const supabase = createClient()\n  return supabase.storage.from(BUCKET).createSignedUrl(path, expiresIn)\n}\n```\n\n`supabase/storage.sql` \u2014 bucket + RLS policies (run in Supabase SQL editor)\n```sql\n-- Create a private bucket for customer files.\ninsert into storage.buckets (id, name, public)\nvalues ('customer-files', 'customer-files', false)\non conflict (id) do nothing;\n\n-- RLS: each authenticated user can only touch files under their own user-id prefix.\ncreate policy \"customer read own files\"\n  on storage.objects for select to authenticated\n  using (bucket_id = 'customer-files' and (storage.foldername(name))[1] = auth.uid()::text);\n\ncreate policy \"customer upload own files\"\n  on storage.objects for insert to authenticated\n  with check (bucket_id = 'customer-files' and (storage.foldername(name))[1] = auth.uid()::text);\n\ncreate policy \"customer delete own files\"\n  on storage.objects for delete to authenticated\n  using (bucket_id = 'customer-files' and (storage.foldername(name))[1] = auth.uid()::text);\n```\n\n`tsconfig.json`\n```json\n{\n  \"compilerOptions\": {\n    \"target\": \"ES2020\",\n    \"lib\": [\"dom\", \"dom.iterable\", \"ES2020\"],\n    \"module\": \"esnext\",\n    \"moduleResolution\": \"bundler\",\n    \"jsx\": \"preserve\",\n    \"strict\": true,\n    \"noEmit\": true,\n    \"esModuleInterop\": true,\n    \"skipLibCheck\": true,\n    \"resolveJsonModule\": true,\n    \"incremental\": true,\n    \"plugins\": [{ \"name\": \"next\" }]\n  },\n  \"include\": [\"**/*.ts\", \"**/*.tsx\", \".next/types/**/*.ts\"],\n  \"exclude\": [\"node_modules\"]\n}\n```\n\n`README.md` \u2014 setup notes (plan + how to run, env, SQL).\n\n---\n\nThese are read-only drafts so far \u2014 **I have not written any files** (no folder is set). Approve the block below to create them at the default path, or reply with a different location and I'll retarget.\n\n```proposal\n{\n  \"summary\": \"Scaffold Supabase auth + storage integration skeleton for 'Supabase Customers r4' at workspace/projects/supabase-customers-r4/ (no deploy)\",\n  \"files\": [\n    {\"path\": \"workspace/projects/supabase-customers-r4/package.json\", \"action\": \"create\", \"why\": \"Next.js + Supabase deps and scripts\"},\n    {\"path\": \"workspace/projects/supabase-customers-r4/tsconfig.json\", \"action\": \"create\", \"why\": \"TypeScript config for typecheck\"},\n    {\"path\": \"workspace/projects/supabase-customers-r4/.env.example\", \"action\": \"create\", \"why\": \"Supabase URL/anon/service-role/bucket placeholders (no real secrets)\"},\n    {\"path\": \"workspace/projects/supabase-customers-r4/middleware.ts\", \"action\": \"create\", \"why\": \"Next.js middleware entry for session refresh\"},\n    {\"path\": \"workspace/projects/supabase-customers-r4/src/lib/supabase/client.ts\", \"action\": \"create\", \"why\": \"Browser Supabase client\"},\n    {\"path\": \"workspace/projects/supabase-customers-r4/src/lib/supabase/server.ts\", \"action\": \"create\", \"why\": \"SSR + service-role Supabase clients\"},\n    {\"path\": \"workspace/projects/supabase-customers-r4/src/lib/supabase/middleware.ts\", \"action\": \"create\", \"why\": \"Session-refresh helper\"},\n    {\"path\": \"workspace/projects/supabase-customers-r4/src/lib/auth.ts\", \"action\": \"create\", \"why\": \"Auth helpers: signIn/signUp/signOut/getUser\"},\n    {\"path\": \"workspace/projects/supabase-customers-r4/src/lib/storage.ts\", \"action\": \"create\", \"why\": \"Storage helpers: upload/download/list/remove/signedUrl\"},\n    {\"path\": \"workspace/projects/supabase-customers-r4/supabase/storage.sql\", \"action\": \"create\", \"why\": \"Bucket creation + RLS policies\"},\n    {\"path\": \"workspace/projects/supabase-customers-r4/README.md\", \"action\": \"create\", \"why\": \"Plan + setup/run/env/SQL notes\"}\n  ],\n  \"commands\": [\n    {\"cmd\": \"cd workspace/projects/supabase-customers-r4 && npm install && npm run typecheck\", \"where\": \"local\", \"why\": \"Verify the skeleton type-checks after scaffolding (local only, no deploy)\"}\n  ]\n}\n```"
+  },
+  "owner_approvals": [
+   {
+    "id": "8efef7bd4f08",
+    "member": "Fullstack",
+    "kind": "change",
+    "files": [
+     "workspace/projects/supabase-customers-r4/package.json",
+     "workspace/projects/supabase-customers-r4/tsconfig.json",
+     "workspace/projects/supabase-customers-r4/.env.example",
+     "workspace/projects/supabase-customers-r4/middleware.ts",
+     "workspace/projects/supabase-customers-r4/src/lib/supabase/client.ts",
+     "workspace/projects/supabase-customers-r4/src/lib/supabase/server.ts",
+     "workspace/projects/supabase-customers-r4/src/lib/supabase/middleware.ts",
+     "workspace/projects/supabase-customers-r4/src/lib/auth.ts",
+     "workspace/projects/supabase-customers-r4/src/lib/storage.ts",
+     "workspace/projects/supabase-customers-r4/supabase/storage.sql",
+     "workspace/projects/supabase-customers-r4/README.md"
+    ],
+    "commands": [
+     {
+      "cmd": "cd workspace/projects/supabase-customers-r4 && npm install && npm run typecheck",
+      "where": "local",
+      "why": "Verify the skeleton type-checks after scaffolding (local only, no deploy)"
+     }
+    ],
+    "approved": false
+   }
+  ]
+ },
+ "diff": {
+  "counts": {
+   "projects": 1,
+   "project_agents": 4,
+   "files": 5
+  },
+  "shared_added": [],
+  "shared_removed": [],
+  "manifests_new_or_changed": {},
+  "agents_changed": [
+   "security"
+  ],
+  "agents_db_added": []
+ },
+ "project": {
+  "files": [
+   "agents.json",
+   "data/jsons/approvals.json",
+   "data/jsons/main_tasks.json",
+   "index.json",
+   "instructions/instructions.md"
+  ],
+  "manifest": null,
+  "team_db": [
+   "Security",
+   "QA",
+   "Fullstack",
+   "EasyPost"
+  ],
+  "agent_scope": [],
+  "delta_like_files": {
+   "agents.json": "{\n  \"agents\": [\n    {\n      \"name\": \"Fullstack\",\n      \"role\": \"Fullstack\",\n      \"avatar\": \"generic\",\n      \"description\": \"Builds the ENTIRE web application \u2014 frontend + backend + database \u2014 in ONE hand, in ANY web stack (Node.js/TS, Laravel/PHP, Python/Django, .NET/C#, Rails, \u2026), installing whatever it needs (Node, Laravel, .NET, etc.). May use Flutter for WEB targets only (never mobile). RESEARCHES & WRITES every third-party integration itself (HubSpot, Klaviyo, Mailchimp, Veeqo, 3PL, GA, \u2026) \u2014 for those it only ASKS the relevant operator for that service's API KEY, then writes the calling code. One owner of the whole web codebase: NO frontend/backend hand-off, no shared-folder conflict. Does NOT build mobile apps (Mobile) and does NOT deploy (DevOps).\",\n      \"skills\": [],\n      \"responsibilities\": [],\n      \"restrictions\": [],\n      \"model\": \"\",\n      \"nature\": \"technical\",\n      \"mode\": \"\",\n      \"resources\": \"=== ALLOWED RESOURCES & DEPENDENCIES (read FIRST; REASON before you ask \u2014 never ask for anything already here or already in the brief/shared pool) ===\\n\u2022 PERMISSIONS: full read/write + shell. You CREATE and EDIT files (Write/Edit/Bash) inside the project folder you are given. If a Write/Edit actually fails, say so explicitly \u2014 do NOT silently narrate instead of building.\\n\u2022 INTEGRATION KEYS / ENV: credentials come from the ENVIRONMENT, not from other agents. Read them, in this order, from: (1) the ENV/keys block in your mandate/brief, (2) the shared pool, (3) the ",
+   "index.json": "{\n  \"id\": \"customer-orders-internal-app-rep-4\",\n  \"name\": \"Supabase Customers r4\",\n  \"type\": \"internal_web_app_customer_order_directory\",\n  \"category\": \"Our usual web stack \u2014 Next.js (React/TypeScript) frontend + NestJS (TypeScript) backend \u2014 with Supabase providing authentication and file storage instead of our usual auth/storage. Local development only; NOT deployed in this run.\",\n  \"description\": \"OBJECTIVE: Build a SMALL internal web app (this is rep 4) that lists our customers and their orders, for internal staff use. STACK: Use our usual web stack (Next.js frontend + NestJS backend, TypeScript throughout) \u2014 EXCEPT authentication and file storage, which MUST use Supabase (Supabase Auth + Supabase Storage), a platform we have NOT used before and must set up/learn for this project. DELIVERABLE SCOPE: internal directory UI that lists customers and, per customer, their orders; staff must authenticate (via Supabase Auth) to access it; any file attachments/documents use Supabase Storage. FOLDERS: build entirely inside this project's own folder (its localPath) \u2014 create frontend/ and backend/ subfolders there; do NOT scaffold anything at the Odin app repo root and do NOT touch any other project. INTEGRATIONS: Supabase (Auth + Storage) is the only mandated external integration; wire credentials via environment variables only \u2014 never commit secrets. Customer/order data source: start from a local database (seed/mock data acceptable for a small internal app) unless the owner points "
+  },
+  "agents_json": "{\n  \"agents\": [\n    {\n      \"name\": \"Fullstack\",\n      \"role\": \"Fullstack\",\n      \"avatar\": \"generic\",\n      \"description\": \"Builds the ENTIRE web application \u2014 frontend + backend + database \u2014 in ONE hand, in ANY web stack (Node.js/TS, Laravel/PHP, Python/Django, .NET/C#, Rails, \u2026), installing whatever it needs (Node, Laravel, .NET, etc.). May use Flutter for WEB targets only (never mobile). RESEARCHES & WRITES every third-party integration itself (HubSpot, Klaviyo, Mailchimp, Veeqo, 3PL, GA, \u2026) \u2014 for those it only ASKS the relevant operator for that service's API KEY, then writes the calling code. One owner of the whole web codebase: NO frontend/backend hand-off, no shared-folder conflict. Does NOT build mobile apps (Mobile) and does NOT deploy (DevOps).\",\n      \"skills\": [],\n      \"responsibilities\": [],\n      \"restrictions\": [],\n      \"model\": \"\",\n      \"nature\": \"technical\",\n      \"mode\": \"\",\n      \"resources\": \"=== ALLOWED RESOURCES & DEPENDENCIES (read FIRST; REASON before you ask \u2014 never ask for anything already here or already in the brief/shared pool) ===\\n\u2022 PERMISSIONS: full read/write + shell. You CREATE and EDIT files (Write/Edit/Bash) inside the project folder you are given. If a Write/Edit actually fails, say so explicitly \u2014 do NOT silently narrate instead of building.\\n\u2022 INTEGRATION KEYS / ENV: credentials come from the ENVIRONMENT, not from other agents. Read them, in this order, from: (1) the ENV/keys block in your mandate/brief, (2) the shared pool, (3) the project `.env`, (4) workspace/shared/oth/.cred. Do NOT ask an operator (Fulfillment/Email/\u2026) for the app's key \u2014 the app uses the env key provided for it. START by reading the env/config; do NOT begin by testing a key unless the task requires it.\\n\u2022 ASK-IF-MISSING: only if a key/var the task needs is in NONE of those sources, ask the CTO ONCE for that specific item, then continue. If read/write is genuinely unavailable, state exactly that.\\n\",\n      \"env\": [],\n      \"asset\": \"\",\n      \"rules\": [],\n      \"stats\": {\n        \"invocations\": 1,\n        \"lastActive\": 1791715341.2416599\n      },\n      \"created\": 1791715327.243351\n    },\n    {\n      \"name\": \"Security\",\n      \"role\": \"Security\",\n      \"avatar\": \"generic\",\n      \"description\": \"Owns security & THREAT HUNTING \u2014 scans the codebase for vulnerabilities, hunts breaches, researches new CVEs/threats online, hardens auth/secrets, and runs PERIODIC security checks across BOTH local and cloud, surfacing suspicious activity. Reviews/advises and applies security config; not feature development.\",\n      \"skills\": [],\n      \"responsibilities\": [],\n      \"restrictions\": [],\n      \"model\": \"\",\n      \"nature\": \"technical\",\n      \"mode\": \"\",\n      \"resources\": \"=== ALLOWED RESOURCES & DEPENDENCIES (read FIRST; REASON before you ask \u2014 never ask for anything already here or already in the brief/shared pool) ===\\n\u2022 PERMISSIONS: read/write within your discipline (Write/Edit/Bash as needed).\\n\u2022 ENV/KEYS: if your task needs credentials, read them from (1) the ENV/keys block in your mandate/brief, (2) the shared pool, (3) the project `.env`, (4) workspace/shared/oth/.cred; ask the CTO ONCE only if a needed item is absent everywhere.\\n\u2022 NEEDS: the upstream deliverables named in your mandate. Reason before asking; never ask for what you already have.\\n\",\n      \"env\": [],\n      \"asset\": \"\",\n      \"rules\": [],\n      \"stats\": {\n        \"invocations\": 0,\n        \"lastActive\": null\n      },\n      \"created\": 1791715327.246973\n    },\n    {\n      \"name\": \"QA\",\n      \"role\": \"QA\",\n      \"avatar\": \"generic\",\n      \"description\": \"Owns quality \u2014 tests, reviews and VERIFIES each part against the brief, runs lint/type-check/test suites, and audits every success claim against real evidence. READ-ONLY: it verifies, it does NOT implement features. Runs AFTER the thing it checks exists.\",\n      \"skills\": [],\n      \"responsibilities\": [],\n      \"restrictions\": [],\n      \"model\": \"\",\n      \"nature\": \"technical\",\n      \"mode\": \"\",\n      \"resourc",
+  "members_api": [
+   "Fullstack",
+   "Security",
+   "QA",
+   "EasyPost"
+  ]
+ },
+ "audit_project": [
+  {
+   "type": "unindexed",
+   "path": "workspace/projects/customer-orders-internal-app-rep-4/instructions/instructions.md"
+  },
+  {
+   "type": "unindexed",
+   "path": "workspace/projects/customer-orders-internal-app-rep-4/data/jsons/main_tasks.json"
+  },
+  {
+   "type": "unindexed",
+   "path": "workspace/projects/customer-orders-internal-app-rep-4/data/jsons/approvals.json"
+  }
+ ],
+ "earlier_projects": {
+  "revealer-6978": {
+   "deps": [
+    {
+     "name": "testing",
+     "base_exists": true,
+     "overlay": "tests/",
+     "overlay_exists": true
+    },
+    {
+     "name": "deploy_changes.py",
+     "base_exists": true,
+     "overlay": "deploy/revealer-6978.config.sh",
+     "overlay_exists": true
+    },
+    {
+     "name": "project_test.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    },
+    {
+     "name": "dup_test_r2.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    },
+    {
+     "name": "dup_test_r3.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    }
+   ],
+   "audit_issues": 1
+  },
+  "hubspot-crm-operator": {
+   "deps": [
+    {
+     "name": "project_test.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    },
+    {
+     "name": "dup_test_r2.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    },
+    {
+     "name": "dup_test_r3.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    }
+   ],
+   "audit_issues": 0
+  },
+  "fulfillment-vq-status-read-only-dc1e": {
+   "manifest": false
+  },
+  "backend-sandbox-rep-6": {
+   "deps": [
+    {
+     "name": "deploy_changes.py",
+     "base_exists": true,
+     "overlay": "deploy/backend-sandbox-rep-6.config.sh",
+     "overlay_exists": true
+    }
+   ],
+   "audit_issues": 1
+  },
+  "brand2-email-reporting": {
+   "manifest": false
+  },
+  "odin-landing-lead-0d48": {
+   "manifest": false
+  },
+  "backend-sandbox-rep-7": {
+   "deps": [
+    {
+     "name": "deploy_changes.py",
+     "base_exists": true,
+     "overlay": "deploy/backend-sandbox-rep-7.config.sh",
+     "overlay_exists": true
+    }
+   ],
+   "audit_issues": 1
+  },
+  "brand2-email-reporting-rep3": {
+   "manifest": false
+  },
+  "odin-landing-lead-rep-3": {
+   "manifest": false
+  },
+  "landing-leads-rep4": {
+   "manifest": false
+  },
+  "odin-external-arms": {
+   "deps": [
+    {
+     "name": "anchor_web_deploy",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    }
+   ],
+   "audit_issues": 0
+  },
+  "zoom-real-flow": {
+   "manifest": false
+  },
+  "landing-leads-rep5": {
+   "manifest": false
+  },
+  "odin-landing-lead": {
+   "manifest": false
+  },
+  "email-klaviyo-workflows-read-only-18ca": {
+   "manifest": false
+  },
+  "full-services-19jul": {
+   "deps": [
+    {
+     "name": "deploy_changes.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    },
+    {
+     "name": "INSTALL_SOC_SENSOR.md",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    }
+   ],
+   "audit_issues": 0
+  },
+  "customer-orders-portal": {
+   "manifest": false
+  },
+  "sandbox-three-rep-3": {
+   "manifest": false
+  },
+  "customers-orders-portal-rep-2": {
+   "manifest": false
+  },
+  "customers-orders-portal": {
+   "manifest": false
+  },
+  "brand2-email-reporting-b491": {
+   "manifest": false
+  },
+  "real-deployment-and-diagnosis-organics-07d7": {
+   "manifest": false
+  },
+  "backend-sandbox-rep-5": {
+   "deps": [
+    {
+     "name": "deploy_changes.py",
+     "base_exists": true,
+     "overlay": "deploy/backend-sandbox-rep-5.config.sh",
+     "overlay_exists": true
+    }
+   ],
+   "audit_issues": 1
+  },
+  "backend-sandbox-rep-2": {
+   "manifest": false
+  },
+  "backend-sandbox-rep-4": {
+   "deps": [
+    {
+     "name": "deploy_changes.py",
+     "base_exists": true,
+     "overlay": "deploy/backend-sandbox-rep-4.config.sh",
+     "overlay_exists": true
+    }
+   ],
+   "audit_issues": 1
+  },
+  "daily-egypt-amazon-product-poster": {
+   "manifest": false
+  },
+  "redberry-continuous-soc": {
+   "deps": [
+    {
+     "name": "INSTALL_SOC_SENSOR.md",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    }
+   ],
+   "audit_issues": 0
+  },
+  "sandbox2-backend": {
+   "manifest": false
+  },
+  "landing-leads-rep6": {
+   "manifest": false
+  },
+  "vm-sentinel": {
+   "manifest": false
+  }
+ }
+}

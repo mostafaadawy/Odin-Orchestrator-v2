@@ -1,0 +1,32 @@
+== g6
+rc=0
+== g6b
+rc=0
+== g8
+rc=0
+== g8b
+rc=0
+== g5
+rc=0
+== g7
+rc=0
+== f07
+rc=0
+== f37
+rc=0
+== g11
+rc=0
+== f38
+rc=0
+== g12
+rc=0
+== g9
+rc=0
+== g9b
+rc=0
+fix3 rc=0
+
+RESULT: ALL PASS
+
+RESULT: ALL PASS
+ALLDONE

@@ -1,0 +1,518 @@
+{
+"rows": [
+{
+"head": "[Project CTO → Chief] Plan: 1) Fulfillment → Connect to Veeqo (VQ) READ-ONLY using your de",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] ⚠️ Incomplete — 1 requirement(s) NOT addressed: Perform all operatio",
+"claims": false,
+"verdicts": [
+"confirmed"
+]
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) Fulfillment → Connect to Veeqo (read-only) and report live ",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] ⚠️ Incomplete — 3 requirement(s) NOT addressed: Answer strictly from",
+"claims": false,
+"verdicts": [
+"unclear"
+]
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) Fulfillment → Using your default Veeqo key in oth/.cred (re",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] ⚠️ Incomplete — 8 requirement(s) NOT addressed: Route the request to",
+"claims": false,
+"verdicts": [
+"unclear"
+]
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) Fulfillment → Report this week's order count and the recent",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] ⚠️ Incomplete — 2 requirement(s) NOT addressed: Route/assign the req",
+"claims": false,
+"verdicts": [
+"confirmed"
+]
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) Fulfillment → Verify the Veeqo (VQ) connection is live and ",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) Fulfillment → Connect to Veeqo (read-only) and report this ",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] ⚠️ Incomplete — 3 requirement(s) NOT addressed: Route/assign the req",
+"claims": false,
+"verdicts": [
+"confirmed"
+]
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) Fulfillment → COMPLETE THE DRILL — your last report was mar",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] All requirements addressed ✅",
+"claims": true,
+"verdicts": [
+"needs_fix"
+]
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) Fulfillment → DRILL (read-only, NO deploy, never print any ",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] All requirements addressed ✅",
+"claims": true,
+"verdicts": [
+"needs_fix"
+]
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) Fulfillment → Final tight pass — the CTO flagged only 2 ite",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] ⚠️ Incomplete — 1 requirement(s) NOT addressed: Output stays under ~",
+"claims": false,
+"verdicts": [
+"confirmed"
+]
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) Fulfillment → Do your part for: Run this project's recurrin",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] All requirements addressed ✅",
+"claims": true,
+"verdicts": [
+"needs_fix",
+"confirmed"
+]
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) Fulfillment → SOLVE THE DRILL COMPLETELY — the last two run",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] ⚠️ Incomplete — 2 requirement(s) NOT addressed: Report tracker.statu",
+"claims": false,
+"verdicts": [
+"confirmed"
+]
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) Email → Connect to Klaviyo in READ-ONLY mode (send/change n",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] All requirements addressed ✅",
+"claims": true,
+"verdicts": [
+"needs_fix"
+]
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) Email → Connect to Klaviyo (read-only) and pull the last 6 ",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) Email → Connect to Klaviyo (READ-ONLY) using the default Kl",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] All requirements addressed ✅",
+"claims": true,
+"verdicts": [
+"confirmed"
+]
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) Email → Pull our recent Klaviyo email workflows (flows) and",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] ⚠️ Incomplete — 4 requirement(s) NOT addressed: Assign the appropria",
+"claims": false,
+"verdicts": [
+"needs_fix"
+]
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) Content Creator → Build the ENTIRE local daily content agen",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] All requirements addressed ✅",
+"claims": true,
+"verdicts": [
+"needs_fix",
+"needs_fix",
+"unclear",
+"confirmed"
+]
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) Content Creator → Reconcile the project agent roster to the",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) Content Creator → Correct the project's agent configuration",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) Content Creator → OWNER'S INSTRUCTIONS — verbatim, follow E",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] ⚠️ Incomplete — 1 requirement(s) NOT addressed: Operate in operation",
+"claims": false,
+"verdicts": [
+"needs_fix"
+]
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) Fullstack → Build the core full-stack application in this p",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) CTO Orchestrator → Open the RedBerry Continuous SOC health ",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] All requirements addressed ✅",
+"claims": true,
+"verdicts": [
+"needs_fix"
+]
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) Fullstack → Build the entire Revealer sandbox web app in on",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] Some parts still have QA issues ⚠️",
+"claims": false,
+"verdicts": [
+"needs_fix",
+"needs_fix",
+"confirmed",
+"confirmed",
+"confirmed"
+]
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) Fullstack → Build the entire Revealer app as a BACKEND-ONLY",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) Fullstack → Build the entire Revealer web app (UI + API + D",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) DevOps → Do your part for: Run this project's recurring/dai",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) DevOps → Run this project's recurring/daily task now — do e",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] ⚠️ Incomplete — 1 requirement(s) NOT addressed: Load and apply this ",
+"claims": false,
+"verdicts": [
+"needs_fix"
+]
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) DevOps → Run this project's recurring/daily task now — do e",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] ⚠️ Incomplete — 3 requirement(s) NOT addressed: Identify what this p",
+"claims": false,
+"verdicts": [
+"needs_fix"
+]
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) DevOps → Do your part for: I need you to check the folders ",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] ⚠️ Incomplete — 3 requirement(s) NOT addressed: I need you to check ",
+"claims": false,
+"verdicts": [
+"unclear"
+]
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) DevOps → Do your part for: believe you don't need to make a",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] All requirements addressed ✅",
+"claims": true,
+"verdicts": [
+"unclear"
+]
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) DevOps → Access the Organics VM using the assigned protocol",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) DevOps → Read-only Cloud/SRE diagnosis on the live Organics",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] ⚠️ Incomplete — 1 requirement(s) NOT addressed: Connect to the Organ",
+"claims": false,
+"verdicts": [
+"needs_fix",
+"confirmed",
+"needs_fix",
+"needs_fix"
+]
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) DevOps → Diagnose the live 400 Bad Request on login/signup/",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] ⚠️ Incomplete — 1 requirement(s) NOT addressed: Run `journalctl -u <",
+"claims": false,
+"verdicts": [
+"needs_fix",
+"needs_fix",
+"needs_fix",
+"needs_fix",
+"confirmed",
+"confirmed",
+"needs_fix"
+]
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) DevOps → Deploy Organics to the VM SAFELY: refresh the dyna",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] ⚠️ Incomplete — a member's Claude engine could not authenticate (log",
+"claims": false,
+"verdicts": [
+"needs_fix",
+"needs_fix",
+"needs_fix",
+"needs_fix",
+"needs_fix",
+"needs_fix",
+"needs_fix",
+"needs_fix"
+]
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) DevOps → Check the deploy trigger: detect whether there are",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] ⚠️ Incomplete — 1 requirement(s) NOT addressed: Run the post-deploy ",
+"claims": false,
+"verdicts": [
+"needs_fix",
+"needs_fix",
+"confirmed",
+"confirmed",
+"confirmed",
+"confirmed",
+"unclear",
+"unclear"
+]
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) DevOps → Do your part for: i have made many modifications a",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] ⚠️ Incomplete — a member's Claude engine could not authenticate (log",
+"claims": false,
+"verdicts": [
+"unclear"
+]
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) DevOps → please use the trigger script to list here the new",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] ⚠️ Incomplete — a member's Claude engine could not authenticate (log",
+"claims": false,
+"verdicts": [
+"needs_fix"
+]
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) DevOps → please use the trigger script to list here the new",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] All requirements addressed ✅",
+"claims": true,
+"verdicts": [
+"confirmed"
+]
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) DevOps → check and tell me do e need to deploy and also wha",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] ⚠️ Incomplete — 2 requirement(s) NOT addressed: Determine and report",
+"claims": false,
+"verdicts": [
+"unclear"
+]
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) DevOps → please deploy it. Briefing the team now. (DevOps-o",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) DevOps → check for required deploy and list the files needs",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] ⚠️ Incomplete — 1 requirement(s) NOT addressed: Ensure no database r",
+"claims": false,
+"verdicts": [
+"confirmed"
+]
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) DevOps → no db rebase and need to know the list of modified",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] ⚠️ Incomplete — 2 requirement(s) NOT addressed: Present the modified",
+"claims": false,
+"verdicts": [
+"confirmed"
+]
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) DevOps → first i need you to avoid deploy while you will fi",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] ⚠️ Incomplete — 1 requirement(s) NOT addressed: Leave all other file",
+"claims": false,
+"verdicts": [
+"needs_fix"
+]
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) DevOps → MAIN DIAGNOSIS (read-only, NO deploy, no writes, n",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] All requirements addressed ✅",
+"claims": true,
+"verdicts": [
+"confirmed"
+]
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) DevOps → COMPLETE THE DIAGNOSIS (CAPABILITY 2) — the CTO fl",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] All requirements addressed ✅",
+"claims": true,
+"verdicts": [
+"confirmed"
+]
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) DevOps → Do your part for: Run this project's recurring/dai",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] ⚠️ Incomplete — 3 requirement(s) NOT addressed: Identify what this p",
+"claims": false,
+"verdicts": [
+"confirmed"
+]
+},
+{
+"head": "[Project CTO → Chief] Plan: 1) DevOps → Run this project's recurring/daily task now — do e",
+"claims": false,
+"verdicts": []
+},
+{
+"head": "[Project CTO → Chief] ⚠️ Incomplete — 3 requirement(s) NOT addressed: Identify what this p",
+"claims": false,
+"verdicts": [
+"needs_fix"
+]
+}
+],
+"rule": "fix2b"
+}

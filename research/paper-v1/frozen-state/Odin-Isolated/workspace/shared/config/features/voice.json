@@ -1,0 +1,6 @@
+{
+  "feature": "voice",
+  "icon": "streaming-voice",
+  "label": "Voice streaming",
+  "capability": "shared/features/voice"
+}

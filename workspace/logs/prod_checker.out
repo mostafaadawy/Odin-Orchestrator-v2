@@ -1,0 +1,67 @@
+================ ODIN PHASE 3 — ONLINE / PRODUCTION ================
+  domain: https://anchor.odinmarkets.com   (443 reverse proxy · existing SSL reused · no raw ports)
+init: created nothing (copies already exist)
+Changes detected in the ORIGINAL successful folders vs the deployment copies:
+  anchor: .cred
+  web:    source changed since the last deployment
+DECISION=CHANGED
+  decision: CHANGED
+  → changes detected; ODIN_PHASE3_YES=1 → deploying.
+
+---- pre-deploy VM validation (read-only) ----------------------------------------
+VM validation (read-only — nothing is created or changed here):
+  ✓ firewall SSH rule refreshed to current IP (replace, not duplicate) — 196.156.85.84
+  ✓ SSH connectivity — ok / mostafa / django-vm
+  ✓ nginx reverse proxy — discord_dashboard odin-proxy odin-travel-desk odinmarkets odinmedicalsupplies omh redberry-bendcore redberry-welcome red
+  ✓ SSL/domain (valid cert, reused — never self-signed) — 200 0
+  ✓ anchor deploy path /home/mostafa/anchor-online — present
+  ✓ web deploy path /home/mostafa/odin-web — present
+  ✓ PostgreSQL service — active
+     odin_anchor DB present: yes
+  ✓ anchor credentials on VM — cred_ok
+  ✓ firewall (ufw) — read-only snapshot — 80/tcp                     ALLOW       Anywhere                   443/tcp                    ALLOW       Anywhere       
+  note: firewall is NOT modified by validation; port 22 stays restricted to the current dynamic IP.
+
+---- deploy ANCHOR: overwrite /home/mostafa/anchor-online FROM deploy_anchor + Postgres link + restart ----
+  ✓ Postgres link ready — role odin_anchor owns existing DB odin_anchor, TCP+password DSN connects (like bendcore).
+  ✓ psycopg2 in the anchor's isolated venv — 2.9.12 (dt dec pq3 ext lo64)
+  ✓ anchor folder overwritten from deploy_anchor (.venv preserved)
+  ✓ anchor online /health = 200 — HTTP 200
+  ✓ anchor is using Postgres (anchor table present in odin_anchor) — tables=1
+
+---- build PRODUCTION web then overwrite /home/mostafa/odin-web FROM deploy_web ----
+  ✓ production web built
+  ✗ web folder overwritten from deploy_web (service file preserved)
+  ✓ web online /odin-web = 200/301 — HTTP 301
+
+---- production e2e tests (fixed checks against the ONLINE endpoints) -------------
+Production e2e against https://anchor.odinmarkets.com  (valid SSL required — never self-signed):
+  ✓ anchor /health = 200 + ok:true — HTTP 200
+  ✓ anchor landing page serves (200) — HTTP 200
+  ✓ web /odin-web serves (200/301) — HTTP 200
+  ✓ web page is the Flutter app
+  ✓ anon web read is BLOCKED (401 login required) — HTTP 401
+  ✓ login with email+password+desktop code works (production) — HTTP 200
+  ✓ authed web read = 200 (7-day session active) — HTTP 200
+  ✓ app production profile uses domain anchor + EMPTY apiBase (no direct backend) — config.dart deployed profile
+  ✓ api throws on any direct-backend call in anchor mode
+
+RESULT: PASS — production endpoints answer correctly and config points to the online anchor only.
+snapshot: deployment copies refreshed + first-run flag set.
+  ✓ deployment copies refreshed + first-run flag stamped.
+  ✓ production config written (anchor_prod.js → https://anchor.odinmarkets.com/odin-anchor); development profiles untouched.
+  desktop → Electron launching (production env; workspace/logs/desktop.log)
+  mobile → REAL iPhone (8ddfda0a249ee6108ed6e7e33d50a2864557a338), PRODUCTION (needs a signing team in Xcode; see workspace/logs/app_ios.log)
+shells/production_full_checker.sh: line 243: 41519 Killed: 9               USE_VOICE=0 "$PYBIN" -m uvicorn server.app:app --host 127.0.0.1 --port "$BRAIN_PORT" > workspace/logs/brain.log 2>&1
+
+================ ODIN PHASE 3 — PRODUCTION, WHAT IS RUNNING ================
+  ANCHOR (online)   https://anchor.odinmarkets.com/odin-anchor        via nginx 443 · existing SSL · VM service odin-anchor-online
+  WEB (online)      https://anchor.odinmarkets.com/odin-web            deployed Flutter web — open from any browser
+  REQUEST page      http://localhost:9104/anchor_sim.html?env=prod   (talks to the ONLINE anchor)
+  DESKTOP           local Electron + local brain (backend stays local, reached via the anchor)
+  MOBILE sim        Flutter iOS simulator on the PRODUCTION profile
+  brain/poller      background on your Mac (no windows) — poller pulls from the ONLINE anchor
+  Phase 2 is untouched — run ./shells/development_full_checker.sh anytime for the development stack.
+===========================================================================
+shells/production_full_checker.sh: line 182: 41589 Killed: 9               "$PYBIN" webhook_receiver.py --port "$WEBHOOK_PORT" > "$ROOT/workspace/logs/webhook.log" 2>&1
+shells/production_full_checker.sh: line 186: 41596 Killed: 9               "$PYBIN" -m http.server "$ANCHOR_SIM_PORT" --bind 127.0.0.1 > "$ROOT/workspace/logs/anchor_sim.log" 2>&1

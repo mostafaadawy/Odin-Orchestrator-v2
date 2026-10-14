@@ -1,0 +1,41 @@
+\documentclass[10pt,conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% PAPER v2 -- DRAFT. Every number, table and figure is PROVISIONAL, pending the owner's human labels.
+% Paper v1 is a separate, frozen document and is not changed by this draft.
+\usepackage{cite}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage[table]{xcolor}
+\usepackage{url}
+\usepackage{array}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,calc}
+\usepackage[hidelinks]{hyperref}
+\usepackage{draftwatermark}
+\SetWatermarkText{PROVISIONAL}
+\SetWatermarkScale{0.9}
+\SetWatermarkColor[gray]{0.92}
+\definecolor{oiVerm}{HTML}{D55E00}
+\newcommand{\prov}{\textcolor{oiVerm}{\textbf{[provisional, pending human labels]}}}
+\newcommand{\sys}{Odin}
+\input{tables/numbers}
+\begin{document}
+\title{A Local, Calibrated Decider for Closed Decisions in an Agentic Orchestrator\\
+\large DRAFT -- all results provisional, pending human labels}
+\author{\IEEEauthorblockN{Mostafa A. M. Sayed Adawy}\IEEEauthorblockA{[Affiliation to be confirmed by the author]\\ {mostafa\_adawy@ymail.com}}}
+\maketitle
+\input{sections/00-abstract}
+\input{sections/01-introduction}
+\input{sections/02-rejected}
+\input{sections/03-method}
+\input{sections/04-truth}
+\input{sections/05-protocol}
+\input{sections/06-results}
+\input{sections/07-threats}
+\input{sections/08-related}
+\input{sections/09-repro}
+\input{sections/10-conclusion}
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+\end{document}

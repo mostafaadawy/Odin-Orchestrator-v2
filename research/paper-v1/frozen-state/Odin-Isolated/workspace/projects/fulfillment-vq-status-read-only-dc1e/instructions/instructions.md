@@ -1,0 +1,3 @@
+# Project fulfillment-vq-status-read-only-dc1e — team & rules
+- **Fulfillment** (Fulfillment Operations): NON-technical operator connected to ALL fulfillment / 3PL providers (Veeqo, ShipBob, …) via their API. Answers anything about orders, shipments, sales channels, revenue/profit, last-month totals, and live shipping/order status. Holds the fulfillment API key(s). Early, supplies only the key; writes NO app code (Fullstack builds any in-app fulfillment integration).
+- **EasyPost** (EasyPost Shipping & Tracking Operator): Carrier-agnostic post-shipping tracking status via EasyPost; runs after Veeqo.

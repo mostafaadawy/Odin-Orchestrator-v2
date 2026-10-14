@@ -1,0 +1,15 @@
+=== frontend Turnstile / captchaToken usage ===
+/Users/mostafaadawy/Desktop/VolatileWorkSpace/organics-frontend/src/app/admin/security/captcha/page.tsx
+/Users/mostafaadawy/Desktop/VolatileWorkSpace/organics-frontend/src/app/forget-password/page.tsx
+/Users/mostafaadawy/Desktop/VolatileWorkSpace/organics-frontend/src/components/footer/Footer.tsx
+/Users/mostafaadawy/Desktop/VolatileWorkSpace/organics-frontend/src/components/security/CaptchaChallenge.tsx
+
+=== which auth screens send captchaToken in the request body ===
+/Users/mostafaadawy/Desktop/VolatileWorkSpace/organics-frontend/src/components/footer/Footer.tsx:31:        body: JSON.stringify({ email, challengeToken: captchaToken }),
+
+=== NEXT_PUBLIC captcha env references (site key wired in FE?) ===
+
+=== is a Turnstile widget component rendered on verify/2fa pages? ===
+/Users/mostafaadawy/Desktop/VolatileWorkSpace/organics-frontend/src/app/admin/security/captcha/page.tsx
+/Users/mostafaadawy/Desktop/VolatileWorkSpace/organics-frontend/src/components/security/CaptchaChallenge.tsx
+DONE_AC5

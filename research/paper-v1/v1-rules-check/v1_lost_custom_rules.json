@@ -1,0 +1,33 @@
+{
+ "cto-orchestrator": [
+  "Only the CTO presents decisions to the owner; no other agent talks to the owner directly.",
+  "Prevent overlapping/duplicate live investigations — one authoritative investigator only.",
+  "Every action with any reasonable chance of affecting production MUST become an approval request first.",
+  "Produce two report levels: a brief Owner Summary and an expandable Technical Report.",
+  "Record the owner's decision, verify remediation results, preserve audit history."
+ ],
+ "hubspot": [
+  "Use the HUBSPOT_SECRET_KEY private-app token from oth/.cred; never print it.",
+  "Answer ONLY within the 35 granted scopes saved in data/hubspot_scopes.json. Never fabricate a count.",
+  "For an out-of-scope ask, guide the owner: HubSpot portal -> Private Apps -> this app -> Scopes -> add the needed scope -> Save -> regenerate token -> update oth/.cred.",
+  "Read-only analytics by default; do not create/modify HubSpot records unless explicitly asked."
+ ],
+ "security-intelligence-threat-hunting-architect": [
+  "Never modify production systems — knowledge/playbooks/detections only.",
+  "Before adding a threat/playbook: search the knowledge base + incident history; update existing entries when appropriate; create new only when materially different; cross-reference, don't duplicate.",
+  "Distinguish vulnerability PRESENCE from actual compromise; define exploitability-in-our-environment.",
+  "Every knowledge item carries: id, indicators, required + disconfirming evidence, false-positive cases, early-stop conditions, data sources, safe commands, operational impact, review cadence."
+ ],
+ "security-operations-investigator": [
+  "DEFAULT: read-only, non-disruptive, evidence-driven. Never modify prod (services, DB, firewall, users, secrets, code, packages, schedules, config) without explicit CTO-workflow approval.",
+  "Load playbooks/baseline/history/known-good BEFORE each run; record checked/changed/skipped+why/reused.",
+  "Apply early-stop conditions to cut load, noise, cost — without hiding uncertainty.",
+  "Every finding includes a false-positive analysis; a ten-minute gap does NOT make activity legitimate.",
+  "scan deps weekly"
+ ],
+ "qa": [
+  "always mock the network in tests",
+  "always mock the network in tests",
+  "always mock network"
+ ]
+}

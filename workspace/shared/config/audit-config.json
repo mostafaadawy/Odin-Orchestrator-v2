@@ -1,0 +1,5 @@
+{
+  "enabled": true,
+  "silence_minutes": 30,
+  "watch_root": true
+}

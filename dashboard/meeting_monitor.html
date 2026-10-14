@@ -1,0 +1,294 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Live Meeting</title>
+<style>
+  :root{--bg:#0a0c12;--panel:#121522;--panel2:#0f1320;--stroke:#232838;--txt:#e6e9ef;--dim:#8a93a6;
+        --ok:#57d38c;--brand:#6c8cff;--brand2:#7af0d0;--danger:#ff6b81;--warn:#ffd166}
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{background:var(--bg);color:var(--txt);font-family:system-ui,Segoe UI,Arial;line-height:1.5;padding:18px}
+  h1{font-size:17px;margin:0} .sub{color:var(--dim);font-size:12px;margin:2px 0 14px}
+  .row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  .card{background:var(--panel);border:1px solid var(--stroke);border-radius:16px;padding:16px}
+  .mic-wrap{display:grid;place-items:center;width:150px;height:150px;border-radius:50%;position:relative;flex:0 0 auto}
+  .halo{position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle,rgba(122,240,208,.35),transparent 70%);transform:scale(.5);transition:transform .06s linear,opacity .06s}
+  .mic{font-size:56px;z-index:2;filter:drop-shadow(0 0 10px rgba(122,240,208,.5))}
+  .meter{height:15px;border-radius:9px;background:#0e1120;border:1px solid var(--stroke);overflow:hidden;flex:1;min-width:180px}
+  .meter>i{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--ok),var(--brand2),#ffd166,var(--danger));transition:width .06s linear}
+  button{font-size:14px;padding:10px 15px;border-radius:11px;border:1px solid var(--stroke);background:#161b2e;color:var(--txt);cursor:pointer;font-weight:650}
+  button.primary{background:linear-gradient(180deg,#2b6cff,#1f5be0);border-color:#2b6cff}
+  button.stop{background:#2a1520;border-color:#5a2233;color:#ff9db0}
+  button.ok{background:linear-gradient(180deg,#2fbd77,#249a61);border-color:#2fbd77;color:#062}
+  button:disabled{opacity:.5;cursor:default}
+  .stat{font-size:12.5px;color:var(--dim)} .stat b{color:var(--txt)}
+  select{background:#161b2e;color:var(--txt);border:1px solid var(--stroke);border-radius:9px;padding:8px}
+  #chunks{margin-top:12px;max-height:200px;overflow:auto}
+  .chunk{display:flex;align-items:center;gap:9px;padding:7px 10px;border:1px solid var(--stroke);border-radius:10px;margin-bottom:6px;background:var(--panel2);animation:pop .25s ease both}
+  .chunk .tx{color:var(--dim);font-size:11.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:46%}
+  @keyframes pop{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .badge{font-size:10.5px;font-weight:800;color:#06231c;background:var(--brand2);border-radius:6px;padding:2px 7px}
+  .live{width:9px;height:9px;border-radius:50%;background:var(--danger);display:inline-block;animation:pulse 1.4s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,107,129,.6)}70%{box-shadow:0 0 0 8px rgba(255,107,129,0)}100%{box-shadow:0 0 0 0 rgba(255,107,129,0)}}
+  .hide{display:none!important}
+  #report{margin-top:6px;background:var(--panel2);border:1px solid var(--stroke);border-radius:12px;padding:16px;max-height:46vh;overflow:auto}
+  #report h1{font-size:19px;margin:.3em 0} #report h2{font-size:15.5px;margin:1em 0 .3em;color:var(--brand2)}
+  #report h3{font-size:13.5px;margin:.8em 0 .2em;color:var(--txt)} #report ul{margin:.2em 0 .6em 1.1em;padding:0}
+  #report li{margin:.15em 0} #report.rtl{direction:rtl;text-align:right}
+  .titlebar{display:flex;align-items:center;justify-content:space-between;margin-bottom:2px}
+  .x{width:30px;height:30px;border-radius:9px;padding:0;font-size:16px;line-height:1}
+  .overlay{position:fixed;inset:0;background:rgba(4,6,12,.72);display:grid;place-items:center;z-index:50}
+  .dlg{background:var(--panel);border:1px solid var(--stroke);border-radius:14px;padding:20px;max-width:400px;width:88%;text-align:center}
+  .dlg h3{margin:.1em 0 .5em}
+  .spin{width:18px;height:18px;border:2px solid var(--stroke);border-top-color:var(--brand2);border-radius:50%;display:inline-block;animation:sp .8s linear infinite;vertical-align:middle}
+  @keyframes sp{to{transform:rotate(360deg)}}
+</style>
+
+<div class="titlebar">
+  <h1>🎙️ Live Meeting</h1>
+  <button class="x" onclick="closeMe()" title="Close">✕</button>
+</div>
+<div class="sub">Listen in serial chunks, then stop to auto‑build the report in the meeting's language — export as Markdown or Word.</div>
+
+<!-- LISTENING VIEW -->
+<div id="listenView" class="card">
+  <div class="row">
+    <div class="mic-wrap"><div class="halo" id="halo"></div><div class="mic" id="mic">🎙️</div></div>
+    <div style="flex:1;min-width:240px">
+      <div class="row"><span class="stat">Mic level</span><div class="meter"><i id="bar"></i></div><span class="stat" id="pct">0%</span></div>
+      <div class="row" style="margin-top:10px">
+        <span class="stat" id="state">idle</span>
+        <span class="stat">· <b id="clock">0:00</b></span>
+        <span class="stat">· chunks <b id="ccount">0</b></span>
+        <span class="stat">· saved <b id="savedCount">0</b></span>
+        <span class="stat">· lang <b id="langState">—</b></span>
+        <span class="stat">· noise <b id="noiseState">—</b></span>
+        <span class="stat">· <span id="vad" style="color:var(--dim)">● voice</span></span>
+      </div>
+      <div class="row" style="margin-top:12px">
+        <button class="primary" id="start" onclick="onStart()">▶ Start listening</button>
+        <button id="pause" onclick="togglePause()" disabled>⏸ Pause</button>
+        <button class="stop" id="stop" onclick="onStop()" disabled>■ Stop &amp; finish</button>
+        <span class="stat">chunk every
+          <select id="interval">
+            <option value="15">15s</option><option value="30" selected>30s</option>
+            <option value="60">60s</option><option value="120">2 min</option>
+          </select>
+        </span>
+      </div>
+      <div class="stat" id="msg" style="margin-top:9px"></div>
+    </div>
+  </div>
+  <div id="chunks"></div>
+</div>
+
+<!-- REPORT VIEW -->
+<div id="reportView" class="hide">
+  <div class="row" style="justify-content:space-between;margin-bottom:8px;gap:10px">
+    <div class="row" style="gap:8px">
+      <span class="stat">View:</span>
+      <button id="viewEn" class="primary" onclick="switchViewLang('en')">English</button>
+      <button id="viewAr" onclick="switchViewLang('ar')">العربية</button>
+      <span class="stat">· from <b id="repChunks">0</b> chunk(s)</span>
+    </div>
+    <div class="row" style="gap:6px">
+      <span class="stat">Export:</span>
+      <select id="exFmt"><option value="md">Markdown</option><option value="docx">Word (.docx)</option></select>
+      <select id="exLang"><option value="en">English</option><option value="ar">العربية</option></select>
+      <button class="ok" onclick="exportReport()">⬇ Export</button>
+      <button class="ok" onclick="exportAll()" title="Arabic MD + English MD + Arabic DOCX + English DOCX">⬇ All 4 (.zip)</button>
+      <button onclick="newMeeting()">＋ New</button>
+    </div>
+  </div>
+  <div id="report"></div>
+</div>
+
+<!-- CONFIRM / BUSY OVERLAY -->
+<div id="overlay" class="overlay hide"><div class="dlg" id="dlg"></div></div>
+
+<script>
+const $=id=>document.getElementById(id);
+const q=new URLSearchParams(location.search);
+const PID=q.get('pid')||'';
+const API=(location.origin&&location.origin.startsWith('http'))?location.origin:'http://localhost:8000';
+const fmt=s=>`${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,'0')}`;
+let audioCtx,analyser,dataArr,stream,rec,raf,chunkTimer,clockTimer;
+let running=false,paused=false,chunkNo=0,savedCount=0,startedAt=0,lastMd='',lastLang='en';
+
+function closeMe(){ try{window.parent&&window.parent.postMessage({type:'meeting-close'},'*');}catch(e){} try{window.close();}catch(e){} }
+function overlay(html){ $('dlg').innerHTML=html; $('overlay').classList.remove('hide'); }
+function hideOverlay(){ $('overlay').classList.add('hide'); }
+async function api(path,opts){ return fetch(API+path,opts||{}); }
+
+// ---------- START (with confirm-clean of old chunks) ----------
+async function onStart(){
+  if(running) return;
+  let count=0;
+  try{ const r=await api(`/meeting/state?pid=${encodeURIComponent(PID)}`); const d=await r.json(); count=d.count||0; }catch(e){}
+  if(count>0){
+    overlay(`<h3>Previous chunks found</h3>
+      <div class="stat" style="margin-bottom:14px">You have <b>${count}</b> saved chunk(s) from a previous session.
+      Clean them and start a fresh meeting?</div>
+      <div class="row" style="justify-content:center;gap:10px">
+        <button class="stop" onclick="hideOverlay()">Cancel</button>
+        <button class="primary" id="cleanBtn">🧹 Clean &amp; start fresh</button>
+      </div>`);
+    $('cleanBtn').onclick=async()=>{ $('cleanBtn').innerHTML='<span class="spin"></span> cleaning…';
+      try{ await api(`/meeting/clear?pid=${encodeURIComponent(PID)}`,{method:'POST'}); }catch(e){}
+      hideOverlay(); beginListening(); };
+    return;
+  }
+  beginListening();
+}
+
+async function beginListening(){
+  try{ stream=await navigator.mediaDevices.getUserMedia({audio:true}); }
+  catch(e){ $('msg').innerHTML='<span style="color:#ff6b81">Mic blocked — allow microphone access, then Start again.</span>'; return; }
+  $('reportView').classList.add('hide'); $('listenView').classList.remove('hide');
+  running=true; paused=false; chunkNo=0; savedCount=0; startedAt=Date.now(); $('chunks').innerHTML=''; $('ccount').textContent='0';
+  $('savedCount').textContent='0'; $('langState').textContent='—'; $('noiseState').textContent='—';
+  $('start').disabled=true; $('stop').disabled=false; $('pause').disabled=false; $('state').innerHTML='<span class="live"></span> listening'; $('msg').textContent='';
+  audioCtx=new (window.AudioContext||window.webkitAudioContext)();
+  const src=audioCtx.createMediaStreamSource(stream);
+  analyser=audioCtx.createAnalyser(); analyser.fftSize=1024; dataArr=new Uint8Array(analyser.fftSize);
+  src.connect(analyser); loop();
+  clockTimer=setInterval(()=>$('clock').textContent=fmt((Date.now()-startedAt)/1000),500);
+  startChunk();
+}
+
+function loop(){
+  analyser.getByteTimeDomainData(dataArr);
+  let sum=0; for(let i=0;i<dataArr.length;i++){const v=(dataArr[i]-128)/128; sum+=v*v;}
+  const rms=Math.sqrt(sum/dataArr.length), level=Math.min(100,Math.round(rms*260));
+  $('bar').style.width=level+'%'; $('pct').textContent=level+'%';
+  const sc=0.5+Math.min(1.1,rms*3.2); $('halo').style.transform='scale('+sc+')'; $('halo').style.opacity=String(Math.min(1,.3+rms*3));
+  $('mic').style.transform='scale('+(1+Math.min(.25,rms*1.2))+')';
+  const vad=$('vad'); if(vad){ const active=level>8; vad.style.color=active?'var(--ok)':'var(--dim)'; vad.textContent=active?'● voice active':'● silence'; }
+  raf=requestAnimationFrame(loop);
+}
+
+function startChunk(){
+  const mime=MediaRecorder.isTypeSupported('audio/webm')?'audio/webm':'';
+  const blobs=[]; rec=mime?new MediaRecorder(stream,{mimeType:mime}):new MediaRecorder(stream);
+  const idx=++chunkNo, t0=(Date.now()-startedAt)/1000;
+  rec.ondataavailable=e=>{ if(e.data&&e.data.size) blobs.push(e.data); };
+  rec.onstop=()=>saveChunk(idx,t0,(Date.now()-startedAt)/1000,new Blob(blobs,{type:mime||'audio/webm'}));
+  rec.start();
+  const ms=parseInt($('interval').value,10)*1000;
+  chunkTimer=setTimeout(()=>{ if(running && !paused){ rec.stop(); startChunk(); } },ms);
+}
+
+async function saveChunk(idx,t0,t1,blob){
+  const id=String(idx).padStart(3,'0');
+  const div=document.createElement('div'); div.className='chunk';
+  div.innerHTML=`<span class="badge">SAVING…</span> <b>chunk ${id}</b>
+    <span class="stat">${fmt(t0)}–${fmt(t1)} · ${(blob.size/1024).toFixed(0)} KB</span>
+    <span class="tx" id="tx_${id}"></span>`;
+  $('chunks').prepend(div); $('ccount').textContent=String(idx);
+  try{
+    const fd=new FormData(); fd.append('file',blob,`chunk_${id}.webm`);
+    const r=await api(`/meeting/chunk?pid=${encodeURIComponent(PID)}`,{method:'POST',body:fd});
+    const d=await r.json();
+    savedCount++; $('savedCount').textContent=String(savedCount);
+    if(d.lang) $('langState').textContent=(d.lang==='ar'?'العربية':'English');
+    if(typeof d.noise_score==='number') $('noiseState').textContent=Math.round(d.noise_score*100)+'%';
+    const low = d.status==='low_confidence' || (typeof d.confidence==='number' && d.confidence<0.35);
+    const b=div.querySelector('.badge');
+    b.textContent = low?'LOW CONF':'SAVED'; b.style.background = low?'var(--warn)':'var(--ok)';
+    if(d.text){ const el=$('tx_'+id); if(el) el.textContent='“'+d.text.slice(0,80)+'”'+(low?'  ⚠️ review':''); }
+  }catch(e){ div.querySelector('.badge').textContent='KEPT'; }
+}
+
+// ---------- PAUSE / RESUME ----------
+function togglePause(){
+  if(!running) return;
+  if(!paused){ paused=true; clearTimeout(chunkTimer);
+    try{ if(rec && rec.state!=='inactive') rec.stop(); }catch(e){}   // flush current chunk
+    $('pause').textContent='▶ Resume'; $('state').innerHTML='⏸ paused';
+  } else { paused=false; $('pause').textContent='⏸ Pause'; $('state').innerHTML='<span class="live"></span> listening'; startChunk(); }
+}
+
+// ---------- STOP -> build report ----------
+async function onStop(){
+  if(!running) return; running=false; paused=false;
+  clearTimeout(chunkTimer); clearInterval(clockTimer); cancelAnimationFrame(raf);
+  $('pause').disabled=true; $('pause').textContent='⏸ Pause';
+  try{ if(rec&&rec.state!=='inactive') rec.stop(); }catch(e){}
+  await new Promise(r=>setTimeout(r,400)); // let the last chunk upload
+  try{ stream.getTracks().forEach(t=>t.stop()); }catch(e){}
+  try{ audioCtx.close(); }catch(e){}
+  $('start').disabled=false; $('stop').disabled=true; $('state').textContent='stopped';
+  $('bar').style.width='0%'; $('pct').textContent='0%'; $('halo').style.transform='scale(.5)'; $('mic').style.transform='scale(1)';
+  overlay('<h3>Building the report…</h3><div class="stat"><span class="spin"></span> Transcribing chunks, detecting language, and writing the smart report.</div>');
+  try{
+    const r=await api(`/meeting/finish?pid=${encodeURIComponent(PID)}`,{method:'POST',headers:{'Content-Type':'application/json'},body:'{}'});
+    const d=await r.json();
+    hideOverlay();
+    if(!d.chunks){ showReport('# No speech captured\n\nNo chunks were recorded, so there is nothing to report. Start a new meeting and speak into the mic.','en',0); return; }
+    lastMd=d.markdown||''; lastLang=d.lang||'en';
+    showReport(lastMd,lastLang,d.chunks);
+  }catch(e){ overlay('<h3>Could not build the report</h3><div class="stat" style="margin-bottom:12px">'+e+'</div><button class="primary" onclick="hideOverlay()">OK</button>'); }
+}
+
+function showReport(md,lang,chunks){
+  $('listenView').classList.add('hide'); $('reportView').classList.remove('hide');
+  $('repChunks').textContent=chunks;
+  $('exLang').value=(lang==='ar')?'ar':'en';
+  renderReport(md,lang);
+  markViewBtn(lang);
+}
+
+function renderReport(md,lang){
+  const rep=$('report'); rep.className=(lang==='ar')?'rtl':''; rep.innerHTML=mdToHtml(md);
+}
+function markViewBtn(lang){
+  $('viewEn').className=(lang==='ar')?'':'primary';
+  $('viewAr').className=(lang==='ar')?'primary':'';
+}
+
+// switch the DISPLAYED report language (builds/caches on the server, then re-renders)
+async function switchViewLang(lang){
+  markViewBtn(lang);
+  const rep=$('report'); rep.innerHTML='<span class="spin"></span> building '+(lang==='ar'?'Arabic':'English')+' version…';
+  try{
+    const r=await api(`/meeting/view?pid=${encodeURIComponent(PID)}&lang=${lang}`);
+    const d=await r.json(); renderReport(d.markdown||'',lang);
+  }catch(e){ rep.textContent='Could not build that language.'; }
+}
+
+function newMeeting(){ $('reportView').classList.add('hide'); $('listenView').classList.remove('hide');
+  $('chunks').innerHTML=''; $('ccount').textContent='0'; $('state').textContent='idle'; $('msg').textContent=''; }
+
+// export any of the 4 combinations: {md|docx} × {en|ar}
+function exportReport(){
+  const fmt=$('exFmt').value, lang=$('exLang').value;
+  const url=`${API}/meeting/report?pid=${encodeURIComponent(PID)}&fmt=${fmt}&lang=${lang}`;
+  const a=document.createElement('a'); a.href=url;
+  a.download=`meeting_report_${lang}.${fmt==='docx'?'docx':'md'}`;
+  document.body.appendChild(a); a.click(); a.remove();
+}
+// option 5 — generate ALL FOUR files (AR MD, EN MD, AR DOCX, EN DOCX) as one zip
+function exportAll(){
+  const a=document.createElement('a');
+  a.href=`${API}/meeting/report_all?pid=${encodeURIComponent(PID)}`;
+  a.download='meeting_report_all.zip';
+  document.body.appendChild(a); a.click(); a.remove();
+}
+
+// tiny markdown renderer (headings, bold, bullets) — safe-escaped
+function mdToHtml(md){
+  const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  const inline=s=>s.replace(/\*\*(.+?)\*\*/g,'<b>$1</b>');
+  const lines=(md||'').split('\n'); let html='',inUl=false;
+  const closeUl=()=>{ if(inUl){ html+='</ul>'; inUl=false; } };
+  for(let ln of lines){
+    let m;
+    if(m=ln.match(/^(#{1,6})\s+(.*)$/)){ closeUl(); const l=Math.min(3,m[1].length); html+=`<h${l}>${inline(esc(m[2]))}</h${l}>`; continue; }
+    if(m=ln.match(/^\s*[-*•]\s+(.*)$/)){ if(!inUl){ html+='<ul>'; inUl=true; } html+=`<li>${inline(esc(m[1]))}</li>`; continue; }
+    if(m=ln.match(/^\s*\d+[.)]\s+(.*)$/)){ closeUl(); html+=`<div><b>${inline(esc(m[1]))}</b></div>`; continue; }
+    if(!ln.trim()){ closeUl(); html+='<div style="height:6px"></div>'; continue; }
+    closeUl(); html+=`<div>${inline(esc(ln))}</div>`;
+  }
+  closeUl(); return html;
+}
+</script>

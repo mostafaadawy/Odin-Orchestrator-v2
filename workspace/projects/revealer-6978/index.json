@@ -1,0 +1,39 @@
+{
+  "id": "revealer-6978",
+  "name": "Revealer",
+  "type": "web",
+  "cadence": "once",
+  "members": [
+    "Fullstack",
+    "DevOps",
+    "Fulfillment",
+    "Email",
+    "QA"
+  ],
+  "status": "active",
+  "current_data_dir": "data/projects/revealer-6978",
+  "localPath": "/Users/mostafaadawy/Desktop/Odin Testing/backend-sandbox/revealer-6978",
+  "note": "INDEX/REFERENCE ONLY — real files still live at current_data_dir; nothing moved yet (Phase 1a)",
+  "category": "web",
+  "typeConfig": "shared/config/project-types/normal.json",
+  "config": {},
+  "features": [],
+  "stack": "",
+  "url": "",
+  "mode": "build",
+  "sources": [
+    "/Users/mostafaadawy/Desktop/Odin Testing/frontend-sandbox",
+    "/Users/mostafaadawy/Desktop/Odin Testing/backend-sandbox"
+  ],
+  "auto_approve": true,
+  "periodic": {
+    "enabled": false,
+    "schedule": {},
+    "requireApproval": true
+  },
+  "rules": [],
+  "description": "SANDBOX ONLY. Deliver a small working web app end-to-end and prove the team can run the FULL workflow. Never touch the production VM or production data — sandbox only.\nREQUIREMENTS / ENV ALREADY PROVIDED BY ME (the owner) — do NOT ask an operator for the app's key:\n  • The app's integration credentials are available in the environment (oth/.cred): VEEQO_API_KEY and KLAVIYO_API_KEY. Fullstack must READ these from the env/config for the app's own integration code.\n  • Sandbox build folder: /Users/mostafaadawy/Desktop/Odin Testing/backend-sandbox (use /Users/mostafaadawy/Desktop/Odin Testing/frontend-sandbox too if a separate web UI folder is wanted).\nWORKFLOW I expect you to run, in order:\n  1) Fullstack builds the web app (UI + API + a small 2–3 table data model with basic CRUD) whose page shows an order's SHIPPING STATUS (from Veeqo) and our EMAIL CAMPAIGN METRICS (from Klaviyo), BOTH READ-ONLY, with the integration code reading the keys from the env.\n  2) QA verifies the build exists and is correct (this is the QA gate — do NOT add a separate standalone QA step; QA runs automatically after the build).\n  3) DevOps deploys it FOR REAL to the AZURE VM, but into a DEDICATED SANDBOX that touches nothing in production: rsync the app to the sandbox folder `/home/mostafa/sandbox-revealer` (NEVER the production folders organics/bendcore/django; NEVER use --delete outside that folder), install its deps there, and RUN it on the free sandbox PORT 8531 bound on the VM (background, e.g. uvicorn/gunicorn). Leave ports 80/443/22 and the reverse proxy UNTOUCHED — change NO firewall rule except, only if needed, opening 8531 to your own IP. Follow your DevOps deploy rules exactly (SSH as mostafa, rsync --checksum so changed files OVERWRITE by content, verify each command's real exit code). Confirm it is up with `curl -s localhost:8531/api/health` over SSH and report the sandbox link + port.\n  4) Once it is running, the CTO hands each operator the sandbox link. Per the key-confirmation protocol the answer is: USE DEFAULT — the saved keys in oth/.cred ARE this project's keys (I am not supplying a different one), so operators read their key from oth/.cred (no need to ask the owner again). Fulfillment fetches live order/shipping data and posts it into the app; Email does the same for campaign metrics.\n  5) Verify with a real cURL check (over SSH on the VM, `curl localhost:8531/…`) that the deployed sandbox site actually reflects the live fulfillment + email data.\nConstraints: read-only on the external providers, throwaway sandbox data, NEVER production folders/ports. Coordinate through the shared pool. Decide the right team, assign each part to the correct role in the correct order, gather any MISSING requirement from me first (none should be missing here), and if a needed role is truly missing, ask to create it.",
+  "created": 1782881520.780658,
+  "mappings": [],
+  "scope": "project:revealer-6978"
+}

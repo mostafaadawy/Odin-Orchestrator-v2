@@ -1,0 +1,23 @@
+# Odin Anchor on the VM — build + run with restart-on-crash and a persisted queue.
+#   cd infra/anchor && docker compose up -d --build
+services:
+  anchor:
+    build:
+      context: ../..
+      dockerfile: infra/anchor/Dockerfile
+    image: odin-anchor:latest
+    container_name: odin-anchor
+    restart: unless-stopped
+    ports:
+      - "9100:9100"
+    volumes:
+      - ../../oth:/app/oth:ro            # credentials (gitignored) — read-only, never baked into the image
+      - anchor-data:/app/server/data     # persist the queue/lifecycle across restarts
+    healthcheck:
+      test: ["CMD", "python3", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:9100/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+volumes:
+  anchor-data:

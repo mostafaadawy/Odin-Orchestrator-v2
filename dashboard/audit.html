@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Odin — Audit / Observer</title>
+<style>
+  :root{--bg:#0a0c12;--card:#141824;--fg:#e8ecf6;--mut:#8b93a7;--acc:#6c8cff;--ok:#3ecf8e;--warn:#ffb454;--bad:#ff6b6b;--line:#232838}
+  *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--fg);font:14px/1.5 system-ui,-apple-system,Segoe UI,Roboto}
+  header{padding:18px 24px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:14px}
+  header h1{font-size:18px;margin:0} .pill{font-size:12px;padding:3px 9px;border-radius:20px;background:#1c2130;color:var(--mut)}
+  main{max-width:1000px;margin:0 auto;padding:24px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-bottom:16px}
+  .row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+  button{background:var(--acc);color:#fff;border:0;border-radius:8px;padding:9px 16px;font-weight:600;cursor:pointer}
+  button.ghost{background:#1c2130;color:var(--fg)} button:disabled{opacity:.5;cursor:default}
+  label{color:var(--mut)} input[type=number]{width:70px;background:#1c2130;border:1px solid var(--line);color:var(--fg);border-radius:6px;padding:6px}
+  .stat{display:flex;gap:26px;flex-wrap:wrap} .stat div b{display:block;font-size:22px} .stat div span{color:var(--mut);font-size:12px}
+  table{width:100%;border-collapse:collapse;margin-top:8px} th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{color:var(--mut);font-weight:600;font-size:12px} td.mono{font-family:ui-monospace,Menlo,monospace;font-size:12px;color:#c7d0e6}
+  .tag{font-size:11px;padding:2px 7px;border-radius:6px} .t-misplaced{background:#3a2a10;color:var(--warn)} .t-unindexed{background:#10263a;color:var(--acc)}
+  .t-duplicate{background:#3a1020;color:var(--bad)} .t-root-stray{background:#2a103a;color:#c58bff}
+  .fix{color:var(--ok)} .flag{color:var(--warn)}
+  .switch{position:relative;width:44px;height:24px} .switch input{display:none}
+  .slab{position:absolute;inset:0;background:#333a4d;border-radius:20px;transition:.2s} .slab:before{content:"";position:absolute;height:18px;width:18px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s}
+  input:checked+.slab{background:var(--ok)} input:checked+.slab:before{transform:translateX(20px)}
+  .muted{color:var(--mut)}
+</style>
+</head>
+<body>
+<header>
+  <h1>🛰️ Audit / Observer</h1>
+  <span class="pill" id="mode">loading…</span>
+  <span class="muted" style="margin-left:auto">debounced self-healing — corrects placement, indexes, promotes duplicates to shared</span>
+</header>
+<main>
+  <div class="card">
+    <div class="row" style="justify-content:space-between">
+      <div class="stat">
+        <div><b id="s-open">–</b><span>open issues</span></div>
+        <div><b id="s-quiet">–</b><span>quiet minutes</span></div>
+        <div><b id="s-gap">–</b><span>silence gap (min)</span></div>
+        <div><b id="s-run">–</b><span>would run now?</span></div>
+      </div>
+      <div class="row">
+        <label class="switch"><input type="checkbox" id="enabled"><span class="slab"></span></label>
+        <label for="enabled" id="enlab">enabled</label>
+        <label>silence <input type="number" id="gap" min="0" step="5"> min</label>
+        <button class="ghost" onclick="saveCfg()">Save</button>
+      </div>
+    </div>
+    <div class="row" style="margin-top:14px">
+      <button onclick="doScan()">Scan (read‑only)</button>
+      <button onclick="doRun()">▶ Run now (heal)</button>
+      <span class="muted" id="runmsg"></span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin:0 0 6px">Open issues</h3>
+    <div id="issues" class="muted">click Scan…</div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin:0 0 6px">History — what was found &amp; how it was solved</h3>
+    <div id="log" class="muted">loading…</div>
+  </div>
+</main>
+<script>
+const base = location.origin;
+async function j(u,o){const r=await fetch(base+u,o);return r.json();}
+function tag(t){return `<span class="tag t-${t}">${t}</span>`}
+async function refresh(){
+  const s=await j('/audit/status');
+  document.getElementById('s-open').textContent=s.open_issues;
+  document.getElementById('s-quiet').textContent=s.debounce.quiet_minutes;
+  document.getElementById('s-gap').textContent=s.config.silence_minutes;
+  document.getElementById('s-run').textContent=s.debounce.should_run?'yes':'no';
+  document.getElementById('enabled').checked=s.config.enabled;
+  document.getElementById('enlab').textContent=s.config.enabled?'enabled':'disabled';
+  document.getElementById('gap').value=s.config.silence_minutes;
+  document.getElementById('mode').textContent=s.config.enabled?('watching · gap '+s.config.silence_minutes+'m'):'stopped';
+  loadLog();
+}
+async function doScan(){
+  const d=await j('/audit/scan'); const it=d.issues||[];
+  document.getElementById('issues').innerHTML = it.length? '<table><tr><th>type</th><th>detail</th><th>why</th></tr>'+
+    it.map(i=>`<tr>${'<td>'+tag(i.type)+'</td>'}<td class="mono">${i.path||(i.paths||[]).join('<br>')||i.name||''}</td><td class="muted">${i.reason||''}</td></tr>`).join('')+'</table>'
+    : '<span class="fix">✓ no issues — everything is in its correct place and indexed.</span>';
+  refresh();
+}
+async function doRun(){
+  document.getElementById('runmsg').textContent='running…';
+  const r=await j('/audit/run?force=true',{method:'POST'});
+  document.getElementById('runmsg').innerHTML = r.ran? `<span class="fix">healed ${r.healed}</span> · <span class="flag">flagged ${r.flagged}</span>`:'debounced (silent gap not reached)';
+  doScan();
+}
+async function saveCfg(){
+  const en=document.getElementById('enabled').checked, gap=+document.getElementById('gap').value;
+  await j(`/audit/config?enabled=${en}&silence_minutes=${gap}`,{method:'POST'}); refresh();
+}
+async function loadLog(){
+  const d=await j('/audit/violations?limit=60'); const L=(d.log||[]).slice().reverse();
+  document.getElementById('log').innerHTML = L.length? '<table><tr><th>when</th><th>type</th><th>item</th><th>resolution</th></tr>'+
+    L.map(e=>`<tr><td class="muted mono">${(e.ts||'').slice(0,19).replace('T',' ')}</td><td>${tag(e.type||'')}</td><td class="mono">${e.path||(e.paths||[]).join('<br>')||e.name||''}</td><td class="${(e.fix||'').startsWith('FLAGGED')?'flag':'fix'}">${e.fix||''}</td></tr>`).join('')+'</table>'
+    : '<span class="muted">no runs yet.</span>';
+}
+document.getElementById('enabled').addEventListener('change',saveCfg);
+refresh();
+</script>
+</body>
+</html>

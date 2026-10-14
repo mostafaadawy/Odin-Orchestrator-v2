@@ -1,0 +1,14 @@
+{
+  "name": "Fullstack",
+  "role": "Full-Stack Engineer",
+  "nature": "technical",
+  "avatar": "backend",
+  "projects": [
+    "Revealer"
+  ],
+  "skill_file_hint": "data/projects/<pid>/skills/fullstack.md",
+  "note": "INDEX/REFERENCE ONLY — not moved yet (Phase 1a)",
+  "type": "technical",
+  "typeConfig": "shared/config/agent-types/technical.json",
+  "group": "fullstack"
+}

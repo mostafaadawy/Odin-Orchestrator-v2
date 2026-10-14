@@ -1,0 +1,33 @@
+{
+  "id": "vm-sentinel",
+  "name": "VM Security Sentinel",
+  "type": "marketing",
+  "category": "",
+  "description": "Daily VM security health monitor — reads the VM sensor facts and reports RED/GREEN; raises separate security-alarm approvals for gated fixes.",
+  "cadence": "periodical",
+  "config": {
+    "cadence": "periodical",
+    "schedule": {}
+  },
+  "stack": "",
+  "url": "",
+  "mode": "build",
+  "sources": [],
+  "auto_approve": false,
+  "periodic": {
+    "enabled": true,
+    "schedule": {},
+    "requireApproval": true
+  },
+  "rules": [],
+  "localPath": "",
+  "created": 1784477690.9117591,
+  "mappings": [],
+  "members": [
+    "Fullstack",
+    "DevOps",
+    "QA"
+  ],
+  "scope": "project:vm-sentinel",
+  "status": "active"
+}

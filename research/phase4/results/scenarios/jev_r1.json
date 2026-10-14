@@ -1,0 +1,230 @@
+[
+ {
+  "kind": "chat",
+  "mode": "jev",
+  "rep": 1,
+  "text": "how many contacts",
+  "truth_D2_action": "read",
+  "seconds": 79.82,
+  "usage_usd": 0.5701,
+  "n_events": 22,
+  "error": false,
+  "jev_decisions": [
+   {
+    "decision": "D2_agent",
+    "choice": "Backend",
+    "confidence": 0.9172,
+    "fallback": true,
+    "used": false,
+    "ms": 1538.1,
+    "authority": "experiment"
+   }
+  ],
+  "limit_seen": false
+ },
+ {
+  "kind": "chat",
+  "mode": "jev",
+  "rep": 1,
+  "text": "hey what is the time now",
+  "truth_D2_action": "read",
+  "seconds": 9.0,
+  "usage_usd": 0.1343,
+  "n_events": 7,
+  "error": false,
+  "jev_decisions": [
+   {
+    "decision": "D2_agent",
+    "choice": "DevOps & Cloud",
+    "confidence": 0.5718,
+    "fallback": true,
+    "used": false,
+    "ms": 43.9,
+    "authority": "experiment"
+   }
+  ],
+  "limit_seen": false
+ },
+ {
+  "kind": "chat",
+  "mode": "jev",
+  "rep": 1,
+  "text": "can you recall the last question",
+  "truth_D2_action": "read",
+  "seconds": 31.63,
+  "usage_usd": 0.3014,
+  "n_events": 13,
+  "error": false,
+  "jev_decisions": [
+   {
+    "decision": "D2_agent",
+    "choice": "CTO Brain",
+    "confidence": 0.8599,
+    "fallback": true,
+    "used": false,
+    "ms": 43.9,
+    "authority": "experiment"
+   }
+  ],
+  "limit_seen": false
+ },
+ {
+  "kind": "chat",
+  "mode": "jev",
+  "rep": 1,
+  "text": "remember apple",
+  "truth_D2_action": "change",
+  "seconds": 19.46,
+  "usage_usd": 0.1706,
+  "n_events": 10,
+  "error": false,
+  "jev_decisions": [
+   {
+    "decision": "D2_agent",
+    "choice": "Backend",
+    "confidence": 0.5093,
+    "fallback": true,
+    "used": false,
+    "ms": 39.0,
+    "authority": "experiment"
+   }
+  ],
+  "limit_seen": false
+ },
+ {
+  "kind": "chat",
+  "mode": "jev",
+  "rep": 1,
+  "text": "remember my favorite number is 4747",
+  "truth_D2_action": "change",
+  "seconds": 10.81,
+  "usage_usd": 0.1025,
+  "n_events": 6,
+  "error": false,
+  "jev_decisions": [
+   {
+    "decision": "D2_agent",
+    "choice": "Frontend",
+    "confidence": 0.5446,
+    "fallback": true,
+    "used": false,
+    "ms": 38.3,
+    "authority": "experiment"
+   }
+  ],
+  "limit_seen": false
+ },
+ {
+  "kind": "chat",
+  "mode": "jev",
+  "rep": 1,
+  "text": "use the protocol od dynamic ip az cimmands then access by ssk , no vulnarbility is accepted",
+  "truth_D2_action": "change",
+  "seconds": 58.41,
+  "usage_usd": 0.3055,
+  "n_events": 18,
+  "error": false,
+  "jev_decisions": [
+   {
+    "decision": "D2_agent",
+    "choice": "DevOps & Cloud",
+    "confidence": 0.62,
+    "fallback": true,
+    "used": false,
+    "ms": 40.1,
+    "authority": "experiment"
+   }
+  ],
+  "limit_seen": false
+ },
+ {
+  "kind": "project_run",
+  "mode": "jev",
+  "rep": 1,
+  "pid": "hubspot-crm-operator",
+  "text": "How many contacts and companies do we have",
+  "truth_D1_mode": "direct",
+  "inferred_mode": "direct",
+  "plan_steps": 1,
+  "members": [
+   "HubSpot"
+  ],
+  "seconds": 204.68,
+  "usage_usd": 1.0991,
+  "ok": false,
+  "n_events": 63,
+  "error": false,
+  "jev_decisions": [
+   {
+    "decision": "D1_mode",
+    "choice": "direct",
+    "confidence": 1.0,
+    "fallback": false,
+    "used": true,
+    "ms": 47.1,
+    "authority": "experiment"
+   }
+  ],
+  "limit_seen": false
+ },
+ {
+  "kind": "project_run",
+  "mode": "jev",
+  "rep": 1,
+  "pid": "fulfillment-vq-status-read-only-dc1e",
+  "text": "how many orders this month?",
+  "truth_D1_mode": "direct",
+  "inferred_mode": "direct",
+  "plan_steps": 1,
+  "members": [
+   "Fulfillment"
+  ],
+  "seconds": 98.93,
+  "usage_usd": 0.5914,
+  "ok": false,
+  "n_events": 26,
+  "error": false,
+  "jev_decisions": [
+   {
+    "decision": "D1_mode",
+    "choice": "direct",
+    "confidence": 1.0,
+    "fallback": false,
+    "used": true,
+    "ms": 42.2,
+    "authority": "experiment"
+   }
+  ],
+  "limit_seen": false
+ },
+ {
+  "kind": "project_run",
+  "mode": "jev",
+  "rep": 1,
+  "pid": "email-klaviyo-workflows-read-only-18ca",
+  "text": "how many profiles do we have",
+  "truth_D1_mode": "direct",
+  "inferred_mode": "direct",
+  "plan_steps": 1,
+  "members": [
+   "Email"
+  ],
+  "seconds": 174.72,
+  "usage_usd": 1.0575,
+  "ok": false,
+  "n_events": 46,
+  "error": false,
+  "jev_decisions": [
+   {
+    "decision": "D1_mode",
+    "choice": "direct",
+    "confidence": 1.0,
+    "fallback": false,
+    "used": true,
+    "ms": 42.8,
+    "authority": "experiment"
+   }
+  ],
+  "limit_seen": false
+ }
+]

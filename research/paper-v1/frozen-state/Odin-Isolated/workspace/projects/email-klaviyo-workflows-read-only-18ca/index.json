@@ -1,0 +1,33 @@
+{
+  "id": "email-klaviyo-workflows-read-only-18ca",
+  "name": "Email — Klaviyo workflows (read-only)",
+  "type": "email",
+  "cadence": "once",
+  "members": [
+    "Email"
+  ],
+  "status": "active",
+  "current_data_dir": "data/projects/email-klaviyo-workflows-read-only-18ca",
+  "localPath": "",
+  "note": "INDEX/REFERENCE ONLY — real files still live at current_data_dir; nothing moved yet (Phase 1a)",
+  "category": "email",
+  "typeConfig": "shared/config/project-types/normal.json",
+  "config": {},
+  "features": [],
+  "stack": "",
+  "url": "",
+  "mode": "build",
+  "sources": [],
+  "auto_approve": false,
+  "periodic": {
+    "enabled": false,
+    "schedule": {},
+    "requireApproval": true
+  },
+  "rules": [],
+  "description": "Email marketing via Klaviyo — READ ONLY. Do NOT send or change anything. Report: number of LIVE workflows, DRAFT workflows, and TOTAL workflows; plus key metrics and the lists. Use ONLY the Email agent. Do not involve DevOps or any other agent.",
+  "created": 1782881012.620157,
+  "mappings": [],
+  "scope": "project:email-klaviyo-workflows-read-only-18ca",
+  "qa_declined": true
+}

@@ -1,0 +1,5 @@
+{
+  "retry_count": 4,
+  "retry_interval_sec": 600,
+  "poll_limit": 5
+}

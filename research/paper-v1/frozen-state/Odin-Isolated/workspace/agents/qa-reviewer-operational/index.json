@@ -1,0 +1,14 @@
+{
+  "name": "QA / Reviewer (operational)",
+  "role": "Content Reviewer Agent",
+  "nature": "technical",
+  "avatar": "generic",
+  "projects": [
+    "Egypt Amazon Daily Social Content Agent"
+  ],
+  "skill_file_hint": "data/projects/<pid>/skills/qa-reviewer-operational.md",
+  "note": "INDEX/REFERENCE ONLY — not moved yet (Phase 1a)",
+  "type": "operational",
+  "typeConfig": "shared/config/agent-types/operational.json",
+  "group": "review"
+}

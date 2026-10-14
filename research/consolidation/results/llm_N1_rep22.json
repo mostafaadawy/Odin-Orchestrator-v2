@@ -1,0 +1,164 @@
+{
+ "adv": false,
+ "hook_mode": "enforce",
+ "shared_files_changed": [],
+ "N": 1,
+ "rep": 22,
+ "model": "haiku",
+ "cap_s": 720,
+ "env_start": {
+  "label": "llm N=1 rep=22 start",
+  "utc": "2026-10-06T17:28:15.681795Z",
+  "machine": {
+   "cpu": "",
+   "ncpu": 12,
+   "ram_gb": 24.0,
+   "os": "26.5.2",
+   "arch": "arm64"
+  },
+  "load": {
+   "loadavg": [
+    1.72998046875,
+    2.84130859375,
+    3.78125
+   ],
+   "cpu_pct_total": 33.2,
+   "mem_used_pct": 69.0
+  },
+  "competing_top": [
+   {
+    "pid": 11413,
+    "name": "CGPDFService",
+    "cpu_pct": 42.0,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 11415,
+    "name": "CGPDFService",
+    "cpu_pct": 41.0,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 10757,
+    "name": "Python",
+    "cpu_pct": 35.7,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 11307,
+    "name": "CGPDFService",
+    "cpu_pct": 28.6,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 42398,
+    "name": "Claude Helper (Renderer)",
+    "cpu_pct": 4.7,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 11197,
+    "name": "mdworker_shared",
+    "cpu_pct": 2.1,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 10974,
+    "name": "mdworker_shared",
+    "cpu_pct": 1.8,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 575,
+    "name": "cfprefsd",
+    "cpu_pct": 1.6,
+    "is_real_odin": false,
+    "is_isolated": false
+   }
+  ],
+  "real_odin_cpu_pct": 0,
+  "soc_reports_last_hour": []
+ },
+ "env_end": {
+  "label": "end",
+  "utc": "2026-10-06T17:28:48.332653Z",
+  "machine": {
+   "cpu": "",
+   "ncpu": 12,
+   "ram_gb": 24.0,
+   "os": "26.5.2",
+   "arch": "arm64"
+  },
+  "load": {
+   "loadavg": [
+    2.51806640625,
+    2.96875,
+    3.7919921875
+   ],
+   "cpu_pct_total": 2.1,
+   "mem_used_pct": 79.2
+  },
+  "competing_top": [
+   {
+    "pid": 42398,
+    "name": "Claude Helper (Renderer)",
+    "cpu_pct": 5.0,
+    "is_real_odin": false,
+    "is_isolated": false
+   }
+  ],
+  "real_odin_cpu_pct": 0,
+  "soc_reports_last_hour": []
+ },
+ "projects": [
+  {
+   "pid": "llm22-n1-p0",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.034847151239713034
+  }
+ ],
+ "writes_changed_files": 3,
+ "own_project_files": {
+  "llm22-n1-p0": 3
+ },
+ "cross_project_files": 0,
+ "stray_outside_projects": [],
+ "n_stray": 0,
+ "wrong_folder": 0,
+ "audit_issues": 3,
+ "audit_types": {
+  "unindexed": 3
+ },
+ "claude_calls": 1,
+ "cost_usd": 0.0546991,
+ "cost_per_task_usd": 0.0546991,
+ "tokens": {
+  "input_tokens": 34,
+  "cache_creation_input_tokens": 15991,
+  "cache_read_input_tokens": 115771,
+  "output_tokens": 1833
+ },
+ "llm_busy_share_of_wall": 0.9474196638218968,
+ "orchestration_overhead_share": 0.052580336178103204,
+ "server_tree": {
+  "wall_s": 30.101449012756348,
+  "cpu_s": 0.1493512319999999,
+  "cpu_share_of_wall": 0.004961596099134897,
+  "cpu_share_of_machine": 0.00041346634159457476,
+  "rss_mb_end": 85.453125
+ }
+}

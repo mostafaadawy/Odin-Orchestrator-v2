@@ -1,0 +1,219 @@
+[
+  {
+    "spec": "Ops Pulse \u2014 CRM + fulfillment health",
+    "key": "A",
+    "pid": "ops-pulse-crm-fulfillment-health-355f",
+    "planned": true,
+    "produced_output": true,
+    "messages": "0->2",
+    "duration_sec": 65.4,
+    "team": [
+      "Sales",
+      "Fulfillment",
+      "Reporter"
+    ],
+    "acceptance": {
+      "checks": [
+        {
+          "label": "team covers required capabilities ['Fulfillment', 'Sales']",
+          "ok": true,
+          "detail": "team=['Fulfillment', 'Reporter', 'Sales'] missing=[]"
+        },
+        {
+          "label": "team visible on cards (project_agents JOIN non-empty)",
+          "ok": true,
+          "detail": "team=['Fulfillment', 'Reporter', 'Sales']"
+        },
+        {
+          "label": "0 violations for this project",
+          "ok": true,
+          "detail": "[]"
+        },
+        {
+          "label": "0 cross-owner references",
+          "ok": true,
+          "detail": "[]"
+        }
+      ],
+      "ok": true
+    },
+    "delete_delta": {
+      "projects": 0,
+      "agents": 0,
+      "files": 0,
+      "folders": 0,
+      "dependencies": 0,
+      "project_agents": 0,
+      "connectors": 0
+    },
+    "clean_delete": true,
+    "ok": true
+  },
+  {
+    "spec": "Signal Guard \u2014 email + security watch",
+    "key": "B",
+    "pid": "signal-guard-email-security-watch-af7c",
+    "planned": true,
+    "produced_output": false,
+    "messages": "0->0",
+    "duration_sec": 133.0,
+    "team": [
+      "Asset, Exposure & Attack-Surface Agent",
+      "Fullstack",
+      "Email",
+      "QA",
+      "CTO Orchestrator",
+      "Security Intelligence & Threat-Hunting Architect",
+      "Security Operations Investigator",
+      "Reporting & Documentation Agent",
+      "Threat Prediction & Prevention Agent",
+      "Recovery & Resilience Agent",
+      "Intrusion Detection & Behavioral Analytics Agent"
+    ],
+    "acceptance": {
+      "checks": [
+        {
+          "label": "team covers required capabilities ['Email', 'Security']",
+          "ok": true,
+          "detail": "team=['Asset, Exposure & Attack-Surface Agent', 'CTO Orchestrator', 'Email', 'Fullstack', 'Intrusion Detection & Behavioral Analytics Agent', 'QA', 'Recovery & Resilience Agent', 'Reporting & Documentation Agent', 'Security Intelligence & Threat-Hunting Architect', 'Security Operations Investigator', 'Threat Prediction & Prevention Agent'] missing=[]"
+        },
+        {
+          "label": "team visible on cards (project_agents JOIN non-empty)",
+          "ok": true,
+          "detail": "team=['Asset, Exposure & Attack-Surface Agent', 'CTO Orchestrator', 'Email', 'Fullstack', 'Intrusion Detection & Behavioral Analytics Agent', 'QA', 'Recovery & Resilience Agent', 'Reporting & Documentation Agent', 'Security Intelligence & Threat-Hunting Architect', 'Security Operations Investigator', 'Threat Prediction & Prevention Agent']"
+        },
+        {
+          "label": "0 violations for this project",
+          "ok": true,
+          "detail": "[]"
+        },
+        {
+          "label": "0 cross-owner references",
+          "ok": true,
+          "detail": "[]"
+        }
+      ],
+      "ok": true
+    },
+    "delete_delta": {
+      "projects": 0,
+      "agents": 0,
+      "files": 0,
+      "folders": 0,
+      "dependencies": 0,
+      "project_agents": 0,
+      "connectors": 0
+    },
+    "clean_delete": true,
+    "ok": true
+  },
+  {
+    "spec": "Fulfillment Guard \u2014 SLA report + export",
+    "key": "C",
+    "pid": "fulfillment-guard-sla-report-export-8752",
+    "planned": true,
+    "produced_output": true,
+    "messages": "0->2",
+    "duration_sec": 67.0,
+    "team": [
+      "Fulfillment",
+      "Reporter"
+    ],
+    "acceptance": {
+      "checks": [
+        {
+          "label": "team covers required capabilities ['Fulfillment', 'Reporter']",
+          "ok": true,
+          "detail": "team=['Fulfillment', 'Reporter'] missing=[]"
+        },
+        {
+          "label": "team visible on cards (project_agents JOIN non-empty)",
+          "ok": true,
+          "detail": "team=['Fulfillment', 'Reporter']"
+        },
+        {
+          "label": "0 violations for this project",
+          "ok": true,
+          "detail": "[]"
+        },
+        {
+          "label": "0 cross-owner references",
+          "ok": true,
+          "detail": "[]"
+        }
+      ],
+      "ok": true
+    },
+    "delete_delta": {
+      "projects": 0,
+      "agents": 0,
+      "files": 0,
+      "folders": 0,
+      "dependencies": 0,
+      "project_agents": 0,
+      "connectors": 0
+    },
+    "clean_delete": true,
+    "ok": true
+  },
+  {
+    "spec": "Sandbox Deploy Mirror \u2014 reuse shared deploy",
+    "key": "D",
+    "pid": "sandbox-deploy-mirror-reuse-shared-deploy-580b",
+    "planned": true,
+    "produced_output": true,
+    "messages": "0->2",
+    "duration_sec": 73.4,
+    "team": [
+      "Fullstack",
+      "DevOps",
+      "QA"
+    ],
+    "acceptance": {
+      "checks": [
+        {
+          "label": "team covers required capabilities ['DevOps']",
+          "ok": true,
+          "detail": "team=['DevOps', 'Fullstack', 'QA'] missing=[]"
+        },
+        {
+          "label": "team visible on cards (project_agents JOIN non-empty)",
+          "ok": true,
+          "detail": "team=['DevOps', 'Fullstack', 'QA']"
+        },
+        {
+          "label": "reuses SHARED deploy (dependency -> shared/\u2026deploy\u2026)",
+          "ok": true,
+          "detail": "manifest=True"
+        },
+        {
+          "label": "no duplicate deploy engine copied into the project",
+          "ok": true,
+          "detail": "dupes=[]"
+        },
+        {
+          "label": "0 violations for this project",
+          "ok": true,
+          "detail": "[]"
+        },
+        {
+          "label": "0 cross-owner references",
+          "ok": true,
+          "detail": "[]"
+        }
+      ],
+      "ok": true
+    },
+    "delete_delta": {
+      "projects": 0,
+      "agents": 0,
+      "files": 0,
+      "folders": 0,
+      "dependencies": 0,
+      "project_agents": 0,
+      "connectors": 0
+    },
+    "clean_delete": true,
+    "ok": true
+  }
+]

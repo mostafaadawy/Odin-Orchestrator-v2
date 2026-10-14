@@ -1,0 +1,13 @@
+ref=main commits=1 blobs=1804 archives=9 files-inside-archives=1202 known-values-checked=15 (from 8 .cred files) patterns=10
+METHOD 1 exact credential values found: 0 locations
+METHOD 2 secret-shape matches: 8 locations
+  assigned-secret: 8
+     _v2/cutover/anchor_flat_test.sh
+     odin_app/lib/screens/settings_screen.dart
+     research/paper-v1/frozen-state/Odin-Isolated/server/anchor_remote.py
+     server/anchor_remote.py
+     tests/harness/_consolidation/g9b_test.py
+     tests/harness/_consolidation/g9bui/g9b_ui.py
+     tests/harness/_research/testlibs/netaddr/ip/nmap.py
+     workspace/logs/agent_term/verify.out
+unreadable archives: 0 []

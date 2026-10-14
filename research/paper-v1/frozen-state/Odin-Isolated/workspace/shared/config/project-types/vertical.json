@@ -1,0 +1,16 @@
+{
+  "type": "vertical",
+  "requires": {
+    "schedule": false
+  },
+  "config_schema": {
+    "timeout": "seconds"
+  },
+  "ui": {
+    "chip": "Vertical",
+    "controls": [
+      "timeout"
+    ]
+  },
+  "means": "vertical lane with its own timeout/config"
+}

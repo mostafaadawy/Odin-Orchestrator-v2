@@ -1,0 +1,58 @@
+[
+ {
+  "agent": "CTO Orchestrator",
+  "must_honor": 0,
+  "custom": 5,
+  "reach_legacy900": 4,
+  "reach_full": 5,
+  "block_chars": 543
+ },
+ {
+  "agent": "HubSpot",
+  "must_honor": 0,
+  "custom": 4,
+  "reach_legacy900": 4,
+  "reach_full": 4,
+  "block_chars": 533
+ },
+ {
+  "agent": "Security Operations Investigator",
+  "must_honor": 3,
+  "custom": 6,
+  "reach_legacy900": 0,
+  "reach_full": 9,
+  "block_chars": 1298
+ },
+ {
+  "agent": "Security Intelligence & Threat-Hunting Architect",
+  "must_honor": 0,
+  "custom": 4,
+  "reach_legacy900": 0,
+  "reach_full": 4,
+  "block_chars": 1124
+ },
+ {
+  "agent": "Fullstack",
+  "must_honor": 13,
+  "custom": 1,
+  "reach_legacy900": 0,
+  "reach_full": 14,
+  "block_chars": 1121
+ },
+ {
+  "agent": "QA",
+  "must_honor": 4,
+  "custom": 2,
+  "reach_legacy900": 2,
+  "reach_full": 6,
+  "block_chars": 410
+ },
+ {
+  "agent": "DevOps",
+  "must_honor": 6,
+  "custom": 0,
+  "reach_legacy900": 0,
+  "reach_full": 6,
+  "block_chars": 554
+ }
+]

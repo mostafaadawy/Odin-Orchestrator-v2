@@ -1,0 +1,210 @@
+{
+ "N": 1,
+ "rep": 21,
+ "model": "haiku",
+ "cap_s": 720,
+ "env_start": {
+  "label": "llm N=1 rep=21 start",
+  "utc": "2026-10-06T17:19:20.587785Z",
+  "machine": {
+   "cpu": "",
+   "ncpu": 12,
+   "ram_gb": 24.0,
+   "os": "26.5.2",
+   "arch": "arm64"
+  },
+  "load": {
+   "loadavg": [
+    5.767578125,
+    5.328125,
+    4.81787109375
+   ],
+   "cpu_pct_total": 37.8,
+   "mem_used_pct": 74.5
+  },
+  "competing_top": [
+   {
+    "pid": 86583,
+    "name": "Python",
+    "cpu_pct": 39.2,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 87063,
+    "name": "CGPDFService",
+    "cpu_pct": 23.5,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 86033,
+    "name": "com.apple.WebKit.WebContent",
+    "cpu_pct": 20.3,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 41966,
+    "name": "Claude Helper",
+    "cpu_pct": 19.2,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 42398,
+    "name": "Claude Helper (Renderer)",
+    "cpu_pct": 14.1,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 86613,
+    "name": "CGPDFService",
+    "cpu_pct": 11.6,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46967,
+    "name": "Firefox GPU Helper",
+    "cpu_pct": 10.9,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 61113,
+    "name": "plugin-container",
+    "cpu_pct": 8.3,
+    "is_real_odin": false,
+    "is_isolated": false
+   }
+  ],
+  "real_odin_cpu_pct": 0,
+  "soc_reports_last_hour": []
+ },
+ "env_end": {
+  "label": "end",
+  "utc": "2026-10-06T17:20:13.350353Z",
+  "machine": {
+   "cpu": "",
+   "ncpu": 12,
+   "ram_gb": 24.0,
+   "os": "26.5.2",
+   "arch": "arm64"
+  },
+  "load": {
+   "loadavg": [
+    3.8759765625,
+    4.93310546875,
+    4.70556640625
+   ],
+   "cpu_pct_total": 7.0,
+   "mem_used_pct": 80.3
+  },
+  "competing_top": [
+   {
+    "pid": 46967,
+    "name": "Firefox GPU Helper",
+    "cpu_pct": 6.4,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46964,
+    "name": "firefox",
+    "cpu_pct": 5.6,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 61113,
+    "name": "plugin-container",
+    "cpu_pct": 5.3,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 42398,
+    "name": "Claude Helper (Renderer)",
+    "cpu_pct": 5.0,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 43890,
+    "name": "VTDecoderXPCService",
+    "cpu_pct": 3.4,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 707,
+    "name": "corespeechd",
+    "cpu_pct": 1.7,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46975,
+    "name": "plugin-container",
+    "cpu_pct": 1.7,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 62930,
+    "name": "com.apple.WebKit.Networking",
+    "cpu_pct": 1.5,
+    "is_real_odin": false,
+    "is_isolated": false
+   }
+  ],
+  "real_odin_cpu_pct": 0,
+  "soc_reports_last_hour": []
+ },
+ "projects": [
+  {
+   "pid": "llm21-n1-p0",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.06263217628002167
+  }
+ ],
+ "writes_changed_files": 3,
+ "own_project_files": {
+  "llm21-n1-p0": 3
+ },
+ "cross_project_files": 0,
+ "stray_outside_projects": [],
+ "n_stray": 0,
+ "wrong_folder": 0,
+ "audit_issues": 3,
+ "audit_types": {
+  "unindexed": 3
+ },
+ "claude_calls": 1,
+ "cost_usd": 0.0679031,
+ "cost_per_task_usd": 0.0679031,
+ "tokens": {
+  "input_tokens": 58,
+  "cache_creation_input_tokens": 16423,
+  "cache_read_input_tokens": 215481,
+  "output_tokens": 2301
+ },
+ "llm_busy_share_of_wall": 0.8816349901568307,
+ "orchestration_overhead_share": 0.11836500984316933,
+ "server_tree": {
+  "wall_s": 50.09434485435486,
+  "cpu_s": 0.25453351999999985,
+  "cpu_share_of_wall": 0.0050810829194400066,
+  "cpu_share_of_machine": 0.00042342357662000053,
+  "rss_mb_end": 69.015625
+ }
+}

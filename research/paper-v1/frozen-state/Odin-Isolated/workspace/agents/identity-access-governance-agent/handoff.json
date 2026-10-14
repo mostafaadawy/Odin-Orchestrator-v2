@@ -1,0 +1,12 @@
+{
+  "runs_after": [
+    "Asset, Exposure & Attack-Surface Agent"
+  ],
+  "runs_before": [
+    "Security Operations Investigator",
+    "Compliance & Config-Baseline Agent"
+  ],
+  "collaborates_with": [
+    "Asset, Exposure & Attack-Surface Agent"
+  ]
+}

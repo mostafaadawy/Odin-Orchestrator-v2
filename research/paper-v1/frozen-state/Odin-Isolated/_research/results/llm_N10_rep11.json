@@ -1,0 +1,327 @@
+{
+ "N": 10,
+ "rep": 11,
+ "model": "haiku",
+ "cap_s": 1800,
+ "env_start": {
+  "label": "llm N=10 rep=11 start",
+  "utc": "2026-10-06T17:00:21.404932Z",
+  "machine": {
+   "cpu": "",
+   "ncpu": 12,
+   "ram_gb": 24.0,
+   "os": "26.5.2",
+   "arch": "arm64"
+  },
+  "load": {
+   "loadavg": [
+    4.4921875,
+    3.42041015625,
+    3.0478515625
+   ],
+   "cpu_pct_total": 33.6,
+   "mem_used_pct": 71.1
+  },
+  "competing_top": [
+   {
+    "pid": 42398,
+    "name": "Claude Helper (Renderer)",
+    "cpu_pct": 22.4,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 41966,
+    "name": "Claude Helper",
+    "cpu_pct": 15.4,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 47707,
+    "name": "mdworker_shared",
+    "cpu_pct": 6.8,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 47703,
+    "name": "mdworker_shared",
+    "cpu_pct": 6.5,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46774,
+    "name": "mdworker_shared",
+    "cpu_pct": 3.9,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 15124,
+    "name": "WhatsApp",
+    "cpu_pct": 3.5,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 575,
+    "name": "cfprefsd",
+    "cpu_pct": 2.2,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 62918,
+    "name": "Safari",
+    "cpu_pct": 1.9,
+    "is_real_odin": false,
+    "is_isolated": false
+   }
+  ],
+  "real_odin_cpu_pct": 0,
+  "soc_reports_last_hour": []
+ },
+ "env_end": {
+  "label": "end",
+  "utc": "2026-10-06T17:04:55.869014Z",
+  "machine": {
+   "cpu": "",
+   "ncpu": 12,
+   "ram_gb": 24.0,
+   "os": "26.5.2",
+   "arch": "arm64"
+  },
+  "load": {
+   "loadavg": [
+    5.6162109375,
+    4.005859375,
+    3.36962890625
+   ],
+   "cpu_pct_total": 31.2,
+   "mem_used_pct": 72.7
+  },
+  "competing_top": [
+   {
+    "pid": 58561,
+    "name": "BackgroundShortcutRunner",
+    "cpu_pct": 60.4,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 41966,
+    "name": "Claude Helper",
+    "cpu_pct": 24.2,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 58522,
+    "name": "siriactionsd",
+    "cpu_pct": 24.0,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 42398,
+    "name": "Claude Helper (Renderer)",
+    "cpu_pct": 15.2,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 750,
+    "name": "spotlightknowledged.updater",
+    "cpu_pct": 9.1,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46967,
+    "name": "Firefox GPU Helper",
+    "cpu_pct": 8.7,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 61113,
+    "name": "plugin-container",
+    "cpu_pct": 5.8,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46964,
+    "name": "firefox",
+    "cpu_pct": 5.1,
+    "is_real_odin": false,
+    "is_isolated": false
+   }
+  ],
+  "real_odin_cpu_pct": 0,
+  "soc_reports_last_hour": []
+ },
+ "projects": [
+  {
+   "pid": "llm11-n10-p0",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.1144588511519962
+  },
+  {
+   "pid": "llm11-n10-p1",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.069828237162696
+  },
+  {
+   "pid": "llm11-n10-p2",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.10051586005422804
+  },
+  {
+   "pid": "llm11-n10-p3",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.0698304561773936
+  },
+  {
+   "pid": "llm11-n10-p4",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.11167137503623963
+  },
+  {
+   "pid": "llm11-n10-p5",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.11724514338705275
+  },
+  {
+   "pid": "llm11-n10-p6",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.14786985172165765
+  },
+  {
+   "pid": "llm11-n10-p7",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.09494159844186571
+  },
+  {
+   "pid": "llm11-n10-p8",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.11167464123831855
+  },
+  {
+   "pid": "llm11-n10-p9",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.1450884767373403
+  }
+ ],
+ "writes_changed_files": 33,
+ "own_project_files": {
+  "llm11-n10-p0": 3,
+  "llm11-n10-p1": 3,
+  "llm11-n10-p2": 3,
+  "llm11-n10-p3": 3,
+  "llm11-n10-p4": 3,
+  "llm11-n10-p5": 4,
+  "llm11-n10-p6": 3,
+  "llm11-n10-p7": 4,
+  "llm11-n10-p8": 4,
+  "llm11-n10-p9": 3
+ },
+ "cross_project_files": 0,
+ "stray_outside_projects": [],
+ "n_stray": 0,
+ "wrong_folder": 0,
+ "audit_issues": 30,
+ "audit_types": {
+  "unindexed": 30
+ },
+ "claude_calls": 10,
+ "cost_usd": 0.7270495,
+ "cost_per_task_usd": 0.07270495,
+ "tokens": {
+  "input_tokens": 596,
+  "cache_creation_input_tokens": 172816,
+  "cache_read_input_tokens": 2275295,
+  "output_tokens": 26670
+ },
+ "llm_busy_share_of_wall": 0.9612240992862862,
+ "orchestration_overhead_share": 0.03877590071371384,
+ "server_tree": {
+  "wall_s": 271.17169404029846,
+  "cpu_s": 2.297224,
+  "cpu_share_of_wall": 0.008471474163740013,
+  "cpu_share_of_machine": 0.0007059561803116677,
+  "rss_mb_end": 43.515625
+ }
+}

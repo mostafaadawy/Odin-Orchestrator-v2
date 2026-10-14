@@ -1,0 +1,61 @@
+{
+  "system": {
+    "name": "Odin-Orchestrator",
+    "role": "CTO Brain — Main Orchestrator",
+    "organization": "Odin AI Systems",
+    "version": "0.1.0",
+    "createdUtc": "2026-06-20T00:00:00Z"
+  },
+  "paths": {
+    "rules": "workspace/shared/directions/core-rules.md",
+    "history": "history/HISTORY.md",
+    "auditLog": "history/log.jsonl",
+    "snapshots": "history/snapshots",
+    "agents": "agents",
+    "approvalsPending": "approvals/pending",
+    "approvalsApproved": "approvals/approved",
+    "approvalsRejected": "approvals/rejected",
+    "state": "state",
+    "dashboard": "dashboard/index.html"
+  },
+  "operatingPrinciples": {
+    "alwaysReadRulesBeforeWork": true,
+    "thinkPlanThenBuild": true,
+    "neverAssumeStandardWhenCustomExists": true,
+    "askWhenUnclear": true,
+    "neverBreakWorkingLogic": true,
+    "fullAuditTrail": true
+  },
+  "approvalGate": {
+    "enabled": true,
+    "requiresApprovalFor": [
+      "code-change",
+      "config-change",
+      "azure-vm-action",
+      "deployment",
+      "ssl-certificate",
+      "security-scan-active",
+      "database-migration",
+      "production-data-access",
+      "dependency-install",
+      "secret-or-credential-change"
+    ],
+    "autoAllowedWithoutApproval": [
+      "read-only-analysis",
+      "planning",
+      "drafting-in-workspace",
+      "history-logging",
+      "dashboard-render"
+    ],
+    "blockProductionWithoutApproval": true
+  },
+  "riskLevels": ["low", "medium", "high", "critical"],
+  "agents": [
+    "frontend",
+    "backend",
+    "devops-cloud",
+    "security-compliance",
+    "qa-testing",
+    "database"
+  ]
+}

@@ -1,0 +1,327 @@
+{
+ "N": 10,
+ "rep": 20,
+ "model": "haiku",
+ "cap_s": 1800,
+ "env_start": {
+  "label": "llm N=10 rep=20 start",
+  "utc": "2026-10-06T17:15:05.335027Z",
+  "machine": {
+   "cpu": "",
+   "ncpu": 12,
+   "ram_gb": 24.0,
+   "os": "26.5.2",
+   "arch": "arm64"
+  },
+  "load": {
+   "loadavg": [
+    4.3681640625,
+    5.35791015625,
+    4.650390625
+   ],
+   "cpu_pct_total": 37.2,
+   "mem_used_pct": 80.1
+  },
+  "competing_top": [
+   {
+    "pid": 41966,
+    "name": "Claude Helper",
+    "cpu_pct": 34.9,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 784,
+    "name": "avconferenced",
+    "cpu_pct": 24.4,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 42398,
+    "name": "Claude Helper (Renderer)",
+    "cpu_pct": 19.6,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 75148,
+    "name": "mdworker_shared",
+    "cpu_pct": 9.1,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 74129,
+    "name": "FaceTimeNotificationExtension",
+    "cpu_pct": 9.0,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 626,
+    "name": "callservicesd",
+    "cpu_pct": 8.8,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 75700,
+    "name": "mdworker_shared",
+    "cpu_pct": 6.2,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 75699,
+    "name": "mdworker_shared",
+    "cpu_pct": 4.7,
+    "is_real_odin": false,
+    "is_isolated": false
+   }
+  ],
+  "real_odin_cpu_pct": 0,
+  "soc_reports_last_hour": []
+ },
+ "env_end": {
+  "label": "end",
+  "utc": "2026-10-06T17:19:14.885152Z",
+  "machine": {
+   "cpu": "",
+   "ncpu": 12,
+   "ram_gb": 24.0,
+   "os": "26.5.2",
+   "arch": "arm64"
+  },
+  "load": {
+   "loadavg": [
+    4.35498046875,
+    5.046875,
+    4.716796875
+   ],
+   "cpu_pct_total": 19.9,
+   "mem_used_pct": 73.9
+  },
+  "competing_top": [
+   {
+    "pid": 86033,
+    "name": "com.apple.WebKit.WebContent",
+    "cpu_pct": 38.4,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 41966,
+    "name": "Claude Helper",
+    "cpu_pct": 17.1,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 42398,
+    "name": "Claude Helper (Renderer)",
+    "cpu_pct": 13.0,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46967,
+    "name": "Firefox GPU Helper",
+    "cpu_pct": 8.9,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 61113,
+    "name": "plugin-container",
+    "cpu_pct": 6.1,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 62918,
+    "name": "Safari",
+    "cpu_pct": 4.6,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46964,
+    "name": "firefox",
+    "cpu_pct": 4.2,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 43890,
+    "name": "VTDecoderXPCService",
+    "cpu_pct": 3.9,
+    "is_real_odin": false,
+    "is_isolated": false
+   }
+  ],
+  "real_odin_cpu_pct": 0,
+  "soc_reports_last_hour": []
+ },
+ "projects": [
+  {
+   "pid": "llm20-n10-p0",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.12840715792444019
+  },
+  {
+   "pid": "llm20-n10-p1",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.10609712110625373
+  },
+  {
+   "pid": "llm20-n10-p2",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.11168209221627977
+  },
+  {
+   "pid": "llm20-n10-p3",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.05864580445819431
+  },
+  {
+   "pid": "llm20-n10-p4",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.13397302058007982
+  },
+  {
+   "pid": "llm20-n10-p5",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.12840992954042224
+  },
+  {
+   "pid": "llm20-n10-p6",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.12005149218771193
+  },
+  {
+   "pid": "llm20-n10-p7",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.08935357835557725
+  },
+  {
+   "pid": "llm20-n10-p8",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.1339751222398546
+  },
+  {
+   "pid": "llm20-n10-p9",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.10610232883029513
+  }
+ ],
+ "writes_changed_files": 30,
+ "own_project_files": {
+  "llm20-n10-p0": 3,
+  "llm20-n10-p1": 3,
+  "llm20-n10-p2": 3,
+  "llm20-n10-p3": 3,
+  "llm20-n10-p4": 3,
+  "llm20-n10-p5": 3,
+  "llm20-n10-p6": 3,
+  "llm20-n10-p7": 3,
+  "llm20-n10-p8": 3,
+  "llm20-n10-p9": 3
+ },
+ "cross_project_files": 0,
+ "stray_outside_projects": [],
+ "n_stray": 0,
+ "wrong_folder": 0,
+ "audit_issues": 30,
+ "audit_types": {
+  "unindexed": 30
+ },
+ "claude_calls": 10,
+ "cost_usd": 0.6351751,
+ "cost_per_task_usd": 0.06351751,
+ "tokens": {
+  "input_tokens": 468,
+  "cache_creation_input_tokens": 166223,
+  "cache_read_input_tokens": 1699701,
+  "output_tokens": 22585
+ },
+ "llm_busy_share_of_wall": 0.9764317564640517,
+ "orchestration_overhead_share": 0.02356824353594833,
+ "server_tree": {
+  "wall_s": 246.15783023834229,
+  "cpu_s": 2.18783248,
+  "cpu_share_of_wall": 0.008887925595873312,
+  "cpu_share_of_machine": 0.000740660466322776,
+  "rss_mb_end": 43.40625
+ }
+}

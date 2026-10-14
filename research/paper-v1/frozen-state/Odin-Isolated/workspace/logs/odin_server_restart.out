@@ -1,0 +1,10 @@
+Odin server → http://localhost:8000/   (USE_VOICE=1, model=qwen2.5:7b-instruct-q4_K_M, reload=0, py=/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Isolated/.venv/bin/python)
+INFO:     Started server process [49162]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:60894 - "GET / HTTP/1.1" 200 OK
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Isolated/.venv/lib/python3.12/site-packages/torch/nn/modules/rnn.py:1013: UserWarning: dropout option adds dropout after all but last recurrent layer, so non-zero dropout expects num_layers greater than 1, but got dropout=0.2 and num_layers=1
+  super().__init__("LSTM", *args, **kwargs)
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Isolated/.venv/lib/python3.12/site-packages/torch/nn/utils/weight_norm.py:144: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+  WeightNorm.apply(module, name, dim)

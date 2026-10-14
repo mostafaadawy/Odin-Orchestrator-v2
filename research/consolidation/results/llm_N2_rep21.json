@@ -1,0 +1,191 @@
+{
+ "adv": false,
+ "hook_mode": "enforce",
+ "shared_files_changed": [],
+ "N": 2,
+ "rep": 21,
+ "model": "haiku",
+ "cap_s": 840,
+ "env_start": {
+  "label": "llm N=2 rep=21 start",
+  "utc": "2026-10-06T17:20:18.899910Z",
+  "machine": {
+   "cpu": "",
+   "ncpu": 12,
+   "ram_gb": 24.0,
+   "os": "26.5.2",
+   "arch": "arm64"
+  },
+  "load": {
+   "loadavg": [
+    4.6064453125,
+    5.06689453125,
+    4.75390625
+   ],
+   "cpu_pct_total": 33.4,
+   "mem_used_pct": 81.4
+  },
+  "competing_top": [
+   {
+    "pid": 88729,
+    "name": "Python",
+    "cpu_pct": 37.1,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 89313,
+    "name": "CGPDFService",
+    "cpu_pct": 32.8,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46967,
+    "name": "Firefox GPU Helper",
+    "cpu_pct": 13.1,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46964,
+    "name": "firefox",
+    "cpu_pct": 9.7,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 89350,
+    "name": "mdworker_shared",
+    "cpu_pct": 9.3,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 61113,
+    "name": "plugin-container",
+    "cpu_pct": 7.2,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 42398,
+    "name": "Claude Helper (Renderer)",
+    "cpu_pct": 5.4,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 43890,
+    "name": "VTDecoderXPCService",
+    "cpu_pct": 3.3,
+    "is_real_odin": false,
+    "is_isolated": false
+   }
+  ],
+  "real_odin_cpu_pct": 0,
+  "soc_reports_last_hour": []
+ },
+ "env_end": {
+  "label": "end",
+  "utc": "2026-10-06T17:21:11.747009Z",
+  "machine": {
+   "cpu": "",
+   "ncpu": 12,
+   "ram_gb": 24.0,
+   "os": "26.5.2",
+   "arch": "arm64"
+  },
+  "load": {
+   "loadavg": [
+    4.654296875,
+    5.09228515625,
+    4.78515625
+   ],
+   "cpu_pct_total": 10.9,
+   "mem_used_pct": 79.6
+  },
+  "competing_top": [
+   {
+    "pid": 42398,
+    "name": "Claude Helper (Renderer)",
+    "cpu_pct": 4.6,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 61113,
+    "name": "plugin-container",
+    "cpu_pct": 3.0,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 705,
+    "name": "mongod",
+    "cpu_pct": 1.3,
+    "is_real_odin": false,
+    "is_isolated": false
+   }
+  ],
+  "real_odin_cpu_pct": 0,
+  "soc_reports_last_hour": []
+ },
+ "projects": [
+  {
+   "pid": "llm21-n2-p0",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.05371713212558201
+  },
+  {
+   "pid": "llm21-n2-p1",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.04179557959238688
+  }
+ ],
+ "writes_changed_files": 6,
+ "own_project_files": {
+  "llm21-n2-p0": 3,
+  "llm21-n2-p1": 3
+ },
+ "cross_project_files": 0,
+ "stray_outside_projects": [],
+ "n_stray": 0,
+ "wrong_folder": 0,
+ "audit_issues": 6,
+ "audit_types": {
+  "unindexed": 6
+ },
+ "claude_calls": 2,
+ "cost_usd": 0.1247119,
+ "cost_per_task_usd": 0.06235595,
+ "tokens": {
+  "input_tokens": 92,
+  "cache_creation_input_tokens": 32981,
+  "cache_read_input_tokens": 331259,
+  "output_tokens": 4330
+ },
+ "llm_busy_share_of_wall": 0.9329360851994793,
+ "orchestration_overhead_share": 0.06706391480052065,
+ "server_tree": {
+  "wall_s": 50.12894797325134,
+  "cpu_s": 0.3274819200000001,
+  "cpu_share_of_wall": 0.006532790597854626,
+  "cpu_share_of_machine": 0.0005443992164878856,
+  "rss_mb_end": 85.796875
+ }
+}

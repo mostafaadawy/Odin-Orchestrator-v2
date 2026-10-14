@@ -1,0 +1,45 @@
+{
+  "id": "zoom-real-flow",
+  "name": "Zoom Smart Meeting Notification Agent",
+  "type": "operational",
+  "cadence": "periodical",
+  "members": [
+    "Audio Capture Agent",
+    "Transcription Agent",
+    "Chunking Agent",
+    "Chunk Analysis Agent",
+    "Memory and Storage Agent",
+    "Final Summary Agent",
+    "Notification Agent"
+  ],
+  "status": "active",
+  "current_data_dir": "data/projects/zoom-real-flow",
+  "localPath": "",
+  "note": "INDEX/REFERENCE ONLY — real files still live at current_data_dir; nothing moved yet (Phase 1a)",
+  "category": "operational",
+  "typeConfig": "shared/config/project-types/periodical.json",
+  "config": {
+    "period": "periodical"
+  },
+  "features": [
+    "voice"
+  ],
+  "stack": "Python streaming pipeline running locally on the owner's machine (operational monitoring, not a VM-deployed web app). Audio Capture via system mic / Zoom meeting-audio loopback (ffmpeg / sounddevice), captured in short SERIAL segments in PARALLEL so audio is never blocked. Speech-to-text via a local STT engine (faster-whisper / Whisper) — see readiness. Chunking, Chunk Analysis, Final Summary, and Notification reasoning via the Claude engine (local Ollama qwen2.5 as fallback for chunk analysis). Storage via local SQLite/JSON keyed by Chunk ID + timestamps. No web frontend, no VM deploy unless the owner later asks. Suggested folder: a dedicated project folder e.g. ~/Desktop/AiAgentWorkSpace/zoom-meeting-agent (confirm localPath before scaffolding).",
+  "url": "",
+  "mode": "build",
+  "sources": [],
+  "auto_approve": false,
+  "periodic": {
+    "enabled": true,
+    "schedule": {
+      "kind": "daily",
+      "hhmm": "06:00"
+    },
+    "requireApproval": false
+  },
+  "rules": [],
+  "description": "OBJECTIVE: An OPERATIONAL AI meeting-intelligence system that monitors AUTHORIZED Zoom meetings via microphone or meeting audio, processes the meeting in real time using SMART CHUNKS, and generates a final SMART NOTIFICATION REPORT after the meeting ends. It captures operational outcomes: important notifications, decisions made, completed items, pending items, action items, owners, deadlines, risks, blockers, recommendations, follow-up messages, suggested next-meeting agenda, open questions. The project is OPERATIONAL in nature — business/operational intelligence, not technical reporting. It MUST NOT process the meeting as one large transcript: long meetings (1–2h) are divided into small chunks, each processed independently DURING the meeting; at the end all chunk analyses merge into one final report.\n\nCORE INSTRUCTION (binding): Use ONLY the agents, rules, workflow, outputs, and behaviors defined here. Do NOT create, assume, invent, or add any extra agents, rules, workflows, outputs, categories, or behaviors. If something is missing/unclear/undefined, mark it UNCLEAR — never invent a new rule or agent.\n\nDEFINED AGENTS (ONLY these 7 — no others):\n1. Audio Capture Agent — capture authorized meeting audio (mic/Zoom source), pass to Transcription. Must not monitor unauthorized meetings, analyze, summarize, notify, or create rules.\n2. Transcription Agent — convert audio to text; identify speakers when possible; add timestamps when possible; mark unclear/low-confidence; pass segments to Chunking. Must not invent words/speakers, create actions/decisions/reports/rules.\n3. Chunking Agent — divide the transcript into meaningful chunks by: speaker change, topic change, long silence/pause, new agenda item, decision/action/risk/blocker mention, or a 2–5 min interval if no natural boundary. Each chunk: Chunk ID, start/end time, speaker labels (if any), transcript text, detected topic, importance level, reason, processing status. Must not wait for meeting end, make chunks too large, make tiny chunks (unless they hold a decision/action/risk/blocker/important update), summarize finally, or create rules.\n4. Chunk Analysis Agent — analyze ONE chunk at a time; extract: main topic, key points, important notifications, decisions made, proposed decisions, action items, owners, deadlines, completed items, pending items, risks, blockers, dependencies, recommendations, open questions, confidence level (use the defined Chunk Analysis format). Must not invent owners/deadlines/decisions, mark proposed as confirmed, produce final report, or create rules.\n5. Memory and Storage Agent — store each chunk analysis; preserve timestamps, chunk IDs, speaker labels, confidence, operational outputs; provide all to Final Summary after meeting ends. Must not change meaning, create new decisions/actions/recommendations/reports/rules.\n6. Final Summary Agent — merge all chunk analyses into ONE final operational report; remove duplicates; merge repeated actions/risks/decisions; separate confirmed vs proposed decisions and completed vs pending; prioritize important notifications; use ONLY the defined final-report structure. Must not add extra sections/categories, include raw transcript (unless requested), invent info, or create rules.\n7. Notification Agent — turn the final report into smart notifications (title, what happened, why it matters, who acts, recommended next action, priority) using ONLY the final report. Must not use outside info, create new actions/decisions, invent owners/deadlines, add categories, or create rules.\n\nDEFINED RULES (15): (1) Authorized monitoring only. (2) Chunk-first processing. (3) Smart chunk boundary detection. (4) Max chunk duration 2–5 min. (5) Importance classification Low/Medium/High/Critical. (6) Action-item extraction with required fields + 'not mentioned' handling. (7) Decision tracking (confirmed vs proposed). (8) Completed vs pending classification. (9) Risk/blocker detection with required fields. (10) Duplicate merging. (11) No guessing (owner/deadline/decision/speaker/transcript-confidence markers). (12) Smart notification generation. (13) Sensitivity handling. (14) Raw-transcript restriction (only if requested). (15) Defined agents and rules ONLY — never add extra agents/rules/sections/workflows/categories; mark undefined behavior as unclear.\n\nWORKFLOW (only these 8 steps): 1 Authorization check → 2 Audio capture → 3 Transcription → 4 Chunking → 5 Chunk analysis → 6 Storage → 7 Final summary → 8 Smart notifications. No extra steps.\n\nFINAL REPORT SECTIONS (only these 13): Meeting Overview; Executive Summary; Important Notifications; Decisions Made; Proposed Decisions; Completed Items; Pending Items; Action Items; Risks and Blockers; Recommendations; Follow-Up Messages; Suggested Next Meeting Agenda; Open Questions. Do not include raw transcript unless requested. Do not invent missing info (mark not-mentioned/unclear).\n\nCRITICAL CONSTRAINTS: Use only the defined agents, rules, workflow, and output sections. Do NOT create extra agents/rules/workflows/report-sections. Do NOT invent missing info. Do NOT process the whole meeting as one block. Do NOT monitor unauthorized meetings. Mark unclear info clearly.\n\nSTREAMING/CHUNKING NOTE: This is a LONG-STREAMING project (1–2h live audio). Audio is captured in short serial segments and transcribed as it arrives; each chunk is analyzed during the meeting; all chunks merge into one final report at the end. The mic/meeting audio must never be blocked (capture runs in parallel).\n\nARCHITECTURE (implements the above verbatim, adds nothing): a local parallel pipeline — a non-blocking capture thread feeds serial audio segments to streaming transcription; transcribed segments feed the Chunking Agent (2–5 min max, smart boundaries); each completed chunk is analyzed independently by the Chunk Analysis Agent and persisted by the Memory and Storage Agent (SQLite/JSON, keyed by Chunk ID + timestamps); on meeting end the Final Summary Agent merges/deduplicates into the 13-section report; the Notification Agent converts that report into smart notifications. Runs locally, operational monitoring only.",
+  "created": 1783609599.686808,
+  "mappings": [],
+  "scope": "project:zoom-real-flow"
+}

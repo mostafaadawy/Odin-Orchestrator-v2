@@ -1,0 +1,14 @@
+{
+  "name": "Security Operations Investigator",
+  "role": "Security Operations Investigator",
+  "nature": "operational",
+  "avatar": "generic",
+  "projects": [
+    "RedBerry Continuous SOC"
+  ],
+  "skill_file_hint": "data/projects/<pid>/skills/security-operations-investigator.md",
+  "note": "INDEX/REFERENCE ONLY — not moved yet (Phase 1a)",
+  "type": "security",
+  "typeConfig": "shared/config/agent-types/security.json",
+  "group": "investigation"
+}

@@ -1,0 +1,184 @@
+{
+ "adv": false,
+ "hook_mode": "enforce",
+ "shared_files_changed": [],
+ "N": 2,
+ "rep": 22,
+ "model": "haiku",
+ "cap_s": 840,
+ "env_start": {
+  "label": "llm N=2 rep=22 start",
+  "utc": "2026-10-06T17:28:53.324574Z",
+  "machine": {
+   "cpu": "",
+   "ncpu": 12,
+   "ram_gb": 24.0,
+   "os": "26.5.2",
+   "arch": "arm64"
+  },
+  "load": {
+   "loadavg": [
+    3.357421875,
+    3.13525390625,
+    3.845703125
+   ],
+   "cpu_pct_total": 33.2,
+   "mem_used_pct": 80.2
+  },
+  "competing_top": [
+   {
+    "pid": 13560,
+    "name": "CGPDFService",
+    "cpu_pct": 37.7,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 13573,
+    "name": "CGPDFService",
+    "cpu_pct": 36.1,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 13562,
+    "name": "CGPDFService",
+    "cpu_pct": 32.6,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 12807,
+    "name": "Python",
+    "cpu_pct": 26.8,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 12898,
+    "name": "CGPDFService",
+    "cpu_pct": 11.0,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 42398,
+    "name": "Claude Helper (Renderer)",
+    "cpu_pct": 5.4,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 643,
+    "name": "AMPDeviceDiscoveryAgent",
+    "cpu_pct": 2.5,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 13483,
+    "name": "mdworker_shared",
+    "cpu_pct": 1.6,
+    "is_real_odin": false,
+    "is_isolated": false
+   }
+  ],
+  "real_odin_cpu_pct": 0,
+  "soc_reports_last_hour": []
+ },
+ "env_end": {
+  "label": "end",
+  "utc": "2026-10-06T17:30:11.230623Z",
+  "machine": {
+   "cpu": "",
+   "ncpu": 12,
+   "ram_gb": 24.0,
+   "os": "26.5.2",
+   "arch": "arm64"
+  },
+  "load": {
+   "loadavg": [
+    2.03857421875,
+    2.85498046875,
+    3.68310546875
+   ],
+   "cpu_pct_total": 2.1,
+   "mem_used_pct": 80.0
+  },
+  "competing_top": [
+   {
+    "pid": 42398,
+    "name": "Claude Helper (Renderer)",
+    "cpu_pct": 4.4,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 705,
+    "name": "mongod",
+    "cpu_pct": 1.2,
+    "is_real_odin": false,
+    "is_isolated": false
+   }
+  ],
+  "real_odin_cpu_pct": 0,
+  "soc_reports_last_hour": []
+ },
+ "projects": [
+  {
+   "pid": "llm22-n2-p0",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.04180924409911746
+  },
+  {
+   "pid": "llm22-n2-p1",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.0835837545849028
+  }
+ ],
+ "writes_changed_files": 6,
+ "own_project_files": {
+  "llm22-n2-p0": 3,
+  "llm22-n2-p1": 3
+ },
+ "cross_project_files": 0,
+ "stray_outside_projects": [],
+ "n_stray": 0,
+ "wrong_folder": 0,
+ "audit_issues": 6,
+ "audit_types": {
+  "unindexed": 6
+ },
+ "claude_calls": 2,
+ "cost_usd": 0.152302,
+ "cost_per_task_usd": 0.076151,
+ "tokens": {
+  "input_tokens": 116,
+  "cache_creation_input_tokens": 35895,
+  "cache_read_input_tokens": 437190,
+  "output_tokens": 6560
+ },
+ "llm_busy_share_of_wall": 0.9664422158862188,
+ "orchestration_overhead_share": 0.033557784113781186,
+ "server_tree": {
+  "wall_s": 75.22657203674316,
+  "cpu_s": 0.40259707200000006,
+  "cpu_share_of_wall": 0.005351793403577638,
+  "cpu_share_of_machine": 0.0004459827836314698,
+  "rss_mb_end": 93.46875
+ }
+}

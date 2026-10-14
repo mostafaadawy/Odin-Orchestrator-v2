@@ -1,0 +1,5 @@
+=== LIVE claude auth probe (manual 75s watchdog) ===
+ran 5s
+RESULT= 'READY'
+is_error= False
+DONE_PROBE3

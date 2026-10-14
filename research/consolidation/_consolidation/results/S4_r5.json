@@ -1,0 +1,652 @@
+{
+ "scenario": "S4",
+ "rep": 5,
+ "pid": "landing-leads-rep5",
+ "seconds": 166.2,
+ "cost_usd": 1.082,
+ "spent_total": 29.7406,
+ "record": {
+  "intake": [
+   {
+    "action": "propose",
+    "spec": {
+     "name": "landing-leads-rep5",
+     "type": "Landing page web app with lead-capture contact form",
+     "stack": "Next.js (App Router, React, TypeScript) fullstack + API routes; PostgreSQL via Prisma for lead storage; deployed on the Azure VM (django-vm, resource group DJANGO-PROJECT) behind the existing nginx/systemd setup",
+     "description": "Build a SMALL landing page with a contact form that saves submitted leads to a database (this is rep 5), and DEPLOY it when finished. Scope is intentionally small: a single marketing landing page (hero + value section + contact form) and a working lead-capture backend. The contact form collects standard lead fields (name, email, message, optional phone/company) and persists every submission as a lead row in a PostgreSQL database via Prisma; server-side validation rejects empty/invalid email. Build everything INSIDE this project's own folder (workspace/projects/landing-leads-rep5) \u2014 never in the Odin app repo; create the folder and cd into it. Platform is Next.js fullstack (App Router + API route handler for the form POST) with Prisma + PostgreSQL. NO QA agent is to be staffed for this project (owner's explicit instruction). After the build is finished, DEPLOY it: firewall rotated via the Azure control plane (port 22 single-IP, 80/443 kept open), then rsync + build + migrate (prisma migrate deploy, additive) + service restart over SSH as user mostafa \u2014 excluding all secrets (.env*, .backup-env, *.pem, *.key, *.bak, *.tmp, *.copy, credential JSON). Verify it came online (poll health/URL until HTTP 200) and report real evidence.",
+     "features": [
+      "Responsive landing page (hero, brief value/benefits section, call-to-action)",
+      "Contact form (name, email, message; optional phone/company) with client + server-side validation",
+      "API route that saves each submission as a lead record in PostgreSQL via Prisma",
+      "Prisma Lead model + migration (prisma migrate deploy, additive)",
+      "Success / error UI feedback on submit (thank-you state, inline validation errors)",
+      "Basic spam guard (honeypot field + server-side required/format checks)",
+      "Deploy to the Azure VM with health-check verification (poll until HTTP 200)"
+     ],
+     "team": [
+      "Fullstack",
+      "DevOps"
+     ],
+     "recommendations": {
+      "features": [
+       {
+        "name": "Lead notification (email or HubSpot sync)",
+        "why": "Leads sitting only in the DB are easy to miss; piping each lead to HubSpot (already connected) or an email alert makes the form actually actionable for sales."
+       },
+       {
+        "name": "Admin/export view for leads",
+        "why": "A tiny protected page or CSV export lets the owner read captured leads without opening the database directly."
+       }
+      ],
+      "members": [
+       {
+        "name": "QA",
+        "why": "Owner explicitly excluded QA for this project; noting only that without it, verification of the form\u2192DB flow rests on Fullstack/DevOps self-checks and the deploy health poll \u2014 not auto-staffed."
+       }
+      ]
+     },
+     "readiness": [
+      {
+       "item": "Landing page + contact form + lead API (Next.js fullstack)",
+       "status": "ready",
+       "by": "team",
+       "need": ""
+      },
+      {
+       "item": "PostgreSQL lead storage via Prisma",
+       "status": "ready",
+       "by": "azure",
+       "need": ""
+      },
+      {
+       "item": "Deploy to Azure VM (firewall rotate + rsync + build + migrate + restart)",
+       "status": "ready",
+       "by": "azure",
+       "need": ""
+      },
+      {
+       "item": "Online verification (health poll to HTTP 200)",
+       "status": "ready",
+       "by": "claude",
+       "need": ""
+      },
+      {
+       "item": "Optional lead-to-HubSpot sync",
+       "status": "ready",
+       "by": "connector",
+       "need": "HubSpot already connected; wire only if the recommended feature is approved"
+      }
+     ],
+     "dependencies": [
+      {
+       "name": "PostgreSQL database (lead store, *_con convention)",
+       "status": "have",
+       "why": "Postgres is available on the VM; a project DB/migration is created at deploy time via prisma migrate deploy"
+      },
+      {
+       "name": "Azure VM deploy path (control plane + SSH as mostafa)",
+       "status": "have",
+       "why": "Odin's deploy pipeline handles firewall rotation and SSH deploy; no new connection needed"
+      },
+      {
+       "name": "Node.js / Next.js build toolchain",
+       "status": "have",
+       "why": "Standard Node toolchain on the VM builds and serves the Next.js app under systemd/nginx"
+      }
+     ],
+     "identifier": "landing-leads-rep5"
+    }
+   }
+  ],
+  "recommended_team": [
+   "Fullstack",
+   "DevOps"
+  ],
+  "recommendations": {
+   "features": [
+    {
+     "name": "Lead notification (email or HubSpot sync)",
+     "why": "Leads sitting only in the DB are easy to miss; piping each lead to HubSpot (already connected) or an email alert makes the form actually actionable for sales."
+    },
+    {
+     "name": "Admin/export view for leads",
+     "why": "A tiny protected page or CSV export lets the owner read captured leads without opening the database directly."
+    }
+   ],
+   "members": [
+    {
+     "name": "QA",
+     "why": "Owner explicitly excluded QA for this project; noting only that without it, verification of the form\u2192DB flow rests on Fullstack/DevOps self-checks and the deploy health poll \u2014 not auto-staffed."
+    }
+   ]
+  },
+  "readiness": [
+   {
+    "item": "Landing page + contact form + lead API (Next.js fullstack)",
+    "status": "ready",
+    "by": "team",
+    "need": ""
+   },
+   {
+    "item": "PostgreSQL lead storage via Prisma",
+    "status": "ready",
+    "by": "azure",
+    "need": ""
+   },
+   {
+    "item": "Deploy to Azure VM (firewall rotate + rsync + build + migrate + restart)",
+    "status": "ready",
+    "by": "azure",
+    "need": ""
+   },
+   {
+    "item": "Online verification (health poll to HTTP 200)",
+    "status": "ready",
+    "by": "claude",
+    "need": ""
+   },
+   {
+    "item": "Optional lead-to-HubSpot sync",
+    "status": "ready",
+    "by": "connector",
+    "need": "HubSpot already connected; wire only if the recommended feature is approved"
+   }
+  ],
+  "dependencies": [
+   {
+    "name": "PostgreSQL database (lead store, *_con convention)",
+    "status": "have",
+    "why": "Postgres is available on the VM; a project DB/migration is created at deploy time via prisma migrate deploy"
+   },
+   {
+    "name": "Azure VM deploy path (control plane + SSH as mostafa)",
+    "status": "have",
+    "why": "Odin's deploy pipeline handles firewall rotation and SSH deploy; no new connection needed"
+   },
+   {
+    "name": "Node.js / Next.js build toolchain",
+    "status": "have",
+    "why": "Standard Node toolchain on the VM builds and serves the Next.js app under systemd/nginx"
+   }
+  ],
+  "owner_decision": {
+   "dropped": [],
+   "kept": [
+    "Fullstack",
+    "DevOps"
+   ]
+  },
+  "validate": {
+   "known": [
+    "Fullstack",
+    "DevOps"
+   ],
+   "unknown": [],
+   "catalog": [
+    "Fullstack",
+    "Mobile",
+    "DevOps",
+    "QA",
+    "Security",
+    "Embedded",
+    "Data",
+    "GameDev",
+    "XR",
+    "Designer",
+    "HubSpot",
+    "CloudDebug",
+    "Marketing",
+    "Email",
+    "Content",
+    "Support",
+    "Sales",
+    "Fulfillment",
+    "EasyPost",
+    "Analytics",
+    "Writer",
+    "Finance",
+    "SEO",
+    "Reporter",
+    "SecCTO",
+    "SecArchitect",
+    "SecInvestigator",
+    "AssetSurface",
+    "Predictor",
+    "Recovery",
+    "BehaviorIDS",
+    "MeetingVoice"
+   ]
+  },
+  "create": {
+   "id": "landing-leads-rep5",
+   "name": "Leads Landing r5",
+   "type": "landing_page_web_app_with_lead_capture_contact_form",
+   "members": [
+    "Fullstack",
+    "DevOps",
+    "EasyPost"
+   ],
+   "_error": null
+  },
+  "run": {
+   "events": [
+    [
+     "status",
+     {
+      "icon": "\ud83d\udd12",
+      "text": "This touches Azure/the VM \u2014 every change will wait for your Approve/Discard (read-only checks run free)."
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\ud83e\udded",
+      "text": "Project CTO is reviewing the team & resources, then planning\u2026"
+     }
+    ],
+    [
+     "plan",
+     {
+      "steps": "[{'member': 'DevOps', 'depends_on': [], 'task': 'Plan the work and build the first version of the contact form. Do not deploy. Constraint: do NOT deploy, rsync, build on the VM, migrate, or reboot -- no VM/production state change. Local file/config edits the owner explicitly asked for (e.g. updating a list) ARE allowed -- only deployment is off-limits.', 'objective': 'Do EXACTLY what the owner asked -- nothing else.', 'deliverable': 'The exact thing asked, shown with real evidence (diff / command output / file).', 'acceptance_criteria': 'The request is satisfied and proven with evidence; no ex"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u23f1\ufe0f",
+      "text": "E2E timer started (cached)"
+     }
+    ],
+    [
+     "delegate",
+     {
+      "pid": "landing-leads-rep5",
+      "to": "DevOps",
+      "step": "1",
+      "of": "1",
+      "task": "Plan the work and build the first version of the contact form. Do not deploy. Constraint: do NOT deploy, rsync, build on the VM, migrate, or reboot -- no VM/production state change. Local file/config edits the owner explicitly asked for (e.g. updating a list) ARE allowed -- only deployment is off-limits."
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\ud83d\udde3\ufe0f",
+      "text": "CTO briefs DevOps with a bounded mandate"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u2699\ufe0f",
+      "text": "DevOps is working\u2026"
+     }
+    ],
+    [
+     "token",
+     {
+      "member": "DevOps",
+      "t": "I'll start with the readiness check, but first let me actually look for this project's folder rather than assume it doesn't exist \u2014 the shared history and git status suggest a folder may already exist."
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u2699\ufe0f",
+      "text": "DevOps: \u2699\ufe0f ls -la workspace/projects/ 2>/dev/null | head -50"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u2705",
+      "text": "DevOps: total 0 drwxr-xr-x  32 mostafaadawy  staff  1024 Oct 11 13:25 . drwxr-xr-x  13 mostafaadaw"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u2699\ufe0f",
+      "text": "DevOps: \u2699\ufe0f echo \"=== rep5 ===\" && find workspace/projects/landing-leads-rep5 -max\u2026"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u2705",
+      "text": "DevOps: === rep5 === workspace/projects/landing-leads-rep5 workspace/projects/landing-leads-rep5/c"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u23f3",
+      "text": "DevOps: still working\u2026 (2s since last output)"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u2699\ufe0f",
+      "text": "DevOps: \u2699\ufe0f cd workspace/projects/landing-leads-rep5 && echo \"=== index.json ===\" \u2026"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u2705",
+      "text": "DevOps: === index.json === {   \"id\": \"landing-leads-rep5\",   \"name\": \"Leads Landing r5\",   \"type\":"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u23f3",
+      "text": "DevOps: still working\u2026 (2s since last output)"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u23f3",
+      "text": "DevOps: still working\u2026 (18s since last output)"
+     }
+    ],
+    [
+     "token",
+     {
+      "member": "DevOps",
+      "t": "I've found the project folder and read its config. Here's the situation.\n\n## Readiness check\n\n**REQUIRES:** (a) the project's local folder to place code in; (b) the stack; (c) for anything to deploy \u2014 a QA-approved build + target.\n\n**HAVE:**\n- Project folder/metadata: `workspace/projects/landing-leads-rep5` (its `index.json` designates this as the project's own folder, with a `code/` subdir for source).\n- Stack: Next.js (App Router, React, TS) + API routes, PostgreSQL via Prisma \u2014 from `index.json`.\n- Team: `Fullstack`, `DevOps` (me), `EasyPost`. `qa_declined: true` (no QA this project).\n\n**MI"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\ud83d\udd0e",
+      "text": "CTO reviewing DevOps"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u26a0\ufe0f",
+      "text": "DevOps's part still has issues \u2014 review needs fix"
+     }
+    ],
+    [
+     "step_done",
+     {
+      "member": "DevOps",
+      "step": "1",
+      "result": "QA skipped. Needs fix: No contact form was built \u2014 `workspace/projects/landing-leads-rep5/code/` contains only `.gitkeep`, and there's no plan file in `plan/`, so the deliverable (\"plan the work and build the first version of the contact form\") doesn't exist. The report's lane-boundary refusal doesn't hold: the project's own `index.json` designates this folder with a `code/` subdir for exactly thi"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u23f1\ufe0f",
+      "text": "E2E finished in 131.71s (cached)"
+     }
+    ],
+    [
+     "done",
+     {
+      "pid": "landing-leads-rep5",
+      "steps": "1",
+      "ok": "False",
+      "timing": "{'seconds': 131.71, 'cached': True, 'compare': {'cached': {'pid': 'landing-leads-rep4', 'task': 'Plan the work and build the first version of the contact form. Do not deploy.', 'cached': True, 'ok': True, 'seconds': 69.34, 'ts': 1791714258}, 'non_cached': None, 'speedup': None, 'saved_seconds': None}}"
+     }
+    ]
+   ],
+   "n_events": 23,
+   "text": "[DevOps] I'll start with the readiness check, but first let me actually look for this project's folder rather than assume it doesn't exist \u2014 the shared history and git status suggest a folder may already exist.[DevOps] I've found the project folder and read its config. Here's the situation.\n\n## Readiness check\n\n**REQUIRES:** (a) the project's local folder to place code in; (b) the stack; (c) for anything to deploy \u2014 a QA-approved build + target.\n\n**HAVE:**\n- Project folder/metadata: `workspace/projects/landing-leads-rep5` (its `index.json` designates this as the project's own folder, with a `code/` subdir for source).\n- Stack: Next.js (App Router, React, TS) + API routes, PostgreSQL via Prisma \u2014 from `index.json`.\n- Team: `Fullstack`, `DevOps` (me), `EasyPost`. `qa_declined: true` (no QA this project).\n\n**MISSING / flagged:** `localPath` is `\"\"` (empty) \u2014 no real on-disk source path is set; the metadata folder isn't the app source tree.\n\n## The honest headline: this step is mis-routed to me\n\nI'm the **DevOps** agent. My boundary \u2014 stated twice in my mandate and in this project's own `instructions.md` \u2014 is explicit: **\"you write NO application feature code \u2026 Fullstack builds the ENTIRE web application (frontend + backend + database), one owner of the whole codebase.\"** A contact form (name/email/message fields, submit control, submission handling, client-side validation) is exactly that application feature code \u2014 it's **Fullstack's** mandate, not mine.\n\nOn top of that, the owner said **\"Do not deploy\"** \u2014 and deploy/operate is the one thing DevOps does. So there is no in-lane *build* or *deploy* action for me on this step.\n\nI won't silently overstep and hand-write a React form as DevOps \u2014 that would break my role boundary and duplicate Fullstack's single-owner codebase. What I *can* legitimately deliver is the **work plan** the owner asked for. Here it is.\n\n## Work plan \u2014 Contact form v1 (for Fullstack to build, no deploy)\n\n**Destination:** `workspace/projects/landing-leads-rep5/code/` (project's own folder per `index.json`). Confirm/record this as `localPath` before writing \u2014 currently empty.\n\n**Stack fit:** Next.js App Router + TypeScript, API route handler for the POST, Prisma + PostgreSQL for lead persistence (already the project's declared stack).\n\n**Scope of v1 (contact form only):**\n1. **UI** \u2014 `app/contact/` (or a `<ContactForm>` client component embedded in the landing page): fields **Name** (text, required), **Email** (email, required), **Message** (textarea, required); optional **Phone/Company** per project description; a **Submit** button with disabled/loading state.\n2. **Client-side validation** \u2014 required-field checks + email format; inline error messages; block submit until valid; preserve entered values on error.\n3. **Submission handling** \u2014 client `fetch('/api/leads', { method:'POST' })`; show success and error states to the user.\n4. **API route** \u2014 `app/api/leads/route.ts`: parse JSON, **server-side validation** (reject empty/invalid email), persist a `Lead` row via Prisma, return 201/400 with a JSON body.\n5. **Data model** \u2014 Prisma `Lead` model: `id, name, email, message, phone?, company?, createdAt`; migration authored locally (NOT run against the VM \u2014 no deploy this step).\n6. **No deploy** \u2014 stop at a working local build; deployment is a later, separate, owner-approved step.\n\n**Sequencing:** Fullstack builds 1\u20135 inside `code/` \u2192 local verification (form renders, validation fires, POST writes a lead to a local/dev DB) \u2192 *then* (separate future step, with approval) DevOps handles firewall/rsync/migrate/restart/verify. QA is declined for this project, so Fullstack self-verifies with real evidence.\n\n## What I need / next step\n\nThis build belongs to **Fullstack**, so please route the build step to Fullstack (I'll run last, only for deploy, and only when the owner approves \u2014 which is explicitly *not* now). \n\nNo proposal block: I have no in-lane file or VM change to make \u2014 writing the form is out of my role, and there's nothing to deploy."
+  },
+  "owner_approvals": []
+ },
+ "diff": {
+  "counts": {
+   "projects": 1,
+   "project_agents": 3,
+   "files": 5
+  },
+  "shared_added": [],
+  "shared_removed": [],
+  "manifests_new_or_changed": {},
+  "agents_changed": [],
+  "agents_db_added": []
+ },
+ "project": {
+  "files": [
+   "agents.json",
+   "data/jsons/main_tasks.json",
+   "index.json",
+   "instructions/instructions.md"
+  ],
+  "manifest": null,
+  "team_db": [
+   "Fullstack",
+   "DevOps",
+   "EasyPost"
+  ],
+  "agent_scope": [],
+  "delta_like_files": {
+   "agents.json": "{\n  \"agents\": [\n    {\n      \"name\": \"Fullstack\",\n      \"role\": \"Fullstack\",\n      \"avatar\": \"generic\",\n      \"description\": \"Builds the ENTIRE web application \u2014 frontend + backend + database \u2014 in ONE hand, in ANY web stack (Node.js/TS, Laravel/PHP, Python/Django, .NET/C#, Rails, \u2026), installing whatever it needs (Node, Laravel, .NET, etc.). May use Flutter for WEB targets only (never mobile). RESEARCHES & WRITES every third-party integration itself (HubSpot, Klaviyo, Mailchimp, Veeqo, 3PL, GA, \u2026) \u2014 for those it only ASKS the relevant operator for that service's API KEY, then writes the calling code. One owner of the whole web codebase: NO frontend/backend hand-off, no shared-folder conflict. Does NOT build mobile apps (Mobile) and does NOT deploy (DevOps).\",\n      \"skills\": [],\n      \"responsibilities\": [],\n      \"restrictions\": [],\n      \"model\": \"\",\n      \"nature\": \"technical\",\n      \"mode\": \"\",\n      \"resources\": \"=== ALLOWED RESOURCES & DEPENDENCIES (read FIRST; REASON before you ask \u2014 never ask for anything already here or already in the brief/shared pool) ===\\n\u2022 PERMISSIONS: full read/write + shell. You CREATE and EDIT files (Write/Edit/Bash) inside the project folder you are given. If a Write/Edit actually fails, say so explicitly \u2014 do NOT silently narrate instead of building.\\n\u2022 INTEGRATION KEYS / ENV: credentials come from the ENVIRONMENT, not from other agents. Read them, in this order, from: (1) the ENV/keys block in your mandate/brief, (2) the shared pool, (3) the ",
+   "index.json": "{\n  \"id\": \"landing-leads-rep5\",\n  \"name\": \"Leads Landing r5\",\n  \"type\": \"landing_page_web_app_with_lead_capture_contact_form\",\n  \"category\": \"Next.js (App Router, React, TypeScript) fullstack + API routes; PostgreSQL via Prisma for lead storage; deployed on the Azure VM (django-vm, resource group DJANGO-PROJECT) behind the existing nginx/systemd setup\",\n  \"description\": \"Build a SMALL landing page with a contact form that saves submitted leads to a database (this is rep 5), and DEPLOY it when finished. Scope is intentionally small: a single marketing landing page (hero + value section + contact form) and a working lead-capture backend. The contact form collects standard lead fields (name, email, message, optional phone/company) and persists every submission as a lead row in a PostgreSQL database via Prisma; server-side validation rejects empty/invalid email. Build everything INSIDE this project's own folder (workspace/projects/landing-leads-rep5) \u2014 never in the Odin app repo; create the folder and cd into it. Platform is Next.js fullstack (App Router + API route handler for the form POST) with Prisma + PostgreSQL. NO QA agent is to be staffed for this project (owner's explicit instruction). After the build is finished, DEPLOY it: firewall rotated via the Azure control plane (port 22 single-IP, 80/443 kept open), then rsync + build + migrate (prisma migrate deploy, additive) + service restart over SSH as user mostafa \u2014 excluding all secrets (.env*, .backup-env, *.pem, *.key, *"
+  },
+  "agents_json": "{\n  \"agents\": [\n    {\n      \"name\": \"Fullstack\",\n      \"role\": \"Fullstack\",\n      \"avatar\": \"generic\",\n      \"description\": \"Builds the ENTIRE web application \u2014 frontend + backend + database \u2014 in ONE hand, in ANY web stack (Node.js/TS, Laravel/PHP, Python/Django, .NET/C#, Rails, \u2026), installing whatever it needs (Node, Laravel, .NET, etc.). May use Flutter for WEB targets only (never mobile). RESEARCHES & WRITES every third-party integration itself (HubSpot, Klaviyo, Mailchimp, Veeqo, 3PL, GA, \u2026) \u2014 for those it only ASKS the relevant operator for that service's API KEY, then writes the calling code. One owner of the whole web codebase: NO frontend/backend hand-off, no shared-folder conflict. Does NOT build mobile apps (Mobile) and does NOT deploy (DevOps).\",\n      \"skills\": [],\n      \"responsibilities\": [],\n      \"restrictions\": [],\n      \"model\": \"\",\n      \"nature\": \"technical\",\n      \"mode\": \"\",\n      \"resources\": \"=== ALLOWED RESOURCES & DEPENDENCIES (read FIRST; REASON before you ask \u2014 never ask for anything already here or already in the brief/shared pool) ===\\n\u2022 PERMISSIONS: full read/write + shell. You CREATE and EDIT files (Write/Edit/Bash) inside the project folder you are given. If a Write/Edit actually fails, say so explicitly \u2014 do NOT silently narrate instead of building.\\n\u2022 INTEGRATION KEYS / ENV: credentials come from the ENVIRONMENT, not from other agents. Read them, in this order, from: (1) the ENV/keys block in your mandate/brief, (2) the shared pool, (3) the project `.env`, (4) workspace/shared/oth/.cred. Do NOT ask an operator (Fulfillment/Email/\u2026) for the app's key \u2014 the app uses the env key provided for it. START by reading the env/config; do NOT begin by testing a key unless the task requires it.\\n\u2022 ASK-IF-MISSING: only if a key/var the task needs is in NONE of those sources, ask the CTO ONCE for that specific item, then continue. If read/write is genuinely unavailable, state exactly that.\\n\",\n      \"env\": [],\n      \"asset\": \"\",\n      \"rules\": [],\n      \"stats\": {\n        \"invocations\": 0,\n        \"lastActive\": null\n      },\n      \"created\": 1791714359.928066\n    },\n    {\n      \"name\": \"DevOps\",\n      \"role\": \"DevOps\",\n      \"avatar\": \"generic\",\n      \"description\": \"Owns ALL cloud & delivery \u2014 ANY provider (Azure/AWS/GCP/\u2026), CI/CD (CircleCI, GitHub Actions, \u2026), Git/GitHub sync, Kubernetes, load balancers, releases & rollbacks. Deploys/operates what others built; writes NO application feature code. Runs LAST, after QA approves.\",\n      \"skills\": [],\n      \"responsibilities\": [],\n      \"restrictions\": [],\n      \"model\": \"\",\n      \"nature\": \"technical\",\n      \"mode\": \"\",\n      \"resources\": \"=== ALLOWED RESOURCES & DEPENDENCIES (read FIRST; REASON before you ask \u2014 never ask for anything already here or already in the brief/shared pool) ===\\n\u2022 ACCESS: deploy/cloud access. Reach the VM over SSH as user `mostafa` (password in workspace/shared/oth/.cred); the `az` control plane runs on the Mac, NOT on the VM. Tools: rsync, ssh, docker, nginx, systemctl, CI/CD.\\n\u2022 FIREWALL / PORTS (CONFIRMED RULES \u2014 obey exactly, do NOT widen): SSH port 22 must stay open to EXACTLY ONE IP \u2014 your current public IP \u2014 and no other; never open 22 to 0.0.0.0/0. Ports 80 and 443 (the reverse proxy) are already configured and serve traffic \u2014 do NOT change, close, or reorder their rules. When you touch UFW/NSG, ADD only the single-IP rule for 22 if it's missing; leave 80/443 and every other rule untouched. If SSH/22 is blocked, re-pin 22 to your current IP, then RETRY the transport before aborting \u2014 do not give up on the first hiccup.\\n\u2022 VERIFY EVERY COMMAND (do NOT assume success): after EACH remote command, READ its real result \u2014 the exit code AND the output \u2014 and decide from that, not from the fact that it ran. A non-zero exit, a stderr error, or empty/unexpected output means it did NOT succeed; report the exact output and fix or retry. Never report a step done on an assumed/blind success.\\n\u2022 FILE UPDATES MUST OVERWRITE AT CONTENT LEVE",
+  "members_api": [
+   "Fullstack",
+   "DevOps",
+   "EasyPost"
+  ]
+ },
+ "audit_project": [
+  {
+   "type": "unindexed",
+   "path": "workspace/projects/landing-leads-rep5/instructions/instructions.md"
+  },
+  {
+   "type": "unindexed",
+   "path": "workspace/projects/landing-leads-rep5/data/jsons/main_tasks.json"
+  }
+ ],
+ "earlier_projects": {
+  "revealer-6978": {
+   "deps": [
+    {
+     "name": "testing",
+     "base_exists": true,
+     "overlay": "tests/",
+     "overlay_exists": true
+    },
+    {
+     "name": "deploy_changes.py",
+     "base_exists": true,
+     "overlay": "deploy/revealer-6978.config.sh",
+     "overlay_exists": true
+    },
+    {
+     "name": "project_test.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    },
+    {
+     "name": "dup_test_r2.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    },
+    {
+     "name": "dup_test_r3.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    }
+   ],
+   "audit_issues": 1
+  },
+  "hubspot-crm-operator": {
+   "deps": [
+    {
+     "name": "project_test.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    },
+    {
+     "name": "dup_test_r2.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    },
+    {
+     "name": "dup_test_r3.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    }
+   ],
+   "audit_issues": 0
+  },
+  "fulfillment-vq-status-read-only-dc1e": {
+   "manifest": false
+  },
+  "backend-sandbox-rep-6": {
+   "deps": [
+    {
+     "name": "deploy_changes.py",
+     "base_exists": true,
+     "overlay": "deploy/backend-sandbox-rep-6.config.sh",
+     "overlay_exists": true
+    }
+   ],
+   "audit_issues": 1
+  },
+  "brand2-email-reporting": {
+   "manifest": false
+  },
+  "odin-landing-lead-0d48": {
+   "manifest": false
+  },
+  "backend-sandbox-rep-7": {
+   "deps": [
+    {
+     "name": "deploy_changes.py",
+     "base_exists": true,
+     "overlay": "deploy/backend-sandbox-rep-7.config.sh",
+     "overlay_exists": true
+    }
+   ],
+   "audit_issues": 4
+  },
+  "brand2-email-reporting-rep3": {
+   "manifest": false
+  },
+  "odin-landing-lead-rep-3": {
+   "manifest": false
+  },
+  "landing-leads-rep4": {
+   "manifest": false
+  },
+  "odin-external-arms": {
+   "deps": [
+    {
+     "name": "anchor_web_deploy",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    }
+   ],
+   "audit_issues": 0
+  },
+  "zoom-real-flow": {
+   "manifest": false
+  },
+  "odin-landing-lead": {
+   "manifest": false
+  },
+  "email-klaviyo-workflows-read-only-18ca": {
+   "manifest": false
+  },
+  "full-services-19jul": {
+   "deps": [
+    {
+     "name": "deploy_changes.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    },
+    {
+     "name": "INSTALL_SOC_SENSOR.md",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    }
+   ],
+   "audit_issues": 0
+  },
+  "customer-orders-portal": {
+   "manifest": false
+  },
+  "sandbox-three-rep-3": {
+   "manifest": false
+  },
+  "customers-orders-portal-rep-2": {
+   "manifest": false
+  },
+  "customers-orders-portal": {
+   "manifest": false
+  },
+  "brand2-email-reporting-b491": {
+   "manifest": false
+  },
+  "real-deployment-and-diagnosis-organics-07d7": {
+   "manifest": false
+  },
+  "backend-sandbox-rep-5": {
+   "deps": [
+    {
+     "name": "deploy_changes.py",
+     "base_exists": true,
+     "overlay": "deploy/backend-sandbox-rep-5.config.sh",
+     "overlay_exists": true
+    }
+   ],
+   "audit_issues": 1
+  },
+  "backend-sandbox-rep-2": {
+   "manifest": false
+  },
+  "backend-sandbox-rep-4": {
+   "deps": [
+    {
+     "name": "deploy_changes.py",
+     "base_exists": true,
+     "overlay": "deploy/backend-sandbox-rep-4.config.sh",
+     "overlay_exists": true
+    }
+   ],
+   "audit_issues": 1
+  },
+  "daily-egypt-amazon-product-poster": {
+   "manifest": false
+  },
+  "redberry-continuous-soc": {
+   "deps": [
+    {
+     "name": "INSTALL_SOC_SENSOR.md",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    }
+   ],
+   "audit_issues": 0
+  },
+  "sandbox2-backend": {
+   "manifest": false
+  },
+  "vm-sentinel": {
+   "manifest": false
+  }
+ }
+}

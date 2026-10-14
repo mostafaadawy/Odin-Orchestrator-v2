@@ -1,0 +1,309 @@
+{
+ "adv": false,
+ "hook_mode": "enforce",
+ "shared_files_changed": [],
+ "N": 10,
+ "rep": 22,
+ "model": "haiku",
+ "cap_s": 1800,
+ "env_start": {
+  "label": "llm N=10 rep=22 start",
+  "utc": "2026-10-06T17:32:30.454809Z",
+  "machine": {
+   "cpu": "",
+   "ncpu": 12,
+   "ram_gb": 24.0,
+   "os": "26.5.2",
+   "arch": "arm64"
+  },
+  "load": {
+   "loadavg": [
+    2.29541015625,
+    2.75244140625,
+    3.5263671875
+   ],
+   "cpu_pct_total": 33.1,
+   "mem_used_pct": 80.1
+  },
+  "competing_top": [
+   {
+    "pid": 23662,
+    "name": "CGPDFService",
+    "cpu_pct": 33.7,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 42398,
+    "name": "Claude Helper (Renderer)",
+    "cpu_pct": 5.2,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 575,
+    "name": "cfprefsd",
+    "cpu_pct": 2.2,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46978,
+    "name": "plugin-container",
+    "cpu_pct": 2.2,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 23655,
+    "name": "mdworker_shared",
+    "cpu_pct": 1.4,
+    "is_real_odin": false,
+    "is_isolated": false
+   }
+  ],
+  "real_odin_cpu_pct": 0,
+  "soc_reports_last_hour": []
+ },
+ "env_end": {
+  "label": "end",
+  "utc": "2026-10-06T17:37:10.231355Z",
+  "machine": {
+   "cpu": "",
+   "ncpu": 12,
+   "ram_gb": 24.0,
+   "os": "26.5.2",
+   "arch": "arm64"
+  },
+  "load": {
+   "loadavg": [
+    3.64306640625,
+    2.9208984375,
+    3.3486328125
+   ],
+   "cpu_pct_total": 9.1,
+   "mem_used_pct": 72.4
+  },
+  "competing_top": [
+   {
+    "pid": 61113,
+    "name": "plugin-container",
+    "cpu_pct": 20.4,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46967,
+    "name": "Firefox GPU Helper",
+    "cpu_pct": 11.3,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46964,
+    "name": "firefox",
+    "cpu_pct": 8.9,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 42398,
+    "name": "Claude Helper (Renderer)",
+    "cpu_pct": 4.9,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 43890,
+    "name": "VTDecoderXPCService",
+    "cpu_pct": 3.0,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 41917,
+    "name": "Claude",
+    "cpu_pct": 2.7,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 91767,
+    "name": "cloudd",
+    "cpu_pct": 2.4,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 707,
+    "name": "corespeechd",
+    "cpu_pct": 1.8,
+    "is_real_odin": false,
+    "is_isolated": false
+   }
+  ],
+  "real_odin_cpu_pct": 0,
+  "soc_reports_last_hour": []
+ },
+ "projects": [
+  {
+   "pid": "llm22-n10-p0",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.1395925321843889
+  },
+  {
+   "pid": "llm22-n10-p1",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.1284498377641042
+  },
+  {
+   "pid": "llm22-n10-p2",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.08100344724125333
+  },
+  {
+   "pid": "llm22-n10-p3",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.13959423396322462
+  },
+  {
+   "pid": "llm22-n10-p4",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.1284509449534946
+  },
+  {
+   "pid": "llm22-n10-p5",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.1228822394212087
+  },
+  {
+   "pid": "llm22-n10-p6",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.15072745561599732
+  },
+  {
+   "pid": "llm22-n10-p7",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.10892899327807956
+  },
+  {
+   "pid": "llm22-n10-p8",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.14516125824716355
+  },
+  {
+   "pid": "llm22-n10-p9",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.12009664164649116
+  }
+ ],
+ "writes_changed_files": 30,
+ "own_project_files": {
+  "llm22-n10-p0": 3,
+  "llm22-n10-p1": 3,
+  "llm22-n10-p2": 3,
+  "llm22-n10-p3": 3,
+  "llm22-n10-p4": 3,
+  "llm22-n10-p5": 3,
+  "llm22-n10-p6": 3,
+  "llm22-n10-p7": 3,
+  "llm22-n10-p8": 3,
+  "llm22-n10-p9": 3
+ },
+ "cross_project_files": 0,
+ "stray_outside_projects": [],
+ "n_stray": 0,
+ "wrong_folder": 0,
+ "audit_issues": 30,
+ "audit_types": {
+  "unindexed": 30
+ },
+ "claude_calls": 10,
+ "cost_usd": 0.6983701,
+ "cost_per_task_usd": 0.06983701,
+ "tokens": {
+  "input_tokens": 564,
+  "cache_creation_input_tokens": 170509,
+  "cache_read_input_tokens": 2111821,
+  "output_tokens": 25250
+ },
+ "llm_busy_share_of_wall": 0.9790681230465635,
+ "orchestration_overhead_share": 0.020931876953436457,
+ "server_tree": {
+  "wall_s": 276.5108001232147,
+  "cpu_s": 2.115758688,
+  "cpu_share_of_wall": 0.007651631281878344,
+  "cpu_share_of_machine": 0.0006376359401565287,
+  "rss_mb_end": 40.609375
+ }
+}

@@ -1,0 +1,49 @@
+{
+  "id": "full-services-19jul",
+  "name": "Full Services Platform (19 Jul)",
+  "type": "fulfillment",
+  "category": "",
+  "description": "Build a complete internal Operations Platform for Odin Markets — a REAL full-stack product, not a landing page. It must have a frontend web dashboard AND a backend API (Node/NestJS) backed by a PostgreSQL database. Integrate HubSpot CRM (deals and contacts), Klaviyo email engagement, and Veeqo fulfillment/shipping into unified operations views. Include a customer support workflow. Run continuous security monitoring and vulnerability/patch checks against the stack, with identity and access governance and compliance/config-baseline checks. Produce exportable professional reports. Deploy it to a SANDBOX on our VM with its OWN database and internal ports and NO domain, and it must NEVER touch production (organics/bendcore); wire a CI pipeline (CircleCI) for build/test/deploy. Build and verify it with QA. Recruit the full team needed: fullstack engineering, DevOps and CI with sandbox deployment, security with intrusion detection and vulnerability management, HubSpot CRM operations, Klaviyo email operations, Veeqo fulfillment operations, analytics, customer support, and a reporting agent. Recurring.\n",
+  "cadence": "recurring",
+  "config": {
+    "cadence": "recurring",
+    "schedule": {}
+  },
+  "stack": "",
+  "url": "",
+  "mode": "build",
+  "sources": [],
+  "auto_approve": true,
+  "periodic": {
+    "enabled": false,
+    "schedule": {},
+    "requireApproval": true
+  },
+  "rules": [],
+  "localPath": "",
+  "created": 1784473404.997662,
+  "mappings": [],
+  "members": [
+    "Fullstack",
+    "DevOps",
+    "Security",
+    "Fulfillment",
+    "Email",
+    "Sales",
+    "Reporter",
+    "QA",
+    "CTO Orchestrator",
+    "Security Intelligence & Threat-Hunting Architect",
+    "Security Operations Investigator",
+    "Asset, Exposure & Attack-Surface Agent",
+    "Intrusion Detection & Behavioral Analytics Agent",
+    "Threat Prediction & Prevention Agent",
+    "Recovery & Resilience Agent",
+    "Reporting & Documentation Agent"
+  ],
+  "scope": "project:full-services-19jul",
+  "status": "active",
+  "soc_provisioned": true,
+  "qa_asked": true,
+  "qa_declined": false
+}

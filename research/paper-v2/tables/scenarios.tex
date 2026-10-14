@@ -1,0 +1,10 @@
+\begin{table*}[t]\centering\scriptsize
+\caption{Real Odin scenarios on the isolated copy (same HTTP entry points as the desktop app), Normal vs.\ Jev mode, 2 complete paired repetitions (paused by the owner; one more run follows the re-measure on human labels). Jev used/fallback = decisions answered locally / handed to the LLM. Usage = reported plan usage per repetition, not charged. \textbf{PROVISIONAL -- pending human labels}.}
+\label{tab:scen}
+\begin{tabular}{l l r r r r r r r r}\toprule
+Scenario & Mode & runs & reps & median s & mean s & mode acc.\ \% & Jev used/fallback & usage \$ & errors\\\midrule
+Chat turn (routing) & normal & 12 & 2 & 35.3 & 46.3 & -- & 0/0 & 1.74 & 0 \\
+Chat turn (routing) & jev & 12 & 2 & 20.4 & 37.4 & -- & 0/12 & 1.32 & 0 \\
+Project run (mode) & normal & 6 & 2 & 124.0 & 128.0 & 100.0 & 0/0 & 2.72 & 0 \\
+Project run (mode) & jev & 6 & 2 & 171.1 & 158.3 & 100.0 & 6/0 & 2.77 & 0 \\
+\bottomrule\end{tabular}\end{table*}

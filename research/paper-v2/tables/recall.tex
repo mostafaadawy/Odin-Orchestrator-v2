@@ -1,0 +1,15 @@
+\begin{table}[t]\centering\scriptsize
+\caption{Per-class recall (\%) at the kept layer, synthetic held-out validation split. \textbf{PROVISIONAL -- pending human labels}.}
+\label{tab:recall}\setlength{\tabcolsep}{3pt}
+\begin{tabular}{l l p{4.6cm}}\toprule Decision & Model & Recall per class\\\midrule
+Mode (direct / orchestrate) & 0.5B & direct 99, orchestrate 80 \\
+Mode (direct / orchestrate) & 1.5B & direct 99, orchestrate 73 \\
+Specialist & 0.5B & Frontend 71, Backend 75, DevOps \& Cloud 71, Security \& Compliance 80, QA \& Testing 91, Database 85, CTO Brain 81 \\
+Specialist & 1.5B & Frontend 81, Backend 75, DevOps \& Cloud 89, Security \& Compliance 80, QA \& Testing 100, Database 85, CTO Brain 62 \\
+Read / change & 0.5B & read 96, change 94 \\
+Read / change & 1.5B & read 100, change 92 \\
+QA gate & 0.5B & no 100, yes 91 \\
+QA gate & 1.5B & no 95, yes 91 \\
+Agent nature & 0.5B & technical 98, operational 99 \\
+Agent nature & 1.5B & technical 97, operational 100 \\
+\bottomrule\end{tabular}\end{table}

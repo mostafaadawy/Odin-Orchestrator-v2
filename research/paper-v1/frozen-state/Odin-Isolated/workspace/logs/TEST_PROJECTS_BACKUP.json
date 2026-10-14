@@ -1,0 +1,141 @@
+{
+  "backed_up_at": "2026-07-20T24:00",
+  "projects": [
+    {
+      "id": "support-desk-read-only",
+      "record": {
+        "id": "support-desk-read-only",
+        "name": "Support Desk (read-only)",
+        "type": "support",
+        "category": "",
+        "description": "Customer support agent — open tickets, SLA, CSAT for THIS support desk.",
+        "cadence": "recurring",
+        "config": {
+          "cadence": "recurring",
+          "schedule": {}
+        },
+        "stack": "",
+        "url": "",
+        "mode": "build",
+        "sources": [],
+        "auto_approve": false,
+        "periodic": {
+          "enabled": false,
+          "schedule": {},
+          "requireApproval": true
+        },
+        "rules": [],
+        "localPath": "",
+        "created": 1784542421.2388391,
+        "mappings": [],
+        "members": [
+          "Content"
+        ],
+        "scope": "project:support-desk-read-only",
+        "status": "active"
+      }
+    },
+    {
+      "id": "finance-invoices-expenses",
+      "record": {
+        "id": "finance-invoices-expenses",
+        "name": "Finance — Invoices & Expenses",
+        "type": "finance",
+        "category": "",
+        "description": "Finance agent — invoices, expenses, revenue, cash for THIS finance workspace.",
+        "cadence": "recurring",
+        "config": {
+          "cadence": "recurring",
+          "schedule": {}
+        },
+        "stack": "",
+        "url": "",
+        "mode": "build",
+        "sources": [],
+        "auto_approve": false,
+        "periodic": {
+          "enabled": false,
+          "schedule": {},
+          "requireApproval": true
+        },
+        "rules": [],
+        "localPath": "",
+        "created": 1784542421.3278542,
+        "mappings": [],
+        "members": [
+          "Content"
+        ],
+        "scope": "project:finance-invoices-expenses",
+        "status": "active"
+      }
+    },
+    {
+      "id": "analytics-product-metrics",
+      "record": {
+        "id": "analytics-product-metrics",
+        "name": "Analytics — Product Metrics",
+        "type": "analytics",
+        "category": "",
+        "description": "Analytics agent — usage, signups, active users for THIS analytics project.",
+        "cadence": "recurring",
+        "config": {
+          "cadence": "recurring",
+          "schedule": {}
+        },
+        "stack": "",
+        "url": "",
+        "mode": "build",
+        "sources": [],
+        "auto_approve": false,
+        "periodic": {
+          "enabled": false,
+          "schedule": {},
+          "requireApproval": true
+        },
+        "rules": [],
+        "localPath": "",
+        "created": 1784542421.384713,
+        "mappings": [],
+        "members": [
+          "Content"
+        ],
+        "scope": "project:analytics-product-metrics",
+        "status": "active"
+      }
+    },
+    {
+      "id": "hr-recruiting-pipeline",
+      "record": {
+        "id": "hr-recruiting-pipeline",
+        "name": "HR — Recruiting Pipeline",
+        "type": "hr",
+        "category": "",
+        "description": "Recruiting agent — candidates, roles, interviews for THIS hiring pipeline.",
+        "cadence": "recurring",
+        "config": {
+          "cadence": "recurring",
+          "schedule": {}
+        },
+        "stack": "",
+        "url": "",
+        "mode": "build",
+        "sources": [],
+        "auto_approve": false,
+        "periodic": {
+          "enabled": false,
+          "schedule": {},
+          "requireApproval": true
+        },
+        "rules": [],
+        "localPath": "",
+        "created": 1784542421.440568,
+        "mappings": [],
+        "members": [
+          "Content"
+        ],
+        "scope": "project:hr-recruiting-pipeline",
+        "status": "active"
+      }
+    }
+  ]
+}

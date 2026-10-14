@@ -1,0 +1,14 @@
+{
+  "name": "HubSpot",
+  "role": "HubSpot CRM Operator",
+  "nature": "operational",
+  "avatar": "generic",
+  "projects": [
+    "HubSpot CRM — Account Analytics"
+  ],
+  "skill_file_hint": "data/projects/<pid>/skills/hubspot.md",
+  "note": "INDEX/REFERENCE ONLY — not moved yet (Phase 1a)",
+  "type": "operational",
+  "typeConfig": "shared/config/agent-types/operational.json",
+  "group": "crm"
+}

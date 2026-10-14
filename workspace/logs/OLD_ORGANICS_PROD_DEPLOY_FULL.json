@@ -1,0 +1,32 @@
+{
+  "id": "organics-prod-deploy",
+  "name": "Organics Production Deploy (2VM)",
+  "type": "operational",
+  "cadence": "once",
+  "members": [
+    "DevOps"
+  ],
+  "status": "active",
+  "current_data_dir": "data/projects/organics-prod-deploy",
+  "localPath": "",
+  "note": "INDEX/REFERENCE ONLY — real files still live at current_data_dir; nothing moved yet (Phase 1a)",
+  "category": "operational",
+  "typeConfig": "shared/config/project-types/normal.json",
+  "config": {},
+  "features": [],
+  "stack": "Azure VM deploy",
+  "url": "",
+  "mode": "build",
+  "sources": [],
+  "auto_approve": false,
+  "periodic": {
+    "enabled": false,
+    "schedule": {},
+    "requireApproval": true
+  },
+  "rules": [],
+  "description": "DevOps-ONLY production deployment correction for the organics project across 2 targets (2VM). Use ONLY the DevOps Agent — NO QA, NO Frontend, NO Backend, NO other agent. Source = the local machine; destination = the Azure VM. Two syncs: (1) Backend: local organics-backend -> VM /home/mostafa/bendcore. (2) Frontend: local organics-frontend -> VM /home/mostafa/organics. Keep the source-of-truth organic folders READ-ONLY (do not rewrite/overwrite/scaffold/delete local sources). Respect EXCLUDED files on every rsync (verbatim): .env*, node_modules, dist, logs, prisma/migrations, .next, package.json, package-lock.json, public, uploads, *.mp4, *.mp5, *.copy — plus the mandatory secret excludes (.backup-env, *.pem, *.key, *.bak, *.tmp, *.copy, credential/oauth JSON). DB rule: the FIRST deploy resets the DB (one time only); ALL FUTURE deploys must ASK before any DB reset. After BOTH updates complete, REBOOT the VM. Services are managed by systemd — NEVER run a start command (no npm start / manual start); rely on systemd to bring services up after reboot. Deploy path: refresh firewall (port 22 → owner's current single IP, keep 80/443 open) via the Azure control plane, then rsync as mostafa over SSH; propose exact commands + impact + rollback and get approval before executing any change.",
+  "created": 1783624664.458978,
+  "mappings": [],
+  "scope": "project:organics-prod-deploy"
+}

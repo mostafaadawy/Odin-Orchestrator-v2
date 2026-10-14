@@ -1,0 +1,9 @@
+2026-10-11T16:05:01  None  move          MOVED projects/hubspot-crm-operator/code/dup_test_r4.py -> shared/testing/dup_test_r4.py  | reason: 
+2026-10-11T16:05:01  None  move          MOVED projects/revealer-6978/code/helper_s6_r4.py -> shared/testing/dup_test_r4.py  | reason: 
+2026-10-11T16:23:49  8ced7321f959  move          MOVED projects/hubspot-crm-operator/code/dup_test_r5.py -> shared/testing/dup_test_r5.py  | reason: audit heal: duplicate — identical content in >=2 projects (same function, maybe different names) — promote to s
+2026-10-11T16:23:49  8ced7321f959  ref-rewrite   workspace/projects/hubspot-crm-operator/dependencies/manifest.json: (dependency manifest) -> + dependency on shared/testing/dup_test_r5.py  | reason: audit heal: duplicate — identical content in >=2 projects (sa
+2026-10-11T16:23:49  8ced7321f959  ref-rewrite   workspace/projects/revealer-6978/dependencies/manifest.json: (dependency manifest) -> + dependency on shared/testing/dup_test_r5.py  | reason: audit heal: duplicate — identical content in >=2 projects (same func
+2026-10-11T16:23:49  8ced7321f959  copy-removed  REMOVED identical copy projects/revealer-6978/code/helper_s6_r5.py (kept shared/testing/dup_test_r5.py)  | reason: audit heal: duplicate — identical content in >=2 projects (same function, maybe different names)
+2026-10-11T16:23:49  8ced7321f959  move          MOVED projects/revealer-6978/code/helper_s6_r5.py -> shared/testing/dup_test_r5.py  | reason: audit heal: duplicate — identical content in >=2 projects (same function, maybe different names) — promote to shared
+2026-10-11T16:23:49  8ced7321f959  ref-rewrite   workspace/projects/hubspot-crm-operator/code/from_revealer-6978_r5.py: projects/revealer-6978/code/helper_s6_r5.py -> shared/testing/dup_test_r5.py  | reason: audit heal: duplicate — identical content in >=2 pro
+-- 8 change(s)

@@ -1,0 +1,4 @@
+#!/bin/sh
+echo "BLOCKED in Odin-Isolated: rsync is disabled (no cloud/remote changes)" >&2
+echo "$(date -u +%FT%TZ) rsync $*" >> "/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Isolated/_isolation/blocked_calls.log"
+exit 126

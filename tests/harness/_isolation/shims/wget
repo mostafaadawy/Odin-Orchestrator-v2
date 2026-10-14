@@ -1,0 +1,7 @@
+#!/bin/sh
+# Consolidated guard: block any contact with the production VM / organics hosts; everything else passes through.
+case "$*" in *52.180.154.225*|*organics*|*redberry*|*django-vm*)
+  echo "BLOCKED in Odin-Consolidated: wget to the production VM/site is disabled" >&2
+  echo "$(date -u +%FT%TZ) wget $*" >> "/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/_isolation/blocked_calls.log"; exit 126;;
+esac
+exec /usr/bin/wget "$@"

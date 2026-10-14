@@ -1,0 +1,40 @@
+RG=DJANGO-PROJECT  VM=django-vm  MYIP=154.176.82.145
+ERROR: (Conflict) Run command extension execution is in progress. Please wait for completion before invoking a run command.
+Code: Conflict
+Message: Run command extension execution is in progress. Please wait for completion before invoking a run command.
+-- busy, retry in 25s (attempt 1) --
+Enable succeeded: 
+[stdout]
+=== BEFORE (all rules) ===
+Status: active
+
+     To                         Action      From
+     --                         ------      ----
+[ 1] 22/tcp                     ALLOW IN    154.176.248.197           
+[ 2] 80/tcp                     ALLOW IN    Anywhere                  
+[ 3] 443/tcp                    ALLOW IN    Anywhere                  
+[ 4] 22/tcp                     DENY IN     Anywhere                  
+[ 5] 80/tcp (v6)                ALLOW IN    Anywhere (v6)             
+[ 6] 443/tcp (v6)               ALLOW IN    Anywhere (v6)             
+[ 7] 22/tcp (v6)                DENY IN     Anywhere (v6)             
+
+=== deleting stale 22 rules (source != 154.176.82.145) ===
+delete rule #8
+delete rule #4
+delete rule #1
+=== AFTER (all rules) ===
+Status: active
+
+     To                         Action      From
+     --                         ------      ----
+[ 1] 80/tcp                     ALLOW IN    Anywhere                  
+[ 2] 443/tcp                    ALLOW IN    Anywhere                  
+[ 3] 22/tcp                     ALLOW IN    154.176.82.145            
+[ 4] 22/tcp                     DENY IN     Anywhere                  
+[ 5] 80/tcp (v6)                ALLOW IN    Anywhere (v6)             
+[ 6] 443/tcp (v6)               ALLOW IN    Anywhere (v6)             
+[ 7] 22/tcp (v6)                DENY IN     Anywhere (v6)             
+
+
+[stderr]
+DONE_UFW2

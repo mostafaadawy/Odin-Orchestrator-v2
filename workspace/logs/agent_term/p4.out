@@ -1,0 +1,57 @@
+================================================================================
+PHASE 7 — 4 PROMPT-CREATED PROJECTS (create → run → strong acceptance → clean delete)
+================================================================================
+start global violations: 0
+--------------------------------------------------------------------------------
+▶ [A] Ops Pulse — CRM + fulfillment health
+   prompt: Every morning pull HubSpot CRM deals and Veeqo unshipped orders, cross-check them and send me on…
+   pid          : ops-pulse-crm-fulfillment-health-355f
+   planned      : True | produced output: True (msgs 0->2)
+   DURATION     : 65.4s   <-- prompt → output
+     [PASS] team covers required capabilities ['Fulfillment', 'Sales']
+     [PASS] team visible on cards (project_agents JOIN non-empty)
+     [PASS] 0 violations for this project
+     [PASS] 0 cross-owner references
+   delete delta : {'projects': 0, 'agents': 0, 'files': 0, 'folders': 0, 'dependencies': 0, 'project_agents': 0, 'connectors': 0} | clean delete: True
+   RESULT       : CLEAN ✅
+--------------------------------------------------------------------------------
+▶ [B] Signal Guard — email + security watch
+   prompt: Watch Klaviyo email engagement/bounces together with our website signup logs; if one IP or domai…
+   pid          : signal-guard-email-security-watch-af7c
+   planned      : True | produced output: False (msgs 0->0)
+   DURATION     : 133.0s   <-- prompt → output
+     [PASS] team covers required capabilities ['Email', 'Security']
+     [PASS] team visible on cards (project_agents JOIN non-empty)
+     [PASS] 0 violations for this project
+     [PASS] 0 cross-owner references
+   delete delta : {'projects': 0, 'agents': 0, 'files': 0, 'folders': 0, 'dependencies': 0, 'project_agents': 0, 'connectors': 0} | clean delete: True
+   RESULT       : CLEAN ✅
+--------------------------------------------------------------------------------
+▶ [C] Fulfillment Guard — SLA report + export
+   prompt: Track Veeqo shipments that miss their SLA, produce an exportable report for me and keep a runnin…
+   pid          : fulfillment-guard-sla-report-export-8752
+   planned      : True | produced output: True (msgs 0->2)
+   DURATION     : 67.0s   <-- prompt → output
+     [PASS] team covers required capabilities ['Fulfillment', 'Reporter']
+     [PASS] team visible on cards (project_agents JOIN non-empty)
+     [PASS] 0 violations for this project
+     [PASS] 0 cross-owner references
+   delete delta : {'projects': 0, 'agents': 0, 'files': 0, 'folders': 0, 'dependencies': 0, 'project_agents': 0, 'connectors': 0} | clean delete: True
+   RESULT       : CLEAN ✅
+--------------------------------------------------------------------------------
+▶ [D] Sandbox Deploy Mirror — reuse shared deploy
+   prompt: Set up a sandbox deployment that reuses our existing shared deploy engine with its own delta (it…
+   pid          : sandbox-deploy-mirror-reuse-shared-deploy-580b
+   planned      : True | produced output: True (msgs 0->2)
+   DURATION     : 73.4s   <-- prompt → output
+     [PASS] team covers required capabilities ['DevOps']
+     [PASS] team visible on cards (project_agents JOIN non-empty)
+     [PASS] reuses SHARED deploy (dependency -> shared/…deploy…)
+     [PASS] no duplicate deploy engine copied into the project
+     [PASS] 0 violations for this project
+     [PASS] 0 cross-owner references
+   delete delta : {'projects': 0, 'agents': 0, 'files': 0, 'folders': 0, 'dependencies': 0, 'project_agents': 0, 'connectors': 0} | clean delete: True
+   RESULT       : CLEAN ✅
+================================================================================
+SUMMARY: 4/4 clean | final global violations: 0
+report: workspace/logs/prompt4_report.json

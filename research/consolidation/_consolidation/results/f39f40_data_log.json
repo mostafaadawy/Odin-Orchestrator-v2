@@ -1,0 +1,43 @@
+{
+ "real-deployment-and-diagnosis-organics-07d7": {
+  "localPath_before": "",
+  "localPath_after": "/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/_external/VolatileWorkSpace/RBO-Staging"
+ },
+ "redberry-continuous-soc": {
+  "localPath_before": "",
+  "localPath_after": "/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/_external/RedBerry-Continuous-SOC"
+ },
+ "poster_allowedExtraFiles": {
+  "before": [
+   "~/Library/LaunchAgents/com.odin.egypt-amazon-poster.plist"
+  ],
+  "after": [
+   "/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/_external/LaunchAgents/com.odin.egypt-amazon-poster.plist"
+  ]
+ },
+ "external_report": {
+  "before": "/Users/mostafaadawy/Desktop/VolatileWorkSpace/RBO-Staging/AI_DIAGNOSIS_REPORT.md",
+  "after": "/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/_external/VolatileWorkSpace/RBO-Staging/AI_DIAGNOSIS_REPORT.md"
+ },
+ "approval d946bb03be7c cwd": {
+  "before": "/Users/mostafaadawy/Desktop/AiAgentWorkSpace/RedBerry-Continuous-SOC",
+  "after": "/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/_external/RedBerry-Continuous-SOC"
+ },
+ "approval 211282322806 cwd": {
+  "before": "/Users/mostafaadawy/Desktop/AiAgentWorkSpace/RedBerry-Continuous-SOC",
+  "after": "/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/_external/RedBerry-Continuous-SOC"
+ },
+ "marked_historical": [
+  "6b89443f6616",
+  "f74209cd7cb8",
+  "ae8e79831af3",
+  "99441fb4eed2",
+  "245fef2de291",
+  "d59839b8dce7",
+  "3f13f19084bc",
+  "0878e058188d",
+  "e2318b3f5a4c",
+  "f0612f5ef369",
+  "71d9635f8639"
+ ]
+}

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Odin Cockpit</title>
+<style>
+  :root{--bg:#0a0f1c;--bg2:#0d1424;--panel:#121b2e;--line:#22304b;--txt:#e6edf7;
+    --muted:#8aa0bf;--accent:#4f8cff;--good:#37d39b;--bad:#ff6b6b;--chip:#1c2942;color-scheme:dark}
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;background:linear-gradient(180deg,#080d18,#0b1220);color:var(--txt);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+  .app{display:flex;height:100dvh}
+  /* sidebar */
+  .side{width:250px;flex:none;border-right:1px solid var(--line);display:flex;flex-direction:column;background:var(--bg2)}
+  .side header{padding:14px 14px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:9px}
+  .logo{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,#4f8cff,#37d39b);
+    display:flex;align-items:center;justify-content:center;font-weight:800;color:#06101f}
+  .newbtn{margin:10px;padding:10px;border:none;border-radius:10px;background:linear-gradient(135deg,#4f8cff,#37d39b);
+    color:#06101f;font-weight:700;cursor:pointer;font-size:13.5px}
+  .chats{flex:1;overflow-y:auto;padding:4px 8px}
+  .citem{display:flex;align-items:center;gap:6px;padding:9px 10px;border-radius:9px;cursor:pointer;font-size:13px;color:var(--muted)}
+  .citem:hover{background:#0f1726}
+  .citem.on{background:var(--chip);color:var(--txt)}
+  .citem .t{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .citem .x{opacity:0;color:var(--bad);font-weight:700;padding:0 4px}
+  .citem:hover .x{opacity:1}
+  .side .foot{padding:10px 14px;border-top:1px solid var(--line);font-size:11px;color:var(--muted)}
+  .side .foot a{color:var(--accent);text-decoration:none}
+  /* main */
+  .main{flex:1;display:flex;flex-direction:column;min-width:0}
+  .top{padding:12px 18px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px}
+  .top h1{font-size:15px;margin:0}
+  .seg{margin-left:auto;display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  .seg button{background:#0f1726;color:var(--muted);border:none;padding:7px 12px;font-size:12.5px;cursor:pointer}
+  .seg button.on{background:var(--accent);color:#06101f;font-weight:700}
+  .activity{padding:8px 18px;border-bottom:1px solid var(--line);min-height:42px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;background:var(--bg2)}
+  .step{display:inline-flex;align-items:center;gap:7px;background:var(--chip);border:1px solid var(--line);border-radius:99px;padding:5px 11px;font-size:12.5px;opacity:0;transform:translateY(4px);animation:rise .25s forwards}
+  .step.cur{border-color:var(--accent)} .step.cur .ic{animation:pulse 1s infinite}
+  @keyframes rise{to{opacity:1;transform:none}} @keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
+  .idle{color:var(--muted);font-size:12.5px}
+  .feed{flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:13px}
+  .msg{max-width:86%;padding:11px 14px;border-radius:15px;font-size:15px;line-height:1.55;white-space:pre-wrap;word-wrap:break-word}
+  .me{align-self:flex-end;background:var(--accent);color:#06101f;border-bottom-right-radius:5px}
+  .ai{align-self:flex-start;background:var(--panel);border:1px solid var(--line);border-bottom-left-radius:5px}
+  .caret{display:inline-block;width:7px;height:15px;background:var(--accent);vertical-align:-2px;animation:blink .9s steps(1) infinite}
+  @keyframes blink{50%{opacity:0}}
+  pre.code{background:#06101f;border:1px solid var(--line);border-radius:10px;padding:12px;overflow:auto;margin:8px 0;font-family:ui-monospace,Menlo,monospace;font-size:13px}
+  pre.code .cphdr{display:flex;justify-content:space-between;color:var(--muted);font-size:11px;margin-bottom:8px}
+  pre.code button{background:var(--chip);color:var(--txt);border:1px solid var(--line);border-radius:6px;padding:2px 8px;font-size:11px;cursor:pointer}
+  .bar{padding:12px 16px;border-top:1px solid var(--line);display:flex;gap:9px;align-items:center}
+  .tin{flex:1;background:#0f1726;border:1px solid var(--line);color:var(--txt);border-radius:12px;padding:13px;font-size:15px;resize:none}
+  .btn{border:none;border-radius:12px;padding:13px 15px;cursor:pointer;font-size:15px}
+  .send{background:linear-gradient(135deg,#4f8cff,#37d39b);color:#06101f;font-weight:700}
+  .mic{background:var(--panel);border:1px solid var(--line);color:var(--txt)} .mic.rec{background:linear-gradient(135deg,#ff6b6b,#ffb547);color:#06101f;animation:pulse 1.1s infinite}
+  .err{color:var(--bad);font-size:12.5px;padding:0 18px}
+  table.md{border-collapse:collapse;margin:8px 0;font-size:13.5px;width:100%;display:block;overflow-x:auto}
+  table.md th,table.md td{border:1px solid var(--line);padding:6px 9px;text-align:left;white-space:nowrap}
+  table.md th{background:var(--chip)}
+  .ai h3.md,.ai h4.md,.ai h5.md,.ai h6.md{margin:9px 0 4px;font-size:15px;color:#fff}
+  .ai ul.md,.ai ol.md{margin:6px 0;padding-left:20px} .ai li{margin:2px 0}
+  .ai p.md{margin:6px 0} .ai p.md:first-child{margin-top:0}
+  .ai strong{color:#fff} .ai a{color:var(--accent)}
+  code.ic{background:#06101f;border:1px solid var(--line);border-radius:5px;padding:1px 5px;font-family:ui-monospace,Menlo,monospace;font-size:12.5px}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="side">
+    <header><div class="logo">Ω</div><div><div style="font-weight:700;font-size:14px">Odin</div><div style="font-size:11px;color:var(--muted)" id="engine">engine…</div></div></header>
+    <button class="newbtn" id="newBtn">+ New chat</button>
+    <div class="chats" id="chatList"></div>
+    <div class="foot"><a href="/">← Dashboard</a></div>
+  </div>
+  <div class="main">
+    <div class="top">
+      <h1 id="chatTitle">Cockpit</h1>
+      <div class="seg"><button id="enB" class="on">EN</button><button id="arB">AR</button></div>
+    </div>
+    <div class="activity" id="activity"><span class="idle">Ask anything — I'll show each step. Conversations are saved.</span></div>
+    <div class="feed" id="feed"></div>
+    <div class="err" id="err"></div>
+    <div class="bar">
+      <button class="btn mic" id="mic" title="Speak">🎤</button>
+      <textarea class="tin" id="tin" rows="1" placeholder="Type or talk…"></textarea>
+      <label style="display:flex;align-items:center;gap:5px;color:var(--muted);font-size:12px"><input type="checkbox" id="spk" checked>🔊</label>
+      <button class="btn send" id="send">Send</button>
+    </div>
+  </div>
+</div>
+<script src="/odin-md.js"></script>
+<script>
+(() => {
+  const $=id=>document.getElementById(id);
+  let lang="en", cid=null, recording=false, rec=null, es=null;
+  const player=new Audio(); const SILENT="data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEARKwAAIhYAQACABAAZGF0YQAAAAA="; let unlocked=false;
+  function unlock(){ if(unlocked)return; unlocked=true; try{player.src=SILENT;const p=player.play();if(p&&p.then)p.then(()=>player.pause()).catch(()=>{});}catch(_){} }
+  document.addEventListener("click",unlock);
+
+  fetch("/health").then(r=>r.json()).then(d=>$("engine").textContent=(d.engine||"ready")).catch(()=>{});
+  $("enB").onclick=()=>{lang="en";$("enB").classList.add("on");$("arB").classList.remove("on");};
+  $("arB").onclick=()=>{lang="ar";$("arB").classList.add("on");$("enB").classList.remove("on");};
+
+  const feed=$("feed"), activity=$("activity");
+  const scroll=()=>feed.scrollTop=feed.scrollHeight;
+  function renderInto(el,raw){ window.OdinMD.render(el, raw||""); }
+  function addMsg(role,content){ const d=document.createElement("div"); d.className="msg "+(role==="user"?"me":"ai"); d.dir="auto"; renderInto(d,content||""); feed.appendChild(d); scroll(); return d; }
+
+  // --- chat list / persistence ---
+  async function loadList(){
+    const r=await fetch("/chats"); const {chats}=await r.json();
+    const list=$("chatList"); list.innerHTML="";
+    chats.forEach(c=>{
+      const it=document.createElement("div"); it.className="citem"+(c.id===cid?" on":"");
+      it.innerHTML=`<span class="t">${c.title||"New chat"}</span><span class="x" title="delete">×</span>`;
+      it.querySelector(".t").onclick=()=>selectChat(c.id);
+      it.querySelector(".t").ondblclick=()=>renameChat(c.id,c.title);
+      it.querySelector(".x").onclick=(e)=>{e.stopPropagation();delChat(c.id);};
+      list.appendChild(it);
+    });
+    return chats;
+  }
+  async function selectChat(id){
+    cid=id; localStorage.setItem("odin_cid",id);
+    const r=await fetch("/chats/"+id); const d=await r.json();
+    $("chatTitle").textContent=d.title||"Chat";
+    feed.innerHTML=""; (d.messages||[]).forEach(m=>addMsg(m.role,m.content));
+    activity.innerHTML='<span class="idle">Conversation loaded.</span>';
+    await loadList();
+  }
+  async function newChat(){ const r=await fetch("/chats",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({title:"New chat"})}); const d=await r.json(); await selectChat(d.id); }
+  async function delChat(id){ if(!confirm("Delete this chat?"))return; await fetch("/chats/"+id,{method:"DELETE"}); if(id===cid){cid=null;localStorage.removeItem("odin_cid");} const cs=await loadList(); if(!cid){ if(cs[0])selectChat(cs[0].id); else newChat(); } }
+  async function renameChat(id,old){ const t=prompt("Rename chat:",old||""); if(t===null)return; await fetch("/chats/"+id+"/rename",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({title:t})}); if(id===cid)$("chatTitle").textContent=t; loadList(); }
+  $("newBtn").onclick=newChat;
+
+  // --- activity rail ---
+  function resetAct(){ activity.innerHTML=""; }
+  function step(icon,text){ document.querySelectorAll(".step.cur").forEach(s=>s.classList.remove("cur")); const s=document.createElement("div"); s.className="step cur"; s.innerHTML=`<span class="ic">${icon}</span><span>${text}</span>`; activity.appendChild(s); }
+
+  async function speak(text){ if(!$("spk").checked||!text.trim())return; try{player.pause();}catch(_){}
+    try{ const r=await fetch(`/voice/tts?text=${encodeURIComponent(text)}&lang=${lang}`); if(r.ok){const u=URL.createObjectURL(await r.blob());player.src=u;player.onended=()=>URL.revokeObjectURL(u);await player.play();} }catch(_){} }
+
+  function ask(text){
+    if(!text.trim()||!cid)return; $("err").textContent="";
+    addMsg("user",text); resetAct();
+    const ai=addMsg("assistant",""); const caret=document.createElement("span");caret.className="caret";ai.appendChild(caret);
+    let answer="";
+    if(es)es.close();
+    es=new EventSource(`/chats/${cid}/stream?text=${encodeURIComponent(text)}&lang=${lang}`);
+    es.addEventListener("status",e=>{const d=JSON.parse(e.data);step(d.icon,d.text);scroll();});
+    es.addEventListener("token",e=>{answer+=JSON.parse(e.data).t;renderInto(ai,answer);ai.appendChild(caret);scroll();});
+    es.addEventListener("done",e=>{es.close();caret.remove();renderInto(ai,answer);document.querySelectorAll(".step.cur").forEach(s=>s.classList.remove("cur"));speak(window.OdinMD.toSpeech(answer));loadList();scroll();});
+    es.addEventListener("error",()=>{try{caret.remove();}catch(_){}$("err").textContent="connection lost";es&&es.close();});
+  }
+  $("send").onclick=()=>{const t=$("tin").value;$("tin").value="";ask(t);};
+  $("tin").addEventListener("keydown",e=>{if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();$("send").click();}});
+
+  // --- mic (browser speech) ---
+  $("mic").onclick=()=>{ if(recording){rec?.stop();return;}
+    const R=window.SpeechRecognition||window.webkitSpeechRecognition; if(!R){$("err").textContent="Use Chrome/Safari for mic.";return;}
+    rec=new R(); rec.lang=lang==="ar"?"ar-EG":"en-US"; rec.interimResults=true; rec.continuous=false; let final="";
+    rec.onstart=()=>{recording=true;$("mic").classList.add("rec");};
+    rec.onerror=e=>{$("err").textContent="mic: "+(e.error||"error");};
+    rec.onresult=e=>{let interim="";for(let i=e.resultIndex;i<e.results.length;i++){const t=e.results[i][0].transcript;if(e.results[i].isFinal)final+=t;else interim+=t;}$("tin").value=(final+" "+interim).trim();};
+    rec.onend=()=>{recording=false;$("mic").classList.remove("rec");const t=$("tin").value;if(t.trim()){$("tin").value="";ask(t);}};
+    rec.start();
+  };
+
+  // --- boot ---
+  (async ()=>{ const cs=await loadList(); const saved=localStorage.getItem("odin_cid");
+    if(saved && cs.find(c=>c.id===saved)) selectChat(saved);
+    else if(cs[0]) selectChat(cs[0].id);
+    else newChat();
+  })();
+})();
+</script>
+</body>
+</html>

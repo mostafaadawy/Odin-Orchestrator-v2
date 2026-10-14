@@ -1,0 +1,231 @@
+{
+ "N": 2,
+ "rep": 2,
+ "model": "haiku",
+ "cap_s": 840,
+ "env_start": {
+  "label": "llm N=2 rep=2 start",
+  "utc": "2026-10-06T15:20:28.784040Z",
+  "machine": {
+   "cpu": "",
+   "ncpu": 12,
+   "ram_gb": 24.0,
+   "os": "26.5.2",
+   "arch": "arm64"
+  },
+  "load": {
+   "loadavg": [
+    3.1533203125,
+    3.05224609375,
+    3.4384765625
+   ],
+   "cpu_pct_total": 33.7,
+   "mem_used_pct": 82.9
+  },
+  "competing_top": [
+   {
+    "pid": 68473,
+    "name": "Python",
+    "cpu_pct": 33.7,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 69133,
+    "name": "CGPDFService",
+    "cpu_pct": 24.6,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 68931,
+    "name": "CGPDFService",
+    "cpu_pct": 13.0,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 68805,
+    "name": "CGPDFService",
+    "cpu_pct": 12.7,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46967,
+    "name": "Firefox GPU Helper",
+    "cpu_pct": 7.1,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46964,
+    "name": "firefox",
+    "cpu_pct": 5.5,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 61113,
+    "name": "plugin-container",
+    "cpu_pct": 5.5,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 42398,
+    "name": "Claude Helper (Renderer)",
+    "cpu_pct": 4.7,
+    "is_real_odin": false,
+    "is_isolated": false
+   }
+  ],
+  "real_odin_cpu_pct": 0,
+  "soc_reports_last_hour": []
+ },
+ "env_end": {
+  "label": "end",
+  "utc": "2026-10-06T15:21:21.538675Z",
+  "machine": {
+   "cpu": "",
+   "ncpu": 12,
+   "ram_gb": 24.0,
+   "os": "26.5.2",
+   "arch": "arm64"
+  },
+  "load": {
+   "loadavg": [
+    2.796875,
+    2.990234375,
+    3.39306640625
+   ],
+   "cpu_pct_total": 6.0,
+   "mem_used_pct": 82.5
+  },
+  "competing_top": [
+   {
+    "pid": 46967,
+    "name": "Firefox GPU Helper",
+    "cpu_pct": 6.5,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46964,
+    "name": "firefox",
+    "cpu_pct": 5.0,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 61113,
+    "name": "plugin-container",
+    "cpu_pct": 5.0,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 42398,
+    "name": "Claude Helper (Renderer)",
+    "cpu_pct": 4.9,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 20775,
+    "name": "VTDecoderXPCService",
+    "cpu_pct": 3.5,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 95370,
+    "name": "Code Helper (Plugin)",
+    "cpu_pct": 2.1,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46975,
+    "name": "plugin-container",
+    "cpu_pct": 1.8,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 707,
+    "name": "corespeechd",
+    "cpu_pct": 1.7,
+    "is_real_odin": false,
+    "is_isolated": false
+   }
+  ],
+  "real_odin_cpu_pct": 0,
+  "soc_reports_last_hour": []
+ },
+ "projects": [
+  {
+   "pid": "llm2-n2-p0",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": false,
+   "artifact_locations": [
+    "OUTSIDE-workspace:code"
+   ],
+   "secs_ratio_to_cap": 0.05372521905671983
+  },
+  {
+   "pid": "llm2-n2-p1",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": false,
+   "artifact_locations": [
+    "OUTSIDE-workspace:slugify.py",
+    "OUTSIDE-workspace:test_slugify.py"
+   ],
+   "secs_ratio_to_cap": 0.035840553896767754
+  }
+ ],
+ "writes_changed_files": 6,
+ "own_project_files": {
+  "llm2-n2-p0": 0,
+  "llm2-n2-p1": 0
+ },
+ "cross_project_files": 0,
+ "stray_outside_projects": [
+  "test_slugify.py",
+  "slugify.py",
+  "code/csv2json.py",
+  "code/test_csv2json.py",
+  "__pycache__/slugify.cpython-312.pyc",
+  "code/__pycache__/csv2json.cpython-312.pyc"
+ ],
+ "n_stray": 6,
+ "wrong_folder": 0,
+ "audit_issues": 2,
+ "audit_types": {
+  "unindexed": 2
+ },
+ "claude_calls": 2,
+ "cost_usd": 0.1256619,
+ "cost_per_task_usd": 0.06283095,
+ "tokens": {
+  "input_tokens": 108,
+  "cache_creation_input_tokens": 31848,
+  "cache_read_input_tokens": 398819,
+  "output_tokens": 3654
+ },
+ "llm_busy_share_of_wall": 0.9094010187794769,
+ "orchestration_overhead_share": 0.09059898122052312,
+ "server_tree": {
+  "wall_s": 50.12933897972107,
+  "cpu_s": 0.331001168,
+  "cpu_share_of_wall": 0.006602943001779869,
+  "cpu_share_of_machine": 0.0005502452501483224,
+  "rss_mb_end": 57.40625
+ }
+}

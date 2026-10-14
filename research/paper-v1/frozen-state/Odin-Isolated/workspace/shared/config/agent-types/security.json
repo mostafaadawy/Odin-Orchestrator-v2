@@ -1,0 +1,18 @@
+{
+  "type": "security",
+  "groups": [
+    "asset",
+    "compliance",
+    "detection",
+    "iam",
+    "intel",
+    "investigation",
+    "prediction",
+    "recovery",
+    "ueba",
+    "vulnerability"
+  ],
+  "ui": {
+    "chip": "Security"
+  }
+}

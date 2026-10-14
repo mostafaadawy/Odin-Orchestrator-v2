@@ -1,0 +1,16 @@
+[
+  {
+    "name": "testing",
+    "source": "shared/testing/run_all.py",
+    "kind": "python",
+    "mode": "extend",
+    "overlay": "tests/"
+  },
+  {
+    "name": "deploy_changes.py",
+    "source": "shared/infra/deploy_changes.py",
+    "kind": "code",
+    "mode": "extend",
+    "overlay": "deploy/revealer-6978.config.sh"
+  }
+]

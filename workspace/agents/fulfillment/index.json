@@ -1,0 +1,16 @@
+{
+  "name": "Fulfillment",
+  "role": "Fulfillment Operations",
+  "nature": "operational",
+  "avatar": "generic",
+  "projects": [
+    "Egypt Amazon Daily Social Content Agent",
+    "Fulfillment — VQ status (read-only)",
+    "Revealer"
+  ],
+  "skill_file_hint": "data/projects/<pid>/skills/fulfillment.md",
+  "note": "INDEX/REFERENCE ONLY — not moved yet (Phase 1a)",
+  "type": "operational",
+  "typeConfig": "shared/config/agent-types/operational.json",
+  "group": "fulfillment"
+}

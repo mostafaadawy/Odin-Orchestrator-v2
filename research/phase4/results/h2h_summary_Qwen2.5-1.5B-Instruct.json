@@ -1,0 +1,200 @@
+{
+ "prep": {
+  "model": "Qwen2.5-1.5B-Instruct",
+  "layer": "L24",
+  "model_load_s": 1.9,
+  "prefix_tokens": 925,
+  "prefix_prep_ms": 470
+ },
+ "per_decision": {
+  "D1_mode": {
+   "n_cases": 39,
+   "n_confident_label": 39,
+   "llm_acc": 1.0,
+   "jev_acc": 1.0,
+   "llm_acc_confident": 1.0,
+   "jev_acc_confident": 1.0,
+   "decider_alone_acc": 1.0,
+   "jev_agrees_with_llm": 1.0,
+   "truth_sources": {
+    "owner_words": 1,
+    "done_ok": 38
+   },
+   "label_classes": {
+    "orchestrate": 1,
+    "direct": 38
+   },
+   "llm_ms_mean": 17558,
+   "llm_ms_median": 10707,
+   "jev_ms_mean": 1042,
+   "jev_ms_median": 62,
+   "decider_ms_mean": 63,
+   "llm_usd": 2.785,
+   "jev_usd": 0.157,
+   "fallback_rate": 0.051,
+   "ece_decider_after_T": 0.014,
+   "ece_decider_before_T": 0.0,
+   "by_rep": {
+    "1": {
+     "llm_acc": 1.0,
+     "jev_acc": 1.0
+    },
+    "2": {
+     "llm_acc": 1.0,
+     "jev_acc": 1.0
+    },
+    "3": {
+     "llm_acc": 1.0,
+     "jev_acc": 1.0
+    }
+   },
+   "verdict_vs_production_llm": "PASS (non-inferior) - same accuracy, faster; the LLM still handles every low-confidence case"
+  },
+  "D2_action": {
+   "n_cases": 39,
+   "n_confident_label": 39,
+   "llm_acc": 0.821,
+   "jev_acc": 0.872,
+   "llm_acc_confident": 0.821,
+   "jev_acc_confident": 0.872,
+   "decider_alone_acc": 0.872,
+   "jev_agrees_with_llm": 0.897,
+   "truth_sources": {
+    "done_ok": 39
+   },
+   "label_classes": {
+    "read": 31,
+    "change": 8
+   },
+   "llm_ms_mean": 1173,
+   "llm_ms_median": 908,
+   "jev_ms_mean": 51,
+   "jev_ms_median": 43,
+   "decider_ms_mean": 51,
+   "llm_usd": 0.0,
+   "jev_usd": 0.0,
+   "fallback_rate": 0.0,
+   "ece_decider_after_T": 0.158,
+   "ece_decider_before_T": 0.106,
+   "by_rep": {
+    "1": {
+     "llm_acc": 0.821,
+     "jev_acc": 0.872
+    },
+    "2": {
+     "llm_acc": 0.821,
+     "jev_acc": 0.872
+    },
+    "3": {
+     "llm_acc": 0.821,
+     "jev_acc": 0.872
+    }
+   },
+   "claude_n": 39,
+   "claude_acc": 0.795,
+   "claude_ms_mean": 12809,
+   "claude_ms_median": 10884,
+   "claude_usd_per_run": 2.073,
+   "jev_acc_same_cases": 0.872,
+   "llm_acc_same_cases": 0.821,
+   "verdict_vs_production_llm": "BEST - faster and more accurate",
+   "verdict_vs_claude": "BEST - faster and more accurate"
+  },
+  "D4_qa": {
+   "n_cases": 7,
+   "n_confident_label": 7,
+   "llm_acc": 0.762,
+   "jev_acc": 0.762,
+   "llm_acc_confident": 0.762,
+   "jev_acc_confident": 0.762,
+   "decider_alone_acc": 1.0,
+   "jev_agrees_with_llm": 1.0,
+   "truth_sources": {
+    "owner_brief": 7
+   },
+   "label_classes": {
+    "no": 7
+   },
+   "llm_ms_mean": 12931,
+   "llm_ms_median": 11310,
+   "jev_ms_mean": 13104,
+   "jev_ms_median": 11478,
+   "decider_ms_mean": 173,
+   "llm_usd": 0.36,
+   "jev_usd": 0.36,
+   "fallback_rate": 1.0,
+   "ece_decider_after_T": 0.247,
+   "ece_decider_before_T": 0.0,
+   "by_rep": {
+    "1": {
+     "llm_acc": 0.857,
+     "jev_acc": 0.857
+    },
+    "2": {
+     "llm_acc": 0.857,
+     "jev_acc": 0.857
+    },
+    "3": {
+     "llm_acc": 0.571,
+     "jev_acc": 0.571
+    }
+   },
+   "verdict_vs_production_llm": "OFF - not measured (the LLM decides every case)"
+  },
+  "ALL": {
+   "n_cases": 85,
+   "n_confident_label": 85,
+   "llm_acc": 0.898,
+   "jev_acc": 0.922,
+   "llm_acc_confident": 0.898,
+   "jev_acc_confident": 0.922,
+   "decider_alone_acc": 0.941,
+   "jev_agrees_with_llm": 0.953,
+   "truth_sources": {
+    "owner_words": 1,
+    "done_ok": 77,
+    "owner_brief": 7
+   },
+   "label_classes": {
+    "orchestrate": 1,
+    "direct": 38,
+    "read": 31,
+    "change": 8,
+    "no": 7
+   },
+   "llm_ms_mean": 9659,
+   "llm_ms_median": 6784,
+   "jev_ms_mean": 1581,
+   "jev_ms_median": 62,
+   "decider_ms_mean": 67,
+   "llm_usd": 3.145,
+   "jev_usd": 0.517,
+   "fallback_rate": 0.106,
+   "ece_decider_after_T": 0.09,
+   "ece_decider_before_T": 0.049,
+   "by_rep": {
+    "1": {
+     "llm_acc": 0.906,
+     "jev_acc": 0.929
+    },
+    "2": {
+     "llm_acc": 0.906,
+     "jev_acc": 0.929
+    },
+    "3": {
+     "llm_acc": 0.882,
+     "jev_acc": 0.906
+    }
+   },
+   "claude_n": 39,
+   "claude_acc": 0.795,
+   "claude_ms_mean": 12809,
+   "claude_ms_median": 10884,
+   "claude_usd_per_run": 2.073,
+   "jev_acc_same_cases": 0.872,
+   "llm_acc_same_cases": 0.821,
+   "verdict_vs_production_llm": "BEST - faster and more accurate",
+   "verdict_vs_claude": "BEST - faster and more accurate"
+  }
+ }
+}

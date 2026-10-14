@@ -1,0 +1,657 @@
+{
+ "scenario": "S11",
+ "rep": 1,
+ "pid": "s11-gate-r1",
+ "seconds": 193.8,
+ "cost_usd": 1.4362,
+ "spent_total": 45.986,
+ "record": {
+  "create": {
+   "id": "s11-gate-r1",
+   "_error": null
+  },
+  "run1": {
+   "events": [
+    [
+     "status",
+     {
+      "icon": "\ud83e\udded",
+      "text": "Project CTO is reviewing the team & resources, then planning\u2026"
+     }
+    ],
+    [
+     "plan",
+     {
+      "steps": "[{'member': 'Fullstack', 'depends_on': [], 'task': \"Fullstack: create code/older.txt containing one line: older proposal. Local file in this project's own folder only. Constraint: do NOT deploy, rsync, build on the VM, migrate, or reboot -- no VM/production state change. Local file/config edits the owner explicitly asked for (e.g. updating a list) ARE allowed -- only deployment is off-limits.\", 'objective': 'Do EXACTLY what the owner asked -- nothing else.', 'deliverable': 'The exact thing asked, shown with real evidence (diff / command output / file).', 'acceptance_criteria': 'The request is "
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u23f1\ufe0f",
+      "text": "E2E timer started (cached)"
+     }
+    ],
+    [
+     "delegate",
+     {
+      "pid": "s11-gate-r1",
+      "to": "Fullstack",
+      "step": "1",
+      "of": "1",
+      "task": "Fullstack: create code/older.txt containing one line: older proposal. Local file in this project's own folder only. Constraint: do NOT deploy, rsync, build on the VM, migrate, or reboot -- no VM/production state change. Local file/config edits the owner explicitly asked for (e.g. updating a list) ARE allowed -- only deployment is off-limits."
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\ud83d\udde3\ufe0f",
+      "text": "CTO briefs Fullstack with a bounded mandate"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u2699\ufe0f",
+      "text": "Fullstack is working\u2026"
+     }
+    ],
+    [
+     "token",
+     {
+      "member": "Fullstack",
+      "t": "**Readiness check** \u2014 REQUIRES: write access to the project folder, the exact content. HAVE: write/shell per my brief; content given (\"older proposal\"); project folder is `.../s11-gate-r1/code`. MISSING: none. **Ready.**\n\nThe \"code/\" prefix maps to this project's own code folder, so the file goes at the project root: `.../s11-gate-r1/code/older.txt`."
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u270f\ufe0f",
+      "text": "Fullstack: \u270f\ufe0f /Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/workspace/projects/s11-gate-r1/code/older.txt"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u274c",
+      "text": "Fullstack: <tool_use_error>Error: No such tool available: Write. Write exists but is not enabled in t"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u23f3",
+      "text": "Fullstack: still working\u2026 (2s since last output)"
+     }
+    ],
+    [
+     "token",
+     {
+      "member": "Fullstack",
+      "t": "Write isn't enabled here \u2014 I'm in propose-first mode, exactly as the brief describes. The task is a single local file in this project's folder (no VM/production change). Here's the proposal:\n\n```proposal\n{\n  \"summary\": \"Create code/older.txt with one line 'older proposal' inside the s11-gate-r1 project folder\",\n  \"files\": [{\"path\": \"/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/workspace/projects/s11-gate-r1/code/older.txt\", \"action\": \"create\", \"why\": \"Owner asked to create code/older.txt containing exactly one line: older proposal\"}],\n  \"commands\": [{\"cmd\": \"printf 'older pro"
+     }
+    ],
+    [
+     "approval",
+     {
+      "id": "22a7d235a383",
+      "pid": "s11-gate-r1",
+      "member": "Fullstack",
+      "title": "Fullstack: Fullstack: create code/older.txt containing one li (try 1)",
+      "summary": "Create code/older.txt with one line 'older proposal' inside the s11-gate-r1 project folder",
+      "files": "[{'path': '/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/workspace/projects/s11-gate-r1/code/older.txt', 'action': 'create', 'why': 'Owner asked to create code/older.txt containing exactly one line: older proposal', 'preview': ''}]",
+      "commands": "[{'cmd': \"printf 'older proposal\\\\n' > /Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/workspace/projects/s11-gate-r1/code/older.txt\", 'where': 'local', 'why': 'Write the single required line to the local file'}]"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\ud83d\udd14",
+      "text": "Approval needed \u2014 Fullstack: 1 file(s) + 1 command(s). Approve in the popup or say 'approve' in chat; it runs the instant you do."
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\ud83d\udd0e",
+      "text": "CTO reviewing Fullstack"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u23f3",
+      "text": "Fullstack's part is waiting for your approval"
+     }
+    ],
+    [
+     "step_done",
+     {
+      "member": "Fullstack",
+      "step": "1",
+      "result": "QA skipped. Waiting: The proposal is correct \u2014 it would create `/Users/.../workspace/projects/s11-gate-r1/code/older.txt` with the single line `older proposal` inside the project's own folder, with no VM/production change, and the system note confirms it is now pending approval (id 22a7d235a383). The file is not yet on disk (`cat` returns \"No such file or directory\", exit 1), so nothing has been a",
+      "outcome": "WAITING_FOR_APPROVAL"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u23f1\ufe0f",
+      "text": "E2E finished in 46.75s (cached)"
+     }
+    ],
+    [
+     "done",
+     {
+      "pid": "s11-gate-r1",
+      "steps": "1",
+      "ok": "False",
+      "outcome": "WAITING_FOR_APPROVAL",
+      "timing": "{'seconds': 46.75, 'cached': True, 'compare': {'cached': None, 'non_cached': None, 'speedup': None, 'saved_seconds': None}}"
+     }
+    ]
+   ],
+   "n_events": 18,
+   "text": "[Fullstack] **Readiness check** \u2014 REQUIRES: write access to the project folder, the exact content. HAVE: write/shell per my brief; content given (\"older proposal\"); project folder is `.../s11-gate-r1/code`. MISSING: none. **Ready.**\n\nThe \"code/\" prefix maps to this project's own code folder, so the file goes at the project root: `.../s11-gate-r1/code/older.txt`.[Fullstack] Write isn't enabled here \u2014 I'm in propose-first mode, exactly as the brief describes. The task is a single local file in this project's folder (no VM/production change). Here's the proposal:\n\n```proposal\n{\n  \"summary\": \"Create code/older.txt with one line 'older proposal' inside the s11-gate-r1 project folder\",\n  \"files\": [{\"path\": \"/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/workspace/projects/s11-gate-r1/code/older.txt\", \"action\": \"create\", \"why\": \"Owner asked to create code/older.txt containing exactly one line: older proposal\"}],\n  \"commands\": [{\"cmd\": \"printf 'older proposal\\\\n' > /Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/workspace/projects/s11-gate-r1/code/older.txt\", \"where\": \"local\", \"why\": \"Write the single required line to the local file\"}]\n}\n```\n\nOnce approved, Odin writes the file and I'll confirm with the real file contents."
+  },
+  "run2": {
+   "events": [
+    [
+     "status",
+     {
+      "icon": "\ud83e\udded",
+      "text": "Project CTO is reviewing the team & resources, then planning\u2026"
+     }
+    ],
+    [
+     "plan",
+     {
+      "steps": "[{'member': 'Fullstack', 'depends_on': [], 'task': \"Fullstack: create code/newer.txt containing one line: newer proposal. Local file in this project's own folder only. Constraint: do NOT deploy, rsync, build on the VM, migrate, or reboot -- no VM/production state change. Local file/config edits the owner explicitly asked for (e.g. updating a list) ARE allowed -- only deployment is off-limits.\", 'objective': 'Do EXACTLY what the owner asked -- nothing else.', 'deliverable': 'The exact thing asked, shown with real evidence (diff / command output / file).', 'acceptance_criteria': 'The request is "
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u23f1\ufe0f",
+      "text": "E2E timer started (cached)"
+     }
+    ],
+    [
+     "delegate",
+     {
+      "pid": "s11-gate-r1",
+      "to": "Fullstack",
+      "step": "1",
+      "of": "1",
+      "task": "Fullstack: create code/newer.txt containing one line: newer proposal. Local file in this project's own folder only. Constraint: do NOT deploy, rsync, build on the VM, migrate, or reboot -- no VM/production state change. Local file/config edits the owner explicitly asked for (e.g. updating a list) ARE allowed -- only deployment is off-limits."
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\ud83d\udde3\ufe0f",
+      "text": "CTO briefs Fullstack with a bounded mandate"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u2699\ufe0f",
+      "text": "Fullstack is working\u2026"
+     }
+    ],
+    [
+     "token",
+     {
+      "member": "Fullstack",
+      "t": "**Readiness check:**\n- REQUIRES: a target folder path + write access. Nothing else (no env vars, keys, or upstream deliverables).\n- HAVE: project folder `/\u2026/s11-gate-r1/code` (given in mandate); write/shell access (per capabilities).\n- MISSING: none.\n\nReady \u2014 proceeding."
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u270f\ufe0f",
+      "text": "Fullstack: \u270f\ufe0f /Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/workspace/projects/s11-gate-r1/code/newer.txt"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u274c",
+      "text": "Fullstack: <tool_use_error>Error: No such tool available: Write. Write exists but is not enabled in t"
+     }
+    ],
+    [
+     "token",
+     {
+      "member": "Fullstack",
+      "t": "Write isn't enabled here \u2014 this is propose-first mode. Let me confirm the target path first."
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u2699\ufe0f",
+      "text": "Fullstack: \u2699\ufe0f pwd && ls -la newer.txt 2>/dev/null; echo \"exit: $?\""
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u2705",
+      "text": "Fullstack: /Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/workspace/projects/s11-gate"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u23f3",
+      "text": "Fullstack: still working\u2026 (2s since last output)"
+     }
+    ],
+    [
+     "token",
+     {
+      "member": "Fullstack",
+      "t": "Confirmed: I'm in the project folder `\u2026/s11-gate-r1/code` and `newer.txt` doesn't exist yet. The file write needs your approval.\n\n```proposal\n{\n  \"summary\": \"Create code/newer.txt with one line: newer proposal\",\n  \"files\": [{\"path\": \"/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/workspace/projects/s11-gate-r1/code/newer.txt\", \"action\": \"create\", \"why\": \"Owner asked for a local file code/newer.txt containing exactly one line 'newer proposal', inside this project's own folder only\"}],\n  \"commands\": [{\"cmd\": \"printf 'newer proposal\\\\n' > /Users/mostafaadawy/Desktop/AiAgentWorkSpa"
+     }
+    ],
+    [
+     "approval",
+     {
+      "id": "7250a58baf6f",
+      "pid": "s11-gate-r1",
+      "member": "Fullstack",
+      "title": "Fullstack: Fullstack: create code/newer.txt containing one li (try 1)",
+      "summary": "Create code/newer.txt with one line: newer proposal",
+      "files": "[{'path': '/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/workspace/projects/s11-gate-r1/code/newer.txt', 'action': 'create', 'why': \"Owner asked for a local file code/newer.txt containing exactly one line 'newer proposal', inside this project's own folder only\", 'preview': ''}]",
+      "commands": "[{'cmd': \"printf 'newer proposal\\\\n' > /Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/workspace/projects/s11-gate-r1/code/newer.txt\", 'where': 'local', 'why': 'Write the single required line to the file'}]"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\ud83d\udd14",
+      "text": "Approval needed \u2014 Fullstack: 1 file(s) + 1 command(s). Approve in the popup or say 'approve' in chat; it runs the instant you do."
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\ud83d\udd0e",
+      "text": "CTO reviewing Fullstack"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u23f3",
+      "text": "Fullstack's part is waiting for your approval"
+     }
+    ],
+    [
+     "step_done",
+     {
+      "member": "Fullstack",
+      "step": "1",
+      "result": "QA skipped. Waiting: The proposal is correct \u2014 it would create `newer.txt` at `\u2026/s11-gate-r1/code/newer.txt` (inside the project's own folder, local only, no VM/deploy) with the single line via `printf 'newer proposal\\n'`. I confirmed the file does not yet exist on disk (`ls` of `\u2026/s11-gate-r1/code/` shows only `.gitkeep`; `cat newer.txt` \u2192 \"No such file or directory\"), so the write is correctly g",
+      "outcome": "WAITING_FOR_APPROVAL"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u23f1\ufe0f",
+      "text": "E2E finished in 44.84s (cached)"
+     }
+    ],
+    [
+     "done",
+     {
+      "pid": "s11-gate-r1",
+      "steps": "1",
+      "ok": "False",
+      "outcome": "WAITING_FOR_APPROVAL",
+      "timing": "{'seconds': 44.84, 'cached': True, 'compare': {'cached': None, 'non_cached': None, 'speedup': None, 'saved_seconds': None}}"
+     }
+    ]
+   ],
+   "n_events": 21,
+   "text": "[Fullstack] **Readiness check:**\n- REQUIRES: a target folder path + write access. Nothing else (no env vars, keys, or upstream deliverables).\n- HAVE: project folder `/\u2026/s11-gate-r1/code` (given in mandate); write/shell access (per capabilities).\n- MISSING: none.\n\nReady \u2014 proceeding.[Fullstack] Write isn't enabled here \u2014 this is propose-first mode. Let me confirm the target path first.[Fullstack] Confirmed: I'm in the project folder `\u2026/s11-gate-r1/code` and `newer.txt` doesn't exist yet. The file write needs your approval.\n\n```proposal\n{\n  \"summary\": \"Create code/newer.txt with one line: newer proposal\",\n  \"files\": [{\"path\": \"/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/workspace/projects/s11-gate-r1/code/newer.txt\", \"action\": \"create\", \"why\": \"Owner asked for a local file code/newer.txt containing exactly one line 'newer proposal', inside this project's own folder only\"}],\n  \"commands\": [{\"cmd\": \"printf 'newer proposal\\\\n' > /Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/workspace/projects/s11-gate-r1/code/newer.txt\", \"where\": \"local\", \"why\": \"Write the single required line to the file\"}]\n}\n```"
+  },
+  "pending_before": [
+   [
+    "22a7d235a383",
+    "Fullstack: Fullstack: create code/older.txt containing one li (try 1)"
+   ],
+   [
+    "7250a58baf6f",
+    "Fullstack: Fullstack: create code/newer.txt containing one li (try 1)"
+   ]
+  ],
+  "owner_approved": "7250a58baf6f",
+  "after": {
+   "older": {
+    "status": "pending",
+    "applied": false,
+    "note": ""
+   },
+   "newer": {
+    "status": "approved",
+    "applied": true,
+    "note": "owner approves ONLY the newer proposal (S11)"
+   },
+   "waited_s": 91,
+   "auto_continue_seen": true
+  },
+  "OLDER_STAYED_PENDING": true
+ },
+ "diff": {
+  "counts": {
+   "projects": 1,
+   "project_agents": 2,
+   "files": 7
+  },
+  "shared_added": [],
+  "shared_removed": [],
+  "manifests_new_or_changed": {},
+  "agents_changed": [],
+  "agents_db_added": []
+ },
+ "project": {
+  "files": [
+   "agents.json",
+   "code/newer.txt",
+   "data/jsons/approvals.json",
+   "data/jsons/main_tasks.json",
+   "index.json",
+   "instructions/instructions.md"
+  ],
+  "manifest": null,
+  "team_db": [
+   "Fullstack",
+   "EasyPost"
+  ],
+  "agent_scope": [],
+  "delta_like_files": {
+   "agents.json": "{\n  \"agents\": [\n    {\n      \"name\": \"Fullstack\",\n      \"role\": \"Fullstack\",\n      \"avatar\": \"generic\",\n      \"description\": \"Builds the ENTIRE web application \u2014 frontend + backend + database \u2014 in ONE hand, in ANY web stack (Node.js/TS, Laravel/PHP, Python/Django, .NET/C#, Rails, \u2026), installing whatever it needs (Node, Laravel, .NET, etc.). May use Flutter for WEB targets only (never mobile). RESEARCHES & WRITES every third-party integration itself (HubSpot, Klaviyo, Mailchimp, Veeqo, 3PL, GA, \u2026) \u2014 for those it only ASKS the relevant operator for that service's API KEY, then writes the calling code. One owner of the whole web codebase: NO frontend/backend hand-off, no shared-folder conflict. Does NOT build mobile apps (Mobile) and does NOT deploy (DevOps).\",\n      \"skills\": [],\n      \"responsibilities\": [],\n      \"restrictions\": [],\n      \"model\": \"\",\n      \"nature\": \"technical\",\n      \"mode\": \"\",\n      \"resources\": \"=== ALLOWED RESOURCES & DEPENDENCIES (read FIRST; REASON before you ask \u2014 never ask for anything already here or already in the brief/shared pool) ===\\n\u2022 PERMISSIONS: full read/write + shell. You CREATE and EDIT files (Write/Edit/Bash) inside the project folder you are given. If a Write/Edit actually fails, say so explicitly \u2014 do NOT silently narrate instead of building.\\n\u2022 INTEGRATION KEYS / ENV: credentials come from the ENVIRONMENT, not from other agents. Read them, in this order, from: (1) the ENV/keys block in your mandate/brief, (2) the shared pool, (3) the "
+  },
+  "agents_json": "{\n  \"agents\": [\n    {\n      \"name\": \"Fullstack\",\n      \"role\": \"Fullstack\",\n      \"avatar\": \"generic\",\n      \"description\": \"Builds the ENTIRE web application \u2014 frontend + backend + database \u2014 in ONE hand, in ANY web stack (Node.js/TS, Laravel/PHP, Python/Django, .NET/C#, Rails, \u2026), installing whatever it needs (Node, Laravel, .NET, etc.). May use Flutter for WEB targets only (never mobile). RESEARCHES & WRITES every third-party integration itself (HubSpot, Klaviyo, Mailchimp, Veeqo, 3PL, GA, \u2026) \u2014 for those it only ASKS the relevant operator for that service's API KEY, then writes the calling code. One owner of the whole web codebase: NO frontend/backend hand-off, no shared-folder conflict. Does NOT build mobile apps (Mobile) and does NOT deploy (DevOps).\",\n      \"skills\": [],\n      \"responsibilities\": [],\n      \"restrictions\": [],\n      \"model\": \"\",\n      \"nature\": \"technical\",\n      \"mode\": \"\",\n      \"resources\": \"=== ALLOWED RESOURCES & DEPENDENCIES (read FIRST; REASON before you ask \u2014 never ask for anything already here or already in the brief/shared pool) ===\\n\u2022 PERMISSIONS: full read/write + shell. You CREATE and EDIT files (Write/Edit/Bash) inside the project folder you are given. If a Write/Edit actually fails, say so explicitly \u2014 do NOT silently narrate instead of building.\\n\u2022 INTEGRATION KEYS / ENV: credentials come from the ENVIRONMENT, not from other agents. Read them, in this order, from: (1) the ENV/keys block in your mandate/brief, (2) the shared pool, (3) the project `.env`, (4) workspace/shared/oth/.cred. Do NOT ask an operator (Fulfillment/Email/\u2026) for the app's key \u2014 the app uses the env key provided for it. START by reading the env/config; do NOT begin by testing a key unless the task requires it.\\n\u2022 ASK-IF-MISSING: only if a key/var the task needs is in NONE of those sources, ask the CTO ONCE for that specific item, then continue. If read/write is genuinely unavailable, state exactly that.\\n\",\n      \"env\": [],\n      \"asset\": \"\",\n      \"rules\": [],\n      \"stats\": {\n        \"invocations\": 2,\n        \"lastActive\": 1791719769.754246\n      },\n      \"created\": 1791719703.3521862\n    },\n    {\n      \"name\": \"EasyPost\",\n      \"role\": \"EasyPost Shipping & Tracking Operator\",\n      \"avatar\": \"generic\",\n      \"description\": \"NON-technical operator connected to EasyPost for multi-carrier shipment TRACKING and rates via its API. Answers live carrier progress (in_transit / out_for_delivery / delivered), tracking numbers, ETAs and exceptions across carriers. Complements Fulfillment/Veeqo: Veeqo owns pre-shipping ORDER state, EasyPost owns POST-shipping CARRIER tracking. Holds the EasyPost API key; supplies only the key early and writes NO app code (Fullstack builds any in-app EasyPost integration). READ-ONLY integration \u2014 no label/postage writes.\",\n      \"skills\": [],\n      \"responsibilities\": [],\n      \"restrictions\": [],\n      \"model\": \"\",\n      \"nature\": \"technical\",\n      \"mode\": \"\",\n      \"resources\": \"=== ALLOWED RESOURCES & DEPENDENCIES (read FIRST; REASON before you ask \u2014 never ask for anything already here or already in the brief/shared pool) ===\\n\u2022 ROLE: NON-technical operator of EasyPost via its API. You write NO app code and define no API contract (Fullstack owns integration code).\\n\u2022 DEFAULT KEY: you hold a DEFAULT EasyPost API key saved in workspace/shared/oth/.cred. It is ALREADY AVAILABLE there \u2014 do NOT search the codebase for it; read it from that file when you need it.\\n\u2022 KEY = USE WHAT THE CTO TOLD YOU; ASK ONLY IF IT WAS SILENT (smart reasoning, no loops):\\n   \u2013 If the CTO's mandate says 'use your default EasyPost key' \u2192 read it from workspace/shared/oth/.cred and proceed. Do NOT ask.\\n   \u2013 If the CTO's mandate gives you a specific key (a value, or a file PATH to read) \u2192 use THAT key and proceed. Do NOT ask. (This is the normal smart case: the CTO already passed the project key from the create-project env, so the answer is given before you'd ask.)\\n   \u2013 ONLY if the CTO's mandate is SILENT about the key",
+  "members_api": [
+   "Fullstack",
+   "EasyPost"
+  ]
+ },
+ "audit_project": [
+  {
+   "type": "unindexed",
+   "path": "workspace/projects/s11-gate-r1/instructions/instructions.md"
+  },
+  {
+   "type": "unindexed",
+   "path": "workspace/projects/s11-gate-r1/data/jsons/main_tasks.json"
+  },
+  {
+   "type": "unindexed",
+   "path": "workspace/projects/s11-gate-r1/data/jsons/approvals.json"
+  }
+ ],
+ "earlier_projects": {
+  "s10-vmmaybe-r1": {
+   "manifest": false
+  },
+  "s7-calc-r3": {
+   "deps": [
+    {
+     "name": "calc.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    }
+   ],
+   "audit_issues": 1
+  },
+  "revealer-6978": {
+   "deps": [
+    {
+     "name": "testing",
+     "base_exists": true,
+     "overlay": "tests/",
+     "overlay_exists": true
+    },
+    {
+     "name": "deploy_changes.py",
+     "base_exists": true,
+     "overlay": "deploy/revealer-6978.config.sh",
+     "overlay_exists": true
+    },
+    {
+     "name": "project_test.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    },
+    {
+     "name": "dup_test_r2.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    },
+    {
+     "name": "dup_test_r3.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    }
+   ],
+   "audit_issues": 1
+  },
+  "hubspot-crm-operator": {
+   "deps": [
+    {
+     "name": "project_test.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    },
+    {
+     "name": "dup_test_r2.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    },
+    {
+     "name": "dup_test_r3.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    }
+   ],
+   "audit_issues": 0
+  },
+  "s7-calc-r2": {
+   "manifest": false
+  },
+  "fulfillment-vq-status-read-only-dc1e": {
+   "manifest": false
+  },
+  "s8-calc-r1": {
+   "manifest": false
+  },
+  "customer-orders-internal-app-rep-4": {
+   "manifest": false
+  },
+  "backend-sandbox-rep-6": {
+   "deps": [
+    {
+     "name": "deploy_changes.py",
+     "base_exists": true,
+     "overlay": "deploy/backend-sandbox-rep-6.config.sh",
+     "overlay_exists": true
+    }
+   ],
+   "audit_issues": 1
+  },
+  "brand2-email-reporting": {
+   "manifest": false
+  },
+  "odin-landing-lead-0d48": {
+   "manifest": false
+  },
+  "backend-sandbox-rep-7": {
+   "deps": [
+    {
+     "name": "deploy_changes.py",
+     "base_exists": true,
+     "overlay": "deploy/backend-sandbox-rep-7.config.sh",
+     "overlay_exists": true
+    }
+   ],
+   "audit_issues": 1
+  },
+  "brand2-email-reporting-rep3": {
+   "manifest": false
+  },
+  "odin-landing-lead-rep-3": {
+   "manifest": false
+  },
+  "landing-leads-rep4": {
+   "manifest": false
+  },
+  "odin-external-arms": {
+   "deps": [
+    {
+     "name": "anchor_web_deploy",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    }
+   ],
+   "audit_issues": 0
+  },
+  "zoom-real-flow": {
+   "manifest": false
+  },
+  "s9-vmcheck-r1": {
+   "manifest": false
+  },
+  "landing-leads-rep5": {
+   "manifest": false
+  },
+  "odin-landing-lead": {
+   "manifest": false
+  },
+  "email-klaviyo-workflows-read-only-18ca": {
+   "manifest": false
+  },
+  "full-services-19jul": {
+   "deps": [
+    {
+     "name": "deploy_changes.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    },
+    {
+     "name": "INSTALL_SOC_SENSOR.md",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    }
+   ],
+   "audit_issues": 0
+  },
+  "s10-vmmaybe-r2": {
+   "manifest": false
+  },
+  "customer-orders-portal": {
+   "manifest": false
+  },
+  "s7-calc-r1": {
+   "deps": [
+    {
+     "name": "calc.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    }
+   ],
+   "audit_issues": 1
+  },
+  "sandbox-three-rep-3": {
+   "manifest": false
+  },
+  "customers-orders-portal-rep-2": {
+   "manifest": false
+  },
+  "s8-calc-r2": {
+   "manifest": false
+  },
+  "customers-orders-portal": {
+   "manifest": false
+  },
+  "s8-calc-r3": {
+   "manifest": false
+  },
+  "brand2-email-reporting-b491": {
+   "manifest": false
+  },
+  "real-deployment-and-diagnosis-organics-07d7": {
+   "manifest": false
+  },
+  "backend-sandbox-rep-5": {
+   "deps": [
+    {
+     "name": "deploy_changes.py",
+     "base_exists": true,
+     "overlay": "deploy/backend-sandbox-rep-5.config.sh",
+     "overlay_exists": true
+    }
+   ],
+   "audit_issues": 1
+  },
+  "backend-sandbox-rep-2": {
+   "manifest": false
+  },
+  "backend-sandbox-rep-4": {
+   "deps": [
+    {
+     "name": "deploy_changes.py",
+     "base_exists": true,
+     "overlay": "deploy/backend-sandbox-rep-4.config.sh",
+     "overlay_exists": true
+    }
+   ],
+   "audit_issues": 1
+  },
+  "daily-egypt-amazon-product-poster": {
+   "manifest": false
+  },
+  "redberry-continuous-soc": {
+   "deps": [
+    {
+     "name": "INSTALL_SOC_SENSOR.md",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    }
+   ],
+   "audit_issues": 0
+  },
+  "s9-vmcheck-r2": {
+   "manifest": false
+  },
+  "landing-leads-rep7": {
+   "manifest": false
+  },
+  "sandbox2-backend": {
+   "manifest": false
+  },
+  "landing-leads-rep6": {
+   "manifest": false
+  },
+  "vm-sentinel": {
+   "manifest": false
+  }
+ }
+}

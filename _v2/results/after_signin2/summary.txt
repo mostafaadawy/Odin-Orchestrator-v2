@@ -1,0 +1,50 @@
+server: 200
+== regression after: {"pass": 32, "fail": [], "regressions": [], "router_agree": 0.4307692307692308, "endpoint_ok": 1.0}
+== phase7_lifecycle after rep1 start_violations=0 rc=0 ::   CREATE [PASS] t7-revealer-multi      type=normal     monitor(placement=0,violations=0,in_db=True) | linked_agents=3 delta vs baseline: {'projects': 0, 'agents': 0, 'files': 0, 'folders': 0, 'dependencies': 0, 'project_agents': 0} PHASE7_LIFECYCLE: ALL GREEN ✅ 
+== phase7_lifecycle after rep2 start_violations=0 rc=0 ::   CREATE [PASS] t7-revealer-multi      type=normal     monitor(placement=0,violations=0,in_db=True) | linked_agents=3 delta vs baseline: {'projects': 0, 'agents': 0, 'files': 0, 'folders': 0, 'dependencies': 0, 'project_agents': 0} PHASE7_LIFECYCLE: ALL GREEN ✅ 
+== phase7_lifecycle after rep3 start_violations=0 rc=0 ::   CREATE [PASS] t7-revealer-multi      type=normal     monitor(placement=0,violations=0,in_db=True) | linked_agents=3 delta vs baseline: {'projects': 0, 'agents': 0, 'files': 0, 'folders': 0, 'dependencies': 0, 'project_agents': 0} PHASE7_LIFECYCLE: ALL GREEN ✅ 
+== phase7_strong after rep1 start_violations=0 rc=0 ::    [PASS] 0 violations after cleanup STRONG TEST: ALL GREEN ✅ PHASE7_STRONG: ALL GREEN ✅ 
+== phase7_strong after rep2 start_violations=0 rc=0 ::    [PASS] 0 violations after cleanup STRONG TEST: ALL GREEN ✅ PHASE7_STRONG: ALL GREEN ✅ 
+== phase7_strong after rep3 start_violations=0 rc=0 ::    [PASS] 0 violations after cleanup STRONG TEST: ALL GREEN ✅ PHASE7_STRONG: ALL GREEN ✅ 
+g6: RESULT: ALL PASS
+g6b: RESULT: ALL PASS
+g8: RESULT: ALL PASS
+g8b: RESULT: ALL PASS
+g5: RESULT: ALL PASS
+g7: RESULT: ALL PASS
+f07: RESULT: ALL PASS
+f37: RESULT: ALL PASS
+g11: RESULT: ALL PASS
+f38: RESULT: ALL PASS
+g12: RESULT: ALL PASS
+g9: RESULT: ALL PASS
+g9b: RESULT: ALL PASS
+g10: RESULT: ALL PASS
+g10r: RESULT: ALL PASS
+g13: RESULT: ALL PASS
+f41i: RESULT: ALL PASS
+f06: RESULT: ALL PASS
+f43: RESULT: ALL PASS
+f08: RESULT: ALL PASS
+stepA: RESULT: ALL PASS
+stepC: RESULT: ALL PASS
+stepD: RESULT: ALL PASS
+stepE: RESULT 12 pass 0 fail
+stepF: RESULT: ALL PASS
+stepG: RESULT: ALL PASS
+f10: RESULT: ALL PASS
+f11: RESULT: ALL PASS
+f20: RESULT: ALL PASS
+f21: RESULT: ALL PASS
+f26: RESULT: ALL PASS
+pc5: RESULT: ALL PASS
+pc2: RESULT: ALL PASS
+p4e: RESULT: ALL PASS
+pc4: RESULT: ALL PASS
+f33: RESULT: ALL PASS
+fix3: RESULT: ALL PASS
+f32g2_unit: RESULT: ALL PASS
+f32c_unit: RESULT: ALL PASS
+fix2c_unit: RESULT: ALL PASS
+f18: {'PROVEN': 31, 'DOC': 11} of 42
+SUITE-DONE

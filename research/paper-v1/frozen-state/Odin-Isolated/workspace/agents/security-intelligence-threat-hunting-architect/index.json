@@ -1,0 +1,14 @@
+{
+  "name": "Security Intelligence & Threat-Hunting Architect",
+  "role": "Security Intelligence & Threat-Hunting Architect",
+  "nature": "operational",
+  "avatar": "generic",
+  "projects": [
+    "RedBerry Continuous SOC"
+  ],
+  "skill_file_hint": "data/projects/<pid>/skills/security-intelligence-threat-hunting-architect.md",
+  "note": "INDEX/REFERENCE ONLY — not moved yet (Phase 1a)",
+  "type": "security",
+  "typeConfig": "shared/config/agent-types/security.json",
+  "group": "intel"
+}

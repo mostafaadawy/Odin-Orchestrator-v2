@@ -1,0 +1,14 @@
+{
+  "name": "Asset, Exposure & Attack-Surface Agent",
+  "role": "Asset, Exposure & Attack-Surface Agent",
+  "nature": "operational",
+  "avatar": "generic",
+  "projects": [
+    "RedBerry Continuous SOC"
+  ],
+  "skill_file_hint": "data/projects/<pid>/skills/asset-exposure-attack-surface-agent.md",
+  "note": "INDEX/REFERENCE ONLY — not moved yet (Phase 1a)",
+  "type": "security",
+  "typeConfig": "shared/config/agent-types/security.json",
+  "group": "asset"
+}

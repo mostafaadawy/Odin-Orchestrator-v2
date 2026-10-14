@@ -1,0 +1,140 @@
+[
+ {
+  "kind": "chat",
+  "mode": "normal",
+  "rep": 1,
+  "text": "how many contacts",
+  "truth_D2_action": "read",
+  "seconds": 81.26,
+  "usage_usd": 0.4711,
+  "n_events": 21,
+  "error": false,
+  "jev_decisions": [],
+  "limit_seen": false
+ },
+ {
+  "kind": "chat",
+  "mode": "normal",
+  "rep": 1,
+  "text": "hey what is the time now",
+  "truth_D2_action": "read",
+  "seconds": 11.13,
+  "usage_usd": 0.1573,
+  "n_events": 7,
+  "error": false,
+  "jev_decisions": [],
+  "limit_seen": false
+ },
+ {
+  "kind": "chat",
+  "mode": "normal",
+  "rep": 1,
+  "text": "can you recall the last question",
+  "truth_D2_action": "read",
+  "seconds": 37.61,
+  "usage_usd": 0.3259,
+  "n_events": 15,
+  "error": false,
+  "jev_decisions": [],
+  "limit_seen": false
+ },
+ {
+  "kind": "chat",
+  "mode": "normal",
+  "rep": 1,
+  "text": "remember apple",
+  "truth_D2_action": "change",
+  "seconds": 14.32,
+  "usage_usd": 0.1234,
+  "n_events": 6,
+  "error": false,
+  "jev_decisions": [],
+  "limit_seen": false
+ },
+ {
+  "kind": "chat",
+  "mode": "normal",
+  "rep": 1,
+  "text": "remember my favorite number is 4747",
+  "truth_D2_action": "change",
+  "seconds": 64.44,
+  "usage_usd": 0.4134,
+  "n_events": 19,
+  "error": false,
+  "jev_decisions": [],
+  "limit_seen": false
+ },
+ {
+  "kind": "chat",
+  "mode": "normal",
+  "rep": 1,
+  "text": "use the protocol od dynamic ip az cimmands then access by ssk , no vulnarbility is accepted",
+  "truth_D2_action": "change",
+  "seconds": 56.13,
+  "usage_usd": 0.3359,
+  "n_events": 15,
+  "error": false,
+  "jev_decisions": [],
+  "limit_seen": false
+ },
+ {
+  "kind": "project_run",
+  "mode": "normal",
+  "rep": 1,
+  "pid": "hubspot-crm-operator",
+  "text": "How many contacts and companies do we have",
+  "truth_D1_mode": "direct",
+  "inferred_mode": "direct",
+  "plan_steps": 1,
+  "members": [
+   "HubSpot"
+  ],
+  "seconds": 206.29,
+  "usage_usd": 1.5396,
+  "ok": false,
+  "n_events": 55,
+  "error": false,
+  "jev_decisions": [],
+  "limit_seen": false
+ },
+ {
+  "kind": "project_run",
+  "mode": "normal",
+  "rep": 1,
+  "pid": "fulfillment-vq-status-read-only-dc1e",
+  "text": "how many orders this month?",
+  "truth_D1_mode": "direct",
+  "inferred_mode": "direct",
+  "plan_steps": 1,
+  "members": [
+   "Fulfillment"
+  ],
+  "seconds": 85.24,
+  "usage_usd": 0.6469,
+  "ok": false,
+  "n_events": 20,
+  "error": false,
+  "jev_decisions": [],
+  "limit_seen": false
+ },
+ {
+  "kind": "project_run",
+  "mode": "normal",
+  "rep": 1,
+  "pid": "email-klaviyo-workflows-read-only-18ca",
+  "text": "how many profiles do we have",
+  "truth_D1_mode": "direct",
+  "inferred_mode": "direct",
+  "plan_steps": 1,
+  "members": [
+   "Email"
+  ],
+  "seconds": 105.32,
+  "usage_usd": 1.0162,
+  "ok": false,
+  "n_events": 28,
+  "error": false,
+  "jev_decisions": [],
+  "limit_seen": false
+ }
+]

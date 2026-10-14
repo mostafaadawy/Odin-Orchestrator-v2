@@ -1,0 +1,15 @@
+{
+  "main": "claude-cli",
+  "scopes": {
+    "member:e2e-landing:Frontend": "qwen2.5:7b-instruct-q4_K_M",
+    "project:e2e-landing": "claude-cli",
+    "member:e2e-landing-8f43:Frontend": "qwen2.5:7b-instruct-q4_K_M",
+    "project:e2e-landing-8f43": "claude-cli",
+    "member:e2e-landing-232286:Frontend": "qwen2.5:7b-instruct-q4_K_M",
+    "project:e2e-landing-232286": "claude-cli",
+    "member:e2e-landing-241520:Frontend": "qwen2.5:7b-instruct-q4_K_M",
+    "project:e2e-landing-241520": "claude-cli",
+    "member:e2e-landing-244732:Frontend": "qwen2.5:7b-instruct-q4_K_M",
+    "project:e2e-landing-244732": "claude-cli"
+  }
+}

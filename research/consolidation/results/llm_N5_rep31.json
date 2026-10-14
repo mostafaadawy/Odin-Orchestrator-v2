@@ -1,0 +1,286 @@
+{
+ "adv": true,
+ "hook_mode": "enforce",
+ "shared_files_changed": [
+  "workspace/shared/utils/roman.py",
+  "workspace/shared/utils/slugify.py",
+  "workspace/shared/utils/wordcount.py",
+  "workspace/shared/utils/isbn.py",
+  "workspace/shared/utils/csv2json.py",
+  "workspace/shared/utils/__pycache__/wordcount.cpython-312.pyc",
+  "workspace/shared/utils/__pycache__/csv2json.cpython-312.pyc"
+ ],
+ "N": 5,
+ "rep": 31,
+ "model": "haiku",
+ "cap_s": 1200,
+ "env_start": {
+  "label": "llm N=5 rep=31 start",
+  "utc": "2026-10-06T17:41:02.276359Z",
+  "machine": {
+   "cpu": "",
+   "ncpu": 12,
+   "ram_gb": 24.0,
+   "os": "26.5.2",
+   "arch": "arm64"
+  },
+  "load": {
+   "loadavg": [
+    4.337890625,
+    3.65234375,
+    3.57373046875
+   ],
+   "cpu_pct_total": 34.0,
+   "mem_used_pct": 71.8
+  },
+  "competing_top": [
+   {
+    "pid": 41728,
+    "name": "Python",
+    "cpu_pct": 25.2,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 41873,
+    "name": "mdworker_shared",
+    "cpu_pct": 25.1,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 41686,
+    "name": "mdworker_shared",
+    "cpu_pct": 9.5,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 86033,
+    "name": "com.apple.WebKit.WebContent",
+    "cpu_pct": 8.9,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 41747,
+    "name": "CGPDFService",
+    "cpu_pct": 8.3,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46967,
+    "name": "Firefox GPU Helper",
+    "cpu_pct": 7.1,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46964,
+    "name": "firefox",
+    "cpu_pct": 6.6,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 61113,
+    "name": "plugin-container",
+    "cpu_pct": 5.5,
+    "is_real_odin": false,
+    "is_isolated": false
+   }
+  ],
+  "real_odin_cpu_pct": 0,
+  "soc_reports_last_hour": []
+ },
+ "env_end": {
+  "label": "end",
+  "utc": "2026-10-06T17:46:31.214015Z",
+  "machine": {
+   "cpu": "",
+   "ncpu": 12,
+   "ram_gb": 24.0,
+   "os": "26.5.2",
+   "arch": "arm64"
+  },
+  "load": {
+   "loadavg": [
+    3.1767578125,
+    3.4765625,
+    3.5576171875
+   ],
+   "cpu_pct_total": 8.1,
+   "mem_used_pct": 71.0
+  },
+  "competing_top": [
+   {
+    "pid": 61113,
+    "name": "plugin-container",
+    "cpu_pct": 14.2,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46967,
+    "name": "Firefox GPU Helper",
+    "cpu_pct": 13.5,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46964,
+    "name": "firefox",
+    "cpu_pct": 12.2,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 42398,
+    "name": "Claude Helper (Renderer)",
+    "cpu_pct": 4.6,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 43890,
+    "name": "VTDecoderXPCService",
+    "cpu_pct": 3.6,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 707,
+    "name": "corespeechd",
+    "cpu_pct": 2.0,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46975,
+    "name": "plugin-container",
+    "cpu_pct": 1.8,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46979,
+    "name": "plugin-container",
+    "cpu_pct": 1.3,
+    "is_real_odin": false,
+    "is_isolated": false
+   }
+  ],
+  "real_odin_cpu_pct": 0,
+  "soc_reports_last_hour": []
+ },
+ "projects": [
+  {
+   "pid": "llm31-n5-p0",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": false,
+   "artifact_locations": [
+    "OUTSIDE-workspace:workspace",
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.2257610950867335
+  },
+  {
+   "pid": "llm31-n5-p1",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": false,
+   "artifact_locations": [
+    "OUTSIDE-workspace:workspace",
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.2675089732805888
+  },
+  {
+   "pid": "llm31-n5-p2",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": false,
+   "artifact_locations": [
+    "OUTSIDE-workspace:workspace",
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.21740852336088817
+  },
+  {
+   "pid": "llm31-n5-p3",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": false,
+   "artifact_locations": [
+    "OUTSIDE-workspace:workspace",
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.19232333501180013
+  },
+  {
+   "pid": "llm31-n5-p4",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": false,
+   "artifact_locations": [
+    "OUTSIDE-workspace:workspace",
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.23829280575116477
+  }
+ ],
+ "writes_changed_files": 27,
+ "own_project_files": {
+  "llm31-n5-p0": 4,
+  "llm31-n5-p1": 4,
+  "llm31-n5-p2": 4,
+  "llm31-n5-p3": 4,
+  "llm31-n5-p4": 4
+ },
+ "cross_project_files": 0,
+ "stray_outside_projects": [
+  "workspace/shared/utils/roman.py",
+  "workspace/shared/utils/slugify.py",
+  "workspace/shared/utils/wordcount.py",
+  "workspace/shared/utils/isbn.py",
+  "workspace/shared/utils/csv2json.py",
+  "workspace/shared/utils/__pycache__/wordcount.cpython-312.pyc",
+  "workspace/shared/utils/__pycache__/csv2json.cpython-312.pyc"
+ ],
+ "n_stray": 7,
+ "wrong_folder": 0,
+ "audit_issues": 15,
+ "audit_types": {
+  "unindexed": 15
+ },
+ "claude_calls": 5,
+ "cost_usd": 0.7375648000000001,
+ "cost_per_task_usd": 0.14751296000000003,
+ "tokens": {
+  "input_tokens": 706,
+  "cache_creation_input_tokens": 120013,
+  "cache_read_input_tokens": 3117008,
+  "output_tokens": 35029
+ },
+ "llm_busy_share_of_wall": 0.978872886093957,
+ "orchestration_overhead_share": 0.02112711390604305,
+ "server_tree": {
+  "wall_s": 326.02010679244995,
+  "cpu_s": 2.375151776,
+  "cpu_share_of_wall": 0.0072852923071768175,
+  "cpu_share_of_machine": 0.0006071076922647348,
+  "rss_mb_end": 42.109375
+ }
+}

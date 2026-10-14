@@ -1,0 +1,15 @@
+\section{Training data and ground truth}\label{sec:truth}
+\subsection{Training data}
+Training examples were generated with an LLM (plan login, no extra cost) from \sys{}'s real context: project names, agent roster, and the exact decision definitions. Real test inputs were never shown to the generator; any generated example too close to a real input (token Jaccard $>0.70$ or character similarity $>0.80$) was removed. For agent nature, 20 descriptions were generated for each of 39 agent families seen in the real roster. After leakage removal, 2{,}179 examples remain: 1{,}864 for training and 315 (15\%) as a synthetic validation split. These labels come from an LLM, so they are used only for training and the synthetic split, never as truth.
+\subsection{Independent truth}
+A validation or test label may come only from evidence that does not depend on the LLM or router being compared:
+\begin{itemize}
+\item \emph{owner correction}: the owner's next message states what he wanted (``I'm not asking about deployment, only \ldots'');
+\item \emph{accepted outcome}: the logged reply shows what was actually done, and the owner's next message does not complain or correct it; for mode, only an accepted single direct reply counts, because an accepted team run does not prove a team was needed;
+\item \emph{owner's words}: the owner's own brief or message states it (``no QA agent''; ``build \ldots, QA, then deploy'').
+\end{itemize}
+The rules are regular expressions over the logs, and every label keeps its evidence. The labelling script reads no router or LLM decision field; on read/change its labels disagree with the router on 9 of 55 cases. Strict truth currently covers mode (49 direct, 2 orchestrate), read/change (43 read, 12 change) and QA gate (8 ``no''). Specialist and agent nature have no strict log truth: the logs show who \emph{executed} a request (mostly the CTO agent), not who should \emph{own} it.
+\subsection{Extended read/change truth}
+To grow the read/change set, a second rule set was written for this decision only: a read-only reply that the owner did not dispute as to action type, a change the owner did not dispute, or a change approval the owner granted. It adds 37 cases. Inspection showed these rules make errors (for example, a request to build an app labelled ``read'' because the reply only planned), so extended results are reported separately and never as the headline. All 176 unique owner messages in the logs have been examined; the logs cannot reach 100 strict read/change cases.
+\subsection{Owner review}
+A stratified sample of 90 items (specialist 29, read/change 18, mode 15, QA 14, agent nature 14) waits for the owner's review on a private page. Only answered items become truth. \prov{}

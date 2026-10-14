@@ -1,0 +1,68 @@
+=== DEPLOY START Thu Jul 23 03:00:33 EEST 2026 with ODIN_MIG_OVERRIDE=none (max-width frontend change) ===
+E2E DEPLOY  ·  Thu Jul 23 03:00:33 EEST 2026
+repo: /Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator
+log : /Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/workspace/logs/e2e-deploy-20260723-030033.log
+------------------------------------------------------------------
+PHASE A · read-only pre-flight
+  ✓ credential found
+  ✓ sshpass
+  ✓ rsync
+  ✓ ssh
+  ✓ az
+  ✓ curl
+  ✓ local backend present
+  ✓ local frontend present
+  · my public IP: 154.176.149.46
+  · VM IP: 52.180.154.225
+  · refreshing NSG port-22 rule -> 154.176.149.46/32 (single-IP allow)
+    ✓ NSG updated
+  · rotating VM ufw: allow 22 from 154.176.149.46/32 (80/443 kept open, never reset)
+    ✓ ufw rotated (80/443 preserved)
+  · testing SSH: mostafa@52.180.154.225 …
+    ✓ SSH connected: SSH_OK mostafa v20.16.0 10.8.1 
+------------------------------------------------------------------
+PHASE B · real update 
+
+>>> backend : /Users/mostafaadawy/Desktop/VolatileWorkSpace/organics-backend  →  mostafa@VM:/home/mostafa/bendcore
+    ✓ rsync backend ok
+    · (vm, as mostafa) cd /home/mostafa/bendcore && rm -rf dist && npm run build
+    ✓ build backend ok
+
+>>> frontend : /Users/mostafaadawy/Desktop/VolatileWorkSpace/organics-frontend  →  mostafa@VM:/home/mostafa/organics
+    ✓ rsync frontend ok
+    · (vm, as mostafa) cd /home/mostafa/organics && rm -rf .next && npm run build
+    ✓ build frontend ok
+
+· restart services + verify
+__ODIN_REBOOTED__
+    · restarting app services (never touches other sites/nginx/ports): bendcore organics
+    ✓ services restarted (boot self-seed re-runs on bendcore)
+    ✓ backend responded on :4013
+  ✓ baseline front/back lists re-dated to the real file mtimes
+------------------------------------------------------------------
+SUMMARY
+------------------------------------------------------------------
+  ✓  credential (workspace/shared/oth/.cred azvmcred) OK    found
+  ✓  tool:sshpass                       OK    /opt/homebrew/bin/sshpass
+  ✓  tool:rsync                         OK    /usr/bin/rsync
+  ✓  tool:ssh                           OK    /usr/bin/ssh
+  ✓  tool:az                            OK    /opt/homebrew/bin/az
+  ✓  tool:curl                          OK    /usr/bin/curl
+  ✓  local:backend                      OK    /Users/mostafaadawy/Desktop/VolatileWorkSpace/organics-backend
+  ✓  local:frontend                     OK    /Users/mostafaadawy/Desktop/VolatileWorkSpace/organics-frontend
+  ✓  firewall NSG->154.176.149.46/32    OK    django-vm-nsg/default-allow-ssh
+  ✓  firewall ufw 22<-154.176.149.46/32 OK    80/443 preserved; allow inserted at 1
+  ✓  ssh reach VM                       OK    SSH_OK mostafa v20.16.0 10.8.1 
+  ✓  rsync:backend                      OK    synced
+  ✓  build:backend                      OK    ok
+  ✓  rsync:frontend                     OK    synced
+  ✓  build:frontend                     OK    ok
+  ✓  restart services                   OK    bendcore organics
+  ✓  verify backend :4013               OK    HTTP 200
+  ✓  baseline lists updated             OK    real mtimes saved (verified deploy only)
+------------------------------------------------------------------
+RESULT:  18 ok · 0 warn · 0 fail
+Full raw log (every command's output): /Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/workspace/logs/e2e-deploy-20260723-030033.log
+✅ Deploy completed.
+DEPLOY_EXIT=0
+DONE_DEPLOY2

@@ -1,0 +1,70 @@
+diff --git a/workspace/docs/ODIN_PHASES_TECH_DOC.md b/workspace/docs/ODIN_PHASES_TECH_DOC.md
+index 54b1c9a..cacfaae 100644
+--- a/workspace/docs/ODIN_PHASES_TECH_DOC.md
++++ b/workspace/docs/ODIN_PHASES_TECH_DOC.md
+@@ -229,7 +229,7 @@ All test files live in `server/`. Run from the repo root.
+ 
+ ### 12.1 One command — bring everything up
+ ```bash
+-cd ~/Desktop/AiAgentWorkSpace/Odin-Orchestrator
++cd <odin-repo-root>
+ ./phase2_up.sh
+ ```
+ Opens/starts: brain `:8000`, anchor `:9100`, local poller, desktop (Electron), web `:8080`, iOS
+diff --git a/workspace/docs/README_ANCHOR_AND_INTEGRATIONS.md b/workspace/docs/README_ANCHOR_AND_INTEGRATIONS.md
+index a79a241..42854f3 100644
+--- a/workspace/docs/README_ANCHOR_AND_INTEGRATIONS.md
++++ b/workspace/docs/README_ANCHOR_AND_INTEGRATIONS.md
+@@ -11,7 +11,7 @@ This README covers everything built around **external access** and **operational
+ 
+ > **TL;DR — one command to bring it all up and test:**
+ > ```bash
+-> cd ~/Desktop/AiAgentWorkSpace/Odin-Orchestrator
++> cd <odin-repo-root>
+ > ./phase2_up.sh
+ > ```
+ > Then jump to **[Commands to test](#commands-to-test)**.
+@@ -94,7 +94,7 @@ azvmcred: ...                    # note: this one uses ": " not "="
+ 
+ ### 0) Bring everything up (recommended)
+ ```bash
+-cd ~/Desktop/AiAgentWorkSpace/Odin-Orchestrator
++cd <odin-repo-root>
+ ./phase2_up.sh
+ # prints the test keys, starts brain(:8000) + anchor(:9100) + poller + desktop + web(:8080) + iOS sim
+ # OPEN_DESKTOP=0 ./phase2_up.sh   # skip launching the desktop if you run it yourself
+diff --git a/workspace/docs/SETUP-AND-TEST.md b/workspace/docs/SETUP-AND-TEST.md
+index 7b1fb81..145b0ed 100644
+--- a/workspace/docs/SETUP-AND-TEST.md
++++ b/workspace/docs/SETUP-AND-TEST.md
+@@ -27,7 +27,7 @@ You do **not** need Node/npm — the dashboard is plain HTML.
+ ## 1. Install the Odin project
+ 
+ ```bash
+-cd ~/Desktop/AiAgentWorkSpace/Odin-Orchestrator
++cd <odin-repo-root>
+ 
+ python3.12 -m venv .venv
+ source .venv/bin/activate
+@@ -52,7 +52,7 @@ USE_VOICE=1 ./server/run.sh
+ You should see: `Odin server → http://localhost:8000/`. Leave this running.
+ 
+ Open a **second** Terminal tab for the tests below (re-activate the venv there if needed:
+-`cd ~/Desktop/AiAgentWorkSpace/Odin-Orchestrator && source .venv/bin/activate`).
++`cd <odin-repo-root> && source .venv/bin/activate`).
+ 
+ ---
+ 
+diff --git a/workspace/shared/directions/PHASE7-HANDOFF.md b/workspace/shared/directions/PHASE7-HANDOFF.md
+index 3d1c954..85888d1 100644
+--- a/workspace/shared/directions/PHASE7-HANDOFF.md
++++ b/workspace/shared/directions/PHASE7-HANDOFF.md
+@@ -51,7 +51,7 @@ DB: 9 projects · 28 agents · 5 connectors · 0 orphans
+ 
+ ## 4) WHAT REMAINS — DO THIS FIRST
+ ```bash
+-cd /Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator
++cd <odin-repo-root>
+ .venv/bin/python workspace/shared/testing/phase7_realrun.py       # 8 projects, REAL runs, timed
+ .venv/bin/python workspace/shared/testing/phase7_prompt_loop.py   # prompt→plan→watch→audit→delete
+ ```

@@ -1,0 +1,182 @@
+############ _orchestrate_gen head 1567-1720 ############
+def _orchestrate_gen(pid: str, goal: str):
+    """REAL agent-to-agent conversation cycle, dependency-aware and QA-gated:
+      Chief Engineer → Project CTO (resource-aware plan, in the project chat)
+      then for each member's PART, in dependency order (waiting for a dependency to PASS first):
+        CTO briefs the member → member works & reports → CTO reviews
+        → QA TESTS that member's part (real build/run) → on a bug, CTO routes the fix to the
+          responsible EXISTING member → they fix → QA re-tests (looped until it works or capped)
+      → next part → CTO reports completion to the Chief.
+    Every message is saved to the scope chats, so the chats ARE the project's documentation."""
+    import projects, scopes, activity, models_config
+    try:
+        proj = projects.get_project(pid)
+        if not proj:
+            yield sse("error", {"text": "no such project"}); return
+        name = proj.get("name", pid)
+        pscope = f"project:{pid}"
+        folder = proj.get("localPath") or ""
+        deploy_mode = (proj.get("mode") == "deploy")
+        # QA only runs if QA is actually ON YOUR TEAM. If you removed it (or never added it), the gate
+        # is OFF and QA is NEVER auto-hired. QA also never gates DevOps/infrastructure work.
+        try:
+            import agents_registry as _ar0
+            _team = [m.get("name", "").lower() for m in _ar0.list_agents(pid)]
+        except Exception:
+            _team = []
+        qa_enabled = bool(folder) and ("qa" in _team)
+        # RESPECT an explicit owner restriction on which agents run (e.g. "only DevOps, no QA").
+        _gl = (goal or "").lower()
+        if any(p in _gl for p in ("no qa", "without qa", "remove qa", "no quality", "only devops",
+                                  "devops only", "only the devops", "no other agent", "do not involve",
+                                  "don't involve", "not add or activate any agents other")):
+            qa_enabled = False
+        srcs = proj.get("sources") or []
+        # Pre-authorized? Then changes apply without the popup. Either the project's pre-approve
+        # toggle, OR the owner explicitly authorized THIS run in the brief ("approval already
+        # granted / do not ask for approval / authorized for this run").
+        # VM/Azure work: a TEXT-only "authorized" claim in the brief is NOT enough to auto-execute —
+        # it still needs the approval popup. BUT an EXPLICIT project-level auto_approve (the owner
+        # deliberately pre-authorized this project, e.g. a sandbox build or an opted-in deploy) IS
+        # honored — otherwise members were forced read-only and could never produce a deliverable
+        # (that caused the multi-agent reassign loop). Local-only work auto-runs when pre-authorized.
+        _owner_auth = bool(proj.get("auto_approve"))
+        vm_work = _touches_vm(goal) or deploy_mode
+        auto_approve = _owner_auth or (_run_preauthorized(goal) and not vm_work)
+        if auto_approve:
+            yield sse("status", {"icon": "✅", "text": "Authorized run — agents execute directly (write-enabled)."})
+        elif vm_work:
+            yield sse("status", {"icon": "🔒", "text": "This touches Azure/the VM — every change will wait for your Approve/Discard (read-only checks run free)."})
+
+        # QA is OFF and the owner hasn't already been asked/declined → the CTO may recommend adding
+        # it ONCE, only if it judges QA genuinely important for this goal. The owner decides in a
+        # popup. Asking is recorded immediately so it is never asked again.
+        # If the owner deselected QA, RECORD that as declined so it's never re-suggested or re-hired.
+        if not qa_enabled and ("qa" not in _team):
+            try:
+                projects.set_flags(pid, qa_declined=True)
+                proj["qa_declined"] = True
+            except Exception:
+                pass
+        # Only ever recommend QA for real CODE work — NEVER for a VM/deploy/ops run.
+        if not qa_enabled and not vm_work and not deploy_mode and not proj.get("qa_asked") and not proj.get("qa_declined"):
+            try:
+                import approvals as _ap
+                verdict = projects._engine(
+                    f"You are the Project CTO for '{name}'. This project has NO QA agent.\nGoal: {goal}\n"
+                    "Is adding QA (a quality/code-review/test gate after each task) genuinely IMPORTANT "
+                    "here? Say yes ONLY if it materially reduces real risk (real code changes, production, "
+                    "data integrity). For a pure ops/deploy/sync or trivial task, say no.\n"
+                    'Reply ONLY JSON: {"recommend": true|false, "why": "<one short sentence>"}')
+                d = projects._extract_json_object(verdict) or {}
+                if d.get("recommend"):
+                    _ap.create(pid, "Project CTO", title="Add QA (Quality Assurance) to this project?",
+                               summary=str(d.get("why", "Recommended to catch issues before they ship."))[:300],
+                               kind="qa-recommendation", inline=False)
+                    yield sse("status", {"icon": "💡", "text": "CTO recommends adding QA — see the popup to decide"})
+                projects.set_flags(pid, qa_asked=True)   # asked once; never again
+            except Exception:
+                pass
+
+        # ONE shared pool — reuse the project's single group chat across runs (don't spawn a new chat
+        # every run). Everyone (CTO + agents) posts into this one pool; nothing scattered.
+        _existing = scopes.list_chats(pscope)
+        run_chat = _existing[0] if _existing else scopes.create_chat(pscope, title="▶ Team pool")
+
+        # --- Chief Engineer → Project CTO (resource-aware planning, visible in the project chat) ---
+        scopes.add_message(pscope, run_chat["id"], "user",
+                           f"[Chief Engineer → Project CTO] For '{name}': {goal}. Plan it, assign the team, and report back.")
+        # The CTO is a REAL active agent while it plans/organizes — animate IT (not a member). This is
+        # what makes the CTO visible on the left with its own heartbeat when it's the one working.
+        activity.mark_active(pid, "Project CTO", task="planning & assigning the team", phase="CTO: planning")
+        yield sse("status", {"icon": "🧭", "text": "Project CTO is reviewing the team & resources, then planning…"})
+        # FAITHFUL INTAKE → CTO: the CTO must plan from the FULL owner brief (every detail), not a thin
+        # goal line. No omission, no fabrication, no removal of the owner's requirements.
+        _req_src = (proj.get("description") or goal)
+        _full_req = goal
+        if proj.get("description") and proj["description"][:200] not in goal:
+            _full_req = (goal + "\n\n--- FULL OWNER BRIEF (plan to cover EVERY requirement here; do not "
+                         "summarize away, omit, or invent anything) ---\n" + proj["description"])
+        steps = projects.plan_pipeline(pid, _full_req)
+        # PLAN-COMPLETENESS GATE (how strong systems avoid omission): the CTO QAs its OWN plan against
+        # the full requirements; if a requirement is uncovered ("a missed send"), re-plan once to add it.
+        try:
+            _missing = projects.check_plan_coverage(_req_src, steps)
+        except Exception:
+            _missing = []
+        activity.beat(pid, "Project CTO")
+        if _missing:
+            yield sse("status", {"icon": "🧮", "text": f"CTO caught {len(_missing)} uncovered requirement(s) — re-planning"})
+            scopes.add_message(pscope, run_chat["id"], "assistant",
+                               f"[Project CTO] Plan gap — not covered: {'; '.join(_missing[:6])}. Re-planning to include them.")
+            steps = projects.plan_pipeline(pid, goal + "\n\nMUST also cover (do not omit): " + "; ".join(_missing))
+        # A DEPLOY is ONE operation — the pipeline itself does sync → build → migrate → reboot → verify
+        # in a single run, and reports those as its REAL internal steps. Never split it into many plan
+        # steps that each re-run the whole deploy. Collapse to ONE DevOps step ONLY for a PURE-DEPLOY
+        # project (DevOps is a member and there is no other build team). For a MULTI-AGENT build that
+        # merely includes a deploy step (e.g. Frontend+Backend+QA+… then deploy), do NOT collapse —
+        # that wrongly discarded the whole team and even injected DevOps when it wasn't on the team.
+        _mem = [m.lower() for m in (proj.get("members") or [])]
+        _build_roles = ("fullstack", "frontend", "backend", "qa", "security", "database", "shipping",
+                        "fulfillment", "email", "mobile", "data", "content", "marketing", "support",
+                        "sales", "analytics")
+        _pure_deploy = ("devops" in _mem) and not any(r in _mem for r in _build_roles)
+        if (deploy_mode or _touches_vm(goal) or _touches_vm(_full_req)) and _pure_deploy:
+            steps = [{"member": "DevOps", "depends_on": [],
+                      "task": "Deploy to the VM in ONE run: rsync → build → migrate → reboot → verify",
+                      "objective": "Execute the owner's deploy exactly once, exactly as specified.",
+                      "deliverable": "Both apps synced & built on the VM, rebooted, verified online (HTTP 200).",
+                      "acceptance_criteria": "Real exit-0 from the deploy pipeline and the site responds."}]
+        # The CTO ORCHESTRATES — it is never a worker step. Drop any self/meta steps the planner
+        # assigned to the CTO/Chief (e.g. "stand up the coordination pool"); those produce no real
+        # deliverable and stalled the run before any real member started. Keep only real worker steps.
+        _orchestrator_names = ("cto", "project cto", "chief engineer", "chief", "orchestrator", "coordinator",
+                               "owner", "user", "you")
+        _real_steps = [s for s in steps if str(s.get("member", "")).strip().lower() not in _orchestrator_names]
+        if _real_steps:                      # never empty out the plan
+            steps = _real_steps
+        deliverables = {}   # member -> its produced deliverable (for STRUCTURED hand-off, not raw dumps)
+        def _dep_txt(s):
+            d = s.get("depends_on") or []
+            return f" (after {', '.join(d)})" if d else ""
+        plan_txt = "; ".join(f"{i+1}) {s['member']} → {s['task']}{_dep_txt(s)}" for i, s in enumerate(steps))
+        _qa_note = " QA tests each part." if qa_enabled else " (DevOps-only run — no QA, as you instructed.)"
+        scopes.add_message(pscope, run_chat["id"], "assistant",
+                           f"[Project CTO → Chief] Plan: {plan_txt}. Briefing the team now.{_qa_note}")
+        activity.mark_active(pid, "Project CTO", task="briefing the team", phase="CTO: briefing the team")
+        yield sse("plan", {"steps": steps})
+
+        total = len(steps)
+
+        def _ensure_member(member):
+            """Hire an existing member on the fly so it appears on the team and in chats. SAFETY: only
+            auto-hire a KNOWN catalogue role (or one the owner already confirmed). Never silently invent
+            a brand-new agent from a name the CTO made up (that caused hallucination) and never re-add an
+            owner-removed agent."""
+############ dispatch entry: how scope_stream / a project message reaches orchestration ############
+236:            return {"approvals": approvals.list_for(pid or None)}
+237:        return {"approvals": approvals.list_pending(pid or None)}
+242:        return {"pending": approvals.pending_count(pid or None)}
+362:        return StreamingResponse(_orchestrate_gen(pid, goal), media_type="text/event-stream")
+415:        return {"operations": operations.list_for(pid or None)}
+574:    def scope_stream(scope: str, text: str, lang: str = "en", cid: str = ""):
+1048:            # The Azure firewall refresh takes ~50s. Do it ONCE per run (cache by pid for a TTL) instead
+1221:_vm_access_cache: dict = {}   # pid -> (ts, vm_ip): refresh Azure access ONCE per run, not per member
+1294:    # double-apply guard (rapid double-click / chat + popup both firing)
+1357:_RUNS = {}  # pid -> {"running":bool, "cancel":bool, "goal":str, "started":float, "phase":str}
+1364:    gen = _orchestrate_gen(pid, goal)
+1391:def orchestrate_blocking(pid: str, goal: str) -> bool:
+1453:    pid = op.get("pid")
+1567:def _orchestrate_gen(pid: str, goal: str):
+1610:        auto_approve = _owner_auth or (_run_preauthorized(goal) and not vm_work)
+2632:def _run_preauthorized(goal: str) -> bool:
+2691:                _pid = scope.split(":", 1)[1]
+2712:                _pid = scope.split(":", 1)[1]
+2744:            pid = scope.split(":", 1)[1]
+2750:            msg = ("On it — the team is now running this in the background. You can switch between the "
+2759:        pid = None
+2774:            pid = scope.split(":", 1)[1]
+2916:                if pid and member:
+2947:        if scope.startswith("member:") and pid and member:
+2957:        if pid and member:
+DONE_READ

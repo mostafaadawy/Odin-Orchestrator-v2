@@ -1,0 +1,9 @@
+=== max-width classes in _crud shared components + a sample page ===
+/Users/mostafaadawy/Desktop/VolatileWorkSpace/organics-frontend/src/app/admin/_crud/AdminCrudPage.tsx:278:    <div className="mx-auto w-[90%] max-w-[1080px] px-4 md:px-6 mt-28 md:mt-42 mb-16 font-adelle-sans-ara">
+/Users/mostafaadawy/Desktop/VolatileWorkSpace/organics-frontend/src/app/admin/_crud/AdminCrudPage.tsx:631:        className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[85vh] overflow-y-auto p-6"
+/Users/mostafaadawy/Desktop/VolatileWorkSpace/organics-frontend/src/app/admin/_crud/AnalyticsDashboardPage.tsx:74:    <div className="mx-auto w-[90%] max-w-[1080px] px-4 md:px-6 mt-28 md:mt-42 mb-16 font-adelle-sans-ara">
+
+=== mtimes ===
+2026-07-23 02:54:12  /Users/mostafaadawy/Desktop/VolatileWorkSpace/organics-frontend/src/app/admin/_crud/AdminCrudPage.tsx
+2026-07-23 02:54:23  /Users/mostafaadawy/Desktop/VolatileWorkSpace/organics-frontend/src/app/admin/_crud/AnalyticsDashboardPage.tsx
+DONE_CRUD

@@ -1,0 +1,55 @@
+\section{Architecture}\label{sec:arch}
+\sys{} is a \emph{multi-project agentic ecosystem}. A company-level CTO agent reasons over projects; each project has its own CTO and members (e.g., Fullstack, QA, DevOps, Fulfillment, Email, and twelve security agents); members work back and forth with the CTO, which re-assigns work when QA or the audit rejects a result. The engine is a coding agent (the Claude Code CLI) running in the project with terminal tools; \sys{} adds the organisation, the safety gates and the consistency machinery around it (Fig.~\ref{fig:arch}). We describe the eleven features the owner identified, each with its origin.
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[node distance=3mm and 4mm]
+\node[kterm] (own) {Owner\\(desktop, web, phone)};
+\node[kbox, right=of own] (anc) {\hub\\queue + callbacks};
+\node[kbox, right=of anc] (tp) {Third party\\(webhook URL)};
+\node[kllm, below=6mm of own] (cto) {Company CTO\\$\rightarrow$ project CTOs\\$\rightarrow$ members};
+\node[kguard, right=of cto] (door) {Creation door\\(schema + owner\\scope guard)};
+\node[kbase, right=of door] (db) {Registry DB\\(only registry)};
+\node[kbase, below=5mm of door] (lib) {Shared library\\bases + deltas};
+\node[kguard, right=of lib] (aud) {Audit + heal\\truth gate};
+\node[kbox, left=of lib] (dep) {Mapping-file deploy\\smart CI/CD\\dynamic-IP firewall};
+\draw[karr] (own) -- (anc); \draw[karr] (tp) -- (anc);
+\draw[kdash] (anc) -- node[klab,right]{pull} (cto);
+\draw[karr] (cto) -- (door); \draw[karr] (door) -- (db);
+\draw[karr] (door) -- (lib); \draw[karr] (aud) -- (db); \draw[karr] (aud) -- (lib);
+\draw[karr] (cto) -- (dep);
+\end{tikzpicture}
+\caption{\sys{} at a glance. Every created artefact passes one door; the audit checks what bypasses it.}\label{fig:arch}
+\end{figure}
+
+\paragraph*{F1 Component reuse (origin: React/React Native DRY)} Shared scripts are treated as components and per-project deltas as their props~\cite{react,mcilroy1968components}: a total match points to the shared base, a near match is meant to store only a small delta that references the base, and a different job composes a different agent. This is the same idea as delta-oriented product lines~\cite{schaefer2010delta}, applied to the operational scripts that agents run. In the studied version, agents generated such deltas, but saving and registering them was incomplete (Section~\ref{sec:threats}).
+
+\paragraph*{F2 Delta plus middleware semantic router (origin: backend middleware)} Reuse is decided by meaning: the agents read the middleware's guards and a registry view of the existing capabilities, and choose an existing base (reuse), a base plus delta, or new work. Placement and safety-relevant routing stay deterministic: a keyword floor sits under an optional local classifier, so they never depend on the model alone.
+
+\paragraph*{F3 Shared-script library with a context-indexed database} Before a project is created, an intake interview builds its features, its team and a readiness list that marks which resources already exist and which are missing; for security projects a blueprint provisions a complete security team. Agents propose reusing an existing capability, and name it, before building anything new. The database is the \emph{only} registry: a parallel JSON registry is itself a violation. Every create, update and delete passes one \emph{creation door} that validates placement against a canonical schema, redirects a misplaced file to its correct slot, prevents a project from writing into another project's folder (owner-scope guard), and writes the file and its database row together. In the studied version, changes applied after an owner's approval were registered only by the next audit.
+
+\paragraph*{F4 WhatsApp-style live sync} A change on any device propagates to all others. The \hub{} keeps a \emph{durable} mirror, every message in a scope gets a monotonic sequence number assigned by one source, web and mobile clients pull deltas by sequence (a missing message is a visible gap), the desktop polls the pool, and a stale flag shows when the desktop is offline (Table~\ref{tab:timeline}, 07-04).
+
+\paragraph*{F5 Queue at the \hub{} (origin: RabbitMQ)} An external requester with a secure key submits a request; it is stored as \emph{queued}. When the owner's machine is connected it pulls the queued requests in order of arrival, processes them, publishes and writes the status back. Pulling avoids any inbound connection to the owner's machine.
+
+\paragraph*{F6 Callback / return URL (origin: Stripe)} The \hub{} posts the result to the requester's webhook and retries until it is acknowledged, so the contract is two-way: client-to-server and server-to-client~\cite{stripewebhooks}.
+
+\paragraph*{F7 Cross-project agent reuse} Agents live in an organisation-wide roster in the database; a project \emph{links} existing agents (\vendors{} and several security projects share agents) instead of cloning them.
+
+\paragraph*{F8 Dynamic-IP firewall (a feature)} For operators without a static IP, deployment rotates the VM firewall and cloud security rule to the operator's current /32 address, replacing (never stacking) the previous one, so deployment stays possible without leaving a port open.
+
+\paragraph*{F9 Smart mapping-file deploy flow} A mapping file detects changed files by date and asks before updating; seed and database files are never touched automatically; a database update or rebase is asked separately, even on staging; after restart the flow verifies that real endpoints return real results and that newly seeded values are present.
+
+\paragraph*{F10 Smart CI/CD} Deterministic deployment ``hands'' are paired with an AI ``brain'' that probes the failing area (migration, build, ports, service, disk), consults a memory of learned faults, applies one safe fix and re-runs to verify, stopping for failures only a human can resolve.
+
+\paragraph*{F11 Audit layer} On a timer and on demand, an audit checks that files sit in the folder declared for them, that no project references another project's private files, that the registry mirrors the disk in both directions, and heals what it can (move, promote a duplicate to the shared library, re-point a reference, re-index). A separate \emph{truth gate} rejects success claims that contradict the tools' own output; in the studied version it did not yet cover the reviewer's verdict at the end of a run (Section~\ref{sec:threats}).
+
+\paragraph*{Also in the system} On-device Whisper speech-to-text and text-to-speech in English and Arabic; a Zoom meeting pipeline that turns live audio into a structured report; and phone and web control through the \hub. Connectors to SaaS platforms are plain API calls and are not a contribution.
+
+\subsection{Extending the door to the agents' own tools}\label{sec:p2}
+The first run of RQ2 (Section~\ref{sec:results}) showed that the door covered every write made \emph{through the system}, but not files that a coding agent writes with its own editor and shell tools. We closed this gap inside the isolated copy with two changes. Neither adds a rule; both apply the rule F3 already states: an agent may \emph{read} anywhere, including shared bases, may \emph{write} only inside its own project (including delta files that point to a shared base), and may change shared code only through the door.
+\begin{description}[\IEEEsetlabelwidth{}]
+\item[] \textbf{P2a: start in the own folder.} Each project's agents start in that project's own working folder (its declared local path, otherwise its canonical code folder) instead of the repository root, and the absolute workspace path was removed from the instructions agents read. Relative writes therefore land inside the project.
+\item[] \textbf{P2b: a pre-tool hook.} The agent runtime offers a hook that runs before every tool call and can refuse it with a message that the agent reads. The system already used this mechanism for read-only agents. For every edit or write call, and for the write targets of shell commands (redirections, \texttt{tee}, \texttt{mkdir}, \texttt{touch}, and the destination of \texttt{cp}/\texttt{mv}/\texttt{install}), the hook makes the same routing decision as the door, by calling the door's own router. The outcomes are: \emph{allow} (own project, canonical slot, or temporary space); \emph{redirect} (own project, wrong slot; the message names the correct path); or \emph{block} (another project, the repository root, a system area, or shared code). For shared code the message names the agents' door, a small command that calls the same promotion routine the audit uses. Promotion moves the file to the shared library and leaves a pointer in the project, so the registry and the disk stay in step. The actor is set by the engine, not by the agent. The hook has three modes (off, watch, enforce).
+\end{description}
+We rolled P2b out in two stages. In \emph{watch} mode the hook blocks nothing and logs every write it would redirect or block; any legitimate write in that log would have been routed through the door before switching on. In \emph{enforce} mode it blocks.

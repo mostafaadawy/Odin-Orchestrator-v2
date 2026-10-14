@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Odin Anchor — CD Flow Simulator (:9104)</title>
+<style>
+  :root{--bg:#0a0c12;--panel:#141a29;--panel2:#0e1320;--stroke:rgba(255,255,255,.12);--txt:#e8ecf6;--dim:#9aa4bf;--brand:#6c8cff;--brand2:#7af0d0;--ok:#4be3a0;--warn:#ffce6b;--danger:#ff6b81;}
+  *{box-sizing:border-box;font-family:-apple-system,Segoe UI,system-ui,sans-serif}
+  body{margin:0;background:radial-gradient(1100px 600px at 8% -12%,rgba(108,140,255,.16),transparent 60%),var(--bg);color:var(--txt);min-height:100vh}
+  header{padding:16px 22px;border-bottom:1px solid var(--stroke);display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  header h1{font-size:17px;margin:0}
+  .sub{color:var(--dim);font-size:12.5px}
+  .cfg{display:flex;gap:8px;flex-wrap:wrap;margin-left:auto}
+  .cfg input{width:150px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:calc(100vh - 60px)}
+  .col{padding:18px 22px;overflow:auto}
+  .col.left{border-right:1px solid var(--stroke)}
+  h2{font-size:13px;color:var(--dim);text-transform:uppercase;letter-spacing:.5px;margin:4px 0 10px}
+  .card{background:var(--panel);border:1px solid var(--stroke);border-radius:13px;padding:14px;margin-bottom:14px}
+  label{display:block;font-size:11.5px;color:var(--dim);margin:8px 0 4px}
+  input,textarea,select{width:100%;background:var(--panel2);border:1px solid var(--stroke);color:var(--txt);border-radius:9px;padding:9px 11px;font-size:13.5px;outline:none}
+  textarea{min-height:74px;resize:vertical}
+  button{margin-top:12px;background:linear-gradient(180deg,var(--brand),#5274ff);color:#fff;border:0;border-radius:9px;padding:10px 15px;font-size:13.5px;cursor:pointer;font-weight:600}
+  button:disabled{opacity:.5;cursor:default}
+  .proj{display:flex;gap:8px;align-items:center;padding:7px 9px;border:1px solid var(--stroke);border-radius:9px;margin-bottom:6px;cursor:pointer;font-size:12.5px}
+  .proj:hover{border-color:var(--brand)}
+  .proj.sel{border-color:var(--brand2);background:rgba(122,240,208,.06)}
+  .proj .id{font-family:ui-monospace,Menlo,monospace;color:var(--brand2);font-size:11px}
+  .pill{display:inline-block;font-size:10.5px;padding:2px 9px;border-radius:999px;border:1px solid var(--stroke);color:var(--dim)}
+  /* CD flow chain */
+  .flow{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+  .step{display:flex;gap:10px;align-items:center;font-size:12.5px;color:var(--dim);opacity:.5}
+  .step.on{opacity:1;color:var(--txt)}
+  .step.done .dot{background:var(--ok);border-color:var(--ok)}
+  .step.act .dot{background:var(--warn);border-color:var(--warn);animation:pulse 1s infinite}
+  .dot{width:13px;height:13px;border-radius:50%;border:2px solid var(--stroke);flex:0 0 auto}
+  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.3)}}
+  pre{font-family:ui-monospace,Menlo,monospace;font-size:12px;background:var(--panel2);border:1px solid var(--stroke);border-radius:10px;padding:12px;white-space:pre-wrap;overflow:auto}
+  .resp{min-height:200px}
+  .ok{color:var(--ok)}.warn{color:var(--warn)}.bad{color:var(--danger)}.dim{color:var(--dim)}
+  .status{font-size:12.5px;margin-top:8px}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>🛰️ Odin Anchor — Command & Data Flow</h1>
+    <div class="sub">You are an <b>outside caller</b>. Send a request → watch it travel Anchor → your Mac → back via webhook.</div>
+    <button id="varsBtn" onclick="toggleVars()" style="margin-top:8px;background:#222a3f;font-size:12px;padding:7px 12px">⚙ Hide environment variables</button>
+  </div>
+  <div class="cfg">
+    <div><label>Environment</label>
+      <select id="env" onchange="applyEnv()">
+        <option value="dev" selected>Development (local — default)</option>
+        <option value="prod">Production (anchor.odinmarkets.com)</option>
+      </select></div>
+    <div><label>Brain (seeded data)</label><input id="brain" value="http://localhost:8000" /></div>
+    <div><label>Anchor URL</label><input id="anchor" value="http://localhost:9100" /></div>
+    <div><label>Webhook viewer</label><input id="wh" value="http://localhost:9300" /></div>
+    <div><label>X-API-Key</label><input id="key" value="" placeholder="ANCHOR_API_KEY" /></div>
+  </div>
+</header>
+
+<div class="grid">
+  <!-- LEFT: seeded data + the request you send + the live CD flow -->
+  <div class="col left">
+    <h2>Seeded projects (pick a target)</h2>
+    <div class="card">
+      <div id="projects"><span class="dim">loading seeded projects…</span></div>
+      <button onclick="loadProjects()" style="background:#222a3f">↻ Refresh seeded data</button>
+    </div>
+
+    <h2>Your request (as a third party)</h2>
+    <div class="card">
+      <label>Target project id</label>
+      <input id="project" placeholder="click a seeded project above, or type an id" />
+      <label>Prompt</label>
+      <textarea id="prompt" placeholder="e.g. How many orders did we get this week? / list recent Klaviyo workflows"></textarea>
+      <button id="send" onclick="send()">▶ Send request to the Anchor</button>
+      <div id="reqinfo" class="status dim"></div>
+    </div>
+
+    <h2>Command &amp; Data flow (live)</h2>
+    <div class="card">
+      <div class="flow" id="flow">
+        <div class="step" data-k="sent"><span class="dot"></span> Request sent from this page → Anchor</div>
+        <div class="step" data-k="queued"><span class="dot"></span> Queued at the Anchor (backend received)</div>
+        <div class="step" data-k="pulled"><span class="dot"></span> Pulled by your Mac (desktop/local) for processing</div>
+        <div class="step" data-k="processing"><span class="dot"></span> Processing — CTO → team, grounded in real data</div>
+        <div class="step" data-k="result"><span class="dot"></span> Result posted back to the Anchor</div>
+        <div class="step" data-k="webhook"><span class="dot"></span> Delivered to the webhook — <b>Received by Webhook</b></div>
+        <div class="step" data-k="done"><span class="dot"></span> <b>Done</b></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: one webhook-response block PER request — send many, each keeps its own answer -->
+  <div class="col right">
+    <h2>Requests &amp; responses <span id="respstatus" class="pill">waiting…</span>
+      <button onclick="clearAllReqs()" title="Delete ALL requests from the log (rows + saved response files)"
+        style="float:right;background:#2a1420;color:var(--danger);font-size:11px;padding:5px 11px;margin-top:-4px;margin-left:6px">🗑 Clear all</button>
+      <button onclick="refreshAll()" title="Ask the anchor for the latest status of every request (by id)"
+        style="float:right;background:#222a3f;font-size:11px;padding:5px 11px;margin-top:-4px">↻ Refresh statuses</button></h2>
+    <div class="dim" style="font-size:12px;margin-bottom:10px">
+      Every request you send gets its <b>own return webhook</b> (<code>/cb/&lt;project&gt;</code>) and its own live block below — newest on top. Fire as many as you like.
+    </div>
+    <div id="responses">
+      <div class="card dim" id="respEmpty">No responses yet. Send one or more requests on the left.</div>
+    </div>
+  </div>
+</div>
+
+<!-- phase3_up.sh writes anchor_prod.js with the real VM urls: window.ODIN_PROD={brain,anchor,wh,key}.
+     Missing file (dev) = harmless 404 and the Production option falls back to placeholders. -->
+<script src="anchor_prod.js" onerror="void 0"></script>
+<script src="anchor_seed.js" onerror="void 0"></script>
+<script>
+const $=id=>document.getElementById(id);
+// phase2_up.sh writes anchor_seed.js: window.ODIN_SEED={key,webhook} from oth/.cred — pre-fills the key.
+try{ if(window.ODIN_SEED&&window.ODIN_SEED.key){ const k=document.getElementById('key'); if(k&&!k.value) k.value=window.ODIN_SEED.key; } }catch(e){}
+// Every request you fire is tracked here by its request_id, so many can run at once and each keeps
+// its OWN response block + its OWN return webhook (/cb/<project>).
+const REQS={};          // rid -> {project, status, done, card, pre, pill}
+let LAST=null;          // most-recent rid (drives the left flow chain visual)
+const G=k=>$(k).value.replace(/\/+$/,'');
+const short=r=>r?String(r).slice(0,14):'';
+function respCard(rid,project){
+  $('respEmpty') && ($('respEmpty').style.display='none');
+  const wrap=document.createElement('div'); wrap.className='card'; wrap.id='r_'+rid;
+  wrap.innerHTML='<div class="row" style="gap:8px;align-items:center">'
+    +'<b style="color:var(--txt)">'+project+'</b>'
+    +'<span class="id" style="color:var(--brand2)">'+short(rid)+'</span>'
+    +'<span class="pill" style="margin-left:auto" id="ps_'+rid+'">running…</span>'
+    +'<button onclick="removeCard(\''+rid+'\')" title="Delete this request from the log" '
+    +'style="background:#2a1420;border:1px solid var(--stroke);color:var(--danger);font-size:11px;padding:3px 9px;border-radius:8px;cursor:pointer">✕</button></div>'
+    +'<pre class="resp" id="pr_'+rid+'" style="min-height:120px;margin-top:8px">waiting for the webhook…</pre>';
+  const host=$('responses'); host.insertBefore(wrap,host.firstChild);
+  REQS[rid]={project,status:'',anchorId:'',prompt:'',webhook:'',done:false,card:wrap,pre:$('pr_'+rid),pill:$('ps_'+rid)};
+  return REQS[rid];
+}
+function toggleVars(){const c=document.querySelector('.cfg');const b=$('varsBtn');
+  const hide=c.style.display!=='none'; c.style.display=hide?'none':'flex';
+  b.textContent=hide?'⚙ Show environment variables':'⚙ Hide environment variables';}
+const hdr=()=>{const k=$('key').value.trim();return k?{'Content-Type':'application/json','X-API-Key':k}:{'Content-Type':'application/json'};};
+
+// ENVIRONMENT SELECTOR — Development (local, default) vs Production (Azure VM). The phase-3 online deploy
+// injects the REAL VM urls by defining window.ODIN_PROD = {brain, anchor, wh, key}. No domain: the VM IP
+// behind the reverse proxy (80/443). Switching the dropdown is the only change needed to go live.
+const ENVS={
+  dev:{brain:'http://localhost:8000',anchor:'http://localhost:9100',wh:'http://localhost:9300'},
+  prod:(window.ODIN_PROD||{brain:'',anchor:'https://anchor.odinmarkets.com/odin-anchor',wh:'https://anchor.odinmarkets.com/odin-anchor'})
+};
+function applyEnv(){const e=$('env').value,c=ENVS[e]||ENVS.dev;$('brain').value=c.brain;$('anchor').value=c.anchor;$('wh').value=c.wh;if(c.key)$('key').value=c.key;loadProjects();}
+
+function setStep(k,state){ // state: '', 'act', 'done'
+  document.querySelectorAll('.step').forEach(s=>{});
+  const el=document.querySelector('.step[data-k="'+k+'"]'); if(!el)return;
+  el.classList.remove('act','done'); el.classList.add('on');
+  if(state)el.classList.add(state);
+}
+function resetFlow(){document.querySelectorAll('.step').forEach(s=>s.classList.remove('on','act','done'));}
+
+let SEED={seeded_prompts:[],links:{}};
+async function loadSeed(){ try{ const r=await fetch('anchor_env.json'); SEED=await r.json(); }catch(e){} }
+// pick a seeded prompt for a project by matching its name/type to the seeded_prompts labels.
+function promptFor(p){
+  const n=((p.name||'')+' '+(p.type||'')+' '+(p.id||'')).toLowerCase();
+  const sp=SEED.seeded_prompts||[];
+  if(/veeqo|fulfil|shipping|order/.test(n)) return (sp.find(x=>/order|veeqo|fulfil/i.test(x.label))||{}).prompt||'How many orders do we have and the recent shipping status?';
+  if(/klaviyo|email/.test(n)) return (sp.find(x=>/klaviyo|email/i.test(x.label))||{}).prompt||'List our recent Klaviyo email workflows with live vs draft counts.';
+  return (sp[0]||{}).prompt||'What is the current status?';
+}
+async function loadProjects(){
+  const el=$('projects'); await loadSeed();
+  const whBase=G('wh');
+  const key=$('key').value.trim();
+  try{
+    // read the project list FROM THE ANCHOR (not the backend) — a real third party only knows the anchor.
+    const r=await fetch(G('anchor')+'/anchor/v1/projects',{headers:hdr()}); const d=await r.json();
+    const ps=(d.projects||[]);
+    if(!ps.length){el.innerHTML='<span class="dim">no projects from the anchor yet (is the anchor running + synced?)</span>';return;}
+    // full SEEDED third-party data per project: id + ready prompt + webhook + api key + one-click send.
+    el.innerHTML=ps.map(p=>{
+      const pr=promptFor(p).replace(/"/g,'&quot;');
+      return '<div class="proj" id="p_'+p.id+'" style="flex-direction:column;align-items:stretch;gap:5px">'
+        +'<div class="row" style="gap:8px"><b>'+(p.name||p.id)+'</b><span class="pill" style="margin-left:auto">'+(p.type||'')+'</span></div>'
+        +'<div class="id">project id: '+p.id+'</div>'
+        +'<div style="font-size:11.5px;color:var(--dim)">seeded prompt: <span style="color:var(--txt)">'+pr+'</span></div>'
+        +'<div class="id">webhook (this project): '+whBase+'/cb/'+p.id+'</div>'
+        +'<div class="id">api key: '+(key?(key.slice(0,10)+'…'):'(paste X-API-Key above)')+'</div>'
+        +'<button class="btn sm" style="margin-top:4px" onclick="seedSend(\''+p.id+'\',\''+pr+'\')">▶ Send this seeded request</button>'
+        +'</div>';
+    }).join('');
+  }catch(e){el.innerHTML='<span class="bad">could not reach the anchor '+G('anchor')+' — '+e+'</span>';}
+}
+function pick(id){$('project').value=id;document.querySelectorAll('.proj').forEach(x=>x.classList.remove('sel'));const el=$('p_'+id);if(el)el.classList.add('sel');}
+function seedSend(id,pr){ $('project').value=id; $('prompt').value=pr; send(); }
+
+async function send(){
+  const project=$('project').value.trim(), prompt=$('prompt').value.trim();
+  if(!project||!prompt){$('reqinfo').innerHTML='<span class="bad">pick a project and type a prompt</span>';return;}
+  $('send').disabled=true; resetFlow(); $('respstatus').textContent='running…';
+  const webhook_url=G('wh')+'/cb/'+encodeURIComponent(project);
+  // CREATE THE CARD IMMEDIATELY — one per Send press — so you ALWAYS get feedback on the right, even if the
+  // anchor is offline. The card is keyed by a local id (cid); the anchor's request_id is tracked separately.
+  const cid='c_'+Date.now().toString(36)+Math.random().toString(36).slice(2,6);
+  LAST=cid; const R=respCard(cid,project); R.prompt=prompt; R.webhook=webhook_url; R.status='sending';
+  R.pill.textContent='sending…'; R.pre.textContent='contacting the anchor…'; simRecord(cid);
+  setStep('sent','act'); $('reqinfo').innerHTML='<span class="dim">contacting the anchor…</span>';
+  try{
+    const r=await fetch(G('anchor')+'/anchor/v1/requests',{method:'POST',headers:hdr(),body:JSON.stringify({project,prompt,webhook_url})});
+    const d=await r.json();
+    if(!r.ok){throw new Error((d&&d.error)?d.error:('HTTP '+r.status));}
+    // ASYNC QUEUE — immediate ACK; the RESULT returns later to the webhook (avoids a 502 on slow work).
+    R.anchorId=d.request_id; R.status=d.status||'queued';
+    R.pill.textContent=R.status; R.pill.style.color=''; R.pre.textContent='queued — waiting for the result…';
+    simUpdate(cid,{status:R.status,anchor_id:R.anchorId});
+    $('reqinfo').innerHTML='<span class="ok">✓ ACKNOWLEDGED</span> — <b>'+short(d.request_id)+'</b> '+(d.status||'queued')
+      +'. <span class="dim">'+((d.message)||'result will be delivered to your webhook')+'</span>';
+    setStep('sent','done'); setStep('queued','done');
+    poll(cid);
+  }catch(e){
+    const off = (e instanceof TypeError) || /Failed to fetch|NetworkError|Load failed/i.test(e.message||'');
+    R.status = off ? 'offline · not received' : 'rejected';
+    R.pill.textContent=R.status; R.pill.style.color='var(--danger)';
+    R.pre.textContent = off ? '✗ Anchor is OFFLINE — this request was NOT received (nothing queued). Start it (bash anchor_up.sh) and press Send again.'
+                            : ('✗ Rejected by the anchor: '+e.message);
+    simUpdate(cid,{status:R.status});
+    $('reqinfo').innerHTML = off ? '<span class="bad">✗ Anchor offline — not received</span>'
+                                 : '<span class="bad">✗ '+e.message+'</span>';
+    setStep('sent','');
+  }
+  $('send').disabled=false;
+}
+
+// map anchor status → the CD chain
+function paintStatus(st){
+  const order=['queued','pulled','processing','result','webhook','done'];
+  const map={queued:['queued'],handed_out:['pulled'],processing:['pulled','processing'],
+             done:['pulled','processing','result'],completed:['pulled','processing','result']};
+  (map[st]||[]).forEach(k=>setStep(k,'done'));
+  if(st==='queued')setStep('pulled','act');
+  else if(st==='handed_out'||st==='processing')setStep('processing','act');
+  else if(st==='done'||st==='completed')setStep('result','done');
+}
+
+function finishCard(rid,text,label){
+  const R=REQS[rid]; if(!R||R.done)return; R.done=true; R.result=text;
+  R.pre.textContent=(typeof text==='string')?text:JSON.stringify(text,null,2);
+  R.pill.textContent=label||'Received by Webhook · Done'; R.pill.style.color='var(--ok)';
+  simUpdate(rid,{status:R.status||'finished',response:text}); // persist the response to a file via SQLite log
+  if(rid===LAST){ setStep('result','done'); setStep('webhook','done'); setStep('done','done');
+    $('respstatus').textContent='Received by Webhook · Done'; $('respstatus').style.color='var(--ok)'; }
+}
+// look for THIS request's own webhook callback under its project's return url (/list/<project>)
+async function checkWebhook(cid){
+  const R=REQS[cid]; if(!R||!R.anchorId)return false;
+  try{
+    const r=await fetch(G('wh')+'/list/'+encodeURIComponent(R.project)); const d=await r.json();
+    const hit=(d.received||[]).map(x=>x.payload||{}).find(p=>p.request_id===R.anchorId);
+    if(hit){ finishCard(cid, hit.result!==undefined?hit.result:hit); return true; }
+  }catch(e){}
+  return false;
+}
+async function poll(cid){
+  const R=REQS[cid]; if(!R||R.done||!R.anchorId)return;   // offline cards have no anchorId → nothing to poll
+  try{
+    const r=await fetch(G('anchor')+'/anchor/v1/requests/'+R.anchorId); const d=await r.json();
+    if(d&&d.status){ R.status=d.status; if(cid===LAST)paintStatus(d.status);
+      R.pill.textContent=d.status; simUpdate(cid,{status:d.status}); }
+    const got=await checkWebhook(cid);          // local flow: its own /cb/<project> callback arrived
+    if(got)return;
+    if(d&&d.result!==undefined&&d.result!==null){
+      // ONLINE flow: the VM anchor can't deliver the webhook to your Mac's localhost, so the status may
+      // stay 'ack_pending' — but the RESULT is already posted. Show it as soon as it exists.
+      finishCard(cid, d.result, 'Answer received (from Anchor)'); return;
+    }
+  }catch(e){ R.pill.textContent='poll error'; R.pill.style.color='var(--danger)'; }
+  setTimeout(()=>poll(cid),2500);
+}
+function pollNow(){ Object.keys(REQS).forEach(cid=>{ if(!REQS[cid].done) checkWebhook(cid); }); }
+
+// ---- DURABLE via the request page's OWN SQLite log (server/sim_server.py; big responses saved to files).
+// This is the THIRD-PARTY's store — separate from the anchor. It survives a refresh AND a full browser close.
+// On load we read this log, rebuild the cards, load any saved responses (from files), then RE-QUERY the
+// anchor by ID for each request's current status. Each request has an ID; its status is asked at any time.
+async function simRecord(rid){ const R=REQS[rid]; if(!R)return;
+  try{ await fetch('/sim/requests',{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({rid,project:R.project,prompt:R.prompt||'',webhook:R.webhook||'',status:R.status||'queued',anchor_id:R.anchorId||''})});}catch(e){} }
+async function simUpdate(rid,patch){ try{ await fetch('/sim/requests/'+encodeURIComponent(rid),{method:'PUT',
+  headers:{'Content-Type':'application/json'},body:JSON.stringify(patch)});}catch(e){} }
+async function simDelete(rid){ try{ await fetch('/sim/requests/'+encodeURIComponent(rid),{method:'DELETE'});}catch(e){} }
+function removeCard(rid){ const R=REQS[rid]; if(R&&R.card)R.card.remove(); delete REQS[rid]; simDelete(rid); }
+async function clearAllReqs(){
+  if(!confirm('Delete ALL requests from the log (and their saved responses)?'))return;
+  try{ await fetch('/sim/requests',{method:'DELETE'}); }catch(e){}
+  Object.keys(REQS).forEach(rid=>{ if(REQS[rid].card)REQS[rid].card.remove(); });
+  Object.keys(REQS).forEach(k=>delete REQS[k]);
+  LAST=null; resetFlow(); $('respstatus').textContent='cleared';
+  const host=$('responses'); if(host && !$('respEmpty')){ host.innerHTML='<div class="card dim" id="respEmpty">No responses yet. Send one or more requests on the left.</div>'; }
+}
+
+async function refreshOne(cid){
+  const R=REQS[cid]; if(!R)return;
+  if(!R.anchorId){ if(!R.done){ R.pill.textContent=R.status||'offline · not received'; R.pill.style.color='var(--warn)'; } return; }
+  if(!R.done){ R.pill.textContent='checking…'; R.pill.style.color=''; }
+  try{
+    const r=await fetch(G('anchor')+'/anchor/v1/requests/'+R.anchorId,{headers:hdr()});
+    if(r.status===404){ R.pill.textContent='not on anchor'; R.pill.style.color='var(--warn)'; return; }
+    const d=await r.json();
+    if(d&&d.status){ R.status=d.status; if(!R.done){R.pill.textContent=d.status; R.pill.style.color='';} if(cid===LAST)paintStatus(d.status); simUpdate(cid,{status:d.status}); }
+    if(d&&d.result!==undefined&&d.result!==null){ finishCard(cid,d.result,'Answer received (from Anchor)'); }
+  }catch(e){ if(!R.done){ R.pill.textContent='anchor offline'; R.pill.style.color='var(--warn)'; } }
+}
+async function refreshAll(){
+  const ids=Object.keys(REQS);
+  if(!ids.length){ $('respstatus').textContent='no requests yet'; return; }
+  $('respstatus').textContent='refreshing…';
+  for(const rid of ids) await refreshOne(rid);
+  $('respstatus').textContent='up to date';
+}
+async function restoreReqs(){
+  let rows=[];
+  try{ const r=await fetch('/sim/requests'); rows=(await r.json()).requests||[]; }catch(e){}
+  rows.slice().reverse().forEach(it=>{           // API is newest-first; render so newest ends on top
+    if(REQS[it.rid])return;
+    const R=respCard(it.rid,it.project); R.prompt=it.prompt; R.webhook=it.webhook; R.status=it.status; R.anchorId=it.anchor_id||'';
+    if(it.status){ R.pill.textContent=it.status; }
+    LAST=it.rid;
+  });
+  for(const it of rows){ if(it.has_response){
+    try{ const r=await fetch('/sim/response/'+encodeURIComponent(it.rid)); const d=await r.json();
+      if(d&&d.response!==undefined&&d.response!==null) finishCard(it.rid,d.response,'Answer (saved)'); }catch(e){}
+  }}
+  refreshAll();  // ask the anchor for the CURRENT status of each restored request (durable, by id)
+}
+
+// ENV DEFAULT — in Phase 3 we TARGET PRODUCTION. phase3_up.sh injects window.ODIN_PROD (the real VM urls),
+// so its mere presence means "this is the online deploy" → default to Production DETERMINISTICALLY (a reload
+// or a plain click can no longer drop back to Development, which was the "starts in dev conf" bug). Only an
+// explicit ?env=dev forces local. When ODIN_PROD is absent (Phase 2 local), we stay on Development.
+(function(){
+  let target;
+  try{ target=new URLSearchParams(location.search).get('env'); }catch(e){}
+  if(target==='dev'||target==='development'){ $('env').value='dev'; }
+  else if(target==='prod'||target==='production'||window.ODIN_PROD){ $('env').value='prod'; }
+  applyEnv();       // set urls for the chosen env + load the project list
+  restoreReqs();    // bring back saved requests and re-query the anchor for their current status (by id)
+})();
+
+// v2: if the page opened before the Anchor was ready (or its project list was still syncing), keep retrying
+// quietly until the seeded projects appear — so the page always shows its data without a manual refresh.
+(function(){let n=0;const t=setInterval(()=>{const el=document.getElementById('projects');
+  if(!el){clearInterval(t);return;}
+  const empty=!el.querySelector('.proj');
+  if(!empty||++n>60){clearInterval(t);return;}
+  try{loadProjects();}catch(e){}},3000);})();
+</script>
+</body>
+</html>

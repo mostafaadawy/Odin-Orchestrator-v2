@@ -1,0 +1,80 @@
+{
+ "before": {
+  "calc.py": [
+   false,
+   false
+  ],
+  "test_calc.py": [
+   false,
+   false
+  ]
+ },
+ "approve": {
+  "id": "2b841d68b150",
+  "pid": "s8-calc-r3",
+  "member": "Fullstack",
+  "title": "Fullstack: Fullstack: create code/calc.py with functions add( (try 1)",
+  "summary": "Create code/calc.py (add, mul) and code/test_calc.py (unittest tests) using only the Python stdlib, then run the tests",
+  "files": [
+   {
+    "path": "code/calc.py",
+    "action": "create",
+    "why": "Define add(a,b) returning the sum and mul(a,b) returning the product",
+    "preview": ""
+   },
+   {
+    "path": "code/test_calc.py",
+    "action": "create",
+    "why": "unittest tests covering add and mul, stdlib only",
+    "preview": ""
+   }
+  ],
+  "commands": [
+   {
+    "cmd": "cat > code/calc.py <<'EOF'\n\"\"\"Tiny calculator helpers (standard library only).\"\"\"\n\n\ndef add(a, b):\n    \"\"\"Return the sum of a and b.\"\"\"\n    return a + b\n\n\ndef mul(a, b):\n    \"\"\"Return the product of a and b.\"\"\"\n    return a * b\nEOF",
+    "where": "local",
+    "why": "Write calc.py with add and mul"
+   },
+   {
+    "cmd": "cat > code/test_calc.py <<'EOF'\n\"\"\"Unit tests for calc.add and calc.mul (unittest, stdlib only).\"\"\"\n\nimport unittest\n\nfrom calc import add, mul\n\n\nclass TestAdd(unittest.TestCase):\n    def test_positive(self):\n        self.assertEqual(add(2, 3), 5)\n\n    def test_negative(self):\n        self.assertEqual(add(-4, -6), -10)\n\n    def test_mixed_sign(self):\n        self.assertEqual(add(-5, 2), -3)\n\n    def test_zero(self):\n        self.assertEqual(add(0, 0), 0)\n\n\nclass TestMul(unittest.TestCase):\n    def test_positive(self):\n        self.assertEqual(mul(2, 3), 6)\n\n    def test_negative_times_negative(self):\n        self.assertEqual(mul(-4, -3), 12)\n\n    def test_mixed_sign(self):\n        self.assertEqual(mul(-5, 2), -10)\n\n    def test_zero(self):\n        self.assertEqual(mul(7, 0), 0)\n\n\nif __name__ == \"__main__\":\n    unittest.main()\nEOF",
+    "where": "local",
+    "why": "Write test_calc.py with unittest tests for add and mul"
+   },
+   {
+    "cmd": "cd code && python3 -m unittest -v",
+    "where": "local",
+    "why": "Verify both files work: expect 8 tests OK"
+   }
+  ],
+  "cwd": "/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/workspace/projects/s8-calc-r3/code",
+  "kind": "change",
+  "severity": "critical",
+  "security": false,
+  "alarm": false,
+  "recommended": "",
+  "fix_plan": "",
+  "inline": false,
+  "status": "approved",
+  "applied": false,
+  "created": 1791716989.423458,
+  "decided": 1791731360.353108,
+  "note": "owner approves (F-07 live proof in the copy)"
+ },
+ "applied_after_s": 20,
+ "applied": true,
+ "after": {
+  "calc.py": {
+   "on_disk": true,
+   "indexed": true,
+   "created_by": "Fullstack (project s8-calc-r3, via approved proposal 2b841d68b150)"
+  },
+  "test_calc.py": {
+   "on_disk": true,
+   "indexed": true,
+   "created_by": "Fullstack (project s8-calc-r3, via approved proposal 2b841d68b150)"
+  }
+ },
+ "audit_touched_these_files": [],
+ "unindexed_in_project_now": [],
+ "reported_usage_usd_not_charged": 0.183
+}

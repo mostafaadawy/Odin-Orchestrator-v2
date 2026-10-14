@@ -1,0 +1,4 @@
+#!/bin/sh
+echo "BLOCKED in Odin-Consolidated: scp is disabled (no cloud/remote changes)" >&2
+echo "$(date -u +%FT%TZ) scp $*" >> "/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/_isolation/blocked_calls.log"
+exit 126

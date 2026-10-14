@@ -1,0 +1,18 @@
+{
+  "type": "technical",
+  "groups": [
+    "cloud",
+    "content",
+    "database",
+    "fullstack",
+    "notification",
+    "qa",
+    "review",
+    "storage",
+    "voice-pipeline",
+    "web"
+  ],
+  "ui": {
+    "chip": "Technical"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "recurring",
+  "requires": {
+    "schedule": true
+  },
+  "config_schema": {
+    "cadence": "string"
+  },
+  "ui": {
+    "chip": "Recurring",
+    "controls": [
+      "play",
+      "cadence"
+    ]
+  },
+  "means": "repeats on a cadence (play button)"
+}

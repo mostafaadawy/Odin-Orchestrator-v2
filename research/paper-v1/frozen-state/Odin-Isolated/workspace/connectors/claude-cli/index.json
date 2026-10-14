@@ -1,0 +1,6 @@
+{
+  "id": "claude-cli",
+  "name": "Claude CLI",
+  "kind": "ai",
+  "description": "Claude command-line connector (agentic coding)"
+}

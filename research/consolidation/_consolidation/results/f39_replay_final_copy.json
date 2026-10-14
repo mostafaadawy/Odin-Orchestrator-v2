@@ -1,0 +1,59 @@
+{
+ "mode": "copy as stored",
+ "declared_in_memory": {},
+ "proposals_checked": 62,
+ "historical_not_rerunnable": 11,
+ "refused": 6,
+ "refused_list": [
+  {
+   "id": "6bd7b2ebf3ef",
+   "project": "brand2-email-reporting",
+   "status": "approved",
+   "why": [
+    "file workspace/shared/oth/.cred"
+   ]
+  },
+  {
+   "id": "bc12b7443bfa",
+   "project": "brand2-email-reporting-rep3",
+   "status": "pending",
+   "why": [
+    "file workspace/shared/oth/.cred"
+   ]
+  },
+  {
+   "id": "1915cc48a862",
+   "project": "brand2-email-reporting-b491",
+   "status": "pending",
+   "why": [
+    "file <project localPath>/connectors/.cred"
+   ]
+  },
+  {
+   "id": "715256548145",
+   "project": "leads-landing-page",
+   "status": "pending",
+   "why": [
+    "file ~/Desktop/leads-landing/package.json",
+    "file ~/Desktop/leads-landing/server.js"
+   ]
+  },
+  {
+   "id": "94a066ea6f44",
+   "project": "daily-egypt-amazon-product-poster",
+   "status": "approved",
+   "why": [
+    "command `cp '/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/_external/Odi`"
+   ]
+  },
+  {
+   "id": "876bba23bdfb",
+   "project": "daily-egypt-amazon-product-poster",
+   "status": "approved",
+   "why": [
+    "file ~/Library/LaunchAgents/com.odin.egypt-amazon-poster.plist",
+    "command `rm -f \"$HOME/Library/LaunchAgents/com.odin.egypt-amazon-poster.plist\"`"
+   ]
+  }
+ ]
+}

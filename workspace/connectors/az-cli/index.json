@@ -1,0 +1,6 @@
+{
+  "id": "az-cli",
+  "name": "Azure CLI",
+  "kind": "cloud",
+  "description": "Azure CLI connector (VM/NSG/firewall control-plane)"
+}

@@ -1,0 +1,210 @@
+{
+ "N": 1,
+ "rep": 2,
+ "model": "haiku",
+ "cap_s": 720,
+ "env_start": {
+  "label": "llm N=1 rep=2 start",
+  "utc": "2026-10-06T15:19:21.005739Z",
+  "machine": {
+   "cpu": "",
+   "ncpu": 12,
+   "ram_gb": 24.0,
+   "os": "26.5.2",
+   "arch": "arm64"
+  },
+  "load": {
+   "loadavg": [
+    3.19873046875,
+    3.04736328125,
+    3.4736328125
+   ],
+   "cpu_pct_total": 34.4,
+   "mem_used_pct": 73.0
+  },
+  "competing_top": [
+   {
+    "pid": 65965,
+    "name": "mdworker_shared",
+    "cpu_pct": 51.1,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 65953,
+    "name": "Python",
+    "cpu_pct": 35.6,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46967,
+    "name": "Firefox GPU Helper",
+    "cpu_pct": 13.6,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 65920,
+    "name": "CGPDFService",
+    "cpu_pct": 12.7,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46964,
+    "name": "firefox",
+    "cpu_pct": 8.7,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 61113,
+    "name": "plugin-container",
+    "cpu_pct": 7.6,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 65974,
+    "name": "CGPDFService",
+    "cpu_pct": 7.5,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 42398,
+    "name": "Claude Helper (Renderer)",
+    "cpu_pct": 4.9,
+    "is_real_odin": false,
+    "is_isolated": false
+   }
+  ],
+  "real_odin_cpu_pct": 0,
+  "soc_reports_last_hour": []
+ },
+ "env_end": {
+  "label": "end",
+  "utc": "2026-10-06T15:20:23.739774Z",
+  "machine": {
+   "cpu": "",
+   "ncpu": 12,
+   "ram_gb": 24.0,
+   "os": "26.5.2",
+   "arch": "arm64"
+  },
+  "load": {
+   "loadavg": [
+    2.99267578125,
+    3.01953125,
+    3.4296875
+   ],
+   "cpu_pct_total": 8.3,
+   "mem_used_pct": 82.9
+  },
+  "competing_top": [
+   {
+    "pid": 46967,
+    "name": "Firefox GPU Helper",
+    "cpu_pct": 14.1,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46964,
+    "name": "firefox",
+    "cpu_pct": 9.0,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 61113,
+    "name": "plugin-container",
+    "cpu_pct": 6.8,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 42398,
+    "name": "Claude Helper (Renderer)",
+    "cpu_pct": 4.8,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 93532,
+    "name": "Code",
+    "cpu_pct": 4.0,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 20775,
+    "name": "VTDecoderXPCService",
+    "cpu_pct": 3.8,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 45995,
+    "name": "com.apple.Virtualization.VirtualMachine",
+    "cpu_pct": 3.6,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46975,
+    "name": "plugin-container",
+    "cpu_pct": 2.0,
+    "is_real_odin": false,
+    "is_isolated": false
+   }
+  ],
+  "real_odin_cpu_pct": 0,
+  "soc_reports_last_hour": []
+ },
+ "projects": [
+  {
+   "pid": "llm2-n1-p0",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.07654805713229709
+  }
+ ],
+ "writes_changed_files": 3,
+ "own_project_files": {
+  "llm2-n1-p0": 3
+ },
+ "cross_project_files": 0,
+ "stray_outside_projects": [],
+ "n_stray": 0,
+ "wrong_folder": 0,
+ "audit_issues": 3,
+ "audit_types": {
+  "unindexed": 3
+ },
+ "claude_calls": 1,
+ "cost_usd": 0.09255040000000002,
+ "cost_per_task_usd": 0.09255040000000002,
+ "tokens": {
+  "input_tokens": 90,
+  "cache_creation_input_tokens": 19712,
+  "cache_read_input_tokens": 364084,
+  "output_tokens": 2953
+ },
+ "llm_busy_share_of_wall": 0.8525504669793567,
+ "orchestration_overhead_share": 0.14744953302064334,
+ "server_tree": {
+  "wall_s": 60.1179358959198,
+  "cpu_s": 0.3067377600000001,
+  "cpu_share_of_wall": 0.005102266992849606,
+  "cpu_share_of_machine": 0.0004251889160708005,
+  "rss_mb_end": 46.109375
+ }
+}

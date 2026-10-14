@@ -1,0 +1,489 @@
+{
+ "scenario": "S8",
+ "rep": 2,
+ "pid": "s8-calc-r2",
+ "seconds": 59.0,
+ "cost_usd": 0.703,
+ "spent_total": 35.3075,
+ "record": {
+  "create": {
+   "id": "s8-calc-r2",
+   "localPath": "/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/workspace/projects/s8-calc-r2/code",
+   "_error": null
+  },
+  "run": {
+   "events": [
+    [
+     "status",
+     {
+      "icon": "\ud83e\udded",
+      "text": "Project CTO is reviewing the team & resources, then planning\u2026"
+     }
+    ],
+    [
+     "plan",
+     {
+      "steps": "[{'member': 'Fullstack', 'depends_on': [], 'task': \"Fullstack: create code/calc.py with functions add(a, b) and mul(a, b), and code/test_calc.py with unittest tests for both, using ONLY the Python standard library. Local files in this project's own folder only; no packages and no network. Constraint: do NOT deploy, rsync, build on the VM, migrate, or reboot -- no VM/production state change. Local file/config edits the owner explicitly asked for (e.g. updating a list) ARE allowed -- only deployment is off-limits.\", 'objective': 'Do EXACTLY what the owner asked -- nothing else.', 'deliverable': "
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u23f1\ufe0f",
+      "text": "E2E timer started (cached)"
+     }
+    ],
+    [
+     "delegate",
+     {
+      "pid": "s8-calc-r2",
+      "to": "Fullstack",
+      "step": "1",
+      "of": "1",
+      "task": "Fullstack: create code/calc.py with functions add(a, b) and mul(a, b), and code/test_calc.py with unittest tests for both, using ONLY the Python standard library. Local files in this project's own folder only; no packages and no network. Constraint: do NOT deploy, rsync, build on the VM, migrate, or reboot -- no VM/production state change. Local file/config edits the owner explicitly asked for (e.g. updating a list) ARE allowed -- only deployment is off-limits."
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\ud83d\udde3\ufe0f",
+      "text": "CTO briefs Fullstack with a bounded mandate"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u2699\ufe0f",
+      "text": "Fullstack is working\u2026"
+     }
+    ],
+    [
+     "token",
+     {
+      "member": "Fullstack",
+      "t": "**Readiness check:**\n- REQUIRES: a project folder to write into; Python stdlib only (no keys, no network, no upstream deliverables).\n- HAVE: the project folder (`.../s8-calc-r2/code`); Python stdlib ships with Python. No API keys or env vars needed.\n- MISSING: nothing. **Ready** \u2014 proceeding.\n\nLet me check the folder and write the files."
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u2699\ufe0f",
+      "text": "Fullstack: \u2699\ufe0f pwd && ls -la"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u2705",
+      "text": "Fullstack: /Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/workspace/projects/s8-calc-"
+     }
+    ],
+    [
+     "token",
+     {
+      "member": "Fullstack",
+      "t": "The folder exists and is empty. Writing both files now."
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u270f\ufe0f",
+      "text": "Fullstack: \u270f\ufe0f /Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/workspace/projects/s8-calc-r2/code/calc.py"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u274c",
+      "text": "Fullstack: <tool_use_error>Error: No such tool available: Write. Write exists but is not enabled in t"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u23f3",
+      "text": "Fullstack: still working\u2026 (2s since last output)"
+     }
+    ],
+    [
+     "token",
+     {
+      "member": "Fullstack",
+      "t": "Write isn't enabled here \u2014 I'm in propose-first mode, so I'll propose the two files. The folder `.../s8-calc-r2/code` exists and is empty (just `.gitkeep`). Here's exactly what goes in each file.\n\n**`code/calc.py`** (stdlib only, no imports, no network):\n```python\n\"\"\"Simple calculator functions using only the Python standard library.\"\"\"\n\n\ndef add(a, b):\n    \"\"\"Return the sum of a and b.\"\"\"\n    return a + b\n\n\ndef mul(a, b):\n    \"\"\"Return the product of a and b.\"\"\"\n    return a * b\n```\n\n**`code/test_calc.py`** (uses only `unittest` from the stdlib):\n```python\n\"\"\"Unit tests for calc.add and calc."
+     }
+    ],
+    [
+     "approval",
+     {
+      "id": "466f259d78dc",
+      "pid": "s8-calc-r2",
+      "member": "Fullstack",
+      "title": "Fullstack: Fullstack: create code/calc.py with functions add( (try 1)",
+      "summary": "Create code/calc.py (add, mul) and code/test_calc.py (unittest tests), stdlib-only, inside the s8-calc-r2 project folder",
+      "files": "[{'path': 'workspace/projects/s8-calc-r2/code/calc.py', 'action': 'create', 'why': 'Define add(a,b) returning the sum and mul(a,b) returning the product, using only the Python standard library', 'preview': ''}, {'path': 'workspace/projects/s8-calc-r2/code/test_calc.py', 'action': 'create', 'why': 'unittest tests covering add and mul (positive/negative/zero cases), stdlib-only, no network', 'preview': ''}]",
+      "commands": "[{'cmd': 'cd workspace/projects/s8-calc-r2/code && python3 -m unittest test_calc -v', 'where': 'local', 'why': 'Run the tests to prove add and mul pass'}]"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\ud83d\udd14",
+      "text": "Approval needed \u2014 Fullstack: 2 file(s) + 1 command(s). Approve in the popup or say 'approve' in chat; it runs the instant you do."
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\ud83d\udd0e",
+      "text": "CTO reviewing Fullstack"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u26a0\ufe0f",
+      "text": "Fullstack's part still has issues \u2014 text says 'Needs fix' \u2014 contradicts the verdict field"
+     }
+    ],
+    [
+     "step_done",
+     {
+      "member": "Fullstack",
+      "step": "1",
+      "result": "QA skipped. Needs fix: The work is not on disk \u2014 `code/` contains only `.gitkeep` (verified via `ls`; `calc.py NOT ON DISK`), and the report itself states it's in propose-first mode with proposal `466f259d78dc` still WAITING for the owner's approval. The proposed content is correct and compliant (stdlib-only, `add`/`mul` defined and `unittest`-tested, inside the project folder), but nothing is app",
+      "outcome": "NOT_DONE"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u23f1\ufe0f",
+      "text": "E2E finished in 52.84s (cached)"
+     }
+    ],
+    [
+     "done",
+     {
+      "pid": "s8-calc-r2",
+      "steps": "1",
+      "ok": "False",
+      "outcome": "NOT_DONE",
+      "timing": "{'seconds': 52.84, 'cached': True, 'compare': {'cached': {'pid': 's7-calc-r1', 'task': 'Fullstack: create code/calc.py with functions add(a, b) and mul(a, b), and code/test_calc.py with unittest tests for bot', 'cached': True, 'ok': True, 'seconds': 63.75, 'ts': 1791716171}, 'non_cached': None, 'speedup': None, 'saved_seconds': None}}"
+     }
+    ]
+   ],
+   "n_events": 21,
+   "text": "[Fullstack] **Readiness check:**\n- REQUIRES: a project folder to write into; Python stdlib only (no keys, no network, no upstream deliverables).\n- HAVE: the project folder (`.../s8-calc-r2/code`); Python stdlib ships with Python. No API keys or env vars needed.\n- MISSING: nothing. **Ready** \u2014 proceeding.\n\nLet me check the folder and write the files.[Fullstack] The folder exists and is empty. Writing both files now.[Fullstack] Write isn't enabled here \u2014 I'm in propose-first mode, so I'll propose the two files. The folder `.../s8-calc-r2/code` exists and is empty (just `.gitkeep`). Here's exactly what goes in each file.\n\n**`code/calc.py`** (stdlib only, no imports, no network):\n```python\n\"\"\"Simple calculator functions using only the Python standard library.\"\"\"\n\n\ndef add(a, b):\n    \"\"\"Return the sum of a and b.\"\"\"\n    return a + b\n\n\ndef mul(a, b):\n    \"\"\"Return the product of a and b.\"\"\"\n    return a * b\n```\n\n**`code/test_calc.py`** (uses only `unittest` from the stdlib):\n```python\n\"\"\"Unit tests for calc.add and calc.mul using the standard library only.\"\"\"\nimport unittest\n\nfrom calc import add, mul\n\n\nclass TestAdd(unittest.TestCase):\n    def test_positive(self):\n        self.assertEqual(add(2, 3), 5)\n\n    def test_negative(self):\n        self.assertEqual(add(-4, -6), -10)\n\n    def test_mixed(self):\n        self.assertEqual(add(-5, 5), 0)\n\n    def test_zero(self):\n        self.assertEqual(add(0, 7), 7)\n\n\nclass TestMul(unittest.TestCase):\n    def test_positive(self):\n        self.assertEqual(mul(3, 4), 12)\n\n    def test_by_zero(self):\n        self.assertEqual(mul(9, 0), 0)\n\n    def test_negative(self):\n        self.assertEqual(mul(-3, 5), -15)\n\n    def test_two_negatives(self):\n        self.assertEqual(mul(-3, -5), 15)\n\n\nif __name__ == \"__main__\":\n    unittest.main()\n```\n\nThis satisfies the whole checklist: both files inside the project folder, `add`/`mul` defined and tested, `unittest`-only (no third-party packages, no network). After approval I'll run `python -m unittest` in `code/` to prove the tests pass.\n\n```proposal\n{\n  \"summary\": \"Create code/calc.py (add, mul) and code/test_calc.py (unittest tests), stdlib-only, inside the s8-calc-r2 project folder\",\n  \"files\": [\n    {\"path\": \"workspace/projects/s8-calc-r2/code/calc.py\", \"action\": \"create\", \"why\": \"Define add(a,b) returning the sum and mul(a,b) returning the product, using only the Python standard library\"},\n    {\"path\": \"workspace/projects/s8-calc-r2/code/test_calc.py\", \"action\": \"create\", \"why\": \"unittest tests covering add and mul (positive/negative/zero cases), stdlib-only, no network\"}\n  ],\n  \"commands\": [\n    {\"cmd\": \"cd workspace/projects/s8-calc-r2/code && python3 -m unittest test_calc -v\", \"where\": \"local\", \"why\": \"Run the tests to prove add and mul pass\"}\n  ]\n}\n```"
+  },
+  "pending_after": [
+   {
+    "id": "466f259d78dc",
+    "pid": "s8-calc-r2",
+    "member": "Fullstack",
+    "title": "Fullstack: Fullstack: create code/calc.py with functions add( (try 1)",
+    "summary": "Create code/calc.py (add, mul) and code/test_calc.py (unittest tests), stdlib-only, inside the s8-calc-r2 project folder",
+    "files": [
+     {
+      "path": "workspace/projects/s8-calc-r2/code/calc.py",
+      "action": "create",
+      "why": "Define add(a,b) returning the sum and mul(a,b) returning the product, using only the Python standard library",
+      "preview": ""
+     },
+     {
+      "path": "workspace/projects/s8-calc-r2/code/test_calc.py",
+      "action": "create",
+      "why": "unittest tests covering add and mul (positive/negative/zero cases), stdlib-only, no network",
+      "preview": ""
+     }
+    ],
+    "commands": [
+     {
+      "cmd": "cd workspace/projects/s8-calc-r2/code && python3 -m unittest test_calc -v",
+      "where": "local",
+      "why": "Run the tests to prove add and mul pass"
+     }
+    ],
+    "cwd": "/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/workspace/projects/s8-calc-r2/code",
+    "kind": "change",
+    "severity": "critical",
+    "security": false,
+    "alarm": false,
+    "recommended": "",
+    "fix_plan": "",
+    "inline": false,
+    "status": "pending",
+    "applied": false,
+    "created": 1791716740.1023538,
+    "decided": null,
+    "note": ""
+   }
+  ]
+ },
+ "diff": {
+  "counts": {
+   "projects": 1,
+   "project_agents": 3,
+   "files": 5
+  },
+  "shared_added": [],
+  "shared_removed": [],
+  "manifests_new_or_changed": {},
+  "agents_changed": [],
+  "agents_db_added": []
+ },
+ "project": {
+  "files": [
+   "agents.json",
+   "data/jsons/approvals.json",
+   "data/jsons/main_tasks.json",
+   "index.json",
+   "instructions/instructions.md"
+  ],
+  "manifest": null,
+  "team_db": [
+   "QA",
+   "EasyPost",
+   "Fullstack"
+  ],
+  "agent_scope": [],
+  "delta_like_files": {
+   "agents.json": "{\n  \"agents\": [\n    {\n      \"name\": \"Fullstack\",\n      \"role\": \"Fullstack\",\n      \"avatar\": \"generic\",\n      \"description\": \"Builds the ENTIRE web application \u2014 frontend + backend + database \u2014 in ONE hand, in ANY web stack (Node.js/TS, Laravel/PHP, Python/Django, .NET/C#, Rails, \u2026), installing whatever it needs (Node, Laravel, .NET, etc.). May use Flutter for WEB targets only (never mobile). RESEARCHES & WRITES every third-party integration itself (HubSpot, Klaviyo, Mailchimp, Veeqo, 3PL, GA, \u2026) \u2014 for those it only ASKS the relevant operator for that service's API KEY, then writes the calling code. One owner of the whole web codebase: NO frontend/backend hand-off, no shared-folder conflict. Does NOT build mobile apps (Mobile) and does NOT deploy (DevOps).\",\n      \"skills\": [],\n      \"responsibilities\": [],\n      \"restrictions\": [],\n      \"model\": \"\",\n      \"nature\": \"technical\",\n      \"mode\": \"\",\n      \"resources\": \"=== ALLOWED RESOURCES & DEPENDENCIES (read FIRST; REASON before you ask \u2014 never ask for anything already here or already in the brief/shared pool) ===\\n\u2022 PERMISSIONS: full read/write + shell. You CREATE and EDIT files (Write/Edit/Bash) inside the project folder you are given. If a Write/Edit actually fails, say so explicitly \u2014 do NOT silently narrate instead of building.\\n\u2022 INTEGRATION KEYS / ENV: credentials come from the ENVIRONMENT, not from other agents. Read them, in this order, from: (1) the ENV/keys block in your mandate/brief, (2) the shared pool, (3) the "
+  },
+  "agents_json": "{\n  \"agents\": [\n    {\n      \"name\": \"Fullstack\",\n      \"role\": \"Fullstack\",\n      \"avatar\": \"generic\",\n      \"description\": \"Builds the ENTIRE web application \u2014 frontend + backend + database \u2014 in ONE hand, in ANY web stack (Node.js/TS, Laravel/PHP, Python/Django, .NET/C#, Rails, \u2026), installing whatever it needs (Node, Laravel, .NET, etc.). May use Flutter for WEB targets only (never mobile). RESEARCHES & WRITES every third-party integration itself (HubSpot, Klaviyo, Mailchimp, Veeqo, 3PL, GA, \u2026) \u2014 for those it only ASKS the relevant operator for that service's API KEY, then writes the calling code. One owner of the whole web codebase: NO frontend/backend hand-off, no shared-folder conflict. Does NOT build mobile apps (Mobile) and does NOT deploy (DevOps).\",\n      \"skills\": [],\n      \"responsibilities\": [],\n      \"restrictions\": [],\n      \"model\": \"\",\n      \"nature\": \"technical\",\n      \"mode\": \"\",\n      \"resources\": \"=== ALLOWED RESOURCES & DEPENDENCIES (read FIRST; REASON before you ask \u2014 never ask for anything already here or already in the brief/shared pool) ===\\n\u2022 PERMISSIONS: full read/write + shell. You CREATE and EDIT files (Write/Edit/Bash) inside the project folder you are given. If a Write/Edit actually fails, say so explicitly \u2014 do NOT silently narrate instead of building.\\n\u2022 INTEGRATION KEYS / ENV: credentials come from the ENVIRONMENT, not from other agents. Read them, in this order, from: (1) the ENV/keys block in your mandate/brief, (2) the shared pool, (3) the project `.env`, (4) workspace/shared/oth/.cred. Do NOT ask an operator (Fulfillment/Email/\u2026) for the app's key \u2014 the app uses the env key provided for it. START by reading the env/config; do NOT begin by testing a key unless the task requires it.\\n\u2022 ASK-IF-MISSING: only if a key/var the task needs is in NONE of those sources, ask the CTO ONCE for that specific item, then continue. If read/write is genuinely unavailable, state exactly that.\\n\",\n      \"env\": [],\n      \"asset\": \"\",\n      \"rules\": [],\n      \"stats\": {\n        \"invocations\": 1,\n        \"lastActive\": 1791716710.864405\n      },\n      \"created\": 1791716697.776099\n    },\n    {\n      \"name\": \"QA\",\n      \"role\": \"QA\",\n      \"avatar\": \"generic\",\n      \"description\": \"Owns quality \u2014 tests, reviews and VERIFIES each part against the brief, runs lint/type-check/test suites, and audits every success claim against real evidence. READ-ONLY: it verifies, it does NOT implement features. Runs AFTER the thing it checks exists.\",\n      \"skills\": [],\n      \"responsibilities\": [],\n      \"restrictions\": [],\n      \"model\": \"\",\n      \"nature\": \"technical\",\n      \"mode\": \"\",\n      \"resources\": \"=== ALLOWED RESOURCES & DEPENDENCIES (read FIRST; REASON before you ask \u2014 never ask for anything already here or already in the brief/shared pool) ===\\n\u2022 PERMISSIONS: READ-ONLY (Read/Glob/Grep + read-only Bash). You verify; you NEVER implement.\\n\u2022 RESOURCES: the built code on disk + the acceptance criteria. FIRST run `ls -R` on the project folder to confirm the app actually EXISTS; if it is empty, reply FAIL (it was not built). Verify against real files/evidence and quick checks (lint/type/unit) \u2014 no full prod build, no long-lived server.\\n\u2022 NEEDS: the thing under test must already exist. If it does not, report that, don't invent a pass.\\n\",\n      \"env\": [],\n      \"asset\": \"\",\n      \"rules\": [],\n      \"stats\": {\n        \"invocations\": 0,\n        \"lastActive\": null\n      },\n      \"created\": 1791716697.779814\n    },\n    {\n      \"name\": \"EasyPost\",\n      \"role\": \"EasyPost Shipping & Tracking Operator\",\n      \"avatar\": \"generic\",\n      \"description\": \"NON-technical operator connected to EasyPost for multi-carrier shipment TRACKING and rates via its API. Answers live carrier progress (in_transit / out_for_delivery / delivered), tracking numbers, ETAs and exceptions across carriers. Complements Fulfillment/Veeqo: Veeqo owns pre-shipping ORDER state, EasyPost owns POST-shipping CARRIER tracking. Holds the EasyPost API key; supplies on",
+  "members_api": [
+   "Fullstack",
+   "QA",
+   "EasyPost"
+  ]
+ },
+ "audit_project": [
+  {
+   "type": "unindexed",
+   "path": "workspace/projects/s8-calc-r2/instructions/instructions.md"
+  },
+  {
+   "type": "unindexed",
+   "path": "workspace/projects/s8-calc-r2/data/jsons/main_tasks.json"
+  },
+  {
+   "type": "unindexed",
+   "path": "workspace/projects/s8-calc-r2/data/jsons/approvals.json"
+  }
+ ],
+ "earlier_projects": {
+  "revealer-6978": {
+   "deps": [
+    {
+     "name": "testing",
+     "base_exists": true,
+     "overlay": "tests/",
+     "overlay_exists": true
+    },
+    {
+     "name": "deploy_changes.py",
+     "base_exists": true,
+     "overlay": "deploy/revealer-6978.config.sh",
+     "overlay_exists": true
+    },
+    {
+     "name": "project_test.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    },
+    {
+     "name": "dup_test_r2.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    },
+    {
+     "name": "dup_test_r3.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    }
+   ],
+   "audit_issues": 1
+  },
+  "hubspot-crm-operator": {
+   "deps": [
+    {
+     "name": "project_test.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    },
+    {
+     "name": "dup_test_r2.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    },
+    {
+     "name": "dup_test_r3.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    }
+   ],
+   "audit_issues": 0
+  },
+  "fulfillment-vq-status-read-only-dc1e": {
+   "manifest": false
+  },
+  "s8-calc-r1": {
+   "manifest": false
+  },
+  "customer-orders-internal-app-rep-4": {
+   "manifest": false
+  },
+  "backend-sandbox-rep-6": {
+   "deps": [
+    {
+     "name": "deploy_changes.py",
+     "base_exists": true,
+     "overlay": "deploy/backend-sandbox-rep-6.config.sh",
+     "overlay_exists": true
+    }
+   ],
+   "audit_issues": 1
+  },
+  "brand2-email-reporting": {
+   "manifest": false
+  },
+  "odin-landing-lead-0d48": {
+   "manifest": false
+  },
+  "backend-sandbox-rep-7": {
+   "deps": [
+    {
+     "name": "deploy_changes.py",
+     "base_exists": true,
+     "overlay": "deploy/backend-sandbox-rep-7.config.sh",
+     "overlay_exists": true
+    }
+   ],
+   "audit_issues": 1
+  },
+  "brand2-email-reporting-rep3": {
+   "manifest": false
+  },
+  "odin-landing-lead-rep-3": {
+   "manifest": false
+  },
+  "landing-leads-rep4": {
+   "manifest": false
+  },
+  "odin-external-arms": {
+   "deps": [
+    {
+     "name": "anchor_web_deploy",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    }
+   ],
+   "audit_issues": 0
+  },
+  "zoom-real-flow": {
+   "manifest": false
+  },
+  "landing-leads-rep5": {
+   "manifest": false
+  },
+  "odin-landing-lead": {
+   "manifest": false
+  },
+  "email-klaviyo-workflows-read-only-18ca": {
+   "manifest": false
+  },
+  "full-services-19jul": {
+   "deps": [
+    {
+     "name": "deploy_changes.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    },
+    {
+     "name": "INSTALL_SOC_SENSOR.md",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    }
+   ],
+   "audit_issues": 0
+  },
+  "customer-orders-portal": {
+   "manifest": false
+  },
+  "s7-calc-r1": {
+   "manifest": false
+  },
+  "sandbox-three-rep-3": {
+   "manifest": false
+  },
+  "customers-orders-portal-rep-2": {
+   "manifest": false
+  },
+  "customers-orders-portal": {
+   "manifest": false
+  },
+  "brand2-email-reporting-b491": {
+   "manifest": false
+  },
+  "real-deployment-and-diagnosis-organics-07d7": {
+   "manifest": false
+  },
+  "backend-sandbox-rep-5": {
+   "deps": [
+    {
+     "name": "deploy_changes.py",
+     "base_exists": true,
+     "overlay": "deploy/backend-sandbox-rep-5.config.sh",
+     "overlay_exists": true
+    }
+   ],
+   "audit_issues": 1
+  },
+  "backend-sandbox-rep-2": {
+   "manifest": false
+  },
+  "backend-sandbox-rep-4": {
+   "deps": [
+    {
+     "name": "deploy_changes.py",
+     "base_exists": true,
+     "overlay": "deploy/backend-sandbox-rep-4.config.sh",
+     "overlay_exists": true
+    }
+   ],
+   "audit_issues": 1
+  },
+  "daily-egypt-amazon-product-poster": {
+   "manifest": false
+  },
+  "redberry-continuous-soc": {
+   "deps": [
+    {
+     "name": "INSTALL_SOC_SENSOR.md",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    }
+   ],
+   "audit_issues": 0
+  },
+  "sandbox2-backend": {
+   "manifest": false
+  },
+  "landing-leads-rep6": {
+   "manifest": false
+  },
+  "vm-sentinel": {
+   "manifest": false
+  }
+ }
+}

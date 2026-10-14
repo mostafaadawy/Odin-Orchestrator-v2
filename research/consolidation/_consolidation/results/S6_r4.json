@@ -1,0 +1,405 @@
+{
+ "scenario": "S6",
+ "rep": 4,
+ "pid": null,
+ "seconds": 3.2,
+ "cost_usd": 0.0,
+ "spent_total": 46.4845,
+ "record": {
+  "door_cross_write": {
+   "path": "/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/workspace/projects/revealer-6978/code/s6_probe_r4.py",
+   "corrected": true,
+   "note": "cross-owner write prevented: project/revealer-6978 may not write into project/hubspot-crm-operator \u2014 redirected to its own folder (use request_capability to reuse the other owner's work)",
+   "owner_id": "revealer-6978",
+   "requested_subfolder": "code",
+   "final_subfolder": "code",
+   "scope_redirected": true
+  },
+  "legit_base": "/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/workspace/projects/revealer-6978/code/helper_s6_r4.py",
+  "scan_before": [
+   {
+    "type": "misplaced",
+    "path": "workspace/projects/revealer-6978/loose_s6_r4.py",
+    "reason": "'loose_s6_r4.py' is not an allowed project-root file (belongs in a subfolder)"
+   },
+   {
+    "type": "unindexed",
+    "path": "workspace/projects/revealer-6978/loose_s6_r4.py"
+   },
+   {
+    "type": "unindexed",
+    "path": "workspace/projects/hubspot-crm-operator/code/from_revealer-6978_r4.py"
+   },
+   {
+    "type": "unindexed",
+    "path": "workspace/projects/hubspot-crm-operator/code/dup_test_r4.py"
+   },
+   {
+    "type": "duplicate",
+    "name": "helper_s6_r4.py",
+    "paths": [
+     "workspace/projects/hubspot-crm-operator/code/dup_test_r4.py",
+     "workspace/projects/revealer-6978/code/helper_s6_r4.py"
+    ],
+    "identical": true,
+    "reason": "identical content in >=2 projects (same function, maybe different names) \u2014 promote to shared"
+   },
+   {
+    "type": "foreign-ref",
+    "path": "workspace/projects/hubspot-crm-operator/code/from_revealer-6978_r4.py",
+    "owner": "hubspot-crm-operator",
+    "references": "revealer-6978",
+    "ref_match": "workspace/projects/revealer-6978/code/helper_s6_r4.py",
+    "target": "workspace/projects/revealer-6978/code/helper_s6_r4.py",
+    "target_exists": true,
+    "reason": "project hubspot-crm-operator references files inside project revealer-6978 \u2014 must go through shared/"
+   },
+   {
+    "type": "dangling-ref",
+    "path": "workspace/projects/hubspot-crm-operator/code/from_revealer-6978_r3.py",
+    "ref": "workspace/projects/revealer-6978/code/helper_s6_r3.py",
+    "moved_to": null,
+    "reason": "references workspace/projects/revealer-6978/code/helper_s6_r3.py, which does not exist"
+   },
+   {
+    "type": "dangling-ref",
+    "path": "workspace/projects/hubspot-crm-operator/code/from_revealer-6978_r2.py",
+    "ref": "workspace/projects/revealer-6978/code/helper_s6_r2.py",
+    "moved_to": null,
+    "reason": "references workspace/projects/revealer-6978/code/helper_s6_r2.py, which does not exist"
+   }
+  ],
+  "sentinel": {
+   "total": 11,
+   "hard": 5
+  },
+  "scan_after": [
+   {
+    "type": "dangling-ref",
+    "path": "workspace/projects/hubspot-crm-operator/code/from_revealer-6978_r3.py",
+    "ref": "workspace/projects/revealer-6978/code/helper_s6_r3.py",
+    "moved_to": null,
+    "reason": "references workspace/projects/revealer-6978/code/helper_s6_r3.py, which does not exist"
+   },
+   {
+    "type": "dangling-ref",
+    "path": "workspace/projects/hubspot-crm-operator/code/from_revealer-6978_r2.py",
+    "ref": "workspace/projects/revealer-6978/code/helper_s6_r2.py",
+    "moved_to": null,
+    "reason": "references workspace/projects/revealer-6978/code/helper_s6_r2.py, which does not exist"
+   }
+  ],
+  "where_now": {
+   "projects/revealer-6978/loose_s6_r4.py": false,
+   "projects/hubspot-crm-operator/code/from_revealer-6978_r4.py": true,
+   "projects/hubspot-crm-operator/code/dup_test_r4.py": false
+  },
+  "audit_log_tail": [
+   "{\"ts\": \"2026-10-11T16:05:01.657248\", \"type\": \"root-stray\", \"path\": \"_consolidation\", \"reason\": \"created OUTSIDE workspace and the core apps\", \"fix\": \"FLAGGED: stray outside workspace \u2014 owner review (may be legit core work)\"}",
+   "{\"ts\": \"2026-10-11T16:05:01.965750\", \"type\": \"duplicate\", \"name\": \"helper_s6_r4.py\", \"paths\": [\"workspace/projects/hubspot-crm-operator/code/dup_test_r4.py\", \"workspace/projects/revealer-6978/code/helper_s6_r4.py\"], \"identical\": true, \"reason\": \"identical content in >=2 projects (same function, maybe different names) \u2014 promote to shared\", \"fix\": \"promoted identical duplicate -> shared/testing/dup_test_r4.py; repointed ['project/hubspot-crm-operator', 'project/revealer-6978']\"}",
+   "{\"ts\": \"2026-10-11T16:05:01.968368\", \"type\": \"duplicate\", \"name\": \"status.md\", \"paths\": [\"workspace/projects/s10-vmmaybe-r1/code/status.md\", \"workspace/projects/s10-vmmaybe-r2/code/status.md\"], \"identical\": false, \"reason\": \"same filename, different content in >=2 projects \u2014 promote shared base + custom deltas\", \"fix\": \"FLAGGED: duplicate differs across projects \u2014 promote shared base + custom deltas (review)\"}",
+   "{\"ts\": \"2026-10-11T16:05:01.970899\", \"type\": \"duplicate\", \"name\": \"test_calc.py\", \"paths\": [\"workspace/projects/s7-calc-r1/code/test_calc.py\", \"workspace/projects/s7-calc-r2/code/test_calc.py\", \"workspace/projects/s7-calc-r3/code/test_calc.py\"], \"identical\": false, \"reason\": \"same filename, different content in >=2 projects \u2014 promote shared base + custom deltas\", \"fix\": \"FLAGGED: duplicate differs across projects \u2014 promote shared base + custom deltas (review)\"}",
+   "{\"ts\": \"2026-10-11T16:05:01.972546\", \"type\": \"duplicate\", \"name\": \"deploy-config.json\", \"paths\": [\"workspace/projects/backend-sandbox-rep-2/deploy/deploy-config.json\", \"workspace/projects/backend-sandbox-rep-4/deploy/deploy-config.json\", \"workspace/projects/backend-sandbox-rep-5/deploy/deploy-config.json\", \"workspace/projects/backend-sandbox-rep-6/deploy/deploy-config.json\", \"workspace/projects/backend-sandbox-rep-7/deploy/deploy-config.json\", \"workspace/projects/revealer-6978/deploy/deploy-config.json\"], \"identical\": false, \"reason\": \"same filename, different content in >=2 projects \u2014 promote shared base + custom deltas\", \"fix\": \"FLAGGED: duplicate differs across projects \u2014 promote shared base + custom deltas (review)\"}",
+   "{\"ts\": \"2026-10-11T16:05:01.974332\", \"type\": \"foreign-ref\", \"path\": \"workspace/projects/hubspot-crm-operator/code/from_revealer-6978_r4.py\", \"owner\": \"hubspot-crm-operator\", \"references\": \"revealer-6978\", \"ref_match\": \"workspace/projects/revealer-6978/code/helper_s6_r4.py\", \"target\": \"workspace/projects/revealer-6978/code/helper_s6_r4.py\", \"target_exists\": true, \"reason\": \"project hubspot-crm-operator references files inside project revealer-6978 \u2014 must go through shared/\", \"fix\": \"target already moved -> shared/testing/dup_test_r4.py; referrer source rewritten: False\"}",
+   "{\"ts\": \"2026-10-11T16:05:01.975934\", \"type\": \"dangling-ref\", \"path\": \"workspace/projects/hubspot-crm-operator/code/from_revealer-6978_r3.py\", \"ref\": \"workspace/projects/revealer-6978/code/helper_s6_r3.py\", \"moved_to\": null, \"reason\": \"references workspace/projects/revealer-6978/code/helper_s6_r3.py, which does not exist\", \"fix\": \"FLAGGED: workspace/projects/hubspot-crm-operator/code/from_revealer-6978_r3.py references workspace/projects/revealer-6978/code/helper_s6_r3.py, which does not exist and has no recorded move \u2014 needs owner review\"}",
+   "{\"ts\": \"2026-10-11T16:05:01.977535\", \"type\": \"dangling-ref\", \"path\": \"workspace/projects/hubspot-crm-operator/code/from_revealer-6978_r2.py\", \"ref\": \"workspace/projects/revealer-6978/code/helper_s6_r2.py\", \"moved_to\": null, \"reason\": \"references workspace/projects/revealer-6978/code/helper_s6_r2.py, which does not exist\", \"fix\": \"FLAGGED: workspace/projects/hubspot-crm-operator/code/from_revealer-6978_r2.py references workspace/projects/revealer-6978/code/helper_s6_r2.py, which does not exist and has no recorded move \u2014 needs owner review\"}"
+  ],
+  "mw_corrections_tail": [
+   "{\"ts\": \"2026-10-10T23:01:37.968101\", \"owner\": \"project/revealer-6978\", \"file\": \"s6_probe_r2.py\", \"requested\": \"code\", \"corrected_to\": \"code\", \"note\": \"cross-owner write prevented: project/revealer-6978 may not write into project/hubspot-crm-operator \u2014 redirected to its own folder (use request_capability to reuse the other owner's work)\"}",
+   "{\"ts\": \"2026-10-10T23:01:41.891443\", \"owner\": \"project/revealer-6978\", \"file\": \"s6_probe_r3.py\", \"requested\": \"code\", \"corrected_to\": \"code\", \"note\": \"cross-owner write prevented: project/revealer-6978 may not write into project/hubspot-crm-operator \u2014 redirected to its own folder (use request_capability to reuse the other owner's work)\"}",
+   "{\"ts\": \"2026-10-11T16:05:00.176385\", \"owner\": \"project/revealer-6978\", \"file\": \"s6_probe_r4.py\", \"requested\": \"code\", \"corrected_to\": \"code\", \"note\": \"cross-owner write prevented: project/revealer-6978 may not write into project/hubspot-crm-operator \u2014 redirected to its own folder (use request_capability to reuse the other owner's work)\"}"
+  ]
+ },
+ "diff": {
+  "counts": {
+   "files": 4,
+   "dependencies": 2,
+   "shared_capabilities": 1
+  },
+  "shared_added": [
+   "shared/testing/dup_test_r4.py"
+  ],
+  "shared_removed": [],
+  "manifests_new_or_changed": {
+   "projects/revealer-6978/dependencies/manifest.json": "[\n  {\n    \"name\": \"testing\",\n    \"source\": \"shared/testing/run_all.py\",\n    \"kind\": \"python\",\n    \"mode\": \"extend\",\n    \"overlay\": \"tests/\"\n  },\n  {\n    \"name\": \"deploy_changes.py\",\n    \"source\": \"shared/infra/deploy_changes.py\",\n    \"kind\": \"code\",\n    \"mode\": \"extend\",\n    \"overlay\": \"deploy/revealer-6978.config.sh\"\n  },\n  {\n    \"name\": \"project_test.py\",\n    \"source\": \"shared/testing/project_test.py\",\n    \"kind\": \"code\",\n    \"mode\": \"as-is\",\n    \"overlay\": null\n  },\n  {\n    \"name\": \"dup_test_r2.py\",\n    \"source\": \"shared/testing/dup_test_r2.py\",\n    \"kind\": \"code\",\n    \"mode\": \"as-is\",\n    \"overlay\": null\n  },\n  {\n    \"name\": \"dup_test_r3.py\",\n    \"source\": \"shared/testing/dup_test_r3.py\",\n    \"kind\": \"code\",\n    \"mode\": \"as-is\",\n    \"overlay\": null\n  },\n  {\n    \"name\": \"dup_test_r4.py\",\n    \"source\": \"shared/testing/dup_test_r4.py\",\n    \"kind\": \"code\",\n    \"mode\": \"as-is\",\n    \"overlay\": null\n  }\n]",
+   "projects/hubspot-crm-operator/dependencies/manifest.json": "[\n  {\n    \"name\": \"project_test.py\",\n    \"source\": \"shared/testing/project_test.py\",\n    \"kind\": \"code\",\n    \"mode\": \"as-is\",\n    \"overlay\": null\n  },\n  {\n    \"name\": \"dup_test_r2.py\",\n    \"source\": \"shared/testing/dup_test_r2.py\",\n    \"kind\": \"code\",\n    \"mode\": \"as-is\",\n    \"overlay\": null\n  },\n  {\n    \"name\": \"dup_test_r3.py\",\n    \"source\": \"shared/testing/dup_test_r3.py\",\n    \"kind\": \"code\",\n    \"mode\": \"as-is\",\n    \"overlay\": null\n  },\n  {\n    \"name\": \"dup_test_r4.py\",\n    \"source\": \"shared/testing/dup_test_r4.py\",\n    \"kind\": \"code\",\n    \"mode\": \"as-is\",\n    \"overlay\": null\n  }\n]"
+  },
+  "agents_changed": [],
+  "agents_db_added": []
+ },
+ "project": null,
+ "audit_project": null,
+ "earlier_projects": {
+  "s10-vmmaybe-r1": {
+   "manifest": false
+  },
+  "s7-calc-r3": {
+   "deps": [
+    {
+     "name": "calc.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    }
+   ],
+   "audit_issues": 1
+  },
+  "revealer-6978": {
+   "deps": [
+    {
+     "name": "testing",
+     "base_exists": true,
+     "overlay": "tests/",
+     "overlay_exists": true
+    },
+    {
+     "name": "deploy_changes.py",
+     "base_exists": true,
+     "overlay": "deploy/revealer-6978.config.sh",
+     "overlay_exists": true
+    },
+    {
+     "name": "project_test.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    },
+    {
+     "name": "dup_test_r2.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    },
+    {
+     "name": "dup_test_r3.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    },
+    {
+     "name": "dup_test_r4.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    }
+   ],
+   "audit_issues": 3
+  },
+  "hubspot-crm-operator": {
+   "deps": [
+    {
+     "name": "project_test.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    },
+    {
+     "name": "dup_test_r2.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    },
+    {
+     "name": "dup_test_r3.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    },
+    {
+     "name": "dup_test_r4.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    }
+   ],
+   "audit_issues": 2
+  },
+  "s7-calc-r2": {
+   "manifest": false
+  },
+  "fulfillment-vq-status-read-only-dc1e": {
+   "manifest": false
+  },
+  "s8-calc-r1": {
+   "manifest": false
+  },
+  "s11-gate-r1": {
+   "manifest": false
+  },
+  "customer-orders-internal-app-rep-4": {
+   "manifest": false
+  },
+  "backend-sandbox-rep-6": {
+   "deps": [
+    {
+     "name": "deploy_changes.py",
+     "base_exists": true,
+     "overlay": "deploy/backend-sandbox-rep-6.config.sh",
+     "overlay_exists": true
+    }
+   ],
+   "audit_issues": 1
+  },
+  "brand2-email-reporting": {
+   "manifest": false
+  },
+  "odin-landing-lead-0d48": {
+   "manifest": false
+  },
+  "backend-sandbox-rep-7": {
+   "deps": [
+    {
+     "name": "deploy_changes.py",
+     "base_exists": true,
+     "overlay": "deploy/backend-sandbox-rep-7.config.sh",
+     "overlay_exists": true
+    }
+   ],
+   "audit_issues": 1
+  },
+  "brand2-email-reporting-rep3": {
+   "manifest": false
+  },
+  "odin-landing-lead-rep-3": {
+   "manifest": false
+  },
+  "landing-leads-rep4": {
+   "manifest": false
+  },
+  "odin-external-arms": {
+   "deps": [
+    {
+     "name": "anchor_web_deploy",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    }
+   ],
+   "audit_issues": 0
+  },
+  "zoom-real-flow": {
+   "manifest": false
+  },
+  "s9-vmcheck-r1": {
+   "manifest": false
+  },
+  "landing-leads-rep5": {
+   "manifest": false
+  },
+  "odin-landing-lead": {
+   "manifest": false
+  },
+  "email-klaviyo-workflows-read-only-18ca": {
+   "manifest": false
+  },
+  "full-services-19jul": {
+   "deps": [
+    {
+     "name": "deploy_changes.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    },
+    {
+     "name": "INSTALL_SOC_SENSOR.md",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    }
+   ],
+   "audit_issues": 0
+  },
+  "s10-vmmaybe-r2": {
+   "manifest": false
+  },
+  "customer-orders-portal": {
+   "manifest": false
+  },
+  "s7-calc-r1": {
+   "deps": [
+    {
+     "name": "calc.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    }
+   ],
+   "audit_issues": 1
+  },
+  "sandbox-three-rep-3": {
+   "manifest": false
+  },
+  "customers-orders-portal-rep-2": {
+   "manifest": false
+  },
+  "s8-calc-r2": {
+   "manifest": false
+  },
+  "customers-orders-portal": {
+   "manifest": false
+  },
+  "s8-calc-r3": {
+   "manifest": false
+  },
+  "brand2-email-reporting-b491": {
+   "manifest": false
+  },
+  "real-deployment-and-diagnosis-organics-07d7": {
+   "manifest": false
+  },
+  "backend-sandbox-rep-5": {
+   "deps": [
+    {
+     "name": "deploy_changes.py",
+     "base_exists": true,
+     "overlay": "deploy/backend-sandbox-rep-5.config.sh",
+     "overlay_exists": true
+    }
+   ],
+   "audit_issues": 1
+  },
+  "backend-sandbox-rep-2": {
+   "manifest": false
+  },
+  "backend-sandbox-rep-4": {
+   "deps": [
+    {
+     "name": "deploy_changes.py",
+     "base_exists": true,
+     "overlay": "deploy/backend-sandbox-rep-4.config.sh",
+     "overlay_exists": true
+    }
+   ],
+   "audit_issues": 1
+  },
+  "daily-egypt-amazon-product-poster": {
+   "manifest": false
+  },
+  "redberry-continuous-soc": {
+   "deps": [
+    {
+     "name": "INSTALL_SOC_SENSOR.md",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    }
+   ],
+   "audit_issues": 0
+  },
+  "s9-vmcheck-r2": {
+   "manifest": false
+  },
+  "landing-leads-rep7": {
+   "manifest": false
+  },
+  "sandbox2-backend": {
+   "manifest": false
+  },
+  "landing-leads-rep6": {
+   "manifest": false
+  },
+  "vm-sentinel": {
+   "manifest": false
+  }
+ }
+}

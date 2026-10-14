@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Odin — How it connects</title>
+<style>
+  :root{--bg:#0a0c12;--panel:#161b2a;--stroke:rgba(255,255,255,.12);--txt:#e8ecf6;--dim:#9aa4bf;--faint:#5f6885;
+        --brand:#6c8cff;--brand2:#7af0d0;--accent:#b07cff;--ok:#4be3a0;--warn:#ffce6b;--danger:#ff6b81;}
+  *{box-sizing:border-box;font-family:-apple-system,Segoe UI,system-ui,sans-serif}
+  body{margin:0;background:radial-gradient(900px 500px at 10% -10%,rgba(108,140,255,.16),transparent 60%),
+       radial-gradient(800px 500px at 110% 0,rgba(176,124,255,.12),transparent 55%),var(--bg);color:var(--txt);padding:26px}
+  .wrap{max-width:840px;margin:0 auto}
+  .brand{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+  .mark{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-weight:800;font-size:22px;color:#0a0c12;
+        background:conic-gradient(from 220deg,var(--brand),var(--accent),var(--brand2),var(--brand))}
+  h1{font-size:20px;margin:0}.sub{color:var(--dim);font-size:13px;margin:0}
+  .stage{display:flex;gap:13px;align-items:center;background:var(--panel);border:1px solid var(--stroke);border-radius:14px;padding:13px 15px}
+  .ic{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;font-size:20px;flex:0 0 auto;background:rgba(108,140,255,.14)}
+  .stage h3{font-size:15px;margin:0}.stage p{font-size:12px;margin:3px 0 0;color:var(--dim)}
+  .conn{display:flex;gap:12px;margin-left:34px;min-height:50px;padding:4px 0}
+  .rail{position:relative;width:2px;background:var(--stroke);border-radius:2px;flex:0 0 auto}
+  .dot{position:absolute;left:-3px;width:8px;height:8px;border-radius:50%;background:var(--brand);animation:flow 2.4s linear infinite}
+  .dot.d2{animation-delay:.8s}.dot.d3{animation-delay:1.6s}
+  .rail.back{background:rgba(122,240,208,.4)}.rail.back .dot{background:var(--brand2)}
+  @keyframes flow{0%{top:-4px;opacity:0}12%{opacity:1}88%{opacity:1}100%{top:100%;opacity:0}}
+  .lbl{display:flex;flex-direction:column;justify-content:center;font-size:12px;color:var(--dim);line-height:1.55}
+  code{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;background:rgba(255,255,255,.05);border:1px solid var(--stroke);border-radius:5px;padding:1px 5px;color:var(--brand2)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+  @media(max-width:680px){.grid{grid-template-columns:1fr}}
+  .card{background:var(--panel);border:1px solid var(--stroke);border-radius:14px;padding:15px}
+  .card h3{font-size:15px;margin:0 0 8px}.card .r{font-size:12.5px;color:var(--dim);line-height:1.7;margin:3px 0}
+  .card .r b{color:var(--txt);font-weight:600}
+  .flow-tag{margin:18px 0 8px;font-size:13px;color:var(--faint);text-transform:uppercase;letter-spacing:1}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand"><div class="mark">Ω</div><div><h1>Odin — how everything connects</h1><p class="sub">third party → anchor → your machine → agents → Klaviyo/Veeqo → webhook back</p></div></div>
+
+  <div class="flow-tag">the pipeline</div>
+
+  <div class="stage"><div class="ic">🌐</div><div><h3>1 · Third party / your remote app</h3><p>An outside caller (or odin_app abroad) wants an answer from a local project.</p></div></div>
+  <div class="conn"><div class="rail"><span class="dot"></span><span class="dot d2"></span><span class="dot d3"></span></div><div class="lbl"><span><code>POST /anchor/v1/requests</code></span><span>sends <b>X-API-Key</b>, <b>project</b> (identifier <code>email-klaviyo</code>), <b>prompt</b>, <b>webhook_url</b></span></div></div>
+
+  <div class="stage"><div class="ic">⚓</div><div><h3>2 · Anchor (:9100 → VM in prod)</h3><p>Authenticates, queues it, returns a unique request_id.</p></div></div>
+  <div class="conn"><div class="rail"><span class="dot"></span><span class="dot d2"></span></div><div class="lbl"><span><code>GET /anchor/v1/poll</code> (X-API-Key)</span><span>your machine pulls the task — never handed out twice</span></div></div>
+
+  <div class="stage"><div class="ic">🖥️</div><div><h3>3 · Local machine (poller)</h3><p>Pulls the task over HTTP and runs the real orchestration.</p></div></div>
+  <div class="conn"><div class="rail"><span class="dot"></span><span class="dot d2"></span></div><div class="lbl"><span>CTO → assigns the agent → team works</span></div></div>
+
+  <div class="stage"><div class="ic">🧠</div><div><h3>4 · Brain + agents (Email / Shipping)</h3><p>The project's CTO + agent produce the answer, grounded in live data.</p></div></div>
+  <div class="conn"><div class="rail"><span class="dot"></span><span class="dot d2"></span></div><div class="lbl"><span>read-only <code>GET</code> — never writes to your accounts</span></div></div>
+
+  <div class="stage"><div class="ic">🔌</div><div><h3>5 · Klaviyo / Veeqo</h3><p>Real numbers: 50 flows (28 live / 22 draft) · 26 orders this week.</p></div></div>
+  <div class="conn"><div class="rail back"><span class="dot"></span><span class="dot d2"></span></div><div class="lbl"><span style="color:var(--brand2)">result flows back → <code>POST /requests/{id}/result</code></span></div></div>
+
+  <div class="stage"><div class="ic" style="background:rgba(75,227,160,.15)">📨</div><div><h3>6 · Webhook → ack → FINISHED</h3><p>Anchor POSTs to your <code>webhook_url</code> (the :9300 receiver); a 2xx reply = acknowledged → finished.</p></div></div>
+
+  <div class="flow-tag">the details</div>
+  <div class="grid">
+    <div class="card">
+      <h3>✉️ Klaviyo (Email)</h3>
+      <div class="r"><b>What:</b> email/SMS marketing automation — "flows" (automated journeys) + campaigns.</div>
+      <div class="r"><b>Connect:</b> <code>oth/.cred</code> → <code>KLAVIYO_API_KEY=pk_…</code>, <code>KLAVIYO_BASE_URL=https://a.klaviyo.com/api</code>, <code>KLAVIYO_API_REVISION=2025-01-15</code>; header <code>Authorization: Klaviyo-API-Key &lt;key&gt;</code>.</div>
+      <div class="r"><b>Project:</b> new → type "Email specialist" → Email agent. id <code>email-klaviyo</code>.</div>
+      <div class="r"><b>Agent:</b> any endpoint via <code>call()</code>; read-only <code>flows_summary()</code> → 50 flows (28/22). File <code>server/integrations/klaviyo.py</code>.</div>
+    </div>
+    <div class="card">
+      <h3>📦 Veeqo (Fulfillment)</h3>
+      <div class="r"><b>What:</b> inventory + shipping/fulfillment — orders, shipments, carriers.</div>
+      <div class="r"><b>Connect:</b> <code>oth/.cred</code> → <code>VEEQO_API_KEY=Vqt/…</code>, base <code>https://api.veeqo.com</code>, header <code>x-api-key</code>.</div>
+      <div class="r"><b>Project:</b> new → type "Fulfillment Provider" → Shipping agent. id <code>shipping-veeqo</code>.</div>
+      <div class="r"><b>Agent:</b> orders, shipments, carriers; read-only <code>orders_summary()</code> → 26 orders this week. File <code>server/integrations/veeqo.py</code>.</div>
+    </div>
+    <div class="card">
+      <h3>⚓ Anchor Connect</h3>
+      <div class="r"><b>Why:</b> your machine has a dynamic IP behind NAT — unreachable. The anchor on the VM is the stable authenticated front door; your machine only calls out to it.</div>
+      <div class="r"><b>Endpoints:</b> <code>POST /requests</code>, <code>GET /requests/{id}</code>, <code>/ack</code>, <code>GET /poll</code>, <code>POST /requests/{id}/result</code>, <code>admin/*</code>.</div>
+      <div class="r"><b>Auth:</b> <code>X-API-Key = ANCHOR_API_KEY</code>. <b>Ports:</b> 9100 anchor · 9300 webhook receiver.</div>
+      <div class="r"><b>Lifecycle:</b> queued → sent_to_local → processing → response_received → webhook_sent → acknowledged → finished (+ ack_pending / failed / cancelled).</div>
+      <div class="r"><b>Prod:</b> point anchor URL at the VM, TLS on 443, rotate keys, sign webhooks — only the base URL changes.</div>
+    </div>
+    <div class="card">
+      <h3>🔧 What changed</h3>
+      <div class="r"><b>Desktop:</b> bell ④ Anchor doc; Anchor page; grouped types; role roster; operations + block→ask→continue.</div>
+      <div class="r"><b>Backend:</b> anchor_queue, anchor, anchor_remote, local_poller_http, klaviyo, veeqo, external_api (/api/v1), auth, webhook_receiver, gen_test_keys.</div>
+      <div class="r"><b>Web + Mobile (odin_app):</b> full mirror — dashboard, project, agent, anchor, approvals, archived, docs, settings/account; login + Face ID + 2FA; shared /scope chat; voice; streaming; new project.</div>
+      <div class="r"><b>Connections:</b> app→brain (/api/v1,/projects,/scope,/auth) on LAN · app→anchor (/anchor/v1) remote · third party→anchor · poller→anchor.</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

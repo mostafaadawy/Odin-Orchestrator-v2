@@ -1,0 +1,65 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Odin — Browser Voice Test</title>
+<style>
+  body{font-family:system-ui,Segoe UI,Arial;background:#0a0c12;color:#e6e9ef;margin:0;padding:24px;line-height:1.5}
+  h1{font-size:18px;margin:0 0 6px} .muted{color:#8a93a6;font-size:13px}
+  button{font-size:16px;padding:12px 18px;margin:8px 8px 0 0;border-radius:10px;border:1px solid #2a3350;background:#141a2e;color:#e6e9ef;cursor:pointer}
+  button:hover{background:#1c2540}
+  #log{margin-top:16px;padding:12px;background:#0f1320;border:1px solid #222c44;border-radius:10px;white-space:pre-wrap;font-size:13px;min-height:60px}
+  .ok{color:#57d38c} .bad{color:#ff6b6b}
+</style>
+<h1>Odin — Browser Voice Test</h1>
+<div class="muted">This uses your browser's built-in speech (the same engine our app uses on web). Turn your volume up, then click a button.</div>
+
+<div>
+  <button onclick="speakIt('en')">🔊 Speak English</button>
+  <button onclick="speakIt('ar')">🔊 Speak Arabic</button>
+  <button onclick="listVoices()">List voices</button>
+  <button onclick="stopIt()">Stop</button>
+</div>
+<div id="log">Loading…</div>
+
+<script>
+const log = (m, cls) => { const d=document.getElementById('log'); d.innerHTML += (cls?`<span class="${cls}">${m}</span>`:m) + "\n"; };
+const synth = window.speechSynthesis;
+
+function boot(){
+  document.getElementById('log').textContent='';
+  if(!synth){ log('❌ This browser has NO speechSynthesis support.', 'bad'); return; }
+  const v = synth.getVoices();
+  log('speechSynthesis available: yes', 'ok');
+  log('voices loaded so far: ' + v.length + (v.length? '' : ' (may load after first interaction)'));
+  const en = v.filter(x=>x.lang && x.lang.toLowerCase().startsWith('en')).length;
+  const ar = v.filter(x=>x.lang && x.lang.toLowerCase().startsWith('ar')).length;
+  log('English voices: ' + en + '   Arabic voices: ' + ar, ar? 'ok':'');
+  if(ar===0) log('note: no Arabic voice installed in this browser — Arabic will fall back or be silent.', 'bad');
+}
+if (synth) { synth.onvoiceschanged = boot; }
+boot();
+
+function listVoices(){
+  const v = synth.getVoices();
+  log('--- ' + v.length + ' voices ---');
+  v.slice(0,40).forEach(x=> log('• ' + x.name + '  [' + x.lang + ']' + (x.default?' (default)':'')));
+}
+
+function speakIt(lang){
+  if(!synth){ log('no speechSynthesis','bad'); return; }
+  synth.cancel();
+  const text = lang==='ar' ? 'مرحبا، هذا اختبار صوت أودين. واحد اثنان ثلاثة.'
+                           : 'Hello, this is the Odin voice test. One two three.';
+  const u = new SpeechSynthesisUtterance(text);
+  const voices = synth.getVoices();
+  const match = voices.find(x=> x.lang && x.lang.toLowerCase().startsWith(lang));
+  if(match) u.voice = match;
+  u.lang = lang==='ar' ? (match?match.lang:'ar-SA') : (match?match.lang:'en-US');
+  u.volume = 1; u.rate = lang==='ar'?0.9:1; u.pitch = 1;
+  u.onstart = ()=> log('▶ speaking ('+u.lang+', voice: '+(u.voice?u.voice.name:'default')+') — you should HEAR it now', 'ok');
+  u.onend   = ()=> log('■ finished.');
+  u.onerror = (e)=> log('❌ error: ' + (e.error||e.name||'unknown'), 'bad');
+  synth.speak(u);
+  log('called speak() — if you hear nothing, the browser/OS is muting speech (not our app).');
+}
+function stopIt(){ synth && synth.cancel(); log('stopped.'); }
+</script>

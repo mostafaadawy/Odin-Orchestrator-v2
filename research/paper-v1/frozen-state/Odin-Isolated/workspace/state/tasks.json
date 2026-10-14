@@ -1,0 +1,17 @@
+{
+  "updatedUtc": "2026-06-22T17:25:00Z",
+  "tasks": [
+    { "id": "T-001", "title": "Foundation, rules, history, agents, approval gate", "agent": "CTO Brain", "status": "complete" },
+    { "id": "T-002", "title": "Dashboard + live artifact", "agent": "Frontend", "status": "complete" },
+    { "id": "T-003", "title": "Voice EN (Kokoro) + AR (Coqui XTTS), offline", "agent": "DevOps & Cloud", "status": "complete" },
+    { "id": "T-004", "title": "Brain↔agent dispatcher + mobile access", "agent": "CTO Brain", "status": "complete" },
+    { "id": "T-005", "title": "Claude CLI as the engine (terminal + az tools)", "agent": "CTO Brain", "status": "complete" },
+    { "id": "T-006", "title": "Streaming animated Cockpit (Phase A)", "agent": "Frontend", "status": "complete" },
+    { "id": "T-007", "title": "Connect Azure VM (django-vm) — read-only live", "agent": "DevOps & Cloud", "status": "complete" },
+    { "id": "T-008", "title": "Self-solving infra via az (CLAUDE.md brief + gate)", "agent": "DevOps & Cloud", "status": "complete" },
+    { "id": "T-009", "title": "Deploy/sync to VM (.env-safe) — when owner is ready", "agent": "DevOps & Cloud", "status": "pending" },
+    { "id": "T-010", "title": "IP rotation (NSG + ufw) for scp path", "agent": "DevOps & Cloud", "status": "pending" },
+    { "id": "T-011", "title": "Phone terminal", "agent": "Backend", "status": "pending" },
+    { "id": "T-012", "title": "Specify custom subscription/billing model", "agent": "Backend", "status": "blocked-on-owner" }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "host": "52.180.154.225",
+  "user": "mostafa",
+  "reboot": false,
+  "sandbox": true,
+  "domain": null,
+  "notes": "SANDBOX mirror of the production deploy flow. OWN database (dist/db.json). NO domain, NO nginx changes, internal ports only (4113/3112) chosen to avoid the reverse-proxy range. MUST NEVER touch bendcore/organics, their DB, their config, nginx, or external ports.",
+  "targets": [
+    {
+      "name": "backend",
+      "local": "/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Isolated/_external/VolatileWorkSpace/revealer-backend",
+      "vm": "/home/mostafa/revealer-sandbox/backend",
+      "port": 4113,
+      "excludes": [
+        ".env*",
+        "node_modules",
+        "dist",
+        "logs"
+      ],
+      "migration": "none",
+      "commands": [
+        "rm -rf dist && npm run build",
+        "node dist/seed.js"
+      ]
+    },
+    {
+      "name": "frontend",
+      "local": "/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Isolated/_external/VolatileWorkSpace/revealer-frontend",
+      "vm": "/home/mostafa/revealer-sandbox/frontend",
+      "port": 3112,
+      "excludes": [
+        ".env*",
+        "node_modules",
+        ".next",
+        "logs"
+      ],
+      "migration": "none",
+      "commands": [
+        "rm -rf .next && npm run build"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "DevOps",
+  "role": "DevOps & Cloud",
+  "nature": "technical",
+  "avatar": "devops",
+  "projects": [
+    "Organics Production Deploy (2VM)",
+    "Revealer"
+  ],
+  "skill_file_hint": "data/projects/<pid>/skills/devops.md",
+  "note": "INDEX/REFERENCE ONLY — not moved yet (Phase 1a)",
+  "type": "technical",
+  "typeConfig": "shared/config/agent-types/technical.json",
+  "group": "cloud"
+}

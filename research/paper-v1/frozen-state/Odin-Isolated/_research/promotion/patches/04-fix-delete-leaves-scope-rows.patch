@@ -1,0 +1,33 @@
+diff --git a/server/workspace_mw.py b/server/workspace_mw.py
+index 87e6612..2cdb50a 100644
+--- a/server/workspace_mw.py
++++ b/server/workspace_mw.py
+@@ -728,6 +728,18 @@ def delete_owner(owner_type, owner_id) -> None:
+     base = WS / _area(owner_type) / owner_id
+     if base.exists():
+         shutil.rmtree(base, ignore_errors=True)
++    # FIX (owner's prompt-journey test): a project's RUNS create conversation scopes
++    # (chats/scopes/project__<pid>/… and member__<pid>__*/…) whose files are indexed as owner_type 'chat'.
++    # Deleting only the owner's rows left those registry rows (and folders) behind. The project's scopes are
++    # part of the project, so the single door removes them too — folders AND their rows.
++    scope_like = []
++    if owner_type == "project":
++        import glob as _glob
++        sroot = WS / "chats" / "scopes"
++        for d in [sroot / f"project__{owner_id}"] + [pathlib.Path(x) for x in _glob.glob(str(sroot / f"member__{owner_id}__*"))]:
++            shutil.rmtree(d, ignore_errors=True)
++        _esc = owner_id.replace("\\", "\\\\").replace("_", "\\_").replace("%", "\\%")
++        scope_like = [f"workspace/chats/scopes/project\\_\\_{_esc}/%", f"workspace/chats/scopes/member\\_\\_{_esc}\\_\\_%"]
+     conn = _db()
+     if not conn:
+         return
+@@ -736,6 +748,9 @@ def delete_owner(owner_type, owner_id) -> None:
+         cu.execute("DELETE FROM files WHERE owner_type=%s AND owner_id=%s", (owner_type, owner_id))
+         cu.execute("DELETE FROM folders WHERE owner_type=%s AND owner_id=%s", (owner_type, owner_id))
+         cu.execute("DELETE FROM dependencies WHERE owner_type=%s AND owner_id=%s", (owner_type, owner_id))
++        for _lk in scope_like:
++            cu.execute("DELETE FROM files WHERE path LIKE %s ESCAPE '\\'", (_lk,))
++            cu.execute("DELETE FROM folders WHERE path LIKE %s ESCAPE '\\'", (_lk,))
+         # link/relation rows MUST go before the owner row (FK-safe) so deletion is clean and leaves no orphans
+         if owner_type == "project":
+             cu.execute("DELETE FROM project_agents WHERE project_id=%s", (owner_id,))

@@ -1,0 +1,22 @@
+=== pinned electron version ===
+31.7.7
+
+=== is the binary currently present? ===
+MISSING (trashed)
+
+=== reinstall the electron binary (npm rebuild) ===
+rebuilt dependencies successfully
+
+=== if still missing, force redownload via install.js ===
+
+=== strip quarantine + ad-hoc sign BEFORE launch ===
+xattr cleared
+node_modules/electron/dist/Electron.app: replacing existing signature
+adhoc signed
+--- verify signature ---
+CodeDirectory v=20400 size=332 flags=0x2(adhoc) hashes=4+3 location=embedded
+Signature=adhoc
+
+=== does electron launch now? (version check) ===
+v31.7.7
+DONE_ELEC

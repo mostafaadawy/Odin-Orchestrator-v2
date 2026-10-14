@@ -1,0 +1,27 @@
+\section{Method}\label{sec:method}
+\subsection{Decision points}
+Jev covers five closed decisions already present in \sys{}: \emph{mode} (direct or orchestrate, in the request classifier), \emph{specialist} and \emph{read/change} (in the dispatcher), \emph{QA gate} (the QA recommendation when a project is created), and \emph{agent nature} (technical or operational, when an agent is proposed). Each call site asks the decider first; a \texttt{None} answer means ``use the existing LLM path unchanged''. Requests that contain an owner exclusion (``do not'', ``only'', ``read-only'', \ldots) always go to the LLM.
+\subsection{Encoder and standing context}
+A Qwen2.5 instruction model~\cite{qwen25} runs frozen in MLX~\cite{mlx} on the M4 GPU. The standing context (\sys{}'s specialists, rules, real agents and projects; \prefixTokens{} tokens) is run once and kept as a key/value cache~\cite{pope2023}; it takes \prefixMsFive{}\,ms to prepare with the 0.5B model. Each decision only processes its short suffix (decision definition and the input). We take the last token's hidden state.
+\subsection{Layer choice}
+Intermediate layers of a transformer often separate task-relevant information better than the last layer~\cite{alain2017,belrose2023}. We compare the states after layers 12, 16, 20, 24 and 28, the mean of layers 16--24, and the final normed state (Table~\ref{tab:layers}); one forward pass yields all of them. The kept layer is \layerFive{} for 0.5B and \layerFifteen{} for 1.5B, chosen on the synthetic validation split. \prov{} After the owner's labels, the choice is re-made on the real validation set.
+\subsection{Heads, calibration and fallback}
+Each decision has a two-layer MLP head (256 hidden units) trained with class weights on generated data. Probabilities are calibrated with temperature scaling~\cite{guo2017} (grid 0.05--100, fitted by negative log-likelihood). The fallback threshold $\tau$ is the lowest confidence at which the decider's accuracy on the kept validation cases is at least the LLM's validation accuracy; below $\tau$ the case returns to the LLM, a selective-prediction scheme~\cite{geifman2017}. A head with fewer than 5 independent validation labels is \emph{off}; a class with fewer than 5 independent cases is \emph{off} (that answer always goes to the LLM); a class with fewer than 20 training examples is grouped and always goes to the LLM.
+\subsection{Overhead on the request path}
+Two sources of overhead added by the decider itself were found in the timing analysis (Section~\ref{sec:results}) and removed. (i) In shadow mode the decider ran \emph{on} the request path, about 40\,ms per chat turn whose answer is never used; it now runs on a background worker that writes the same log record, and the request path pays 0.3\,ms (measured on the M4 with the real model). (ii) The first decision after start paid about 1.5\,s to load the model and build the context cache; both are now pre-warmed in the background when the brain starts and when Jev is switched on, and the first real decision takes 72\,ms. Regression tests cover both (``shadow adds no latency and ``pre-warm). \prov{}
+\subsection{Authority}
+The mode switch (Normal / Jev) is in the desktop app. Until the owner's labels arrive, Jev runs in \emph{shadow}: the decider runs and is logged, but the LLM decides every case. Only the post-label re-run may grant live authority.
+\begin{figure}[t]\centering
+\begin{tikzpicture}[font=\sffamily\scriptsize,node distance=3mm,
+ b/.style={draw,rounded corners=2pt,align=center,inner sep=2.5pt,fill=white},
+ a/.style={-{Stealth[length=1.4mm]}}]
+\node[b,fill=blue!6] (ctx) {standing context\\(cached once)};
+\node[b,right=of ctx] (in) {decision\\+ input};
+\node[b,below=5mm of $(ctx)!0.5!(in)$,fill=blue!6] (enc) {frozen Qwen2.5 (MLX)\\last-token state, kept layer};
+\node[b,below=of enc] (head) {per-decision head\\softmax$(z/T)$};
+\node[b,below left=4mm and -4mm of head,fill=green!8] (loc) {conf.\ $\ge\tau$:\\local answer};
+\node[b,below right=4mm and -4mm of head,fill=orange!12] (llm) {conf.\ $<\tau$, off class,\\or shadow: LLM path};
+\draw[a] (ctx) -- (enc); \draw[a] (in) -- (enc); \draw[a] (enc) -- (head); \draw[a] (head) -- (loc); \draw[a] (head) -- (llm);
+\end{tikzpicture}
+\caption{The Jev decider. Low confidence, disabled classes and shadow mode all return the case to the existing LLM path.}
+\label{fig:arch}\end{figure}

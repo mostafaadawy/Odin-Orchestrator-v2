@@ -1,0 +1,54 @@
+{
+ "commits": [
+  {
+   "commit": "27b56942bdba8debe1b015e298b69f9b86e3cb42",
+   "subject": "Phase 4: local Jev decider (Normal/Jev toggle, LLM fallback), independent ground truth, head-to-head",
+   "applied": [
+    "desktop/src/App.jsx",
+    "desktop/src/api.js",
+    "orchestrator/dispatcher.py",
+    "server/agents_registry.py",
+    "server/api_v2.py",
+    "server/intent.py",
+    "server/jev_decider.py"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 56,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "c3b10d3d486dc39994fee2958818bc7a12da629c",
+   "subject": "Phase 4 gate follow-ups: layer comparison, Claude read/change baseline, orchestrate held-out cases (off), calibration before/after, both models kept, non-inferior verdict",
+   "applied": [
+    "server/jev_decider.py"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 24,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "79e7fb5d09454c07a8645150749a3fa1cf6f7671",
+   "subject": "Phase 4 gate3 (part 1): shadow authority, Wilson CI + McNemar, post-label order, read/change truth growth (strict/extended), Claude ext baseline, real-scenario runs (2 of 3 reps)",
+   "applied": [
+    "desktop/src/App.jsx",
+    "server/api_v2.py",
+    "server/jev_decider.py"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 34,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "7e3afb40fb786627657053f3aeb3890f1fc029de",
+   "subject": "Phase 4 gate3 (part 2): real-scenario runs paused per owner usage rule (rep 3 partial kept, excluded); paper-v2 caption fix",
+   "applied": [],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 3,
+   "skipped_test_project": []
+  }
+ ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "Memory and Storage Agent",
+  "role": "Memory and Storage Agent",
+  "nature": "technical",
+  "avatar": "generic",
+  "projects": [
+    "Zoom Smart Meeting Notification Agent"
+  ],
+  "skill_file_hint": "data/projects/<pid>/skills/memory-and-storage-agent.md",
+  "note": "INDEX/REFERENCE ONLY — not moved yet (Phase 1a)",
+  "type": "operational",
+  "typeConfig": "shared/config/agent-types/operational.json",
+  "group": "storage"
+}

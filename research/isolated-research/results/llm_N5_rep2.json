@@ -1,0 +1,270 @@
+{
+ "N": 5,
+ "rep": 2,
+ "model": "haiku",
+ "cap_s": 1200,
+ "env_start": {
+  "label": "llm N=5 rep=2 start",
+  "utc": "2026-10-06T15:21:26.780271Z",
+  "machine": {
+   "cpu": "",
+   "ncpu": 12,
+   "ram_gb": 24.0,
+   "os": "26.5.2",
+   "arch": "arm64"
+  },
+  "load": {
+   "loadavg": [
+    2.57275390625,
+    2.9404296875,
+    3.373046875
+   ],
+   "cpu_pct_total": 32.9,
+   "mem_used_pct": 84.3
+  },
+  "competing_top": [
+   {
+    "pid": 71896,
+    "name": "Python",
+    "cpu_pct": 18.7,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46967,
+    "name": "Firefox GPU Helper",
+    "cpu_pct": 14.3,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46964,
+    "name": "firefox",
+    "cpu_pct": 8.9,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 61113,
+    "name": "plugin-container",
+    "cpu_pct": 7.3,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 42398,
+    "name": "Claude Helper (Renderer)",
+    "cpu_pct": 5.0,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 20775,
+    "name": "VTDecoderXPCService",
+    "cpu_pct": 3.8,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 72683,
+    "name": "mdworker_shared",
+    "cpu_pct": 3.6,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46975,
+    "name": "plugin-container",
+    "cpu_pct": 1.8,
+    "is_real_odin": false,
+    "is_isolated": false
+   }
+  ],
+  "real_odin_cpu_pct": 0,
+  "soc_reports_last_hour": []
+ },
+ "env_end": {
+  "label": "end",
+  "utc": "2026-10-06T15:24:10.119337Z",
+  "machine": {
+   "cpu": "",
+   "ncpu": 12,
+   "ram_gb": 24.0,
+   "os": "26.5.2",
+   "arch": "arm64"
+  },
+  "load": {
+   "loadavg": [
+    2.02294921875,
+    2.68701171875,
+    3.20458984375
+   ],
+   "cpu_pct_total": 6.2,
+   "mem_used_pct": 83.1
+  },
+  "competing_top": [
+   {
+    "pid": 46967,
+    "name": "Firefox GPU Helper",
+    "cpu_pct": 7.7,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46964,
+    "name": "firefox",
+    "cpu_pct": 6.2,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 42398,
+    "name": "Claude Helper (Renderer)",
+    "cpu_pct": 5.6,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 61113,
+    "name": "plugin-container",
+    "cpu_pct": 5.6,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 20775,
+    "name": "VTDecoderXPCService",
+    "cpu_pct": 3.5,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 54922,
+    "name": "Google Chrome",
+    "cpu_pct": 2.6,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46975,
+    "name": "plugin-container",
+    "cpu_pct": 1.7,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46979,
+    "name": "plugin-container",
+    "cpu_pct": 1.4,
+    "is_real_odin": false,
+    "is_isolated": false
+   }
+  ],
+  "real_odin_cpu_pct": 0,
+  "soc_reports_last_hour": []
+ },
+ "projects": [
+  {
+   "pid": "llm2-n5-p0",
+   "completed": true,
+   "fullstack_built": false,
+   "test_passes": false,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": false,
+   "artifact_locations": [],
+   "secs_ratio_to_cap": 0.1296063890059789
+  },
+  {
+   "pid": "llm2-n5-p1",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": false,
+   "artifact_locations": [
+    "OUTSIDE-workspace:code"
+   ],
+   "secs_ratio_to_cap": 0.1045372341076533
+  },
+  {
+   "pid": "llm2-n5-p2",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.09617936571439108
+  },
+  {
+   "pid": "llm2-n5-p3",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": false,
+   "artifact_locations": [
+    "OUTSIDE-workspace:code"
+   ],
+   "secs_ratio_to_cap": 0.09200076738993326
+  },
+  {
+   "pid": "llm2-n5-p4",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": false,
+   "artifact_locations": [
+    "OUTSIDE-workspace:code"
+   ],
+   "secs_ratio_to_cap": 0.12125212490558625
+  }
+ ],
+ "writes_changed_files": 12,
+ "own_project_files": {
+  "llm2-n5-p0": 0,
+  "llm2-n5-p1": 0,
+  "llm2-n5-p2": 3,
+  "llm2-n5-p3": 0,
+  "llm2-n5-p4": 0
+ },
+ "cross_project_files": 0,
+ "stray_outside_projects": [
+  "code/roman.py",
+  "code/test_slugify.py",
+  "code/slugify.py",
+  "code/isbn.py",
+  "code/test_isbn.py",
+  "code/test_roman.py",
+  "code/__pycache__/roman.cpython-312.pyc",
+  "code/__pycache__/isbn.cpython-312.pyc",
+  "code/__pycache__/slugify.cpython-312.pyc"
+ ],
+ "n_stray": 9,
+ "wrong_folder": 0,
+ "audit_issues": 7,
+ "audit_types": {
+  "unindexed": 7
+ },
+ "claude_calls": 5,
+ "cost_usd": 0.3783429,
+ "cost_per_task_usd": 0.07566858,
+ "tokens": {
+  "input_tokens": 346,
+  "cache_creation_input_tokens": 85533,
+  "cache_read_input_tokens": 1347879,
+  "output_tokens": 12582
+ },
+ "llm_busy_share_of_wall": 0.9859486937993982,
+ "orchestration_overhead_share": 0.014051306200601799,
+ "server_tree": {
+  "wall_s": 160.53863096237183,
+  "cpu_s": 1.1115088480000002,
+  "cpu_share_of_wall": 0.0069236223165533494,
+  "cpu_share_of_machine": 0.0005769685263794459,
+  "rss_mb_end": 62.34375
+ }
+}

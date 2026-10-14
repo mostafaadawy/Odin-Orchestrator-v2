@@ -1,0 +1,14 @@
+\section{Introduction}\label{sec:intro}
+Agentic systems built from large language models (LLMs) are moving from single tasks to long-lived \emph{ecosystems}: many projects, each with its own team of agents, sharing scripts, credentials, infrastructure and a common workspace. In this setting the hardest problem is not whether one agent can solve one task, but whether the \emph{whole system stays consistent} as projects and agents are added: files written where they belong, no project silently depending on or overwriting another, one source of truth for what exists, and no ``done'' that is not true. Recent analyses of multi-agent frameworks report that most failures stem from organisational design, misalignment between agents and missing verification rather than from model capability~\cite{cemri2025mast}.
+
+This paper reports on \sys{}, a multi-project agentic ecosystem that its builder, a single engineer working with agents, developed and operates for real projects: e-commerce operations, CRM and e-mail platforms, fulfilment, continuous security monitoring, meeting intelligence and software delivery. \sys{} started as a learning exercise. A widely used multi-agent framework was judged unsuitable for consistent, safe use; the first project worked; the second project revealed \emph{interference between projects}. Every subsequent component was forced by a concrete failure (Section~\ref{sec:timeline}).
+
+\paragraph*{Central claim} Consistency and correctness can be made to \emph{hold as the system scales} by construction: one creation door that validates placement and owner scope on every write, a database that is the only registry, and an audit that checks and heals at rest what bypassed the door.
+
+\paragraph*{Contributions}
+\begin{enumerate}
+\item An architecture of eleven features for multi-project agentic ecosystems. Each is traced to the failure that forced it and to its origin in established engineering practice: component reuse, middleware routing, message queues, webhooks, change-based deployment and conformance checking.
+\item A failure timeline reconstructed from the system's own logs, documents and history (Table~\ref{tab:timeline}).
+\item A measurement study on an isolated copy of the production system, reporting ratios rather than absolute times. The scripted workload of RQ1 demonstrates the door's mechanism. The main evidence is RQ2, with real LLM agents running concurrently. The other studies cover the owner's own tests and the integration hub's queue, callback and live-sync behaviour.
+\item A \emph{before-and-after} study of one gap that the measurement exposed: the agents' own write tools bypassed the door. We closed it with two changes that add no new rule. We re-ran the same experiments, added an adversarial variant, and report both states side by side (Section~\ref{sec:p2}).
+\end{enumerate}

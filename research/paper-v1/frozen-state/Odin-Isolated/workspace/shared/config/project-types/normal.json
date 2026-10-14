@@ -1,0 +1,12 @@
+{
+  "type": "normal",
+  "requires": {
+    "schedule": false
+  },
+  "config_schema": {},
+  "ui": {
+    "chip": "Normal",
+    "controls": []
+  },
+  "means": "one-off / on-demand"
+}

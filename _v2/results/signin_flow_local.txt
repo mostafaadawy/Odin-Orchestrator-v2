@@ -1,0 +1,26 @@
+PASS 0: Keychain holds anchor-key, manage-email, manage-password (desktop reads these)
+PASS web 1: before sign-in, data is refused
+PASS web 2: 'Get code' accepted (no key needed)
+PASS web 3: the desktop button sees a waiting code (it blinks)
+PASS web 4: nobody without the key can read the code
+PASS web 5: wrong password refused
+PASS web 6: sign-in with the desktop's email + password + code succeeds
+PASS web 7: the same code cannot be used again
+PASS web 8: signed in -> data loads (no key in the app)
+PASS web 9: session is valid (kept for 1 week)
+PASS web 10: remembered device signs in again without a code (30 days)
+PASS web 11: a forged session is refused
+PASS mobile 1: before sign-in, data is refused
+PASS mobile 2: 'Get code' accepted (no key needed)
+PASS mobile 3: the desktop button sees a waiting code (it blinks)
+PASS mobile 4: nobody without the key can read the code
+PASS mobile 5: wrong password refused
+PASS mobile 6: sign-in with the desktop's email + password + code succeeds
+PASS mobile 7: the same code cannot be used again
+PASS mobile 8: signed in -> data loads (no key in the app)
+PASS mobile 9: session is valid (kept for 1 week)
+PASS mobile 10: remembered device signs in again without a code (30 days)
+PASS mobile 11: a forged session is refused
+PASS 12: timings unchanged from v1 (code 10 min, session 7 days, device 30 days)
+
+RESULT: ALL PASS

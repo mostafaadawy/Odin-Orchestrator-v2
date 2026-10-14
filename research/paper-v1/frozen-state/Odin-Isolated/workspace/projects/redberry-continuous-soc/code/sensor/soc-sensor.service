@@ -1,0 +1,12 @@
+[Unit]
+Description=Odin SOC tiny evidence sensor (read-only, resource-capped)
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/mostafa/soc-sensor/soc_sensor.sh
+# Hard caps so it NEVER competes with the websites on this small VM:
+CPUQuota=4%
+MemoryMax=48M
+Nice=19
+IOSchedulingClass=idle

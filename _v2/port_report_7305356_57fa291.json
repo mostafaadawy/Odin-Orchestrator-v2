@@ -1,0 +1,762 @@
+{
+ "commits": [
+  {
+   "commit": "7305356d1dc7ac7f28a1e2dc1f564608eae9d24e",
+   "subject": "Consolidated start: exact copy of Odin-Isolated incl. uncommitted P2 work",
+   "applied": [
+    "server/api_v2.py",
+    "server/claude_cli.py",
+    "server/door_cli.py",
+    "server/projects.py",
+    "server/scope_hook.py",
+    "server/workspace_mw.py",
+    "workspace/shared/directions/PHASE7-HANDOFF.md"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [
+    {
+     "path": "workspace/docs/ODIN_PHASES_TECH_DOC.md",
+     "n": 1
+    },
+    {
+     "path": "workspace/docs/README_ANCHOR_AND_INTEGRATIONS.md",
+     "n": 2
+    },
+    {
+     "path": "workspace/docs/SETUP-AND-TEST.md",
+     "n": 2
+    }
+   ],
+   "skipped_nonproduct": 308,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "494500024170b0f68d7bfa2f50bbff4d42aafa39",
+   "subject": "Consolidated: repath Isolated->Consolidated, DB *_con, ports 28000/29xxx/25432",
+   "applied": [
+    "desktop/README.md",
+    "desktop/src/views.jsx",
+    "odin_app/README.md",
+    "odin_app/lib/screens/bell.dart",
+    "shells/anchor_loop.sh",
+    "workspace/docs/WHATS_NEW.md",
+    "workspace/projects/odin-external-arms/deploy/web/main.dart.js",
+    "workspace/projects/redberry-continuous-soc/docs/SOC_REDBERRY.md",
+    "workspace/shared/handoffs/VEEQO_ORDER_LIFECYCLE_HANDOFF.md",
+    "workspace/shared/infra/deploy_changes.py",
+    "workspace/shared/testing/README.md",
+    "workspace/shared/testing/sandbox_deploy_overwrite_check.py",
+    "workspace/shared/testing/sandbox_revealer_multiagent.py"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 44,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "8f2eb4753c49a55c7f7ed98941496f582acd45b2",
+   "subject": "Phase 3 start: CHANGELOG",
+   "applied": [],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 1,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "dc517060df3c467c317ab2956d4eb2f1ca26f40a",
+   "subject": "Fix #1 (G4+G3): proposal parser, registration of applied files, overlay resolution",
+   "applied": [
+    "server/api_v2.py",
+    "server/workspace_mw.py"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 22,
+   "skipped_test_project": [
+    "workspace/projects/backend-sandbox-rep-4/agents.json",
+    "workspace/projects/backend-sandbox-rep-4/chat/.gitkeep",
+    "workspace/projects/backend-sandbox-rep-4/code/.gitkeep",
+    "workspace/projects/backend-sandbox-rep-4/connectors/.gitkeep",
+    "workspace/projects/backend-sandbox-rep-4/dependencies/.gitkeep",
+    "workspace/projects/backend-sandbox-rep-4/dependencies/manifest.json",
+    "workspace/projects/backend-sandbox-rep-4/deploy/.gitkeep",
+    "workspace/projects/backend-sandbox-rep-4/deploy/backend-sandbox-rep-4.config.sh",
+    "workspace/projects/backend-sandbox-rep-4/deploy/deploy-config.json",
+    "workspace/projects/backend-sandbox-rep-4/docs/.gitkeep",
+    "workspace/projects/backend-sandbox-rep-4/features/.gitkeep",
+    "workspace/projects/backend-sandbox-rep-4/features/voice/.gitkeep",
+    "workspace/projects/backend-sandbox-rep-4/files/.gitkeep",
+    "workspace/projects/backend-sandbox-rep-4/index.json",
+    "workspace/projects/backend-sandbox-rep-4/instructions/.gitkeep",
+    "workspace/projects/backend-sandbox-rep-4/instructions/instructions.md",
+    "workspace/projects/backend-sandbox-rep-4/plan/.gitkeep",
+    "workspace/projects/backend-sandbox-rep-4/restrictions/.gitkeep",
+    "workspace/projects/backend-sandbox-rep-4/schedule/.gitkeep",
+    "workspace/projects/backend-sandbox-rep-4/tests/.gitkeep",
+    "workspace/projects/backend-sandbox-rep-5/agents.json",
+    "workspace/projects/backend-sandbox-rep-5/chat/.gitkeep",
+    "workspace/projects/backend-sandbox-rep-5/code/.gitkeep",
+    "workspace/projects/backend-sandbox-rep-5/connectors/.gitkeep",
+    "workspace/projects/backend-sandbox-rep-5/dependencies/.gitkeep",
+    "workspace/projects/backend-sandbox-rep-5/dependencies/manifest.json",
+    "workspace/projects/backend-sandbox-rep-5/deploy/.gitkeep",
+    "workspace/projects/backend-sandbox-rep-5/deploy/backend-sandbox-rep-5.config.sh",
+    "workspace/projects/backend-sandbox-rep-5/deploy/deploy-config.json",
+    "workspace/projects/backend-sandbox-rep-5/docs/.gitkeep",
+    "workspace/projects/backend-sandbox-rep-5/features/.gitkeep",
+    "workspace/projects/backend-sandbox-rep-5/features/voice/.gitkeep",
+    "workspace/projects/backend-sandbox-rep-5/files/.gitkeep",
+    "workspace/projects/backend-sandbox-rep-5/index.json",
+    "workspace/projects/backend-sandbox-rep-5/instructions/.gitkeep",
+    "workspace/projects/backend-sandbox-rep-5/instructions/instructions.md",
+    "workspace/projects/backend-sandbox-rep-5/plan/.gitkeep",
+    "workspace/projects/backend-sandbox-rep-5/restrictions/.gitkeep",
+    "workspace/projects/backend-sandbox-rep-5/schedule/.gitkeep",
+    "workspace/projects/backend-sandbox-rep-5/tests/.gitkeep",
+    "workspace/projects/backend-sandbox-rep-6/agents.json",
+    "workspace/projects/backend-sandbox-rep-6/chat/.gitkeep",
+    "workspace/projects/backend-sandbox-rep-6/code/.gitkeep",
+    "workspace/projects/backend-sandbox-rep-6/connectors/.gitkeep",
+    "workspace/projects/backend-sandbox-rep-6/dependencies/.gitkeep",
+    "workspace/projects/backend-sandbox-rep-6/dependencies/manifest.json",
+    "workspace/projects/backend-sandbox-rep-6/deploy/.gitkeep",
+    "workspace/projects/backend-sandbox-rep-6/deploy/backend-sandbox-rep-6.config.sh",
+    "workspace/projects/backend-sandbox-rep-6/deploy/deploy-config.json",
+    "workspace/projects/backend-sandbox-rep-6/docs/.gitkeep",
+    "workspace/projects/backend-sandbox-rep-6/features/.gitkeep",
+    "workspace/projects/backend-sandbox-rep-6/features/voice/.gitkeep",
+    "workspace/projects/backend-sandbox-rep-6/files/.gitkeep",
+    "workspace/projects/backend-sandbox-rep-6/index.json",
+    "workspace/projects/backend-sandbox-rep-6/instructions/.gitkeep",
+    "workspace/projects/backend-sandbox-rep-6/instructions/instructions.md",
+    "workspace/projects/backend-sandbox-rep-6/plan/.gitkeep",
+    "workspace/projects/backend-sandbox-rep-6/restrictions/.gitkeep",
+    "workspace/projects/backend-sandbox-rep-6/schedule/.gitkeep",
+    "workspace/projects/backend-sandbox-rep-6/tests/.gitkeep"
+   ]
+  },
+  {
+   "commit": "e801cfeec23131e0a44b906e6fa1dc25870bde1c",
+   "subject": "Fix #2 (G1 + chat group A): review verdict gates step/run success; honest QA labels; deploy no longer hides open steps; engine guard on member output; SOC auto-resolve only re-checked findings; SOC-APP-001 unparsable -> Data unavailable",
+   "applied": [
+    "server/api_v2.py",
+    "server/soc_run.py"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 6,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "67deac569400a83a24ad6a75533f7d2a9351ad10",
+   "subject": "Fix #2b: review verdict - Needs fix anywhere wins; Confirmed only as Confirmed: (found by S4 r4)",
+   "applied": [
+    "server/api_v2.py"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 4,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "1837462922041edae3d6c9ee27ebd62298e8bb91",
+   "subject": "Fix #2 test scripts; pg_up.sh recreates the socket dir after reboot (harness)",
+   "applied": [],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 4,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "7ac2ca9bbee2b0c964170a2eafca256824456a08",
+   "subject": "CHANGELOG: harness pg_up.sh entry",
+   "applied": [],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 1,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "6bc4ec35f968c2615a16f23bea038f52d60abbfb",
+   "subject": "Fix #2c: fixed verdict field (PASSED/NOT_DONE/WAITING_FOR_APPROVAL) accepted only when evidence agrees; S7 clean-pass scenario",
+   "applied": [
+    "server/api_v2.py"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 7,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "235f455b81de712cf491c948046960442fa2c5d5",
+   "subject": "harness: S8 waiting-path scenario",
+   "applied": [],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 1,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "542960340d3d0c307b7f46002839e50bcbe217ac",
+   "subject": "Fix #2d: a pending proposal is WAITING_FOR_APPROVAL, not zero files; no duplicate re-proposals; no build halt/QA while waiting",
+   "applied": [
+    "server/api_v2.py"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 2,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "f902e74ca929db3366cabcc06a4a613ed08381ee",
+   "subject": "Fix #2e: text net guards PASSED only; Waiting: opener",
+   "applied": [
+    "server/api_v2.py"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 3,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "b2e4b0d82b99c4a0cba84339d582093d17c893b2",
+   "subject": "F-32 + G2: negation-aware VM intent; firewall refresh only on the run goal VM intent; VM-touching proposals without intent go to approval",
+   "applied": [
+    "server/api_v2.py"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 3,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "c4a768d258d1925c400a84c8bf1472080ead842d",
+   "subject": "harness: S9 VM-intent positive control; f32_s.sh",
+   "applied": [],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 2,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "f63ea155cb613800258b58445bf01cbfc990954e",
+   "subject": "harness: selectable before-tag in fix2_tests.sh",
+   "applied": [],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 1,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "11932059ff7c6a3dbba54cd1667c0c83047820c3",
+   "subject": "F-32b: fail-safe VM intent levels (clear/unclear/none); refresh only on clear",
+   "applied": [
+    "server/api_v2.py"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 4,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "a8ff6fbc83bef90088681c90c36fd26699541585",
+   "subject": "F-32c: no-VM PreToolUse hook when the run is not clearly about the VM",
+   "applied": [
+    "server/api_v2.py",
+    "server/claude_cli.py",
+    "server/novm_hook.py"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 4,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "805e25a6821961a8104cba2a46c540a2292e6ef3",
+   "subject": "Fix #3 (F-23): chat approval only by id/reply_to and only from the owner; internal follow-ups can never approve",
+   "applied": [
+    "server/api_v2.py"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 5,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "470913b329bd20a0719b2af6cf6692f9a6c24e3b",
+   "subject": "F-33: Approve all requires a confirmation that lists every pending proposal; exactly that list is approved",
+   "applied": [
+    "desktop/src/views.jsx",
+    "server/approvals.py",
+    "server/soc_api.py"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 8,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "b272c99a134769fd5710ac32c6a42d50de9f8e7f",
+   "subject": "G6: promotions leave no dangling reference (moves recorded, every referrer repointed, reference form kept); audit reports dangling-ref as a hard issue",
+   "applied": [
+    "server/workspace_audit.py",
+    "server/workspace_mw.py"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 8,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "9b8c5414de3eb14cbeac7e64f8a53fdb4892b150",
+   "subject": "G6b: every automatic rewrite logged (file, old, new, time, reason) and revertible with one command (rewrite_log.py revert <batch>)",
+   "applied": [
+    "server/rewrite_log.py",
+    "server/workspace_audit.py",
+    "server/workspace_mw.py"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 10,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "acf153679b6ef86f8253a70c7d99331097b30ec3",
+   "subject": "G8: files.created_by (nullable, add-only, reversible migration with backup); creator recorded on create; every audit finding names it. R-ZC: model calls refused on any paid route; dollars = reported usage only",
+   "applied": [
+    "server/api_v2.py",
+    "server/claude_cli.py",
+    "server/creator_hook.py",
+    "server/migrations/g8_files_created_by.down.sql",
+    "server/migrations/g8_files_created_by.up.sql",
+    "server/migrations/migrate_g8.sh",
+    "server/workspace_audit.py",
+    "server/workspace_mw.py"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 16,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "11a4a47a3b4b12b8ca6813ed90bd430006cd7b80",
+   "subject": "G5 + F-36: own deltas never flagged as duplicates; keep the oldest registered copy under its original name in the correct category; shared-name clash flagged instead of deleting a copy",
+   "applied": [
+    "server/workspace_audit.py",
+    "server/workspace_mw.py"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 7,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "39f2c9386fab86f760aa4116391b8a286f8652ad",
+   "subject": "G7: audit scans tests/ for duplicates; per-project test pointers and overlay-folder deltas are not flagged; identical copies still are",
+   "applied": [
+    "server/workspace_audit.py"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 6,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "3474302b102b541ff6b7cdd675701882542a2026",
+   "subject": "F-07: files written by an approved apply are indexed at once (incl. files made by its commands); creator hook indexes new files even before the G8 migration",
+   "applied": [
+    "server/api_v2.py",
+    "server/creator_hook.py"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 9,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "aaa1f80fad2945cc5241dded4d82555ed05a77f1",
+   "subject": "F-37: audit switch OFF = detect and report only (Run now and the timer never change anything); ON = may heal",
+   "applied": [
+    "server/workspace_audit.py"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 6,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "1cbcc0396c239f6c93e98e668aa9afb60260a729",
+   "subject": "G11: scoped requests go to DevOps only for affirmative ops work (whole words, negation-aware); harness: one usage ledger, precise plan-limit detector",
+   "applied": [
+    "server/api_v2.py"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 13,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "baf53f14fb795c0f212546cdbac67d633a241b25",
+   "subject": "F-38: every project gets a folder; proposals writing outside the workspace or the declared folder are refused and shown (proposal and apply time)",
+   "applied": [
+    "server/api_v2.py",
+    "server/projects.py"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 6,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "8348695b53f78da9031d42cd526d661e3e6c07c5",
+   "subject": "G12: EasyPost (a catalogue role) is recommended per project and added only when chosen; other company agents unchanged",
+   "applied": [
+    "server/projects.py"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 6,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "f07346f540af1ff3732ef23f6b22d345e5e579f1",
+   "subject": "F-39 (2): exact extra files only (poster launchd file; registered external report); replay tool for past proposals",
+   "applied": [
+    "server/api_v2.py"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 10,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "a6ee870e543200ea5d9ef328084f2c033aa10507",
+   "subject": "G9: per-project credential choice recorded (agent_scope + connectors/ reference, never the value); secret stores never a write target",
+   "applied": [
+    "server/api_v2.py",
+    "server/projects.py",
+    "server/workspace_mw.py"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 11,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "373306d62460c3ef52c32a5c20ed06c892079bfa",
+   "subject": "G9 (2): .env.example/.sample/.template are templates, not secret stores",
+   "applied": [
+    "server/api_v2.py"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 5,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "5c12533216218c6e6410dd0ef7619f43c58a972e",
+   "subject": "G9b per-project key request path (desktop) + F-39(1)(3)/F-40 data and historical guard",
+   "applied": [
+    "desktop/src/api.js",
+    "desktop/src/views.jsx",
+    "server/api_v2.py",
+    "server/approvals.py",
+    "server/secret_store.py",
+    "workspace/projects/daily-egypt-amazon-product-poster/index.json",
+    "workspace/projects/real-deployment-and-diagnosis-organics-07d7/index.json",
+    "workspace/projects/redberry-continuous-soc/index.json"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 14,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "a3364a1e2e26c9c829aac62f0f0fc9fa5ddc5ab1",
+   "subject": "G10: reuse keeps a shared agent identity; edits merge, never overwrite",
+   "applied": [
+    "server/agents_registry.py"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 5,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "c4dc236e8e192601b2d9f799bd56b234a92c813a",
+   "subject": "G10 data repair (logged, reversible), secret-file proposals historical, F-41 interim: phone never sends a key",
+   "applied": [
+    "odin_app/lib/screens/approvals.dart",
+    "odin_app/test/f41_key_request_test.dart",
+    "server/api_v2.py"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 11,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "6f6bdb7e3fc6adadb78049f1a7a975f9d424620d",
+   "subject": "G13: strengthen a reused agent (add a skill, delete nothing) after owner approval",
+   "applied": [
+    "desktop/src/views.jsx",
+    "server/api_v2.py",
+    "server/projects.py",
+    "server/strengthen.py"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 5,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "4021497ecc5ffa2ecf2cff8c75d3d345471294ff",
+   "subject": "G10: recover 20 wiped agent rules (logged), EasyPost/Email leftovers, cross-project rules test",
+   "applied": [
+    "workspace/agents/cto-orchestrator/capability.md",
+    "workspace/agents/email/capability.md",
+    "workspace/agents/hubspot/capability.md",
+    "workspace/agents/qa/capability.md",
+    "workspace/agents/security-intelligence-threat-hunting-architect/capability.md",
+    "workspace/agents/security-operations-investigator/capability.md"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 10,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "596f1e8acaf5970a31339c056eb5fcb879d05ada",
+   "subject": "F-42: merge back charter and merged-duplicate sections (logged, reversible)",
+   "applied": [
+    "workspace/agents/asset-exposure-attack-surface-agent/capability.md",
+    "workspace/agents/devops/capability.md",
+    "workspace/agents/fulfillment/capability.md",
+    "workspace/agents/fullstack/capability.md",
+    "workspace/agents/intrusion-detection-behavioral-analytics-agent/capability.md",
+    "workspace/agents/qa/capability.md",
+    "workspace/agents/recovery-resilience-agent/capability.md",
+    "workspace/agents/reporting-documentation-agent/capability.md",
+    "workspace/agents/security-operations-investigator/capability.md",
+    "workspace/agents/threat-prediction-prevention-agent/capability.md"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 6,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "e9e6d6273884c781dbc7ed95c3947d76b989d987",
+   "subject": "F-06: main chat looks up existing capability (directions) before answering",
+   "applied": [
+    "server/api_v2.py",
+    "server/directions.py"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 7,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "add5dc97de5e0235f9a021e698d3b3d087a112ce",
+   "subject": "F-43: full agent rules (capped, prioritised, logged) behind a setting; F-44: exact agent-file match; legacy900 keeps paper v1 prompt",
+   "applied": [
+    "server/agent_rules.py",
+    "server/api_v2.py"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 12,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "dd6e68a48db6e2decd2e68bcac4da7f6a83f8af4",
+   "subject": "F-08: project addressed by id, never by name (prompts + write guard)",
+   "applied": [
+    "server/api_v2.py"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 5,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "84269dcfc2a649b7f041db9e184c0175f94de010",
+   "subject": "Step A: F-25, F-27, F-28, F-29, F-30, F-31 (run-flow and path fixes)",
+   "applied": [
+    "orchestrator/dispatcher.py",
+    "server/api_v2.py",
+    "server/scheduler.py",
+    "workspace/shared/directions/core-rules.md",
+    "workspace/shared/runbooks/azure-secure-connection.md"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 9,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "6982a7f04101b5d819795705f71b8c91b566ef2c",
+   "subject": "Step C: F-45 approval actor+channel, F-24 owner removals remembered, F-18 acceptance matrix",
+   "applied": [
+    "desktop/src/api.js",
+    "odin_app/lib/api/anchor_api.dart",
+    "server/api_v2.py",
+    "server/approvals.py",
+    "server/secret_store.py",
+    "workspace/projects/daily-egypt-amazon-product-poster/index.json"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 11,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "546e60a389549061fc43595970234873a8c8ca7e",
+   "subject": "Step D: F-22 anchor queue cross-process lock, phase_ctl webhook only for local anchor, desktop poll honours prod anchor setting",
+   "applied": [
+    "desktop/src/App.jsx",
+    "server/anchor_queue.py",
+    "shells/phase_ctl.sh"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 6,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "87f3c5bc70fc0fa769ce3fdd56759b858ea82d2b",
+   "subject": "Step E: F-14 owner secrets out of the source (Keychain via Electron main, dart-define, generated anchor js untracked)",
+   "applied": [
+    "desktop/electron/main.cjs",
+    "desktop/electron/preload.cjs",
+    "desktop/electron/secrets.cjs",
+    "desktop/src/App.jsx",
+    "odin_app/lib/config.dart",
+    "workspace/anchor-layer/third_party_sim.html",
+    "workspace/docs/ODIN_PHASES_TECH_DOC.md",
+    "workspace/projects/odin-external-arms/deploy/web/main.dart.js",
+    "workspace/shared/infra/phase3_e2e.py"
+   ],
+   "deleted_from_git": [
+    "workspace/anchor-layer/anchor_seed.js"
+   ],
+   "conflicts": [
+    {
+     "path": ".gitignore",
+     "n": 1
+    }
+   ],
+   "skipped_nonproduct": 7,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "3cfc4f044435e8016fdfdd57378c3089fc0c9c02",
+   "subject": "Step F: F-41 end-to-end encrypted phone key relay (X25519/HKDF/AES-GCM, Anchor carries ciphertext only)",
+   "applied": [
+    "odin_app/lib/api/anchor_api.dart",
+    "odin_app/lib/screens/approvals.dart",
+    "odin_app/lib/security/key_relay.dart",
+    "odin_app/pubspec.yaml",
+    "odin_app/test/f41_relay_test.dart",
+    "server/api_v2.py",
+    "server/key_relay.py",
+    "server/local_poller_http.py",
+    "server/requirements.txt",
+    "server/secret_store.py"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 9,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "c3bc2ba8833a3af765dca801767b095a79a2cdb4",
+   "subject": "Step G: P8-2 dry-run rule and R-DP guards in deploy.sh (single-IP SSH allow only, no sshd restart, no reboot, RBO read-only + fingerprint STOP, WOULD RUN log)",
+   "applied": [
+    "workspace/shared/infra/deploy.sh"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 5,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "03a510abb4a2f7e9cb79acaa556f716a0d8c7d97",
+   "subject": "Step H/I: decisions recorded (docs only); no new approved security fixes",
+   "applied": [],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 2,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "dbdfca149ba7f21fbc2e0bebff64483bb9eec92c",
+   "subject": "Step J: Phase 3 gate run \u2014 full suite green",
+   "applied": [],
+   "deleted_from_git": [],
+   "conflicts": [],
+   "skipped_nonproduct": 2,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "509863e1fd5e914b5ea4bcb60ac0d435379f7e4e",
+   "subject": "Phase 3 close: F-11 50% rule, F-26 secret-file rule, F-21 local GeoLite2, F-20 local-only brain + token, F-10 audit proposes rules",
+   "applied": [
+    "desktop/electron/main.cjs",
+    "desktop/src/api.js",
+    "desktop/src/main.jsx",
+    "server/api_v2.py",
+    "server/app.py",
+    "server/brain_auth.py",
+    "server/claude_cli.py",
+    "server/local_poller_http.py",
+    "server/requirements.txt",
+    "server/rule_proposals.py",
+    "server/secret_files.py",
+    "server/secret_hook.py",
+    "server/soc_enrich.py",
+    "server/workspace_audit.py",
+    "server/workspace_mw.py",
+    "workspace/shared/testing/e2e_real_flow.py",
+    "workspace/shared/testing/phase7_prompt4.py",
+    "workspace/shared/testing/phase7_prompt_loop.py",
+    "workspace/shared/testing/phase7_realrun.py"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [
+    {
+     "path": ".gitignore",
+     "n": 1
+    }
+   ],
+   "skipped_nonproduct": 23,
+   "skipped_test_project": []
+  },
+  {
+   "commit": "57fa291c085a6a48645f66746424fa19b93f9f04",
+   "subject": "Post-Phase-3: F-11 true deltas, PC-5 web-origin lock (app://odin-desktop), PC-2 generic-reply + format guard",
+   "applied": [
+    "desktop/electron/appProtocol.cjs",
+    "desktop/electron/main.cjs",
+    "server/api_v2.py",
+    "server/app.py",
+    "server/brain_auth.py",
+    "server/delta.py",
+    "server/projects.py",
+    "server/reply_guard.py",
+    "server/workspace_audit.py",
+    "server/workspace_mw.py"
+   ],
+   "deleted_from_git": [],
+   "conflicts": [
+    {
+     "path": ".gitignore",
+     "n": 1
+    }
+   ],
+   "skipped_nonproduct": 15,
+   "skipped_test_project": []
+  }
+ ]
+}

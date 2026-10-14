@@ -1,0 +1,4 @@
+Odin-Consolidated: 4231/4231 files present in v2 (100.0%), 4877/4877 MB
+Odin-Isolated: 2173/2173 files present in v2 (100.0%), 392/392 MB
+odin-v2-staging: 113/113 files present in v2 (100.0%), 16/16 MB
+done in 7s

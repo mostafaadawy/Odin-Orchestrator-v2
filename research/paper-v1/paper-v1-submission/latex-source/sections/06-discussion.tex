@@ -1,0 +1,23 @@
+\section{Discussion}\label{sec:discussion}
+\paragraph*{Prevention and detection are both needed} RQ1 separates two mechanisms that are often conflated. The audit can repair everything that is wrong \emph{in form} (misplaced files, unindexed rows, duplicates, foreign references), but a write into another project's legitimate folder is wrong only \emph{in ownership}, and at rest it looks legal; 11--12\% of writes stay wrong after healing without the door. The owner-scope guard at write time is what keeps interference at zero as projects are added. This mirrors the history in Table~\ref{tab:timeline}: the audit came first, and interference between projects forced the door.
+
+\paragraph*{The agent's own pen, before and after} Before the changes, RQ2 showed where consistency was not yet by construction: files that a coding agent wrote with its own tools did not pass through the door. Placement fell from 67\% to 17\% as projects were added, and at ten projects agents overwrote each other in a stray folder. The audit saw every stray path, but flagging is not preventing. The fix needed no new rule. Starting agents in their own folder made well-behaved agents place everything correctly (100\% at every $N$). The pre-tool hook made the rule hold for agents that try to break it: every raw write into shared code or into another project was refused, and the agents fell back to the door. Each layer covers a different case. P2a is enough for agents that cooperate; P2b is needed for agents that do not; and only the door keeps the registry in step when shared code does change. The audit stays as the at-rest check for what the hook cannot see, for example a file opened for writing from inside a script.
+
+\paragraph*{Watch first, then enforce} The staged rollout cost one repetition and gave a concrete answer: with P2a in place, no legitimate write would have been blocked. The adversarial runs were what exercised the hook. They also exposed two weaknesses that ordinary work never would have: a self-declared actor and a door call that excused a chained raw write. That argues for including adversarial tasks in any evaluation of guard rails for agents.
+
+\paragraph*{Consistency did not cost scale} Through the door the violation rate stayed at zero from 1 to 10 projects, cost per task stayed flat, and the system's own process tree was negligible next to model time. The measurable price is per-write latency under contention (6.4$\times$ at ten projects), which a connection pool would address without touching the schema.
+
+\paragraph*{Pulled queues trade latency for reachability} Almost all of a request's time is spent waiting to be pulled. That is the deliberate cost of never opening an inbound port on the owner's machine; callbacks with retries make the contract reliable, and receivers must tolerate an occasional duplicate.
+
+\paragraph*{Owner tests as instruments} The owner's own tests were the most sensitive instruments we had. Without being designed for our study, they caught two files that agents had written into the main workspace, an incompletely registered new role, and leftover registry rows. After the fixes they also exposed two hook false positives and agent processes that outlive their deleted project.
+
+\subsection{Proposals (not applied)}\label{sec:proposals}
+The owner's rule is that no change may harm structure, consistency, database design or connections. P2 and the two defect fixes were therefore implemented and measured only in the isolated copy. They are handed to the owner as a promotion package of patches that apply cleanly to the production files, and they are not applied. The remaining proposals are written only:
+(P1) move the terminal bridge's runtime files outside the version-controlled folder;
+(P3) pool database connections in the door;
+(P4) for \emph{finding} reusable scripts only, add a sentence-embedding similarity~\cite{reimers2019sbert,wang2020minilm} as a second ranking signal next to keywords, while structural enforcement stays exact and rule-based; to be benchmarked on owner-labelled requests;
+(P5) a retrieval pipeline (recursive or semantic chunking, a small embedding model, a local vector index, top-$k$ with cross-encoder re-ranking) for the one project that writes stories from large, stable reference PDFs, and nowhere else;
+(P6) send the request identifier as an idempotency key with every callback;
+(P8) when a project is deleted, also stop its running agent processes;
+(P9) derive the prompt journey's teams from required capabilities before adding newly registered roles;
+(P10) make the few modules that write relative to the current directory use the workspace root.

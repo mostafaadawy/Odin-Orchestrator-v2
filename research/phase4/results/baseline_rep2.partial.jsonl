@@ -1,0 +1,424 @@
+{"id": "67a032a8dfc0", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 9104.9, "usage_usd": 0.09395, "uncertain": true, "mode": "normal"}
+{"id": "67a032a8dfc0", "decision": "D2_agent", "pred": "CTO Brain", "label": "CTO Brain", "ms": 7622.4, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "67a032a8dfc0", "decision": "D2_action", "pred": "read", "label": "change", "ms": 7622.4, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "a52e53552e3d", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 7813.1, "usage_usd": 0.0909, "uncertain": false, "mode": "normal"}
+{"id": "a52e53552e3d", "decision": "D2_agent", "pred": "DevOps & Cloud", "label": "DevOps & Cloud", "ms": 7546.5, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "a52e53552e3d", "decision": "D2_action", "pred": "read", "label": "read", "ms": 7546.5, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "a5a36fd8c16b", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 7592.8, "usage_usd": 0.09056, "uncertain": false, "mode": "normal"}
+{"id": "a5a36fd8c16b", "decision": "D2_agent", "pred": "DevOps & Cloud", "label": "DevOps & Cloud", "ms": 6350.4, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "a5a36fd8c16b", "decision": "D2_action", "pred": "change", "label": "change", "ms": 6350.4, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "e1ad769520d1", "decision": "D1_mode", "pred": "orchestrate", "label": "orchestrate", "ms": 14103.5, "usage_usd": 0.10583, "uncertain": false, "mode": "normal"}
+{"id": "e1ad769520d1", "decision": "D2_agent", "pred": "CTO Brain", "label": "CTO Brain", "ms": 2269.6, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "e1ad769520d1", "decision": "D2_action", "pred": "change", "label": "change", "ms": 2269.6, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "73d280e0ab5f", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 6664.9, "usage_usd": 0.09246, "uncertain": false, "mode": "normal"}
+{"id": "73d280e0ab5f", "decision": "D2_agent", "pred": "Backend", "label": "CTO Brain", "ms": 1325.0, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "73d280e0ab5f", "decision": "D2_action", "pred": "change", "label": "change", "ms": 1325.0, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "22f1e69b9cbb", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 6827.9, "usage_usd": 0.09278, "uncertain": true, "mode": "normal"}
+{"id": "22f1e69b9cbb", "decision": "D2_agent", "pred": "Backend", "label": "CTO Brain", "ms": 1411.0, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "22f1e69b9cbb", "decision": "D2_action", "pred": "change", "label": "read", "ms": 1411.0, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "b70f5ab2bb09", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 6618.3, "usage_usd": 0.0891, "uncertain": true, "mode": "normal"}
+{"id": "b70f5ab2bb09", "decision": "D2_agent", "pred": "Backend", "label": "Backend", "ms": 1854.6, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "b70f5ab2bb09", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1854.6, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "efaafc7f55e5", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 5872.2, "usage_usd": 0.08927, "uncertain": true, "mode": "normal"}
+{"id": "efaafc7f55e5", "decision": "D2_agent", "pred": "Backend", "label": "Backend", "ms": 2448.7, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "efaafc7f55e5", "decision": "D2_action", "pred": "read", "label": "read", "ms": 2448.7, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "9851acf0e1fd", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 9046.7, "usage_usd": 0.09076, "uncertain": true, "mode": "normal"}
+{"id": "9851acf0e1fd", "decision": "D2_agent", "pred": "Backend", "label": "Backend", "ms": 1624.1, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "9851acf0e1fd", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1624.1, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "36486aee3e97", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 8271.2, "usage_usd": 0.08888, "uncertain": true, "mode": "normal"}
+{"id": "36486aee3e97", "decision": "D2_agent", "pred": "Backend", "label": "Backend", "ms": 2273.3, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "36486aee3e97", "decision": "D2_action", "pred": "read", "label": "read", "ms": 2273.3, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "43ae02f75bde", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 7977.2, "usage_usd": 0.08999, "uncertain": true, "mode": "normal"}
+{"id": "43ae02f75bde", "decision": "D2_agent", "pred": "Backend", "label": "Backend", "ms": 2483.0, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "43ae02f75bde", "decision": "D2_action", "pred": "read", "label": "read", "ms": 2483.0, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "91dd208482d4", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 7185.4, "usage_usd": 0.08839, "uncertain": true, "mode": "normal"}
+{"id": "91dd208482d4", "decision": "D2_agent", "pred": "Backend", "label": "Backend", "ms": 1353.3, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "91dd208482d4", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1353.3, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "ae049b2f45a7", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 7731.1, "usage_usd": 0.09034, "uncertain": false, "mode": "normal"}
+{"id": "ae049b2f45a7", "decision": "D2_agent", "pred": "Frontend", "label": "CTO Brain", "ms": 1357.1, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "ae049b2f45a7", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1357.1, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "e038e8457f40", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 10535.0, "usage_usd": 0.09011, "uncertain": false, "mode": "normal"}
+{"id": "e038e8457f40", "decision": "D2_agent", "pred": "Backend", "label": "CTO Brain", "ms": 1458.3, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "e038e8457f40", "decision": "D2_action", "pred": "change", "label": "read", "ms": 1458.3, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "bb47c61942a2", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 6783.6, "usage_usd": 0.09059, "uncertain": true, "mode": "normal"}
+{"id": "bb47c61942a2", "decision": "D2_agent", "pred": "Security & Compliance", "label": "CTO Brain", "ms": 1807.1, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "bb47c61942a2", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1807.1, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "610e33541c1e", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 6082.4, "usage_usd": 0.08919, "uncertain": false, "mode": "normal"}
+{"id": "610e33541c1e", "decision": "D2_agent", "pred": "Security & Compliance", "label": "CTO Brain", "ms": 2079.5, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "610e33541c1e", "decision": "D2_action", "pred": "read", "label": "read", "ms": 2079.5, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "fbb8ab53c4ce", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 6750.4, "usage_usd": 0.08848, "uncertain": true, "mode": "normal"}
+{"id": "fbb8ab53c4ce", "decision": "D2_agent", "pred": "CTO Brain", "label": "CTO Brain", "ms": 1422.3, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "fbb8ab53c4ce", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1422.3, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "1d33e661ac6f", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 5919.7, "usage_usd": 0.08804, "uncertain": false, "mode": "normal"}
+{"id": "1d33e661ac6f", "decision": "D2_agent", "pred": "CTO Brain", "label": "CTO Brain", "ms": 1481.8, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "1d33e661ac6f", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1481.8, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "e095c7dbd6d6", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 9022.0, "usage_usd": 0.09415, "uncertain": true, "mode": "normal"}
+{"id": "e095c7dbd6d6", "decision": "D2_agent", "pred": "CTO Brain", "label": "CTO Brain", "ms": 1515.1, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "e095c7dbd6d6", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1515.1, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "4776dc8508a5", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 5705.7, "usage_usd": 0.08889, "uncertain": false, "mode": "normal"}
+{"id": "4776dc8508a5", "decision": "D2_agent", "pred": "DevOps & Cloud", "label": "CTO Brain", "ms": 2012.3, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "4776dc8508a5", "decision": "D2_action", "pred": "read", "label": "read", "ms": 2012.3, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "a55754cbf9f2", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 4784.4, "usage_usd": 0.08853, "uncertain": false, "mode": "normal"}
+{"id": "a55754cbf9f2", "decision": "D2_agent", "pred": "CTO Brain", "label": "CTO Brain", "ms": 2843.4, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "a55754cbf9f2", "decision": "D2_action", "pred": "read", "label": "read", "ms": 2843.4, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "10aa2c45f1c9", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 7798.2, "usage_usd": 0.08895, "uncertain": false, "mode": "normal"}
+{"id": "10aa2c45f1c9", "decision": "D2_agent", "pred": "CTO Brain", "label": "CTO Brain", "ms": 1479.7, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "10aa2c45f1c9", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1479.7, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "f33d6a19eceb", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 6787.9, "usage_usd": 0.08834, "uncertain": false, "mode": "normal"}
+{"id": "f33d6a19eceb", "decision": "D2_agent", "pred": "DevOps & Cloud", "label": "CTO Brain", "ms": 2629.8, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "f33d6a19eceb", "decision": "D2_action", "pred": "read", "label": "read", "ms": 2629.8, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "d5d112ff26e7", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 7980.4, "usage_usd": 0.08943, "uncertain": false, "mode": "normal"}
+{"id": "d5d112ff26e7", "decision": "D2_agent", "pred": "DevOps & Cloud", "label": "CTO Brain", "ms": 1766.7, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "d5d112ff26e7", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1766.7, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "b359bece4813", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 8448.9, "usage_usd": 0.09015, "uncertain": false, "mode": "normal"}
+{"id": "b359bece4813", "decision": "D2_agent", "pred": "Security & Compliance", "label": "CTO Brain", "ms": 1131.7, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "b359bece4813", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1131.7, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "10913debb870", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 9582.3, "usage_usd": 0.09041, "uncertain": false, "mode": "normal"}
+{"id": "10913debb870", "decision": "D2_agent", "pred": "Security & Compliance", "label": "CTO Brain", "ms": 1589.9, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "10913debb870", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1589.9, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "e5ba3ba5c129", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 7993.8, "usage_usd": 0.08953, "uncertain": false, "mode": "normal"}
+{"id": "e5ba3ba5c129", "decision": "D2_agent", "pred": "Backend", "label": "CTO Brain", "ms": 2816.7, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "e5ba3ba5c129", "decision": "D2_action", "pred": "read", "label": "read", "ms": 2816.7, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "7c57d0153388", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 5410.2, "usage_usd": 0.08955, "uncertain": false, "mode": "normal"}
+{"id": "7c57d0153388", "decision": "D2_agent", "pred": "Backend", "label": "CTO Brain", "ms": 1633.6, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "7c57d0153388", "decision": "D2_action", "pred": "change", "label": "read", "ms": 1633.6, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "f5a549eb3bb9", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 8851.9, "usage_usd": 0.08824, "uncertain": false, "mode": "normal"}
+{"id": "f5a549eb3bb9", "decision": "D2_agent", "pred": "Backend", "label": "CTO Brain", "ms": 1420.1, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "f5a549eb3bb9", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1420.1, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "7e9ef9eab6b7", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 8594.3, "usage_usd": 0.09048, "uncertain": false, "mode": "normal"}
+{"id": "7e9ef9eab6b7", "decision": "D2_agent", "pred": "CTO Brain", "label": "CTO Brain", "ms": 3693.6, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "7e9ef9eab6b7", "decision": "D2_action", "pred": "read", "label": "read", "ms": 3693.6, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "10e07a4fd873", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 5904.5, "usage_usd": 0.08877, "uncertain": false, "mode": "normal"}
+{"id": "10e07a4fd873", "decision": "D2_agent", "pred": "Backend", "label": "CTO Brain", "ms": 2108.4, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "10e07a4fd873", "decision": "D2_action", "pred": "read", "label": "read", "ms": 2108.4, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "c39fcb554d3e", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 7854.4, "usage_usd": 0.08861, "uncertain": false, "mode": "normal"}
+{"id": "c39fcb554d3e", "decision": "D2_agent", "pred": "DevOps & Cloud", "label": "CTO Brain", "ms": 1669.4, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "c39fcb554d3e", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1669.4, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "fbcc5b4236e4", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 8835.0, "usage_usd": 0.09024, "uncertain": false, "mode": "normal"}
+{"id": "fbcc5b4236e4", "decision": "D2_agent", "pred": "CTO Brain", "label": "CTO Brain", "ms": 1746.7, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "fbcc5b4236e4", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1746.7, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "1161fa79a5d0", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 7654.7, "usage_usd": 0.0894, "uncertain": false, "mode": "normal"}
+{"id": "1161fa79a5d0", "decision": "D2_agent", "pred": "CTO Brain", "label": "CTO Brain", "ms": 2838.3, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "1161fa79a5d0", "decision": "D2_action", "pred": "read", "label": "read", "ms": 2838.3, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "c19e7958db71", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 8162.3, "usage_usd": 0.08981, "uncertain": false, "mode": "normal"}
+{"id": "c19e7958db71", "decision": "D2_agent", "pred": "QA & Testing", "label": "CTO Brain", "ms": 1715.6, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "c19e7958db71", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1715.6, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "f3724b0d120b", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 11253.6, "usage_usd": 0.0888, "uncertain": false, "mode": "normal"}
+{"id": "f3724b0d120b", "decision": "D2_agent", "pred": "QA & Testing", "label": "CTO Brain", "ms": 1945.0, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "f3724b0d120b", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1945.0, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "222b9d881fa4", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 7183.4, "usage_usd": 0.09173, "uncertain": false, "mode": "normal"}
+{"id": "222b9d881fa4", "decision": "D2_agent", "pred": "QA & Testing", "label": "CTO Brain", "ms": 1774.7, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "222b9d881fa4", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1774.7, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "b435293bc330", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 5671.6, "usage_usd": 0.08948, "uncertain": false, "mode": "normal"}
+{"id": "b435293bc330", "decision": "D2_agent", "pred": "CTO Brain", "label": "CTO Brain", "ms": 2071.8, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "b435293bc330", "decision": "D2_action", "pred": "read", "label": "read", "ms": 2071.8, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "d9cddcd998e7", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 7546.3, "usage_usd": 0.08947, "uncertain": false, "mode": "normal"}
+{"id": "d9cddcd998e7", "decision": "D2_agent", "pred": "CTO Brain", "label": "CTO Brain", "ms": 1760.2, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "d9cddcd998e7", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1760.2, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "ee6d9f530719", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 6908.8, "usage_usd": 0.08925, "uncertain": false, "mode": "normal"}
+{"id": "ee6d9f530719", "decision": "D2_agent", "pred": "CTO Brain", "label": "CTO Brain", "ms": 1828.8, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "ee6d9f530719", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1828.8, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "2fc060878a4a", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 5821.5, "usage_usd": 0.08984, "uncertain": false, "mode": "normal"}
+{"id": "2fc060878a4a", "decision": "D2_agent", "pred": "DevOps & Cloud", "label": "CTO Brain", "ms": 3193.9, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "2fc060878a4a", "decision": "D2_action", "pred": "read", "label": "read", "ms": 3193.9, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "7fdc0eb0df30", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 10140.2, "usage_usd": 0.08898, "uncertain": true, "mode": "normal"}
+{"id": "7fdc0eb0df30", "decision": "D2_agent", "pred": "Backend", "label": "CTO Brain", "ms": 1540.4, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "7fdc0eb0df30", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1540.4, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "a21eda6d15ac", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 10140.5, "usage_usd": 0.09174, "uncertain": false, "mode": "normal"}
+{"id": "a21eda6d15ac", "decision": "D2_agent", "pred": "CTO Brain", "label": "CTO Brain", "ms": 3598.6, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "a21eda6d15ac", "decision": "D2_action", "pred": "read", "label": "read", "ms": 3598.6, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "6dd548ef3f68", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 7363.4, "usage_usd": 0.08951, "uncertain": false, "mode": "normal"}
+{"id": "6dd548ef3f68", "decision": "D2_agent", "pred": "DevOps & Cloud", "label": "CTO Brain", "ms": 2335.9, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "6dd548ef3f68", "decision": "D2_action", "pred": "read", "label": "read", "ms": 2335.9, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "3ac76a126086", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 6604.5, "usage_usd": 0.08831, "uncertain": false, "mode": "normal"}
+{"id": "3ac76a126086", "decision": "D2_agent", "pred": "CTO Brain", "label": "CTO Brain", "ms": 1788.8, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "3ac76a126086", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1788.8, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "6320c65c240b", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 6633.4, "usage_usd": 0.08981, "uncertain": false, "mode": "normal"}
+{"id": "6320c65c240b", "decision": "D2_agent", "pred": "DevOps & Cloud", "label": "CTO Brain", "ms": 1988.3, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "6320c65c240b", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1988.3, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "074d23066ca9", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 7939.4, "usage_usd": 0.0893, "uncertain": false, "mode": "normal"}
+{"id": "074d23066ca9", "decision": "D2_agent", "pred": "CTO Brain", "label": "CTO Brain", "ms": 1837.1, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "074d23066ca9", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1837.1, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "477eaa621566", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 7242.7, "usage_usd": 0.0914, "uncertain": true, "mode": "normal"}
+{"id": "477eaa621566", "decision": "D2_agent", "pred": "Backend", "label": "CTO Brain", "ms": 1615.9, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "477eaa621566", "decision": "D2_action", "pred": "change", "label": "read", "ms": 1615.9, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "ce4644990f73", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 14643.3, "usage_usd": 0.09118, "uncertain": false, "mode": "normal"}
+{"id": "ce4644990f73", "decision": "D2_agent", "pred": "Frontend", "label": "CTO Brain", "ms": 2463.4, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "ce4644990f73", "decision": "D2_action", "pred": "change", "label": "read", "ms": 2463.4, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "3c68d796d752", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 8716.1, "usage_usd": 0.09073, "uncertain": false, "mode": "normal"}
+{"id": "3c68d796d752", "decision": "D2_agent", "pred": "Backend", "label": "CTO Brain", "ms": 1637.7, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "3c68d796d752", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1637.7, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "48431ec53f72", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 6476.7, "usage_usd": 0.09185, "uncertain": true, "mode": "normal"}
+{"id": "48431ec53f72", "decision": "D2_agent", "pred": "Backend", "label": "CTO Brain", "ms": 1966.9, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "48431ec53f72", "decision": "D2_action", "pred": "change", "label": "change", "ms": 1966.9, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "41186bc8da4b", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 9381.6, "usage_usd": 0.09081, "uncertain": true, "mode": "normal"}
+{"id": "41186bc8da4b", "decision": "D2_agent", "pred": "Backend", "label": "CTO Brain", "ms": 1430.0, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "41186bc8da4b", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1430.0, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "1a548616f08a", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 7731.9, "usage_usd": 0.09073, "uncertain": false, "mode": "normal"}
+{"id": "1a548616f08a", "decision": "D2_agent", "pred": "DevOps & Cloud", "label": "DevOps & Cloud", "ms": 3169.5, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "1a548616f08a", "decision": "D2_action", "pred": "read", "label": "read", "ms": 3169.5, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "a8851d066c3b", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 10120.1, "usage_usd": 0.09785, "uncertain": false, "mode": "normal"}
+{"id": "a8851d066c3b", "decision": "D2_agent", "pred": "DevOps & Cloud", "label": "DevOps & Cloud", "ms": 2723.9, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "a8851d066c3b", "decision": "D2_action", "pred": "change", "label": "change", "ms": 2723.9, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "26bff9e0ac35", "decision": "D1_mode", "pred": "orchestrate", "label": "orchestrate", "ms": 12492.5, "usage_usd": 0.10303, "uncertain": true, "mode": "normal"}
+{"id": "26bff9e0ac35", "decision": "D2_agent", "pred": "Backend", "label": "Backend", "ms": 2164.2, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "26bff9e0ac35", "decision": "D2_action", "pred": "change", "label": "change", "ms": 2164.2, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "3f176f335ebf", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 7482.7, "usage_usd": 0.09178, "uncertain": false, "mode": "normal"}
+{"id": "3f176f335ebf", "decision": "D2_agent", "pred": "Backend", "label": "CTO Brain", "ms": 1888.2, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "3f176f335ebf", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1888.2, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "0aa18532c163", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 9304.3, "usage_usd": 0.08888, "uncertain": false, "mode": "normal"}
+{"id": "0aa18532c163", "decision": "D2_agent", "pred": "CTO Brain", "label": "CTO Brain", "ms": 1762.1, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "0aa18532c163", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1762.1, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "d5558a7e3d4b", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 4874.0, "usage_usd": 0.08888, "uncertain": true, "mode": "normal"}
+{"id": "d5558a7e3d4b", "decision": "D2_agent", "pred": "Database", "label": "Backend", "ms": 2259.1, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "d5558a7e3d4b", "decision": "D2_action", "pred": "read", "label": "read", "ms": 2259.1, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "d5239a84d4ae", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 7121.7, "usage_usd": 0.0893, "uncertain": true, "mode": "normal"}
+{"id": "d5239a84d4ae", "decision": "D2_agent", "pred": "Database", "label": "Backend", "ms": 1472.1, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "d5239a84d4ae", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1472.1, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "476a396302c9", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 6486.7, "usage_usd": 0.0882, "uncertain": true, "mode": "normal"}
+{"id": "476a396302c9", "decision": "D2_agent", "pred": "Backend", "label": "Backend", "ms": 1574.7, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "476a396302c9", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1574.7, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "18acfee0c736", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 6951.5, "usage_usd": 0.08978, "uncertain": true, "mode": "normal"}
+{"id": "18acfee0c736", "decision": "D2_agent", "pred": "Backend", "label": "Backend", "ms": 1626.9, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "18acfee0c736", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1626.9, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "6ae58220fdfd", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 6917.4, "usage_usd": 0.08844, "uncertain": true, "mode": "normal"}
+{"id": "6ae58220fdfd", "decision": "D2_agent", "pred": "Backend", "label": "Backend", "ms": 1384.4, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "6ae58220fdfd", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1384.4, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "b5bb9747ce75", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 6758.1, "usage_usd": 0.08811, "uncertain": true, "mode": "normal"}
+{"id": "b5bb9747ce75", "decision": "D2_agent", "pred": "Backend", "label": "CTO Brain", "ms": 1491.0, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "b5bb9747ce75", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1491.0, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "4e6e970048ad", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 12281.8, "usage_usd": 0.0894, "uncertain": true, "mode": "normal"}
+{"id": "4e6e970048ad", "decision": "D2_agent", "pred": "Backend", "label": "Backend", "ms": 1374.4, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "4e6e970048ad", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1374.4, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "14600510b7d3", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 10459.4, "usage_usd": 0.09285, "uncertain": false, "mode": "normal"}
+{"id": "14600510b7d3", "decision": "D2_agent", "pred": "Security & Compliance", "label": "Security & Compliance", "ms": 1954.5, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "14600510b7d3", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1954.5, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "6647f74b690d", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 6806.3, "usage_usd": 0.09094, "uncertain": false, "mode": "normal"}
+{"id": "6647f74b690d", "decision": "D2_agent", "pred": "DevOps & Cloud", "label": "CTO Brain", "ms": 2339.7, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "6647f74b690d", "decision": "D2_action", "pred": "read", "label": "read", "ms": 2339.7, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "9b559509252d", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 11597.9, "usage_usd": 0.0963, "uncertain": true, "mode": "normal"}
+{"id": "9b559509252d", "decision": "D2_agent", "pred": "Security & Compliance", "label": "Security & Compliance", "ms": 1972.8, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "9b559509252d", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1972.8, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "150235d33839", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 12738.8, "usage_usd": 0.09742, "uncertain": false, "mode": "normal"}
+{"id": "150235d33839", "decision": "D2_agent", "pred": "DevOps & Cloud", "label": "DevOps & Cloud", "ms": 3791.6, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "150235d33839", "decision": "D2_action", "pred": "read", "label": "read", "ms": 3791.6, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "7890a76aee1b", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 9388.0, "usage_usd": 0.09395, "uncertain": false, "mode": "normal"}
+{"id": "7890a76aee1b", "decision": "D2_agent", "pred": "DevOps & Cloud", "label": "DevOps & Cloud", "ms": 2780.1, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "7890a76aee1b", "decision": "D2_action", "pred": "read", "label": "read", "ms": 2780.1, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "f39b7ef4638e", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 6983.9, "usage_usd": 0.09365, "uncertain": false, "mode": "normal"}
+{"id": "f39b7ef4638e", "decision": "D2_agent", "pred": "Backend", "label": "DevOps & Cloud", "ms": 2920.9, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "f39b7ef4638e", "decision": "D2_action", "pred": "change", "label": "read", "ms": 2920.9, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "65728b5dddda", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 6098.5, "usage_usd": 0.0891, "uncertain": false, "mode": "normal"}
+{"id": "65728b5dddda", "decision": "D2_agent", "pred": "DevOps & Cloud", "label": "CTO Brain", "ms": 3443.6, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "65728b5dddda", "decision": "D2_action", "pred": "read", "label": "read", "ms": 3443.6, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "6fecffdeec92", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 7566.2, "usage_usd": 0.09312, "uncertain": false, "mode": "normal"}
+{"id": "6fecffdeec92", "decision": "D2_agent", "pred": "DevOps & Cloud", "label": "DevOps & Cloud", "ms": 2134.7, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "6fecffdeec92", "decision": "D2_action", "pred": "change", "label": "read", "ms": 2134.7, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "920992cc9e1a", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 7831.8, "usage_usd": 0.09596, "uncertain": false, "mode": "normal"}
+{"id": "920992cc9e1a", "decision": "D2_agent", "pred": "DevOps & Cloud", "label": "DevOps & Cloud", "ms": 2148.6, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "920992cc9e1a", "decision": "D2_action", "pred": "read", "label": "read", "ms": 2148.6, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "a373f7a8935e", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 6713.9, "usage_usd": 0.09, "uncertain": false, "mode": "normal"}
+{"id": "a373f7a8935e", "decision": "D2_agent", "pred": "Backend", "label": "CTO Brain", "ms": 3068.6, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "a373f7a8935e", "decision": "D2_action", "pred": "change", "label": "change", "ms": 3068.6, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "823a601d34dc", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 7381.8, "usage_usd": 0.09118, "uncertain": false, "mode": "normal"}
+{"id": "823a601d34dc", "decision": "D2_agent", "pred": "Backend", "label": "CTO Brain", "ms": 1693.9, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "823a601d34dc", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1693.9, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "ffada71650b9", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 12581.2, "usage_usd": 0.09351, "uncertain": false, "mode": "normal"}
+{"id": "ffada71650b9", "decision": "D2_agent", "pred": "Backend", "label": "DevOps & Cloud", "ms": 1804.6, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "ffada71650b9", "decision": "D2_action", "pred": "change", "label": "change", "ms": 1804.6, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "814a79f18f0f", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 12263.6, "usage_usd": 0.09445, "uncertain": false, "mode": "normal"}
+{"id": "814a79f18f0f", "decision": "D2_agent", "pred": "DevOps & Cloud", "label": "DevOps & Cloud", "ms": 2288.0, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "814a79f18f0f", "decision": "D2_action", "pred": "read", "label": "read", "ms": 2288.0, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "198083b0905b", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 11124.7, "usage_usd": 0.09271, "uncertain": false, "mode": "normal"}
+{"id": "198083b0905b", "decision": "D2_agent", "pred": "Backend", "label": "DevOps & Cloud", "ms": 3450.1, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "198083b0905b", "decision": "D2_action", "pred": "change", "label": "change", "ms": 3450.1, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "ece3c8ec0025", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 9200.3, "usage_usd": 0.08907, "uncertain": false, "mode": "normal"}
+{"id": "ece3c8ec0025", "decision": "D2_agent", "pred": "Backend", "label": "CTO Brain", "ms": 1511.4, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "ece3c8ec0025", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1511.4, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "bc30afeec481", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 15090.0, "usage_usd": 0.09313, "uncertain": false, "mode": "normal"}
+{"id": "bc30afeec481", "decision": "D2_agent", "pred": "Backend", "label": "DevOps & Cloud", "ms": 1597.5, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "bc30afeec481", "decision": "D2_action", "pred": "change", "label": "change", "ms": 1597.5, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "2354a4989d8d", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 15021.4, "usage_usd": 0.09211, "uncertain": true, "mode": "normal"}
+{"id": "2354a4989d8d", "decision": "D2_agent", "pred": "Security & Compliance", "label": "DevOps & Cloud", "ms": 2027.0, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "2354a4989d8d", "decision": "D2_action", "pred": "read", "label": "change", "ms": 2027.0, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "3c70ca170d79", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 13676.8, "usage_usd": 0.09147, "uncertain": true, "mode": "normal"}
+{"id": "3c70ca170d79", "decision": "D2_agent", "pred": "DevOps & Cloud", "label": "DevOps & Cloud", "ms": 1732.0, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "3c70ca170d79", "decision": "D2_action", "pred": "read", "label": "change", "ms": 1732.0, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "7938c55b6858", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 7212.7, "usage_usd": 0.08973, "uncertain": false, "mode": "normal"}
+{"id": "7938c55b6858", "decision": "D2_agent", "pred": "Backend", "label": "DevOps & Cloud", "ms": 2029.9, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "7938c55b6858", "decision": "D2_action", "pred": "read", "label": "read", "ms": 2029.9, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "c1305dd4205c", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 8411.8, "usage_usd": 0.09057, "uncertain": true, "mode": "normal"}
+{"id": "c1305dd4205c", "decision": "D2_agent", "pred": "DevOps & Cloud", "label": "CTO Brain", "ms": 1841.1, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "c1305dd4205c", "decision": "D2_action", "pred": "change", "label": "read", "ms": 1841.1, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "df042e6b1f05", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 11133.4, "usage_usd": 0.09333, "uncertain": false, "mode": "normal"}
+{"id": "df042e6b1f05", "decision": "D2_agent", "pred": "DevOps & Cloud", "label": "DevOps & Cloud", "ms": 1850.5, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "df042e6b1f05", "decision": "D2_action", "pred": "change", "label": "change", "ms": 1850.5, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "32160648f753", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 10715.9, "usage_usd": 0.09098, "uncertain": true, "mode": "normal"}
+{"id": "32160648f753", "decision": "D2_agent", "pred": "Database", "label": "DevOps & Cloud", "ms": 2325.0, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "32160648f753", "decision": "D2_action", "pred": "change", "label": "read", "ms": 2325.0, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "6afd1fa82c96", "decision": "D1_mode", "pred": "direct", "label": "orchestrate", "ms": 8239.2, "usage_usd": 0.09027, "uncertain": true, "mode": "normal"}
+{"id": "6afd1fa82c96", "decision": "D2_agent", "pred": "Backend", "label": "DevOps & Cloud", "ms": 3429.8, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "6afd1fa82c96", "decision": "D2_action", "pred": "change", "label": "change", "ms": 3429.8, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "a33aa1747737", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 15441.8, "usage_usd": 0.09212, "uncertain": true, "mode": "normal"}
+{"id": "a33aa1747737", "decision": "D2_agent", "pred": "Backend", "label": "CTO Brain", "ms": 2537.2, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "a33aa1747737", "decision": "D2_action", "pred": "change", "label": "change", "ms": 2537.2, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "fd27600ca61e", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 13503.5, "usage_usd": 0.09085, "uncertain": true, "mode": "normal"}
+{"id": "fd27600ca61e", "decision": "D2_agent", "pred": "Backend", "label": "CTO Brain", "ms": 1409.5, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "fd27600ca61e", "decision": "D2_action", "pred": "change", "label": "change", "ms": 1409.5, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "c64c82f43e3e", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 23283.7, "usage_usd": 0.09059, "uncertain": false, "mode": "normal"}
+{"id": "c64c82f43e3e", "decision": "D2_agent", "pred": "Backend", "label": "CTO Brain", "ms": 1426.8, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "c64c82f43e3e", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1426.8, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "f55a7cbf8545", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 10549.2, "usage_usd": 0.10589, "uncertain": false, "mode": "normal"}
+{"id": "f55a7cbf8545", "decision": "D2_agent", "pred": "DevOps & Cloud", "label": "DevOps & Cloud", "ms": 10796.1, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "f55a7cbf8545", "decision": "D2_action", "pred": "change", "label": "change", "ms": 10796.1, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "a5cc76e37a69", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 9140.3, "usage_usd": 0.09406, "uncertain": false, "mode": "normal"}
+{"id": "a5cc76e37a69", "decision": "D2_agent", "pred": "DevOps & Cloud", "label": "CTO Brain", "ms": 12004.5, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "a5cc76e37a69", "decision": "D2_action", "pred": "change", "label": "read", "ms": 12004.5, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "b5704eaec0c2", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 9093.2, "usage_usd": 0.08998, "uncertain": false, "mode": "normal"}
+{"id": "b5704eaec0c2", "decision": "D2_agent", "pred": "CTO Brain", "label": "CTO Brain", "ms": 2096.4, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "b5704eaec0c2", "decision": "D2_action", "pred": "read", "label": "read", "ms": 2096.4, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "f906f8692289", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 8274.1, "usage_usd": 0.08969, "uncertain": false, "mode": "normal"}
+{"id": "f906f8692289", "decision": "D2_agent", "pred": "Backend", "label": "CTO Brain", "ms": 1445.8, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "f906f8692289", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1445.8, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "46d922971678", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 11863.3, "usage_usd": 0.09612, "uncertain": true, "mode": "normal"}
+{"id": "46d922971678", "decision": "D2_agent", "pred": "DevOps & Cloud", "label": "DevOps & Cloud", "ms": 2061.6, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "46d922971678", "decision": "D2_action", "pred": "read", "label": "change", "ms": 2061.6, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "0faa1ab44e9d", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 7174.3, "usage_usd": 0.09041, "uncertain": false, "mode": "normal"}
+{"id": "0faa1ab44e9d", "decision": "D2_agent", "pred": "Security & Compliance", "label": "CTO Brain", "ms": 2538.4, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "0faa1ab44e9d", "decision": "D2_action", "pred": "read", "label": "read", "ms": 2538.4, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "f6772ee7dfd7", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 8046.9, "usage_usd": 0.09239, "uncertain": true, "mode": "normal"}
+{"id": "f6772ee7dfd7", "decision": "D2_agent", "pred": "DevOps & Cloud", "label": "DevOps & Cloud", "ms": 1794.9, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "f6772ee7dfd7", "decision": "D2_action", "pred": "read", "label": "change", "ms": 1794.9, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "72424baff87f", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 10313.9, "usage_usd": 0.09347, "uncertain": true, "mode": "normal"}
+{"id": "72424baff87f", "decision": "D2_agent", "pred": "Backend", "label": "CTO Brain", "ms": 2100.5, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "72424baff87f", "decision": "D2_action", "pred": "change", "label": "change", "ms": 2100.5, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "29aaf528f0ab", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 6498.2, "usage_usd": 0.09073, "uncertain": true, "mode": "normal"}
+{"id": "29aaf528f0ab", "decision": "D2_agent", "pred": "Backend", "label": "CTO Brain", "ms": 3653.1, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "29aaf528f0ab", "decision": "D2_action", "pred": "change", "label": "change", "ms": 3653.1, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "bf4a00b2226e", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 8469.1, "usage_usd": 0.09659, "uncertain": true, "mode": "normal"}
+{"id": "bf4a00b2226e", "decision": "D2_agent", "pred": "DevOps & Cloud", "label": "DevOps & Cloud", "ms": 2409.4, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "bf4a00b2226e", "decision": "D2_action", "pred": "read", "label": "read", "ms": 2409.4, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "21564b288750", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 13622.4, "usage_usd": 0.09348, "uncertain": true, "mode": "normal"}
+{"id": "21564b288750", "decision": "D2_agent", "pred": "Security & Compliance", "label": "DevOps & Cloud", "ms": 873.4, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "21564b288750", "decision": "D2_action", "pred": "read", "label": "read", "ms": 873.4, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "dcf930fb79de", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 5727.8, "usage_usd": 0.08986, "uncertain": false, "mode": "normal"}
+{"id": "dcf930fb79de", "decision": "D2_agent", "pred": "DevOps & Cloud", "label": "DevOps & Cloud", "ms": 1910.6, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "dcf930fb79de", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1910.6, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "80c9b91f43fd", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 7743.3, "usage_usd": 0.09022, "uncertain": true, "mode": "normal"}
+{"id": "80c9b91f43fd", "decision": "D2_agent", "pred": "DevOps & Cloud", "label": "CTO Brain", "ms": 974.8, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "80c9b91f43fd", "decision": "D2_action", "pred": "change", "label": "change", "ms": 974.8, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "fe9e1798dd46", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 10767.1, "usage_usd": 0.09043, "uncertain": true, "mode": "normal"}
+{"id": "fe9e1798dd46", "decision": "D2_agent", "pred": "Backend", "label": "CTO Brain", "ms": 829.4, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "fe9e1798dd46", "decision": "D2_action", "pred": "change", "label": "change", "ms": 829.4, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "ddc523d14140", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 7110.9, "usage_usd": 0.0913, "uncertain": true, "mode": "normal"}
+{"id": "ddc523d14140", "decision": "D2_agent", "pred": "Backend", "label": "CTO Brain", "ms": 831.4, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "ddc523d14140", "decision": "D2_action", "pred": "change", "label": "change", "ms": 831.4, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "021edfe3c36c", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 6656.3, "usage_usd": 0.09023, "uncertain": false, "mode": "normal"}
+{"id": "021edfe3c36c", "decision": "D2_agent", "pred": "CTO Brain", "label": "CTO Brain", "ms": 1193.1, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "021edfe3c36c", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1193.1, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "0353ae7098d0", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 12605.1, "usage_usd": 0.09237, "uncertain": true, "mode": "normal"}
+{"id": "0353ae7098d0", "decision": "D2_agent", "pred": "DevOps & Cloud", "label": "DevOps & Cloud", "ms": 1641.6, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "0353ae7098d0", "decision": "D2_action", "pred": "read", "label": "change", "ms": 1641.6, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "dd08cbe092c0", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 10506.0, "usage_usd": 0.09402, "uncertain": true, "mode": "normal"}
+{"id": "dd08cbe092c0", "decision": "D2_agent", "pred": "Security & Compliance", "label": "Security & Compliance", "ms": 1155.8, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "dd08cbe092c0", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1155.8, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "c99afd979e6f", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 9142.7, "usage_usd": 0.09113, "uncertain": true, "mode": "normal"}
+{"id": "c99afd979e6f", "decision": "D2_agent", "pred": "Backend", "label": "Backend", "ms": 905.8, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "c99afd979e6f", "decision": "D2_action", "pred": "read", "label": "read", "ms": 905.8, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "d6c6361a7aff", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 10575.2, "usage_usd": 0.08947, "uncertain": true, "mode": "normal"}
+{"id": "d6c6361a7aff", "decision": "D2_agent", "pred": "Database", "label": "Backend", "ms": 732.1, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "d6c6361a7aff", "decision": "D2_action", "pred": "read", "label": "read", "ms": 732.1, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "2a04791b2b30", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 30669.9, "usage_usd": 0.09181, "uncertain": false, "mode": "normal"}
+{"id": "2a04791b2b30", "decision": "D2_agent", "pred": "CTO Brain", "label": "CTO Brain", "ms": 829.2, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "2a04791b2b30", "decision": "D2_action", "pred": "read", "label": "read", "ms": 829.2, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "e5b46f88afcd", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 13128.6, "usage_usd": 0.09353, "uncertain": true, "mode": "normal"}
+{"id": "e5b46f88afcd", "decision": "D2_agent", "pred": "Backend", "label": "CTO Brain", "ms": 842.5, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "e5b46f88afcd", "decision": "D2_action", "pred": "read", "label": "read", "ms": 842.5, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "4a86c1d8ff24", "decision": "D1_mode", "pred": "direct", "label": "orchestrate", "ms": 24399.8, "usage_usd": 0.10097, "uncertain": true, "mode": "normal"}
+{"id": "4a86c1d8ff24", "decision": "D2_agent", "pred": "Backend", "label": "CTO Brain", "ms": 1297.7, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "4a86c1d8ff24", "decision": "D2_action", "pred": "change", "label": "change", "ms": 1297.7, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "a5c1003d2fba", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 7771.6, "usage_usd": 0.09715, "uncertain": false, "mode": "normal"}
+{"id": "a5c1003d2fba", "decision": "D2_agent", "pred": "Backend", "label": "DevOps & Cloud", "ms": 1533.5, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "a5c1003d2fba", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1533.5, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "958d4de4bee1", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 9843.9, "usage_usd": 0.09631, "uncertain": false, "mode": "normal"}
+{"id": "958d4de4bee1", "decision": "D2_agent", "pred": "DevOps & Cloud", "label": "DevOps & Cloud", "ms": 997.2, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "958d4de4bee1", "decision": "D2_action", "pred": "change", "label": "read", "ms": 997.2, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "65af7e1c5c5c", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 9330.8, "usage_usd": 0.09548, "uncertain": false, "mode": "normal"}
+{"id": "65af7e1c5c5c", "decision": "D2_agent", "pred": "DevOps & Cloud", "label": "DevOps & Cloud", "ms": 1219.1, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "65af7e1c5c5c", "decision": "D2_action", "pred": "change", "label": "read", "ms": 1219.1, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "991ced3a5b70", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 9929.5, "usage_usd": 0.09366, "uncertain": true, "mode": "normal"}
+{"id": "991ced3a5b70", "decision": "D2_agent", "pred": "Backend", "label": "Backend", "ms": 929.4, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "991ced3a5b70", "decision": "D2_action", "pred": "read", "label": "read", "ms": 929.4, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "e3aacb8c1709", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 6431.2, "usage_usd": 0.08953, "uncertain": false, "mode": "normal"}
+{"id": "e3aacb8c1709", "decision": "D2_agent", "pred": "Backend", "label": "CTO Brain", "ms": 727.4, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "e3aacb8c1709", "decision": "D2_action", "pred": "read", "label": "read", "ms": 727.4, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "27551b1ef03b", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 8331.6, "usage_usd": 0.08898, "uncertain": false, "mode": "normal"}
+{"id": "27551b1ef03b", "decision": "D2_agent", "pred": "CTO Brain", "label": "CTO Brain", "ms": 828.2, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "27551b1ef03b", "decision": "D2_action", "pred": "read", "label": "read", "ms": 828.2, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "06e7217f525e", "decision": "D1_mode", "pred": "direct", "label": "direct", "ms": 10021.6, "usage_usd": 0.09006, "uncertain": false, "mode": "normal"}
+{"id": "06e7217f525e", "decision": "D2_agent", "pred": "DevOps & Cloud", "label": "DevOps & Cloud", "ms": 920.0, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "06e7217f525e", "decision": "D2_action", "pred": "read", "label": "read", "ms": 920.0, "usage_usd": 0.0, "uncertain": false, "mode": "normal"}
+{"id": "dba1a8ebeed9", "decision": "D1_mode", "pred": "orchestrate", "label": "orchestrate", "ms": 13081.6, "usage_usd": 0.09916, "uncertain": true, "mode": "normal"}
+{"id": "dba1a8ebeed9", "decision": "D2_agent", "pred": "Backend", "label": "Backend", "ms": 1064.7, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "dba1a8ebeed9", "decision": "D2_action", "pred": "change", "label": "change", "ms": 1064.7, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "b5f1c4c99fd2", "decision": "D1_mode", "pred": "direct", "label": "orchestrate", "ms": 11912.8, "usage_usd": 0.09595, "uncertain": true, "mode": "normal"}
+{"id": "b5f1c4c99fd2", "decision": "D2_agent", "pred": "Backend", "label": "DevOps & Cloud", "ms": 1023.8, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "b5f1c4c99fd2", "decision": "D2_action", "pred": "change", "label": "change", "ms": 1023.8, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "3ec8d5eadbcc", "decision": "D1_mode", "pred": "direct", "label": "orchestrate", "ms": 7670.0, "usage_usd": 0.09478, "uncertain": true, "mode": "normal"}
+{"id": "3ec8d5eadbcc", "decision": "D2_agent", "pred": "Security & Compliance", "label": "Backend", "ms": 1116.9, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "3ec8d5eadbcc", "decision": "D2_action", "pred": "read", "label": "read", "ms": 1116.9, "usage_usd": 0.0, "uncertain": true, "mode": "normal"}
+{"id": "250cc7dba8fa", "decision": "D9_nature", "pred": "operational", "label": "operational", "ms": 18398.1, "usage_usd": 0.11199, "uncertain": false, "mode": "normal"}
+{"id": "cf3d76cc0cda", "decision": "D9_nature", "pred": "operational", "label": "operational", "ms": 41880.5, "usage_usd": 0.2932, "uncertain": false, "mode": "normal"}
+{"id": "4970eb9c76fc", "decision": "D9_nature", "pred": "technical", "label": "technical", "ms": 23229.0, "usage_usd": 0.12196, "uncertain": false, "mode": "normal"}
+{"id": "d1c892059c56", "decision": "D9_nature", "pred": "technical", "label": "technical", "ms": 29367.1, "usage_usd": 0.21938, "uncertain": false, "mode": "normal"}
+{"id": "f10b1e78fc1b", "decision": "D9_nature", "pred": "technical", "label": "technical", "ms": 18374.8, "usage_usd": 0.1143, "uncertain": false, "mode": "normal"}
+{"id": "ce908d4b52b1", "decision": "D9_nature", "pred": "operational", "label": "operational", "ms": 20792.3, "usage_usd": 0.11547, "uncertain": false, "mode": "normal"}
+{"id": "a91516004ca7", "decision": "D9_nature", "pred": "operational", "label": "operational", "ms": 30214.4, "usage_usd": 0.12258, "uncertain": true, "mode": "normal"}
+{"id": "44da90629491", "decision": "D9_nature", "pred": "technical", "label": "operational", "ms": 28032.4, "usage_usd": 0.11674, "uncertain": false, "mode": "normal"}
+{"id": "65376ad31e44", "decision": "D9_nature", "pred": "technical", "label": "technical", "ms": 27692.5, "usage_usd": 0.12653, "uncertain": false, "mode": "normal"}
+{"id": "8c31cc233385", "decision": "D9_nature", "pred": "operational", "label": "operational", "ms": 30530.6, "usage_usd": 0.11277, "uncertain": true, "mode": "normal"}
+{"id": "8b80fd1214d1", "decision": "D9_nature", "pred": "operational", "label": "technical", "ms": 41741.9, "usage_usd": 0.21608, "uncertain": false, "mode": "normal"}
+{"id": "ed774ff805d9", "decision": "D9_nature", "pred": "operational", "label": "operational", "ms": 44303.2, "usage_usd": 0.11085, "uncertain": false, "mode": "normal"}
+{"id": "bd1cc449e39a", "decision": "D9_nature", "pred": "technical", "label": "technical", "ms": 28449.9, "usage_usd": 0.12863, "uncertain": false, "mode": "normal"}
+{"id": "c43a03c9015e", "decision": "D9_nature", "pred": "operational", "label": "operational", "ms": 33537.8, "usage_usd": 0.24935, "uncertain": true, "mode": "normal"}
+{"id": "cb8735985181", "decision": "D9_nature", "pred": "operational", "label": "operational", "ms": 26166.1, "usage_usd": 0.12493, "uncertain": false, "mode": "normal"}
+{"id": "c6893a9b416c", "decision": "D9_nature", "pred": "technical", "label": "operational", "ms": 25217.6, "usage_usd": 0.06383, "uncertain": false, "mode": "normal"}
+{"id": "9b5d9cfd7d4c", "decision": "D9_nature", "pred": "technical", "label": "technical", "ms": 27716.4, "usage_usd": 0.04792, "uncertain": false, "mode": "normal"}
+{"id": "3df98b6ff0fe", "decision": "D9_nature", "pred": "operational", "label": "operational", "ms": 32681.9, "usage_usd": 0.19262, "uncertain": true, "mode": "normal"}
+{"id": "288b6518dd95", "decision": "D9_nature", "pred": "technical", "label": "operational", "ms": 23610.5, "usage_usd": 0.05583, "uncertain": false, "mode": "normal"}
+{"id": "2adad89184aa", "decision": "D9_nature", "pred": "operational", "label": "operational", "ms": 21134.0, "usage_usd": 0.05451, "uncertain": false, "mode": "normal"}
+{"id": "630e06c696ab", "decision": "D9_nature", "pred": "operational", "label": "operational", "ms": 19365.4, "usage_usd": 0.05237, "uncertain": false, "mode": "normal"}
+{"id": "b64f4697eef2", "decision": "D9_nature", "pred": "operational", "label": "operational", "ms": 23446.1, "usage_usd": 0.06108, "uncertain": false, "mode": "normal"}
+{"id": "dd0f38602dee", "decision": "D9_nature", "pred": "operational", "label": "operational", "ms": 27748.9, "usage_usd": 0.05873, "uncertain": false, "mode": "normal"}
+{"id": "d6b1ab62a3c4", "decision": "D4_qa", "pred": "no", "label": "yes", "ms": 6764.1, "usage_usd": 0.02734, "uncertain": true, "mode": "normal"}
+{"id": "a7d04f6961b2", "decision": "D4_qa", "pred": "no", "label": "no", "ms": 12294.7, "usage_usd": 0.02877, "uncertain": false, "mode": "normal"}
+{"id": "59bb530e9013", "decision": "D4_qa", "pred": "yes", "label": "no", "ms": 10669.0, "usage_usd": 0.03524, "uncertain": false, "mode": "normal"}
+{"id": "c5292a7e9f17", "decision": "D4_qa", "pred": "no", "label": "no", "ms": 12631.6, "usage_usd": 0.02768, "uncertain": false, "mode": "normal"}
+{"id": "b5e28048fb86", "decision": "D4_qa", "pred": "no", "label": "no", "ms": 11841.5, "usage_usd": 0.02831, "uncertain": true, "mode": "normal"}
+{"id": "fccf6f4b408b", "decision": "D4_qa", "pred": "no", "label": "no", "ms": 11152.9, "usage_usd": 0.02781, "uncertain": true, "mode": "normal"}
+{"id": "a83cd3612d97", "decision": "D4_qa", "pred": "no", "label": "no", "ms": 11641.3, "usage_usd": 0.02958, "uncertain": true, "mode": "normal"}
+{"id": "7666605aa85f", "decision": "D4_qa", "pred": "no", "label": "no", "ms": 13897.7, "usage_usd": 0.02744, "uncertain": false, "mode": "normal"}
+{"id": "420cc1160bcc", "decision": "D4_qa", "pred": "no", "label": "no", "ms": 14844.7, "usage_usd": 0.02841, "uncertain": false, "mode": "normal"}
+{"id": "45594e115cf7", "decision": "D4_qa", "pred": "no", "label": "no", "ms": 8015.0, "usage_usd": 0.03121, "uncertain": false, "mode": "normal"}
+{"id": "876c44654d4f", "decision": "D4_qa", "pred": "no", "label": "no", "ms": 6827.3, "usage_usd": 0.02765, "uncertain": false, "mode": "normal"}
+{"id": "7b5c141dc0e2", "decision": "D4_qa", "pred": "no", "label": "no", "ms": 7774.2, "usage_usd": 0.0272, "uncertain": false, "mode": "normal"}
+{"id": "37b252e07ff0", "decision": "D4_qa", "pred": "no", "label": "no", "ms": 14490.1, "usage_usd": 0.02782, "uncertain": false, "mode": "normal"}
+{"id": "c6448b9ba442", "decision": "D4_qa", "pred": "yes", "label": "yes", "ms": 18451.7, "usage_usd": 0.03782, "uncertain": false, "mode": "normal"}
+{"id": "847d0a4b48e5", "decision": "D4_qa", "pred": "no", "label": "no", "ms": 8921.0, "usage_usd": 0.02905, "uncertain": false, "mode": "normal"}
+{"id": "3f968c59063f", "decision": "D4_qa", "pred": "no", "label": "no", "ms": 8481.7, "usage_usd": 0.02775, "uncertain": false, "mode": "normal"}
+{"id": "d96e85274ce4", "decision": "D4_qa", "pred": "yes", "label": "yes", "ms": 8370.3, "usage_usd": 0.0285, "uncertain": false, "mode": "normal"}
+{"id": "f53e334a5e60", "decision": "D4_qa", "pred": "no", "label": "no", "ms": 9695.5, "usage_usd": 0.02949, "uncertain": false, "mode": "normal"}
+{"id": "94dc07636e82", "decision": "D4_qa", "pred": "no", "label": "no", "ms": 11031.8, "usage_usd": 0.03007, "uncertain": false, "mode": "normal"}
+{"id": "74263b620174", "decision": "D4_qa", "pred": "no", "label": "no", "ms": 11357.6, "usage_usd": 0.03083, "uncertain": false, "mode": "normal"}
+{"id": "8f5621e9d71d", "decision": "D4_qa", "pred": "no", "label": "no", "ms": 6099.3, "usage_usd": 0.02852, "uncertain": false, "mode": "normal"}
+{"id": "d4a83024f9bf", "decision": "D4_qa", "pred": "yes", "label": "yes", "ms": 11909.6, "usage_usd": 0.0277, "uncertain": false, "mode": "normal"}
+{"id": "dc7e09ef97c3", "decision": "D4_qa", "pred": "no", "label": "no", "ms": 10189.6, "usage_usd": 0.02809, "uncertain": true, "mode": "normal"}
+{"id": "9f2a7ffa5067", "decision": "D4_qa", "pred": "yes", "label": "yes", "ms": 8923.3, "usage_usd": 0.02801, "uncertain": false, "mode": "normal"}
+{"id": "01a5b36a09c4", "decision": "D4_qa", "pred": "no", "label": "no", "ms": 11353.8, "usage_usd": 0.02724, "uncertain": false, "mode": "normal"}
+{"id": "c08d29a182c9", "decision": "D4_qa", "pred": "no", "label": "no", "ms": 9595.9, "usage_usd": 0.02691, "uncertain": false, "mode": "normal"}
+{"id": "e9aabc5ed644", "decision": "D4_qa", "pred": "yes", "label": "yes", "ms": 9679.8, "usage_usd": 0.02803, "uncertain": false, "mode": "normal"}
+{"id": "69a268e8027b", "decision": "D4_qa", "pred": "no", "label": "no", "ms": 12444.4, "usage_usd": 0.03205, "uncertain": false, "mode": "normal"}
+{"id": "392c426b642e", "decision": "D4_qa", "pred": "no", "label": "no", "ms": 12818.4, "usage_usd": 0.03265, "uncertain": false, "mode": "normal"}
+{"id": "27c558f15fe9", "decision": "D4_qa", "pred": "no", "label": "no", "ms": 11920.7, "usage_usd": 0.02719, "uncertain": false, "mode": "normal"}
+{"id": "b496e8078fb7", "decision": "D4_qa", "pred": "no", "label": "no", "ms": 9607.9, "usage_usd": 0.02792, "uncertain": false, "mode": "normal"}
+{"id": "e4f67c7c8162", "decision": "D4_qa", "pred": "no", "label": "no", "ms": 10928.0, "usage_usd": 0.03, "uncertain": false, "mode": "normal"}

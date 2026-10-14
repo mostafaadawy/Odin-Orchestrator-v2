@@ -1,0 +1,51 @@
+{
+  "pending_code": {
+    "code": "879106",
+    "email": "tech@odinmarkets.com",
+    "ts": 1783277894.517152,
+    "used": false
+  },
+  "sessions": {
+    "26b52cf00b2fc6d5adbe33d2972f8bf9": {
+      "ts": 1784490745.708628
+    },
+    "8b7953d5cae16c12547f0943bbfdba0d": {
+      "ts": 1784490820.8633978
+    },
+    "251a24cf6e0a326158b336c00e07b8fa": {
+      "ts": 1784497994.423946
+    },
+    "eb725756e6328bcafc41746083a666c7": {
+      "ts": 1785583380.160277
+    },
+    "ace81026a79958a771d2459ade4fa841": {
+      "ts": 1785583760.3301609
+    }
+  },
+  "devices": {
+    "dev_test": {
+      "ts": 1783244663.6253545
+    },
+    "dev_wlhn5f2wf4mr7o9sw4": {
+      "ts": 1783248816.689402
+    }
+  },
+  "settings": {
+    "allow_mobile": true,
+    "allow_web": true
+  },
+  "pending_codes": {
+    "web": {
+      "code": "978661",
+      "email": "tech@odinmarkets.com",
+      "ts": 1785583315.485945,
+      "used": true
+    },
+    "mobile": {
+      "code": "190429",
+      "email": "tech@odinmarkets.com",
+      "ts": 1785583738.011874,
+      "used": true
+    }
+  }
+}

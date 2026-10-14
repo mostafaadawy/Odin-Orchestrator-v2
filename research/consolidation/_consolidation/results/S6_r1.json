@@ -1,0 +1,185 @@
+{
+ "scenario": "S6",
+ "rep": 1,
+ "pid": null,
+ "seconds": 1.7,
+ "cost_usd": 0.0,
+ "spent_total": 0.0,
+ "record": {
+  "door_cross_write": {
+   "path": "/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/workspace/projects/revealer-6978/code/s6_probe_r1.py",
+   "corrected": true,
+   "note": "cross-owner write prevented: project/revealer-6978 may not write into project/hubspot-crm-operator \u2014 redirected to its own folder (use request_capability to reuse the other owner's work)",
+   "owner_id": "revealer-6978",
+   "requested_subfolder": "code",
+   "final_subfolder": "code",
+   "scope_redirected": true
+  },
+  "scan_before": [
+   {
+    "type": "misplaced",
+    "path": "workspace/projects/revealer-6978/loose_s6_r1.py",
+    "reason": "'loose_s6_r1.py' is not an allowed project-root file (belongs in a subfolder)"
+   },
+   {
+    "type": "unindexed",
+    "path": "workspace/projects/revealer-6978/loose_s6_r1.py"
+   },
+   {
+    "type": "unindexed",
+    "path": "workspace/projects/hubspot-crm-operator/code/from_revealer-6978_r1.py"
+   },
+   {
+    "type": "unindexed",
+    "path": "workspace/projects/hubspot-crm-operator/code/dup_test_r1.py"
+   },
+   {
+    "type": "foreign-ref",
+    "path": "workspace/projects/hubspot-crm-operator/code/from_revealer-6978_r1.py",
+    "owner": "hubspot-crm-operator",
+    "references": "revealer-6978",
+    "ref_match": "workspace/projects/revealer-6978/tests/project_test.py",
+    "target": "workspace/projects/revealer-6978/tests/project_test.py",
+    "target_exists": true,
+    "reason": "project hubspot-crm-operator references files inside project revealer-6978 \u2014 must go through shared/"
+   }
+  ],
+  "sentinel": {
+   "total": 4,
+   "hard": 0
+  },
+  "scan_after": [],
+  "where_now": {
+   "projects/revealer-6978/loose_s6_r1.py": false,
+   "projects/hubspot-crm-operator/code/from_revealer-6978_r1.py": true,
+   "projects/hubspot-crm-operator/code/dup_test_r1.py": true
+  },
+  "audit_log_tail": [
+   "{\"ts\": \"2026-10-10T23:00:57.108090\", \"type\": \"unindexed\", \"path\": \"workspace/projects/revealer-6978/loose_s6_r1.py\", \"fix\": \"indexed into odin_core_con\"}",
+   "{\"ts\": \"2026-10-10T23:00:57.111219\", \"type\": \"unindexed\", \"path\": \"workspace/projects/hubspot-crm-operator/code/from_revealer-6978_r1.py\", \"fix\": \"indexed into odin_core_con\"}",
+   "{\"ts\": \"2026-10-10T23:00:57.114559\", \"type\": \"unindexed\", \"path\": \"workspace/projects/hubspot-crm-operator/code/dup_test_r1.py\", \"fix\": \"indexed into odin_core_con\"}",
+   "{\"ts\": \"2026-10-10T23:00:57.115968\", \"type\": \"root-stray\", \"path\": \"_isolation\", \"reason\": \"created OUTSIDE workspace and the core apps\", \"fix\": \"FLAGGED: stray outside workspace \u2014 owner review (may be legit core work)\"}",
+   "{\"ts\": \"2026-10-10T23:00:57.117295\", \"type\": \"root-stray\", \"path\": \"_research\", \"reason\": \"created OUTSIDE workspace and the core apps\", \"fix\": \"FLAGGED: stray outside workspace \u2014 owner review (may be legit core work)\"}",
+   "{\"ts\": \"2026-10-10T23:00:57.118636\", \"type\": \"root-stray\", \"path\": \"_external\", \"reason\": \"created OUTSIDE workspace and the core apps\", \"fix\": \"FLAGGED: stray outside workspace \u2014 owner review (may be legit core work)\"}",
+   "{\"ts\": \"2026-10-10T23:00:57.119938\", \"type\": \"root-stray\", \"path\": \"_consolidation\", \"reason\": \"created OUTSIDE workspace and the core apps\", \"fix\": \"FLAGGED: stray outside workspace \u2014 owner review (may be legit core work)\"}",
+   "{\"ts\": \"2026-10-10T23:00:57.135321\", \"type\": \"foreign-ref\", \"path\": \"workspace/projects/hubspot-crm-operator/code/from_revealer-6978_r1.py\", \"owner\": \"hubspot-crm-operator\", \"references\": \"revealer-6978\", \"ref_match\": \"workspace/projects/revealer-6978/tests/project_test.py\", \"target\": \"workspace/projects/revealer-6978/tests/project_test.py\", \"target_exists\": true, \"reason\": \"project hubspot-crm-operator references files inside project revealer-6978 \u2014 must go through shared/\", \"fix\": \"promoted revealer-6978's referenced file -> shared/testing/project_test.py; repointed ['project/revealer-6978', 'project/hubspot-crm-operator']; referrer source rewritten: False\"}"
+  ],
+  "mw_corrections_tail": [
+   "{\"ts\": \"2026-07-19T19:56:25.207144\", \"owner\": \"project/_s_a\", \"file\": \"x.py\", \"requested\": \"code\", \"corrected_to\": \"code\", \"note\": \"cross-owner write prevented: project/_s_a may not write into agent/_s_agent \u2014 redirected to its own folder (use request_capability to reuse the other owner's work)\"}",
+   "{\"ts\": \"2026-07-30T16:55:41.270713\", \"owner\": \"agent/fulfillment\", \"file\": \"_probe_cross.py\", \"requested\": \"code\", \"corrected_to\": \"code\", \"note\": \"cross-owner write prevented: agent/fulfillment may not write into agent/easypost \u2014 redirected to its own folder (use request_capability to reuse the other owner's work)\"}",
+   "{\"ts\": \"2026-10-10T23:00:56.249956\", \"owner\": \"project/revealer-6978\", \"file\": \"s6_probe_r1.py\", \"requested\": \"code\", \"corrected_to\": \"code\", \"note\": \"cross-owner write prevented: project/revealer-6978 may not write into project/hubspot-crm-operator \u2014 redirected to its own folder (use request_capability to reuse the other owner's work)\"}"
+  ]
+ },
+ "diff": {
+  "counts": {
+   "files": 5,
+   "dependencies": 2,
+   "shared_capabilities": 1
+  },
+  "shared_added": [
+   "shared/testing/project_test.py"
+  ],
+  "shared_removed": [],
+  "manifests_new_or_changed": {
+   "projects/revealer-6978/dependencies/manifest.json": "[\n  {\n    \"name\": \"testing\",\n    \"source\": \"shared/testing/run_all.py\",\n    \"kind\": \"python\",\n    \"mode\": \"extend\",\n    \"overlay\": \"tests/\"\n  },\n  {\n    \"name\": \"deploy_changes.py\",\n    \"source\": \"shared/infra/deploy_changes.py\",\n    \"kind\": \"code\",\n    \"mode\": \"extend\",\n    \"overlay\": \"deploy/revealer-6978.config.sh\"\n  },\n  {\n    \"name\": \"project_test.py\",\n    \"source\": \"shared/testing/project_test.py\",\n    \"kind\": \"code\",\n    \"mode\": \"as-is\",\n    \"overlay\": null\n  }\n]",
+   "projects/hubspot-crm-operator/dependencies/manifest.json": "[\n  {\n    \"name\": \"project_test.py\",\n    \"source\": \"shared/testing/project_test.py\",\n    \"kind\": \"code\",\n    \"mode\": \"as-is\",\n    \"overlay\": null\n  }\n]"
+  },
+  "agents_changed": [],
+  "agents_db_added": []
+ },
+ "project": null,
+ "audit_project": null,
+ "earlier_projects": {
+  "revealer-6978": {
+   "deps": [
+    {
+     "name": "testing",
+     "base_exists": true,
+     "overlay": "tests/",
+     "overlay_exists": true
+    },
+    {
+     "name": "deploy_changes.py",
+     "base_exists": true,
+     "overlay": "deploy/revealer-6978.config.sh",
+     "overlay_exists": true
+    },
+    {
+     "name": "project_test.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    }
+   ],
+   "audit_issues": 0
+  },
+  "hubspot-crm-operator": {
+   "deps": [
+    {
+     "name": "project_test.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    }
+   ],
+   "audit_issues": 0
+  },
+  "fulfillment-vq-status-read-only-dc1e": {
+   "manifest": false
+  },
+  "odin-external-arms": {
+   "deps": [
+    {
+     "name": "anchor_web_deploy",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    }
+   ],
+   "audit_issues": 0
+  },
+  "zoom-real-flow": {
+   "manifest": false
+  },
+  "email-klaviyo-workflows-read-only-18ca": {
+   "manifest": false
+  },
+  "full-services-19jul": {
+   "deps": [
+    {
+     "name": "deploy_changes.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    },
+    {
+     "name": "INSTALL_SOC_SENSOR.md",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    }
+   ],
+   "audit_issues": 0
+  },
+  "real-deployment-and-diagnosis-organics-07d7": {
+   "manifest": false
+  },
+  "daily-egypt-amazon-product-poster": {
+   "manifest": false
+  },
+  "redberry-continuous-soc": {
+   "deps": [
+    {
+     "name": "INSTALL_SOC_SENSOR.md",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    }
+   ],
+   "audit_issues": 0
+  },
+  "vm-sentinel": {
+   "manifest": false
+  }
+ }
+}

@@ -1,0 +1,3 @@
+Electron 31.3.0 check (run in the cloud workspace 2026-10-12 with xvfb):
+RESULT {"origin":"app://odin-desktop","assetLoaded":true,"allowRead":"ok","denyRead":"BLOCKED","allowPost":"posted","traversal":"ERR"}
+Origin sent by the desktop page: app://odin-desktop (GET, OPTIONS, POST)

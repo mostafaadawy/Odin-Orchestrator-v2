@@ -1,0 +1,63 @@
+{
+  "status": "connected (Azure control-plane via az vm run-command)",
+  "note": "No connection until owner provides details. NEVER store private keys or passwords here.",
+  "profile": {
+    "host": "52.180.154.225",
+    "dnsName": "TBD",
+    "sshPort": 22,
+    "sshUser": "mostafa",
+    "os": "Linux (Ubuntu, ufw firewall)",
+    "keyPath": "",
+    "keySource": "Mac ~/.ssh (private key NEVER stored here; keyPath is just a path like ~/.ssh/id_ed25519). A secret was pasted in chat once — owner to rotate it."
+  },
+  "azure": {
+    "resourceGroup": "DJANGO-PROJECT",
+    "nsgName": "django-vm-nsg",
+    "sshRuleName": "default-allow-ssh",
+    "vmName": "django-vm",
+    "location": "centralus",
+    "note": "Non-secret Azure resource names. Used by server/infra_rotate.py via Azure CLI to rotate the single allowed SSH IP (NSG + ufw) automatically."
+  },
+  "procedure": {
+    "runbook": "workspace/shared/runbooks/azure-secure-connection.md",
+    "dynamicIp": true,
+    "sshSingleIpAtATime": true,
+    "ipUpdatedInTwoPlaces": [
+      "VM OS firewall via Serial Console",
+      "Azure NSG SSH inbound source IP"
+    ],
+    "serviceManager": "systemd",
+    "notPm2": true,
+    "syncMethod": "scp (local -> Azure)",
+    "reverseProxy": "yes (handle on rebuild)",
+    "folderMapping": [
+      {
+        "local": "frontend/RBO-Staging/f",
+        "azure": "~/RBO-Staging/f",
+        "note": "VM home folder"
+      },
+      {
+        "local": "backend/RBO-Staging/b",
+        "azure": "~/RBO-Staging/b",
+        "note": "VM home folder"
+      }
+    ]
+  },
+  "policy": {
+    "everyCommandApprovalGated": true,
+    "respectClosedPorts": true,
+    "respectIpAllowlist": true,
+    "respectExistingSyncMethod": true,
+    "neverWidenExposureWithoutApproval": true,
+    "autoReadOnlyAllowed": [
+      "detect public IP",
+      "ssh reachability",
+      "health checks",
+      "log reads"
+    ],
+    "manualOnly": [
+      "Azure Serial Console login",
+      "Azure NSG Portal edits"
+    ]
+  }
+}

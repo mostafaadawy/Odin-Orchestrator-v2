@@ -1,0 +1,184 @@
+{
+ "r4": {
+  "pid": "backend-sandbox-rep-4",
+  "deploy_files": [
+   "backend-sandbox-rep-4.config.sh",
+   "deploy-config.json"
+  ],
+  "files_rows": [
+   [
+    "workspace/projects/backend-sandbox-rep-4/deploy/deploy-config.json",
+    "project",
+    "backend-sandbox-rep-4"
+   ],
+   [
+    "workspace/projects/backend-sandbox-rep-4/deploy/backend-sandbox-rep-4.config.sh",
+    "project",
+    "backend-sandbox-rep-4"
+   ]
+  ],
+  "wrong_owner_rows": [],
+  "dependencies_rows": [
+   [
+    "project",
+    "backend-sandbox-rep-4",
+    "deploy_changes.py",
+    "shared/infra/deploy_changes.py",
+    "extend"
+   ]
+  ],
+  "manifest": [
+   {
+    "name": "deploy_changes.py",
+    "source": "shared/infra/deploy_changes.py",
+    "kind": "code",
+    "mode": "extend",
+    "overlay": "deploy/backend-sandbox-rep-4.config.sh"
+   }
+  ],
+  "resolve": {
+   "resolved": true,
+   "base": "shared/infra/deploy_changes.py",
+   "overlay": "deploy/backend-sandbox-rep-4.config.sh"
+  },
+  "audit_issues": [
+   [
+    "duplicate",
+    [
+     "workspace/projects/backend-sandbox-rep-2/deploy/deploy-config.json",
+     "workspace/projects/backend-sandbox-rep-4/deploy/deploy-config.json",
+     "workspace/projects/backend-sandbox-rep-5/deploy/deploy-config.json",
+     "workspace/projects/backend-sandbox-rep-6/deploy/deploy-config.json",
+     "workspace/projects/revealer-6978/deploy/deploy-config.json"
+    ]
+   ]
+  ]
+ },
+ "r5": {
+  "pid": "backend-sandbox-rep-5",
+  "deploy_files": [
+   "backend-sandbox-rep-5.config.sh",
+   "deploy-config.json"
+  ],
+  "files_rows": [
+   [
+    "workspace/projects/backend-sandbox-rep-5/deploy/deploy-config.json",
+    "project",
+    "backend-sandbox-rep-5"
+   ],
+   [
+    "workspace/projects/backend-sandbox-rep-5/deploy/backend-sandbox-rep-5.config.sh",
+    "project",
+    "backend-sandbox-rep-5"
+   ]
+  ],
+  "wrong_owner_rows": [],
+  "dependencies_rows": [
+   [
+    "project",
+    "backend-sandbox-rep-5",
+    "deploy_changes.py",
+    "shared/infra/deploy_changes.py",
+    "extend"
+   ]
+  ],
+  "manifest": [
+   {
+    "name": "deploy_changes.py",
+    "source": "shared/infra/deploy_changes.py",
+    "kind": "code",
+    "mode": "extend",
+    "overlay": "deploy/backend-sandbox-rep-5.config.sh"
+   }
+  ],
+  "resolve": {
+   "resolved": true,
+   "base": "shared/infra/deploy_changes.py",
+   "overlay": "deploy/backend-sandbox-rep-5.config.sh"
+  },
+  "audit_issues": [
+   [
+    "duplicate",
+    [
+     "workspace/projects/backend-sandbox-rep-2/deploy/deploy-config.json",
+     "workspace/projects/backend-sandbox-rep-4/deploy/deploy-config.json",
+     "workspace/projects/backend-sandbox-rep-5/deploy/deploy-config.json",
+     "workspace/projects/backend-sandbox-rep-6/deploy/deploy-config.json",
+     "workspace/projects/revealer-6978/deploy/deploy-config.json"
+    ]
+   ]
+  ]
+ },
+ "r6": {
+  "pid": "backend-sandbox-rep-6",
+  "deploy_files": [
+   "backend-sandbox-rep-6.config.sh",
+   "deploy-config.json"
+  ],
+  "files_rows": [
+   [
+    "workspace/projects/backend-sandbox-rep-6/deploy/backend-sandbox-rep-6.config.sh",
+    "project",
+    "backend-sandbox-rep-6"
+   ],
+   [
+    "workspace/projects/backend-sandbox-rep-6/deploy/deploy-config.json",
+    "project",
+    "backend-sandbox-rep-6"
+   ]
+  ],
+  "wrong_owner_rows": [],
+  "dependencies_rows": [
+   [
+    "project",
+    "backend-sandbox-rep-6",
+    "deploy_changes.py",
+    "shared/infra/deploy_changes.py",
+    "extend"
+   ]
+  ],
+  "manifest": [
+   {
+    "name": "deploy_changes.py",
+    "source": "shared/infra/deploy_changes.py",
+    "kind": "code",
+    "mode": "extend",
+    "overlay": "deploy/backend-sandbox-rep-6.config.sh"
+   }
+  ],
+  "resolve": {
+   "resolved": true,
+   "base": "shared/infra/deploy_changes.py",
+   "overlay": "deploy/backend-sandbox-rep-6.config.sh"
+  },
+  "audit_issues": [
+   [
+    "unindexed",
+    "workspace/projects/backend-sandbox-rep-6/data/jsons/approvals.json"
+   ],
+   [
+    "duplicate",
+    [
+     "workspace/projects/backend-sandbox-rep-2/deploy/deploy-config.json",
+     "workspace/projects/backend-sandbox-rep-4/deploy/deploy-config.json",
+     "workspace/projects/backend-sandbox-rep-5/deploy/deploy-config.json",
+     "workspace/projects/backend-sandbox-rep-6/deploy/deploy-config.json",
+     "workspace/projects/revealer-6978/deploy/deploy-config.json"
+    ]
+   ]
+  ]
+ },
+ "revealer": {
+  "deploy_changes.py": true,
+  "testing": true
+ },
+ "delta_duplicate_flags": [
+  [
+   "workspace/projects/backend-sandbox-rep-2/deploy/deploy-config.json",
+   "workspace/projects/backend-sandbox-rep-4/deploy/deploy-config.json",
+   "workspace/projects/backend-sandbox-rep-5/deploy/deploy-config.json",
+   "workspace/projects/backend-sandbox-rep-6/deploy/deploy-config.json",
+   "workspace/projects/revealer-6978/deploy/deploy-config.json"
+  ]
+ ]
+}

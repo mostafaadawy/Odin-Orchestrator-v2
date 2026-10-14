@@ -1,0 +1,308 @@
+{
+ "prep": {
+  "model": "Qwen2.5-1.5B-Instruct",
+  "layer": "L24",
+  "model_load_s": 2.4,
+  "prefix_tokens": 925,
+  "prefix_prep_ms": 467
+ },
+ "per_decision": {
+  "D1_mode": {
+   "n_cases": 39,
+   "n_confident_label": 39,
+   "llm_acc": 1.0,
+   "jev_acc": 1.0,
+   "llm_acc_confident": 1.0,
+   "jev_acc_confident": 1.0,
+   "decider_alone_acc": 1.0,
+   "jev_agrees_with_llm": 1.0,
+   "truth_sources": {
+    "owner_words": 1,
+    "done_ok": 38
+   },
+   "label_classes": {
+    "orchestrate": 1,
+    "direct": 38
+   },
+   "llm_ms_mean": 17558,
+   "llm_ms_median": 10707,
+   "jev_ms_mean": 1044,
+   "jev_ms_median": 62,
+   "decider_ms_mean": 65,
+   "llm_usd": 2.785,
+   "jev_usd": 0.157,
+   "fallback_rate": 0.051,
+   "ece_decider_after_T": 0.014,
+   "ece_decider_before_T": 0.0,
+   "by_rep": {
+    "1": {
+     "llm_acc": 1.0,
+     "jev_acc": 1.0
+    },
+    "2": {
+     "llm_acc": 1.0,
+     "jev_acc": 1.0
+    },
+    "3": {
+     "llm_acc": 1.0,
+     "jev_acc": 1.0
+    }
+   },
+   "stats_vs_production_llm": {
+    "n_cases": 39,
+    "jev_correct": 39,
+    "other_correct": 39,
+    "jev_acc": 1.0,
+    "other_acc": 1.0,
+    "jev_ci95": [
+     0.91,
+     1
+    ],
+    "other_ci95": [
+     0.91,
+     1
+    ],
+    "jev_only_right": 0,
+    "other_only_right": 0,
+    "mcnemar_p": 1.0
+   },
+   "verdict_vs_production_llm_stat": "NON-INFERIOR - same accuracy, faster; the LLM still handles every low-confidence case"
+  },
+  "D2_action": {
+   "n_cases": 42,
+   "n_confident_label": 42,
+   "llm_acc": 0.833,
+   "jev_acc": 0.881,
+   "llm_acc_confident": 0.833,
+   "jev_acc_confident": 0.881,
+   "decider_alone_acc": 0.881,
+   "jev_agrees_with_llm": 0.905,
+   "truth_sources": {
+    "done_ok": 42
+   },
+   "label_classes": {
+    "read": 31,
+    "change": 11
+   },
+   "llm_ms_mean": 1178,
+   "llm_ms_median": 906,
+   "jev_ms_mean": 52,
+   "jev_ms_median": 44,
+   "decider_ms_mean": 52,
+   "llm_usd": 0.0,
+   "jev_usd": 0.0,
+   "fallback_rate": 0.0,
+   "ece_decider_after_T": 0.153,
+   "ece_decider_before_T": 0.098,
+   "by_rep": {
+    "1": {
+     "llm_acc": 0.833,
+     "jev_acc": 0.881
+    },
+    "2": {
+     "llm_acc": 0.833,
+     "jev_acc": 0.881
+    },
+    "3": {
+     "llm_acc": 0.833,
+     "jev_acc": 0.881
+    }
+   },
+   "claude_n": 42,
+   "claude_acc": 0.738,
+   "claude_ms_mean": 12634,
+   "claude_ms_median": 10863,
+   "claude_usd_per_run": 2.37,
+   "jev_acc_same_cases": 0.881,
+   "llm_acc_same_cases": 0.833,
+   "stats_vs_production_llm": {
+    "n_cases": 42,
+    "jev_correct": 37,
+    "other_correct": 35,
+    "jev_acc": 0.881,
+    "other_acc": 0.833,
+    "jev_ci95": [
+     0.75,
+     0.948
+    ],
+    "other_ci95": [
+     0.694,
+     0.917
+    ],
+    "jev_only_right": 3,
+    "other_only_right": 1,
+    "mcnemar_p": 0.625
+   },
+   "verdict_vs_production_llm_stat": "NON-INFERIOR - higher but not significant (p=0.625), faster",
+   "stats_vs_claude": {
+    "n_cases": 42,
+    "jev_correct": 37,
+    "other_correct": 31,
+    "jev_acc": 0.881,
+    "other_acc": 0.738,
+    "jev_ci95": [
+     0.75,
+     0.948
+    ],
+    "other_ci95": [
+     0.589,
+     0.847
+    ],
+    "jev_only_right": 8,
+    "other_only_right": 2,
+    "mcnemar_p": 0.1094
+   },
+   "verdict_vs_claude_stat": "NON-INFERIOR - higher but not significant (p=0.1094), faster"
+  },
+  "D4_qa": {
+   "n_cases": 7,
+   "n_confident_label": 7,
+   "llm_acc": 0.762,
+   "jev_acc": 0.762,
+   "llm_acc_confident": 0.762,
+   "jev_acc_confident": 0.762,
+   "decider_alone_acc": 1.0,
+   "jev_agrees_with_llm": 1.0,
+   "truth_sources": {
+    "owner_brief": 7
+   },
+   "label_classes": {
+    "no": 7
+   },
+   "llm_ms_mean": 12931,
+   "llm_ms_median": 11310,
+   "jev_ms_mean": 13114,
+   "jev_ms_median": 11479,
+   "decider_ms_mean": 183,
+   "llm_usd": 0.36,
+   "jev_usd": 0.36,
+   "fallback_rate": 1.0,
+   "ece_decider_after_T": 0.247,
+   "ece_decider_before_T": 0.0,
+   "by_rep": {
+    "1": {
+     "llm_acc": 0.857,
+     "jev_acc": 0.857
+    },
+    "2": {
+     "llm_acc": 0.857,
+     "jev_acc": 0.857
+    },
+    "3": {
+     "llm_acc": 0.571,
+     "jev_acc": 0.571
+    }
+   },
+   "stats_vs_production_llm": {
+    "n_cases": 7,
+    "jev_correct": 5,
+    "other_correct": 5,
+    "jev_acc": 0.714,
+    "other_acc": 0.714,
+    "jev_ci95": [
+     0.359,
+     0.918
+    ],
+    "other_ci95": [
+     0.359,
+     0.918
+    ],
+    "jev_only_right": 0,
+    "other_only_right": 0,
+    "mcnemar_p": 1.0
+   },
+   "verdict_vs_production_llm_stat": "OFF - not measured (the LLM decides every case)"
+  },
+  "ALL": {
+   "n_cases": 88,
+   "n_confident_label": 88,
+   "llm_acc": 0.902,
+   "jev_acc": 0.924,
+   "llm_acc_confident": 0.902,
+   "jev_acc_confident": 0.924,
+   "decider_alone_acc": 0.943,
+   "jev_agrees_with_llm": 0.955,
+   "truth_sources": {
+    "owner_words": 1,
+    "done_ok": 80,
+    "owner_brief": 7
+   },
+   "label_classes": {
+    "orchestrate": 1,
+    "direct": 38,
+    "read": 31,
+    "change": 11,
+    "no": 7
+   },
+   "llm_ms_mean": 9372,
+   "llm_ms_median": 6449,
+   "jev_ms_mean": 1531,
+   "jev_ms_median": 62,
+   "decider_ms_mean": 68,
+   "llm_usd": 3.145,
+   "jev_usd": 0.517,
+   "fallback_rate": 0.102,
+   "ece_decider_after_T": 0.09,
+   "ece_decider_before_T": 0.047,
+   "by_rep": {
+    "1": {
+     "llm_acc": 0.909,
+     "jev_acc": 0.932
+    },
+    "2": {
+     "llm_acc": 0.909,
+     "jev_acc": 0.932
+    },
+    "3": {
+     "llm_acc": 0.886,
+     "jev_acc": 0.909
+    }
+   },
+   "claude_n": 42,
+   "claude_acc": 0.738,
+   "claude_ms_mean": 12634,
+   "claude_ms_median": 10863,
+   "claude_usd_per_run": 2.37,
+   "jev_acc_same_cases": 0.881,
+   "llm_acc_same_cases": 0.833,
+   "stats_vs_production_llm": {
+    "n_cases": 50,
+    "jev_correct": 43,
+    "other_correct": 41,
+    "jev_acc": 0.86,
+    "other_acc": 0.82,
+    "jev_ci95": [
+     0.738,
+     0.93
+    ],
+    "other_ci95": [
+     0.692,
+     0.902
+    ],
+    "jev_only_right": 3,
+    "other_only_right": 1,
+    "mcnemar_p": 0.625
+   },
+   "verdict_vs_production_llm_stat": "NON-INFERIOR - higher but not significant (p=0.625), faster",
+   "stats_vs_claude": {
+    "n_cases": 42,
+    "jev_correct": 37,
+    "other_correct": 31,
+    "jev_acc": 0.881,
+    "other_acc": 0.738,
+    "jev_ci95": [
+     0.75,
+     0.948
+    ],
+    "other_ci95": [
+     0.589,
+     0.847
+    ],
+    "jev_only_right": 8,
+    "other_only_right": 2,
+    "mcnemar_p": 0.1094
+   },
+   "verdict_vs_claude_stat": "NON-INFERIOR - higher but not significant (p=0.1094), faster"
+  }
+ }
+}

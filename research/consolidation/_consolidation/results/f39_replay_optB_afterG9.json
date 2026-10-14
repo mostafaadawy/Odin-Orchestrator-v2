@@ -1,0 +1,84 @@
+{
+ "declared_in_memory": {
+  "real-deployment-and-diagnosis-organics-07d7": "/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/_external/VolatileWorkSpace",
+  "redberry-continuous-soc": "/Users/mostafaadawy/Desktop/AiAgentWorkSpace/RedBerry-Continuous-SOC"
+ },
+ "proposals_checked": 62,
+ "refused": 9,
+ "refused_list": [
+  {
+   "id": "8efef7bd4f08",
+   "project": "customer-orders-internal-app-rep-4",
+   "status": "pending",
+   "why": [
+    "file workspace/projects/supabase-customers-r4/.env.example"
+   ]
+  },
+  {
+   "id": "6bd7b2ebf3ef",
+   "project": "brand2-email-reporting",
+   "status": "approved",
+   "why": [
+    "file workspace/shared/oth/.cred"
+   ]
+  },
+  {
+   "id": "bc12b7443bfa",
+   "project": "brand2-email-reporting-rep3",
+   "status": "pending",
+   "why": [
+    "file workspace/shared/oth/.cred"
+   ]
+  },
+  {
+   "id": "1915cc48a862",
+   "project": "brand2-email-reporting-b491",
+   "status": "pending",
+   "why": [
+    "file <project localPath>/connectors/.cred"
+   ]
+  },
+  {
+   "id": "715256548145",
+   "project": "leads-landing-page",
+   "status": "pending",
+   "why": [
+    "file ~/Desktop/leads-landing/package.json",
+    "file ~/Desktop/leads-landing/server.js"
+   ]
+  },
+  {
+   "id": "86a7e7b87fcc",
+   "project": "daily-egypt-amazon-product-poster",
+   "status": "approved",
+   "why": [
+    "file daily-egypt-amazon-product-poster/.env.example"
+   ]
+  },
+  {
+   "id": "98f62dbbca66",
+   "project": "daily-egypt-amazon-product-poster",
+   "status": "approved",
+   "why": [
+    "file daily-egypt-amazon-product-poster/.env.example",
+    "command `cat > '/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/_external/`"
+   ]
+  },
+  {
+   "id": "4d46ad300942",
+   "project": "landing-leads-rep6",
+   "status": "pending",
+   "why": [
+    "file workspace/projects/landing-leads-rep6/code/.env.example"
+   ]
+  },
+  {
+   "id": "64bc1e54857e",
+   "project": "landing-leads-rep6",
+   "status": "pending",
+   "why": [
+    "file workspace/projects/landing-leads-rep6/code/.env.example"
+   ]
+  }
+ ]
+}

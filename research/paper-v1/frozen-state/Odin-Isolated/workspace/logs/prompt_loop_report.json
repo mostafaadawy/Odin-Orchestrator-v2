@@ -1,0 +1,68 @@
+[
+  {
+    "spec": "Ops Pulse \u2014 CRM + fulfillment health",
+    "pid": "ops-pulse-crm-fulfillment-health",
+    "planned": true,
+    "produced_output": false,
+    "duration_sec": 124.5,
+    "agents_linked": 0,
+    "files_created": 3,
+    "violations_project": 0,
+    "placement_violations": 0,
+    "violations_global_after": 0,
+    "delete_delta": {
+      "projects": 0,
+      "agents": 0,
+      "files": 0,
+      "folders": 0,
+      "dependencies": 0,
+      "project_agents": 0
+    },
+    "clean_delete": true,
+    "ok": true
+  },
+  {
+    "spec": "Customer Signal \u2014 email + security watch",
+    "pid": "customer-signal-email-security-watch",
+    "planned": true,
+    "produced_output": false,
+    "duration_sec": 123.0,
+    "agents_linked": 0,
+    "files_created": 3,
+    "violations_project": 0,
+    "placement_violations": 0,
+    "violations_global_after": 0,
+    "delete_delta": {
+      "projects": 0,
+      "agents": 0,
+      "files": 0,
+      "folders": 0,
+      "dependencies": 0,
+      "project_agents": 0
+    },
+    "clean_delete": true,
+    "ok": true
+  },
+  {
+    "spec": "Fulfillment Guard \u2014 shipping SLA + report",
+    "pid": "fulfillment-guard-shipping-sla-report",
+    "planned": true,
+    "produced_output": false,
+    "duration_sec": 122.0,
+    "agents_linked": 0,
+    "files_created": 3,
+    "violations_project": 0,
+    "placement_violations": 0,
+    "violations_global_after": 0,
+    "delete_delta": {
+      "projects": 0,
+      "agents": 0,
+      "files": 0,
+      "folders": 0,
+      "dependencies": 0,
+      "project_agents": 0
+    },
+    "clean_delete": true,
+    "ok": true
+  }
+]

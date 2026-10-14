@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="$FLUTTER_BASE_HREF">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="Odin — Remote Anchor (Web). Your Odin company, remotely.">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Odin Anchor">
+  <meta name="theme-color" content="#0a0c12">
+  <link rel="apple-touch-icon" href="favicon.svg">
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+
+  <title>Odin — Remote Anchor (Web)</title>
+  <link rel="manifest" href="manifest.json">
+  <style>
+    html, body { height: 100%; margin: 0; background: #0a0c12; color: #e8ecf6;
+      font-family: -apple-system, "Segoe UI", system-ui, sans-serif; }
+    #splash { position: fixed; inset: 0; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 14px; background: #0a0c12; z-index: 9; }
+    #splash .mark { width: 64px; height: 64px; border-radius: 18px; display: grid; place-items: center;
+      font-weight: 800; font-size: 32px; color: #0a0c12;
+      background: conic-gradient(from 220deg, #6c8cff, #b07cff, #7af0d0, #6c8cff); }
+    #splash .t { font-size: 15px; letter-spacing: .3px; }
+    #splash .s { font-size: 12px; color: #5f6885; }
+    #splash .ring { width: 22px; height: 22px; border: 2px solid #2a3350; border-top-color: #6c8cff;
+      border-radius: 50%; animation: spin 0.9s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <div id="splash">
+    <div class="mark">&#937;</div>
+    <div class="t">Odin — Remote Anchor</div>
+    <div class="s">Loading your Odin company…</div>
+    <div class="ring"></div>
+  </div>
+  <script>
+    window.addEventListener('flutter-first-frame', function () {
+      var s = document.getElementById('splash');
+      if (s) s.remove();
+    });
+  </script>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>

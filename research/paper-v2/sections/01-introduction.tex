@@ -1,0 +1,7 @@
+\section{Introduction}
+\sys{} routes owner requests through an LLM at several points. Many of these points are closed decisions with two to seven fixed options. Using a general LLM for them has three costs: latency (a median of \dOneLlmMed{}\,s for the mode decision on our test set), usage (\$\dOneUsd{} of reported plan usage per pass over the mode test set, not charged), and dependence on the network. This draft describes a local alternative and how it was measured. Its contributions are:
+\begin{itemize}
+\item a frozen-encoder decider with a prepared standing-context cache, per-decision heads, temperature scaling, and an LLM fallback threshold that is never set below the LLM's own validation accuracy (Section~\ref{sec:method});
+\item a ground-truth protocol that excludes every LLM and router decision output, with rules over the logs and an owner review sample (Section~\ref{sec:truth});
+\item a paired evaluation with confidence intervals and exact McNemar tests, an explicit \emph{non-inferior} acceptance rule, and a shadow mode that gives the decider no live authority until human labels exist (Sections~\ref{sec:protocol}--\ref{sec:results}).
+\end{itemize}

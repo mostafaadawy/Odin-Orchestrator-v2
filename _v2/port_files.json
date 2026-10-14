@@ -1,0 +1,17 @@
+[
+ "desktop/src/App.jsx",
+ "desktop/src/api.js",
+ "desktop/src/views.jsx",
+ "odin_app/lib/config.dart",
+ "odin_app/lib/screens/bell.dart",
+ "server/app.py",
+ "server/local_poller_http.py",
+ "shells/anchor_loop.sh",
+ "shells/phase_ctl.sh",
+ "workspace/anchor-layer/third_party_sim.html",
+ "workspace/projects/odin-external-arms/deploy/web/main.dart.js",
+ "workspace/shared/testing/e2e_real_flow.py",
+ "workspace/shared/testing/phase7_prompt4.py",
+ "workspace/shared/testing/phase7_prompt_loop.py",
+ "workspace/shared/testing/phase7_realrun.py"
+]

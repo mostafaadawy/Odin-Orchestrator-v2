@@ -1,0 +1,149 @@
+{
+ "asset-exposure-attack-surface-agent": {
+  "rules_added": [],
+  "sections_added": [
+   {
+    "section": "[archived] merged from duplicate agent 'assetsurface'",
+    "lines": 14
+   }
+  ],
+  "left_as_is": []
+ },
+ "devops": {
+  "rules_added": [],
+  "sections_added": [
+   {
+    "section": "Integrated foundational charter (from orphaned root/agents/devops-cloud.agent.md, Jun 2026)",
+    "lines": 29
+   }
+  ],
+  "left_as_is": [
+   "---"
+  ]
+ },
+ "fulfillment": {
+  "rules_added": [],
+  "sections_added": [
+   {
+    "section": "[archived] merged from duplicate agent 'shipping'",
+    "lines": 14
+   }
+  ],
+  "left_as_is": []
+ },
+ "fullstack": {
+  "rules_added": [],
+  "sections_added": [
+   {
+    "section": "[archived] merged from duplicate agent 'backend'",
+    "lines": 15
+   },
+   {
+    "section": "Integrated foundational charter (from orphaned root/agents/backend.agent.md, Jun 2026)",
+    "lines": 29
+   },
+   {
+    "section": "[archived] merged from duplicate agent 'database'",
+    "lines": 15
+   },
+   {
+    "section": "Integrated foundational charter (from orphaned root/agents/database.agent.md, Jun 2026)",
+    "lines": 28
+   },
+   {
+    "section": "[archived] merged from duplicate agent 'frontend'",
+    "lines": 15
+   },
+   {
+    "section": "Integrated foundational charter (from orphaned root/agents/frontend.agent.md, Jun 2026)",
+    "lines": 28
+   }
+  ],
+  "left_as_is": []
+ },
+ "intrusion-detection-behavioral-analytics-agent": {
+  "rules_added": [],
+  "sections_added": [
+   {
+    "section": "[archived] merged from duplicate agent 'behaviorids'",
+    "lines": 14
+   }
+  ],
+  "left_as_is": []
+ },
+ "qa": {
+  "rules_added": [],
+  "sections_added": [
+   {
+    "section": "Integrated foundational charter (from orphaned root/agents/qa-testing.agent.md, Jun 2026)",
+    "lines": 26
+   },
+   {
+    "section": "[archived] merged from duplicate agent 'tess'",
+    "lines": 14
+   },
+   {
+    "section": "[archived] merged from duplicate agent 'testify'",
+    "lines": 15
+   },
+   {
+    "section": "[archived] merged from duplicate agent 'testwright'",
+    "lines": 15
+   },
+   {
+    "section": "[archived] merged from duplicate agent 'zed'",
+    "lines": 15
+   }
+  ],
+  "left_as_is": [
+   "---"
+  ]
+ },
+ "recovery-resilience-agent": {
+  "rules_added": [],
+  "sections_added": [
+   {
+    "section": "[archived] merged from duplicate agent 'recovery'",
+    "lines": 14
+   }
+  ],
+  "left_as_is": []
+ },
+ "reporting-documentation-agent": {
+  "rules_added": [],
+  "sections_added": [
+   {
+    "section": "[archived] merged from duplicate agent 'reporter'",
+    "lines": 14
+   }
+  ],
+  "left_as_is": []
+ },
+ "security-operations-investigator": {
+  "rules_added": [],
+  "sections_added": [
+   {
+    "section": "[archived] merged from duplicate agent 'secman'",
+    "lines": 15
+   },
+   {
+    "section": "[archived] merged from duplicate agent 'security'",
+    "lines": 45
+   }
+  ],
+  "left_as_is": [
+   "The ONE primary operational investigator. Executes APPROVED read-only, non-disruptive, evidence-driven hunts; correlates logs (app, nginx, s"
+  ]
+ },
+ "threat-prediction-prevention-agent": {
+  "rules_added": [],
+  "sections_added": [
+   {
+    "section": "[archived] merged from duplicate agent 'predictor'",
+    "lines": 14
+   }
+  ],
+  "left_as_is": []
+ },
+ "_batch": "f6957365af39"
+}

@@ -1,0 +1,92 @@
+================================================================
+ODIN TEST KEYS  (test user — paste into the app Settings + the simulator)
+================================================================
+  ANCHOR_API_KEY = <REDACTED>   (existing)
+  ODIN_API_KEY   = <REDACTED>   (existing)
+----------------------------------------------------------------
+  • App Settings → ANCHOR_API_KEY + ODIN_API_KEY fields (and token can stay blank).
+  • Third-party simulator → X-API-Key field = ANCHOR_API_KEY.
+  • Stored only in workspace/shared/oth/.cred (gitignored). Rotate anytime by deleting the lines.
+================================================================
+  ✓ anchor + SUPERVISED poller ON → http://localhost:9100   (web/flutter will show synced data)
+  control bridge → agent drives via workspace/logs/phase_ctl/CMD, reads workspace/logs/phase_ctl/OUT.log
+desktop → Electron app launching (workspace/logs/desktop.log)
+
+================ ODIN PHASE 2 ================
+  opening for you:  web app (browser) · request page (browser) · desktop app · mobile (simulator)
+  anchor: ON  → web + mobile show live synced data; the request page gets an instant ACK, result via webhook
+  the WEB is a SEPARATE app — it opens whether or not the anchor is on (it just shows offline).
+  note: localhost:8000 is the desktop's own backend — internal, never opened as a page.
+  app login: tech@odinmarkets.com / 12345678
+  logs: ./workspace/logs/
+==============================================
+
+Resolving dependencies...
+Downloading packages...
+  cli_util 0.4.2 (0.5.2 available)
+  cross_file 0.3.5+2 (0.3.5+4 available)
+  file_picker 8.3.7 (11.0.3 available)
+  flutter_lints 4.0.0 (6.0.0 available)
+  flutter_local_notifications 17.2.4 (22.2.0 available)
+  flutter_local_notifications_linux 4.0.1 (8.0.1 available)
+  flutter_local_notifications_platform_interface 7.2.0 (12.1.0 available)
+  hooks 2.0.2 (2.1.0 available)
+  image 4.8.0 (4.9.1 available)
+  image_picker 1.2.2 (1.2.3 available)
+  intl 0.19.0 (0.20.3 available)
+  jni 1.0.0 (1.0.3 available)
+  jni_flutter 1.0.1 (1.0.2 available)
+  lints 4.0.0 (6.1.0 available)
+  local_auth 2.3.0 (3.0.2 available)
+  local_auth_android 1.0.56 (2.0.9 available)
+  local_auth_darwin 1.6.1 (2.0.3 available)
+  local_auth_windows 1.0.11 (2.0.1 available)
+  matcher 0.12.19 (0.12.20 available)
+  meta 1.18.0 (1.19.0 available)
+  objective_c 9.4.1 (9.5.0 available)
+  package_config 2.2.0 (3.0.0 available)
+  posix 6.5.0 (6.5.2 available)
+  record 6.2.1 (7.1.1 available)
+  record_android 1.5.2 (2.1.2 available)
+  record_ios 1.2.1 (2.1.1 available)
+  record_linux 1.3.1 (2.1.1 available)
+  record_macos 1.2.2 (2.1.1 available)
+  record_platform_interface 1.6.0 (2.1.0 available)
+  record_use 0.6.0 (1.0.0 available)
+  record_web 1.3.0 (2.1.2 available)
+  record_windows 1.0.7 (2.2.3 available)
+  shared_preferences_android 2.4.26 (2.4.27 available)
+  synchronized 3.4.1 (3.4.1+1 available)
+  test_api 0.7.11 (0.7.13 available)
+  timezone 0.9.4 (0.11.1 available)
+  uuid 4.5.3 (4.6.0 available)
+  vector_math 2.2.0 (2.4.2 available)
+  win32 5.15.0 (6.3.0 available)
+  xml 6.6.1 (7.0.1 available)
+Got dependencies!
+40 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+The following plugins do not support Swift Package Manager for ios:
+  - flutter_tts
+  - flutter_local_notifications
+This will become an error in a future version of Flutter. Please contact the plugin maintainers to request Swift Package Manager adoption.
+shells/development_full_checker.sh: line 209: 26031 Killed: 9               USE_VOICE="${USE_VOICE:-0}" "$PYBIN" -m uvicorn server.app:app --host 127.0.0.1 --port "$BRAIN_PORT" > workspace/logs/brain.log 2>&1  (wd: /Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Isolated)
+  ✓ launcher icons stamped (Odin)
+
+================ COMPILE CHECK (flutter analyze) ================
+  ✅ No compile errors — the new UI will build.
+================================================================
+
+  building the web app (release)… first build ~1-2 min
+  ✓ web app built
+  ✓ opening the web app in your browser…
+  ✓ launching the mobile app on the iOS simulator (anchor mode)…
+
+  Everything is up. Quit the phone or close the browser tab freely — the session stays alive.
+  ▶ Press Ctrl-C HERE (in this terminal) to stop everything and free all ports.
+shells/development_full_checker.sh: line 124: 26110 Killed: 9               "$PYBIN" webhook_receiver.py --port "$WEBHOOK_PORT" > "$ROOT/workspace/logs/webhook.log" 2>&1
+shells/development_full_checker.sh: line 145: 26122 Killed: 9               "$PYBIN" -u sim_server.py --host 127.0.0.1 --port "$ANCHOR_SIM_PORT" > "$ROOT/workspace/logs/anchor_sim.log" 2>&1
+
+stopping Odin — terminating processes and freeing ports…
+shells/development_full_checker.sh: line 47: 26858 Terminated: 15          ( "$PYBIN" "$ROOT/workspace/logs/_web_serve.py" "$WEB_PORT" "$ROOT/odin_app/build/web" > "$ROOT/workspace/logs/app_web.log" 2>&1 )
+stopped — all ports freed (brain, anchor, web, sim, webhook, desktop:5173).

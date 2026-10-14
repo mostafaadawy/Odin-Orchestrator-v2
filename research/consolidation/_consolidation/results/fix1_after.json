@@ -1,0 +1,148 @@
+{
+ "label": "after",
+ "parser_replay": {
+  "S2_r1": {
+   "parsed": true,
+   "files": [
+    "workspace/projects/sandbox2-backend/deploy/deploy-config.json",
+    "workspace/projects/sandbox2-backend/deploy/sandbox2-backend.config.sh"
+   ]
+  },
+  "S2_r2": {
+   "parsed": true,
+   "files": [
+    "workspace/projects/backend-sandbox-rep-2/deploy/backend-sandbox-rep-2.config.sh",
+    "workspace/projects/backend-sandbox-rep-2/deploy/deploy-config.json"
+   ]
+  },
+  "S2_r3": {
+   "parsed": true,
+   "files": [
+    "workspace/projects/sandbox-three-rep-3/deploy/sandbox-three-rep-3.config.sh",
+    "workspace/projects/sandbox-three-rep-3/deploy/deploy-config.json"
+   ]
+  },
+  "S1_r1": {
+   "parsed": true,
+   "files": [
+    "workspace/projects/supabase-customers-r1/plan/PROJECT-PLAN.md",
+    "workspace/projects/supabase-customers-r1/code/package.json",
+    "workspace/projects/supabase-customers-r1/code/tsconfig.json",
+    "workspace/projects/supabase-customers-r1/code/.env.example",
+    "workspace/projects/supabase-customers-r1/code/.gitignore",
+    "workspace/projects/supabase-customers-r1/code/README.md"
+   ]
+  },
+  "S4_r1": {
+   "parsed": true,
+   "files": [
+    "workspace/projects/odin-landing-lead/plan/contact-form-plan.md",
+    "workspace/projects/odin-landing-lead/code/app/components/ContactForm.tsx",
+    "workspace/projects/odin-landing-lead/code/app/components/ContactForm.module.css",
+    "workspace/projects/odin-landing-lead/code/app/api/contact/route.ts",
+    "workspace/projects/odin-landing-lead/code/app/page.tsx"
+   ]
+  },
+  "S4_r2": {
+   "parsed": true,
+   "files": [
+    "workspace/projects/odin-landing-lead-0d48/code/app/components/ContactForm.tsx",
+    "workspace/projects/odin-landing-lead-0d48/code/app/api/leads/route.ts",
+    "workspace/projects/odin-landing-lead-0d48/code/prisma/schema.prisma",
+    "workspace/projects/odin-landing-lead-0d48/code/lib/prisma.ts",
+    "workspace/projects/odin-landing-lead-0d48/code/app/page.tsx",
+    "workspace/projects/odin-landing-lead-0d48/code/app/layout.tsx"
+   ]
+  }
+ },
+ "parser_ok": 6,
+ "existing_deltas": {
+  "revealer-6978:testing": {
+   "resolved": true,
+   "overlay": "tests/",
+   "overlay_path": "/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/workspace/projects/revealer-6978/tests"
+  },
+  "revealer-6978:deploy_changes.py": {
+   "resolved": true,
+   "overlay": "deploy/revealer-6978.config.sh",
+   "overlay_path": "/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/workspace/projects/revealer-6978/deploy/revealer-6978.config.sh"
+  }
+ },
+ "delta_duplicate_flags": [
+  [
+   "workspace/projects/backend-sandbox-rep-2/deploy/deploy-config.json",
+   "workspace/projects/revealer-6978/deploy/deploy-config.json"
+  ]
+ ],
+ "unit": {
+  "register_result": {
+   "indexed": [
+    "workspace/projects/fix1-unit-after/deploy/fix1-unit-after.config.sh",
+    "workspace/projects/fix1-unit-after/docs/notes.md",
+    "workspace/projects/hubspot-crm-operator/code/stray_fix1-unit-after.py"
+   ],
+   "deltas": [
+    {
+     "overlay": "deploy/fix1-unit-after.config.sh",
+     "base": "shared/infra/deploy_changes.py"
+    }
+   ],
+   "out_of_scope": [
+    "workspace/projects/hubspot-crm-operator/code/stray_fix1-unit-after.py"
+   ],
+   "skipped": []
+  },
+  "files_rows": [
+   [
+    "workspace/projects/fix1-unit-after/deploy/fix1-unit-after.config.sh",
+    "project",
+    "fix1-unit-after"
+   ],
+   [
+    "workspace/projects/fix1-unit-after/docs/notes.md",
+    "project",
+    "fix1-unit-after"
+   ],
+   [
+    "workspace/projects/hubspot-crm-operator/code/stray_fix1-unit-after.py",
+    "project",
+    "hubspot-crm-operator"
+   ]
+  ],
+  "dependencies_rows": [
+   [
+    "fix1-unit-after",
+    "deploy_changes.py",
+    "shared/infra/deploy_changes.py",
+    "extend"
+   ]
+  ],
+  "manifest": [
+   {
+    "name": "deploy_changes.py",
+    "source": "shared/infra/deploy_changes.py",
+    "kind": "code",
+    "mode": "extend",
+    "overlay": "deploy/fix1-unit-after.config.sh"
+   }
+  ],
+  "resolve": {
+   "resolved": true,
+   "base": "shared/infra/deploy_changes.py",
+   "base_exists": true,
+   "mode": "extend",
+   "overlay": "deploy/fix1-unit-after.config.sh",
+   "overlay_exists": true,
+   "base_path": "/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/workspace/shared/infra/deploy_changes.py",
+   "overlay_path": "/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/workspace/projects/fix1-unit-after/deploy/fix1-unit-after.config.sh"
+  },
+  "stray_registered_under": [
+   [
+    "workspace/projects/hubspot-crm-operator/code/stray_fix1-unit-after.py",
+    "project",
+    "hubspot-crm-operator"
+   ]
+  ]
+ },
+ "unit_owner_ok": true
+}

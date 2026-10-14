@@ -1,0 +1,1190 @@
+{
+ "layer_comparison": {
+  "Qwen2.5-0.5B-Instruct": {
+   "L12": {
+    "D1_mode": {
+     "syn_val_acc": 0.981,
+     "syn_val_ece_T1": 0.0229,
+     "recall": {
+      "direct": 1.0,
+      "orchestrate": 0.8
+     },
+     "indep_val_acc": 1.0,
+     "n_syn_val": 156,
+     "n_indep_val": 12
+    },
+    "D2_agent": {
+     "syn_val_acc": 0.679,
+     "syn_val_ece_T1": 0.2517,
+     "recall": {
+      "Frontend": 0.905,
+      "Backend": 0.5,
+      "DevOps & Cloud": 0.667,
+      "Security & Compliance": 0.6,
+      "QA & Testing": 0.773,
+      "Database": 0.615,
+      "CTO Brain": 0.688
+     },
+     "indep_val_acc": null,
+     "n_syn_val": 156,
+     "n_indep_val": 0
+    },
+    "D2_action": {
+     "syn_val_acc": 0.929,
+     "syn_val_ece_T1": 0.0523,
+     "recall": {
+      "read": 0.942,
+      "change": 0.906
+     },
+     "indep_val_acc": 0.923,
+     "n_syn_val": 156,
+     "n_indep_val": 13
+    },
+    "D4_qa": {
+     "syn_val_acc": 1.0,
+     "syn_val_ece_T1": 0.015,
+     "recall": {
+      "no": 1.0,
+      "yes": 1.0
+     },
+     "indep_val_acc": 1.0,
+     "n_syn_val": 30,
+     "n_indep_val": 1
+    },
+    "D9_nature": {
+     "syn_val_acc": 0.992,
+     "syn_val_ece_T1": 0.0065,
+     "recall": {
+      "technical": 1.0,
+      "operational": 0.986
+     },
+     "indep_val_acc": null,
+     "n_syn_val": 129,
+     "n_indep_val": 0
+    },
+    "_mean_syn_val_acc": 0.9162
+   },
+   "L16": {
+    "D1_mode": {
+     "syn_val_acc": 0.968,
+     "syn_val_ece_T1": 0.0297,
+     "recall": {
+      "direct": 0.986,
+      "orchestrate": 0.8
+     },
+     "indep_val_acc": 1.0,
+     "n_syn_val": 156,
+     "n_indep_val": 12
+    },
+    "D2_agent": {
+     "syn_val_acc": 0.731,
+     "syn_val_ece_T1": 0.2143,
+     "recall": {
+      "Frontend": 0.81,
+      "Backend": 0.708,
+      "DevOps & Cloud": 0.689,
+      "Security & Compliance": 0.733,
+      "QA & Testing": 0.773,
+      "Database": 0.615,
+      "CTO Brain": 0.812
+     },
+     "indep_val_acc": null,
+     "n_syn_val": 156,
+     "n_indep_val": 0
+    },
+    "D2_action": {
+     "syn_val_acc": 0.962,
+     "syn_val_ece_T1": 0.042,
+     "recall": {
+      "read": 0.971,
+      "change": 0.943
+     },
+     "indep_val_acc": 1.0,
+     "n_syn_val": 156,
+     "n_indep_val": 13
+    },
+    "D4_qa": {
+     "syn_val_acc": 0.933,
+     "syn_val_ece_T1": 0.0812,
+     "recall": {
+      "no": 0.947,
+      "yes": 0.909
+     },
+     "indep_val_acc": 1.0,
+     "n_syn_val": 30,
+     "n_indep_val": 1
+    },
+    "D9_nature": {
+     "syn_val_acc": 0.984,
+     "syn_val_ece_T1": 0.0108,
+     "recall": {
+      "technical": 0.983,
+      "operational": 0.986
+     },
+     "indep_val_acc": null,
+     "n_syn_val": 129,
+     "n_indep_val": 0
+    },
+    "_mean_syn_val_acc": 0.9156
+   },
+   "L20": {
+    "D1_mode": {
+     "syn_val_acc": 0.974,
+     "syn_val_ece_T1": 0.0256,
+     "recall": {
+      "direct": 0.993,
+      "orchestrate": 0.8
+     },
+     "indep_val_acc": 1.0,
+     "n_syn_val": 156,
+     "n_indep_val": 12
+    },
+    "D2_agent": {
+     "syn_val_acc": 0.731,
+     "syn_val_ece_T1": 0.2227,
+     "recall": {
+      "Frontend": 0.714,
+      "Backend": 0.708,
+      "DevOps & Cloud": 0.711,
+      "Security & Compliance": 0.667,
+      "QA & Testing": 0.864,
+      "Database": 0.615,
+      "CTO Brain": 0.812
+     },
+     "indep_val_acc": null,
+     "n_syn_val": 156,
+     "n_indep_val": 0
+    },
+    "D2_action": {
+     "syn_val_acc": 0.949,
+     "syn_val_ece_T1": 0.0432,
+     "recall": {
+      "read": 0.971,
+      "change": 0.906
+     },
+     "indep_val_acc": 1.0,
+     "n_syn_val": 156,
+     "n_indep_val": 13
+    },
+    "D4_qa": {
+     "syn_val_acc": 0.933,
+     "syn_val_ece_T1": 0.0601,
+     "recall": {
+      "no": 1.0,
+      "yes": 0.818
+     },
+     "indep_val_acc": 0.0,
+     "n_syn_val": 30,
+     "n_indep_val": 1
+    },
+    "D9_nature": {
+     "syn_val_acc": 0.992,
+     "syn_val_ece_T1": 0.0101,
+     "recall": {
+      "technical": 0.983,
+      "operational": 1.0
+     },
+     "indep_val_acc": null,
+     "n_syn_val": 129,
+     "n_indep_val": 0
+    },
+    "_mean_syn_val_acc": 0.9158
+   },
+   "L24": {
+    "D1_mode": {
+     "syn_val_acc": 0.949,
+     "syn_val_ece_T1": 0.0475,
+     "recall": {
+      "direct": 0.972,
+      "orchestrate": 0.733
+     },
+     "indep_val_acc": 1.0,
+     "n_syn_val": 156,
+     "n_indep_val": 12
+    },
+    "D2_agent": {
+     "syn_val_acc": 0.769,
+     "syn_val_ece_T1": 0.1958,
+     "recall": {
+      "Frontend": 0.667,
+      "Backend": 0.75,
+      "DevOps & Cloud": 0.756,
+      "Security & Compliance": 0.8,
+      "QA & Testing": 0.909,
+      "Database": 0.846,
+      "CTO Brain": 0.688
+     },
+     "indep_val_acc": null,
+     "n_syn_val": 156,
+     "n_indep_val": 0
+    },
+    "D2_action": {
+     "syn_val_acc": 0.968,
+     "syn_val_ece_T1": 0.0391,
+     "recall": {
+      "read": 0.971,
+      "change": 0.962
+     },
+     "indep_val_acc": 1.0,
+     "n_syn_val": 156,
+     "n_indep_val": 13
+    },
+    "D4_qa": {
+     "syn_val_acc": 0.933,
+     "syn_val_ece_T1": 0.0667,
+     "recall": {
+      "no": 0.947,
+      "yes": 0.909
+     },
+     "indep_val_acc": 0.0,
+     "n_syn_val": 30,
+     "n_indep_val": 1
+    },
+    "D9_nature": {
+     "syn_val_acc": 0.977,
+     "syn_val_ece_T1": 0.0251,
+     "recall": {
+      "technical": 1.0,
+      "operational": 0.958
+     },
+     "indep_val_acc": null,
+     "n_syn_val": 129,
+     "n_indep_val": 0
+    },
+    "_mean_syn_val_acc": 0.9192
+   },
+   "mean16-24": {
+    "D1_mode": {
+     "syn_val_acc": 0.968,
+     "syn_val_ece_T1": 0.0322,
+     "recall": {
+      "direct": 0.986,
+      "orchestrate": 0.8
+     },
+     "indep_val_acc": 1.0,
+     "n_syn_val": 156,
+     "n_indep_val": 12
+    },
+    "D2_agent": {
+     "syn_val_acc": 0.776,
+     "syn_val_ece_T1": 0.1949,
+     "recall": {
+      "Frontend": 0.714,
+      "Backend": 0.75,
+      "DevOps & Cloud": 0.711,
+      "Security & Compliance": 0.8,
+      "QA & Testing": 0.909,
+      "Database": 0.846,
+      "CTO Brain": 0.812
+     },
+     "indep_val_acc": null,
+     "n_syn_val": 156,
+     "n_indep_val": 0
+    },
+    "D2_action": {
+     "syn_val_acc": 0.955,
+     "syn_val_ece_T1": 0.0452,
+     "recall": {
+      "read": 0.961,
+      "change": 0.943
+     },
+     "indep_val_acc": 1.0,
+     "n_syn_val": 156,
+     "n_indep_val": 13
+    },
+    "D4_qa": {
+     "syn_val_acc": 0.967,
+     "syn_val_ece_T1": 0.0424,
+     "recall": {
+      "no": 1.0,
+      "yes": 0.909
+     },
+     "indep_val_acc": 0.0,
+     "n_syn_val": 30,
+     "n_indep_val": 1
+    },
+    "D9_nature": {
+     "syn_val_acc": 0.984,
+     "syn_val_ece_T1": 0.0187,
+     "recall": {
+      "technical": 0.983,
+      "operational": 0.986
+     },
+     "indep_val_acc": null,
+     "n_syn_val": 129,
+     "n_indep_val": 0
+    },
+    "_mean_syn_val_acc": 0.93
+   },
+   "final": {
+    "D1_mode": {
+     "syn_val_acc": 0.949,
+     "syn_val_ece_T1": 0.0484,
+     "recall": {
+      "direct": 0.972,
+      "orchestrate": 0.733
+     },
+     "indep_val_acc": 1.0,
+     "n_syn_val": 156,
+     "n_indep_val": 12
+    },
+    "D2_agent": {
+     "syn_val_acc": 0.782,
+     "syn_val_ece_T1": 0.1808,
+     "recall": {
+      "Frontend": 0.667,
+      "Backend": 0.75,
+      "DevOps & Cloud": 0.778,
+      "Security & Compliance": 0.8,
+      "QA & Testing": 0.955,
+      "Database": 0.846,
+      "CTO Brain": 0.688
+     },
+     "indep_val_acc": null,
+     "n_syn_val": 156,
+     "n_indep_val": 0
+    },
+    "D2_action": {
+     "syn_val_acc": 0.968,
+     "syn_val_ece_T1": 0.0366,
+     "recall": {
+      "read": 0.971,
+      "change": 0.962
+     },
+     "indep_val_acc": 1.0,
+     "n_syn_val": 156,
+     "n_indep_val": 13
+    },
+    "D4_qa": {
+     "syn_val_acc": 0.933,
+     "syn_val_ece_T1": 0.0667,
+     "recall": {
+      "no": 0.947,
+      "yes": 0.909
+     },
+     "indep_val_acc": 0.0,
+     "n_syn_val": 30,
+     "n_indep_val": 1
+    },
+    "D9_nature": {
+     "syn_val_acc": 0.977,
+     "syn_val_ece_T1": 0.0222,
+     "recall": {
+      "technical": 1.0,
+      "operational": 0.958
+     },
+     "indep_val_acc": null,
+     "n_syn_val": 129,
+     "n_indep_val": 0
+    },
+    "_mean_syn_val_acc": 0.9218
+   }
+  },
+  "Qwen2.5-1.5B-Instruct": {
+   "L12": {
+    "D1_mode": {
+     "syn_val_acc": 0.968,
+     "syn_val_ece_T1": 0.0283,
+     "recall": {
+      "direct": 0.986,
+      "orchestrate": 0.8
+     },
+     "indep_val_acc": 1.0,
+     "n_syn_val": 156,
+     "n_indep_val": 12
+    },
+    "D2_agent": {
+     "syn_val_acc": 0.712,
+     "syn_val_ece_T1": 0.2179,
+     "recall": {
+      "Frontend": 0.81,
+      "Backend": 0.625,
+      "DevOps & Cloud": 0.778,
+      "Security & Compliance": 0.6,
+      "QA & Testing": 0.727,
+      "Database": 0.692,
+      "CTO Brain": 0.625
+     },
+     "indep_val_acc": null,
+     "n_syn_val": 156,
+     "n_indep_val": 0
+    },
+    "D2_action": {
+     "syn_val_acc": 0.936,
+     "syn_val_ece_T1": 0.0627,
+     "recall": {
+      "read": 0.961,
+      "change": 0.887
+     },
+     "indep_val_acc": 0.923,
+     "n_syn_val": 156,
+     "n_indep_val": 13
+    },
+    "D4_qa": {
+     "syn_val_acc": 0.967,
+     "syn_val_ece_T1": 0.0328,
+     "recall": {
+      "no": 1.0,
+      "yes": 0.909
+     },
+     "indep_val_acc": 1.0,
+     "n_syn_val": 30,
+     "n_indep_val": 1
+    },
+    "D9_nature": {
+     "syn_val_acc": 0.977,
+     "syn_val_ece_T1": 0.0212,
+     "recall": {
+      "technical": 0.948,
+      "operational": 1.0
+     },
+     "indep_val_acc": null,
+     "n_syn_val": 129,
+     "n_indep_val": 0
+    },
+    "_mean_syn_val_acc": 0.912
+   },
+   "L16": {
+    "D1_mode": {
+     "syn_val_acc": 0.955,
+     "syn_val_ece_T1": 0.0439,
+     "recall": {
+      "direct": 0.979,
+      "orchestrate": 0.733
+     },
+     "indep_val_acc": 1.0,
+     "n_syn_val": 156,
+     "n_indep_val": 12
+    },
+    "D2_agent": {
+     "syn_val_acc": 0.712,
+     "syn_val_ece_T1": 0.2341,
+     "recall": {
+      "Frontend": 0.905,
+      "Backend": 0.542,
+      "DevOps & Cloud": 0.711,
+      "Security & Compliance": 0.667,
+      "QA & Testing": 0.773,
+      "Database": 0.769,
+      "CTO Brain": 0.625
+     },
+     "indep_val_acc": null,
+     "n_syn_val": 156,
+     "n_indep_val": 0
+    },
+    "D2_action": {
+     "syn_val_acc": 0.955,
+     "syn_val_ece_T1": 0.0443,
+     "recall": {
+      "read": 0.981,
+      "change": 0.906
+     },
+     "indep_val_acc": 0.846,
+     "n_syn_val": 156,
+     "n_indep_val": 13
+    },
+    "D4_qa": {
+     "syn_val_acc": 0.933,
+     "syn_val_ece_T1": 0.0652,
+     "recall": {
+      "no": 0.947,
+      "yes": 0.909
+     },
+     "indep_val_acc": 1.0,
+     "n_syn_val": 30,
+     "n_indep_val": 1
+    },
+    "D9_nature": {
+     "syn_val_acc": 1.0,
+     "syn_val_ece_T1": 0.0003,
+     "recall": {
+      "technical": 1.0,
+      "operational": 1.0
+     },
+     "indep_val_acc": null,
+     "n_syn_val": 129,
+     "n_indep_val": 0
+    },
+    "_mean_syn_val_acc": 0.911
+   },
+   "L20": {
+    "D1_mode": {
+     "syn_val_acc": 0.955,
+     "syn_val_ece_T1": 0.0454,
+     "recall": {
+      "direct": 0.993,
+      "orchestrate": 0.6
+     },
+     "indep_val_acc": 0.917,
+     "n_syn_val": 156,
+     "n_indep_val": 12
+    },
+    "D2_agent": {
+     "syn_val_acc": 0.744,
+     "syn_val_ece_T1": 0.2018,
+     "recall": {
+      "Frontend": 0.81,
+      "Backend": 0.583,
+      "DevOps & Cloud": 0.756,
+      "Security & Compliance": 0.667,
+      "QA & Testing": 0.909,
+      "Database": 0.846,
+      "CTO Brain": 0.625
+     },
+     "indep_val_acc": null,
+     "n_syn_val": 156,
+     "n_indep_val": 0
+    },
+    "D2_action": {
+     "syn_val_acc": 0.962,
+     "syn_val_ece_T1": 0.0426,
+     "recall": {
+      "read": 0.981,
+      "change": 0.925
+     },
+     "indep_val_acc": 0.846,
+     "n_syn_val": 156,
+     "n_indep_val": 13
+    },
+    "D4_qa": {
+     "syn_val_acc": 0.933,
+     "syn_val_ece_T1": 0.0519,
+     "recall": {
+      "no": 0.947,
+      "yes": 0.909
+     },
+     "indep_val_acc": 1.0,
+     "n_syn_val": 30,
+     "n_indep_val": 1
+    },
+    "D9_nature": {
+     "syn_val_acc": 0.992,
+     "syn_val_ece_T1": 0.0077,
+     "recall": {
+      "technical": 0.983,
+      "operational": 1.0
+     },
+     "indep_val_acc": null,
+     "n_syn_val": 129,
+     "n_indep_val": 0
+    },
+    "_mean_syn_val_acc": 0.9172
+   },
+   "L24": {
+    "D1_mode": {
+     "syn_val_acc": 0.962,
+     "syn_val_ece_T1": 0.0357,
+     "recall": {
+      "direct": 0.986,
+      "orchestrate": 0.733
+     },
+     "indep_val_acc": 0.917,
+     "n_syn_val": 156,
+     "n_indep_val": 12
+    },
+    "D2_agent": {
+     "syn_val_acc": 0.833,
+     "syn_val_ece_T1": 0.1431,
+     "recall": {
+      "Frontend": 0.81,
+      "Backend": 0.75,
+      "DevOps & Cloud": 0.889,
+      "Security & Compliance": 0.8,
+      "QA & Testing": 1.0,
+      "Database": 0.846,
+      "CTO Brain": 0.625
+     },
+     "indep_val_acc": null,
+     "n_syn_val": 156,
+     "n_indep_val": 0
+    },
+    "D2_action": {
+     "syn_val_acc": 0.974,
+     "syn_val_ece_T1": 0.0299,
+     "recall": {
+      "read": 1.0,
+      "change": 0.925
+     },
+     "indep_val_acc": 0.846,
+     "n_syn_val": 156,
+     "n_indep_val": 13
+    },
+    "D4_qa": {
+     "syn_val_acc": 0.933,
+     "syn_val_ece_T1": 0.0664,
+     "recall": {
+      "no": 0.947,
+      "yes": 0.909
+     },
+     "indep_val_acc": 1.0,
+     "n_syn_val": 30,
+     "n_indep_val": 1
+    },
+    "D9_nature": {
+     "syn_val_acc": 0.984,
+     "syn_val_ece_T1": 0.0166,
+     "recall": {
+      "technical": 0.966,
+      "operational": 1.0
+     },
+     "indep_val_acc": null,
+     "n_syn_val": 129,
+     "n_indep_val": 0
+    },
+    "_mean_syn_val_acc": 0.9372
+   },
+   "L28": {
+    "D1_mode": {
+     "syn_val_acc": 0.955,
+     "syn_val_ece_T1": 0.0442,
+     "recall": {
+      "direct": 0.993,
+      "orchestrate": 0.6
+     },
+     "indep_val_acc": 0.917,
+     "n_syn_val": 156,
+     "n_indep_val": 12
+    },
+    "D2_agent": {
+     "syn_val_acc": 0.853,
+     "syn_val_ece_T1": 0.1281,
+     "recall": {
+      "Frontend": 0.81,
+      "Backend": 0.75,
+      "DevOps & Cloud": 0.911,
+      "Security & Compliance": 0.867,
+      "QA & Testing": 1.0,
+      "Database": 0.923,
+      "CTO Brain": 0.625
+     },
+     "indep_val_acc": null,
+     "n_syn_val": 156,
+     "n_indep_val": 0
+    },
+    "D2_action": {
+     "syn_val_acc": 0.968,
+     "syn_val_ece_T1": 0.0337,
+     "recall": {
+      "read": 0.981,
+      "change": 0.943
+     },
+     "indep_val_acc": 1.0,
+     "n_syn_val": 156,
+     "n_indep_val": 13
+    },
+    "D4_qa": {
+     "syn_val_acc": 0.933,
+     "syn_val_ece_T1": 0.0666,
+     "recall": {
+      "no": 0.947,
+      "yes": 0.909
+     },
+     "indep_val_acc": 1.0,
+     "n_syn_val": 30,
+     "n_indep_val": 1
+    },
+    "D9_nature": {
+     "syn_val_acc": 0.969,
+     "syn_val_ece_T1": 0.0308,
+     "recall": {
+      "technical": 0.966,
+      "operational": 0.972
+     },
+     "indep_val_acc": null,
+     "n_syn_val": 129,
+     "n_indep_val": 0
+    },
+    "_mean_syn_val_acc": 0.9356
+   },
+   "mean16-24": {
+    "D1_mode": {
+     "syn_val_acc": 0.962,
+     "syn_val_ece_T1": 0.0378,
+     "recall": {
+      "direct": 0.993,
+      "orchestrate": 0.667
+     },
+     "indep_val_acc": 1.0,
+     "n_syn_val": 156,
+     "n_indep_val": 12
+    },
+    "D2_agent": {
+     "syn_val_acc": 0.827,
+     "syn_val_ece_T1": 0.1523,
+     "recall": {
+      "Frontend": 0.952,
+      "Backend": 0.625,
+      "DevOps & Cloud": 0.844,
+      "Security & Compliance": 0.8,
+      "QA & Testing": 1.0,
+      "Database": 0.846,
+      "CTO Brain": 0.688
+     },
+     "indep_val_acc": null,
+     "n_syn_val": 156,
+     "n_indep_val": 0
+    },
+    "D2_action": {
+     "syn_val_acc": 0.955,
+     "syn_val_ece_T1": 0.0413,
+     "recall": {
+      "read": 0.99,
+      "change": 0.887
+     },
+     "indep_val_acc": 0.923,
+     "n_syn_val": 156,
+     "n_indep_val": 13
+    },
+    "D4_qa": {
+     "syn_val_acc": 0.933,
+     "syn_val_ece_T1": 0.0663,
+     "recall": {
+      "no": 0.947,
+      "yes": 0.909
+     },
+     "indep_val_acc": 1.0,
+     "n_syn_val": 30,
+     "n_indep_val": 1
+    },
+    "D9_nature": {
+     "syn_val_acc": 0.992,
+     "syn_val_ece_T1": 0.0106,
+     "recall": {
+      "technical": 0.983,
+      "operational": 1.0
+     },
+     "indep_val_acc": null,
+     "n_syn_val": 129,
+     "n_indep_val": 0
+    },
+    "_mean_syn_val_acc": 0.9338
+   },
+   "final": {
+    "D1_mode": {
+     "syn_val_acc": 0.949,
+     "syn_val_ece_T1": 0.0498,
+     "recall": {
+      "direct": 0.986,
+      "orchestrate": 0.6
+     },
+     "indep_val_acc": 1.0,
+     "n_syn_val": 156,
+     "n_indep_val": 12
+    },
+    "D2_agent": {
+     "syn_val_acc": 0.84,
+     "syn_val_ece_T1": 0.135,
+     "recall": {
+      "Frontend": 0.762,
+      "Backend": 0.75,
+      "DevOps & Cloud": 0.911,
+      "Security & Compliance": 0.867,
+      "QA & Testing": 1.0,
+      "Database": 0.923,
+      "CTO Brain": 0.562
+     },
+     "indep_val_acc": null,
+     "n_syn_val": 156,
+     "n_indep_val": 0
+    },
+    "D2_action": {
+     "syn_val_acc": 0.968,
+     "syn_val_ece_T1": 0.0308,
+     "recall": {
+      "read": 0.981,
+      "change": 0.943
+     },
+     "indep_val_acc": 0.923,
+     "n_syn_val": 156,
+     "n_indep_val": 13
+    },
+    "D4_qa": {
+     "syn_val_acc": 0.933,
+     "syn_val_ece_T1": 0.0661,
+     "recall": {
+      "no": 0.947,
+      "yes": 0.909
+     },
+     "indep_val_acc": 1.0,
+     "n_syn_val": 30,
+     "n_indep_val": 1
+    },
+    "D9_nature": {
+     "syn_val_acc": 0.969,
+     "syn_val_ece_T1": 0.0269,
+     "recall": {
+      "technical": 0.966,
+      "operational": 0.972
+     },
+     "indep_val_acc": null,
+     "n_syn_val": 129,
+     "n_indep_val": 0
+    },
+    "_mean_syn_val_acc": 0.9318
+   }
+  }
+ },
+ "models": {
+  "Qwen2.5-0.5B-Instruct": {
+   "model": "Qwen2.5-0.5B-Instruct",
+   "model_dir": "/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/_research/phase4/models/Qwen2.5-0.5B-Instruct",
+   "layer": "mean16-24",
+   "trained": "2026-10-13 17:50",
+   "load_s": 1.5,
+   "prefix_tokens": 925,
+   "prefix_ms": 153,
+   "heads": {
+    "D1_mode": {
+     "options": [
+      "direct",
+      "orchestrate"
+     ],
+     "T": 6.7611,
+     "tau": 0.9126,
+     "off_classes": [
+      "orchestrate"
+     ],
+     "rare_grouped": [],
+     "train_counts": {
+      "direct": 749,
+      "orchestrate": 87
+     },
+     "independent_case_counts": {
+      "direct": 49,
+      "orchestrate": 2
+     },
+     "indep_val_acc": 0.917,
+     "llm_indep_val_acc": 1.0,
+     "calibration": {
+      "syn_val_ece_before": 0.0322,
+      "syn_val_ece_after": 0.026,
+      "indep_val_ece_before": 0.0,
+      "indep_val_ece_after": 0.0286
+     },
+     "off_why": "",
+     "n_syn_train": 836,
+     "n_syn_val": 156,
+     "n_indep_val": 12,
+     "n_test": 39
+    },
+    "D2_agent": {
+     "options": [
+      "Frontend",
+      "Backend",
+      "DevOps & Cloud",
+      "Security & Compliance",
+      "QA & Testing",
+      "Database",
+      "CTO Brain"
+     ],
+     "T": 5.5776,
+     "tau": 1.01,
+     "off_classes": [
+      "Frontend",
+      "Backend",
+      "DevOps & Cloud",
+      "Security & Compliance",
+      "QA & Testing",
+      "Database",
+      "CTO Brain"
+     ],
+     "rare_grouped": [],
+     "train_counts": {
+      "Frontend": 88,
+      "Backend": 115,
+      "DevOps & Cloud": 218,
+      "Security & Compliance": 86,
+      "QA & Testing": 105,
+      "Database": 107,
+      "CTO Brain": 117
+     },
+     "independent_case_counts": {},
+     "indep_val_acc": null,
+     "llm_indep_val_acc": null,
+     "calibration": {
+      "syn_val_ece_before": 0.1949,
+      "syn_val_ece_after": 0.064
+     },
+     "off_why": "only 0 independent validation labels (< 5): head OFF (always the LLM) until the owner's labels",
+     "n_syn_train": 836,
+     "n_syn_val": 156,
+     "n_indep_val": 0,
+     "n_test": 0
+    },
+    "D2_action": {
+     "options": [
+      "read",
+      "change"
+     ],
+     "T": 5.0659,
+     "tau": 0.7421,
+     "off_classes": [],
+     "rare_grouped": [],
+     "train_counts": {
+      "read": 520,
+      "change": 316
+     },
+     "independent_case_counts": {
+      "read": 43,
+      "change": 9
+     },
+     "indep_val_acc": 1.0,
+     "llm_indep_val_acc": 0.846,
+     "calibration": {
+      "syn_val_ece_before": 0.0452,
+      "syn_val_ece_after": 0.0171,
+      "indep_val_ece_before": 0.0004,
+      "indep_val_ece_after": 0.0466
+     },
+     "off_why": "",
+     "n_syn_train": 836,
+     "n_syn_val": 156,
+     "n_indep_val": 13,
+     "n_test": 39
+    },
+    "D4_qa": {
+     "options": [
+      "no",
+      "yes"
+     ],
+     "T": 9.9347,
+     "tau": 1.01,
+     "off_classes": [
+      "yes"
+     ],
+     "rare_grouped": [],
+     "train_counts": {
+      "no": 106,
+      "yes": 64
+     },
+     "independent_case_counts": {
+      "no": 8
+     },
+     "indep_val_acc": null,
+     "llm_indep_val_acc": null,
+     "calibration": {
+      "syn_val_ece_before": 0.0424,
+      "syn_val_ece_after": 0.069
+     },
+     "off_why": "only 1 independent validation labels (< 5): head OFF (always the LLM) until the owner's labels",
+     "n_syn_train": 170,
+     "n_syn_val": 30,
+     "n_indep_val": 1,
+     "n_test": 7
+    },
+    "D9_nature": {
+     "options": [
+      "technical",
+      "operational"
+     ],
+     "T": 6.1409,
+     "tau": 1.01,
+     "off_classes": [
+      "technical",
+      "operational"
+     ],
+     "rare_grouped": [],
+     "train_counts": {
+      "technical": 433,
+      "operational": 425
+     },
+     "independent_case_counts": {},
+     "indep_val_acc": null,
+     "llm_indep_val_acc": null,
+     "calibration": {
+      "syn_val_ece_before": 0.0187,
+      "syn_val_ece_after": 0.0179
+     },
+     "off_why": "only 0 independent validation labels (< 5): head OFF (always the LLM) until the owner's labels",
+     "n_syn_train": 858,
+     "n_syn_val": 129,
+     "n_indep_val": 0,
+     "n_test": 0
+    }
+   }
+  },
+  "Qwen2.5-1.5B-Instruct": {
+   "model": "Qwen2.5-1.5B-Instruct",
+   "model_dir": "/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/_research/phase4/models/Qwen2.5-1.5B-Instruct",
+   "layer": "L24",
+   "trained": "2026-10-13 17:50",
+   "load_s": 1.4,
+   "prefix_tokens": 925,
+   "prefix_ms": 463,
+   "heads": {
+    "D1_mode": {
+     "options": [
+      "direct",
+      "orchestrate"
+     ],
+     "T": 9.9347,
+     "tau": 0.9542,
+     "off_classes": [
+      "orchestrate"
+     ],
+     "rare_grouped": [],
+     "train_counts": {
+      "direct": 749,
+      "orchestrate": 87
+     },
+     "independent_case_counts": {
+      "direct": 49,
+      "orchestrate": 2
+     },
+     "indep_val_acc": 0.917,
+     "llm_indep_val_acc": 1.0,
+     "calibration": {
+      "syn_val_ece_before": 0.0357,
+      "syn_val_ece_after": 0.0538,
+      "indep_val_ece_before": 0.0833,
+      "indep_val_ece_after": 0.0648
+     },
+     "off_why": "",
+     "n_syn_train": 836,
+     "n_syn_val": 156,
+     "n_indep_val": 12,
+     "n_test": 39
+    },
+    "D2_agent": {
+     "options": [
+      "Frontend",
+      "Backend",
+      "DevOps & Cloud",
+      "Security & Compliance",
+      "QA & Testing",
+      "Database",
+      "CTO Brain"
+     ],
+     "T": 4.6012,
+     "tau": 1.01,
+     "off_classes": [
+      "Frontend",
+      "Backend",
+      "DevOps & Cloud",
+      "Security & Compliance",
+      "QA & Testing",
+      "Database",
+      "CTO Brain"
+     ],
+     "rare_grouped": [],
+     "train_counts": {
+      "Frontend": 88,
+      "Backend": 115,
+      "DevOps & Cloud": 218,
+      "Security & Compliance": 86,
+      "QA & Testing": 105,
+      "Database": 107,
+      "CTO Brain": 117
+     },
+     "independent_case_counts": {},
+     "indep_val_acc": null,
+     "llm_indep_val_acc": null,
+     "calibration": {
+      "syn_val_ece_before": 0.1431,
+      "syn_val_ece_after": 0.0367
+     },
+     "off_why": "only 0 independent validation labels (< 5): head OFF (always the LLM) until the owner's labels",
+     "n_syn_train": 836,
+     "n_syn_val": 156,
+     "n_indep_val": 0,
+     "n_test": 0
+    },
+    "D2_action": {
+     "options": [
+      "read",
+      "change"
+     ],
+     "T": 4.6012,
+     "tau": 0.5006,
+     "off_classes": [],
+     "rare_grouped": [],
+     "train_counts": {
+      "read": 520,
+      "change": 316
+     },
+     "independent_case_counts": {
+      "read": 43,
+      "change": 9
+     },
+     "indep_val_acc": 0.846,
+     "llm_indep_val_acc": 0.846,
+     "calibration": {
+      "syn_val_ece_before": 0.0299,
+      "syn_val_ece_after": 0.0302,
+      "indep_val_ece_before": 0.1003,
+      "indep_val_ece_after": 0.0661
+     },
+     "off_why": "",
+     "n_syn_train": 836,
+     "n_syn_val": 156,
+     "n_indep_val": 13,
+     "n_test": 39
+    },
+    "D4_qa": {
+     "options": [
+      "no",
+      "yes"
+     ],
+     "T": 13.259,
+     "tau": 1.01,
+     "off_classes": [
+      "yes"
+     ],
+     "rare_grouped": [],
+     "train_counts": {
+      "no": 106,
+      "yes": 64
+     },
+     "independent_case_counts": {
+      "no": 8
+     },
+     "indep_val_acc": null,
+     "llm_indep_val_acc": null,
+     "calibration": {
+      "syn_val_ece_before": 0.0664,
+      "syn_val_ece_after": 0.0699
+     },
+     "off_why": "only 1 independent validation labels (< 5): head OFF (always the LLM) until the owner's labels",
+     "n_syn_train": 170,
+     "n_syn_val": 30,
+     "n_indep_val": 1,
+     "n_test": 7
+    },
+    "D9_nature": {
+     "options": [
+      "technical",
+      "operational"
+     ],
+     "T": 6.1409,
+     "tau": 1.01,
+     "off_classes": [
+      "technical",
+      "operational"
+     ],
+     "rare_grouped": [],
+     "train_counts": {
+      "technical": 433,
+      "operational": 425
+     },
+     "independent_case_counts": {},
+     "indep_val_acc": null,
+     "llm_indep_val_acc": null,
+     "calibration": {
+      "syn_val_ece_before": 0.0166,
+      "syn_val_ece_after": 0.0136
+     },
+     "off_why": "only 0 independent validation labels (< 5): head OFF (always the LLM) until the owner's labels",
+     "n_syn_train": 858,
+     "n_syn_val": 129,
+     "n_indep_val": 0,
+     "n_test": 0
+    }
+   }
+  }
+ },
+ "chosen": "Qwen2.5-0.5B-Instruct",
+ "scores": {
+  "Qwen2.5-0.5B-Instruct": 0.96,
+  "Qwen2.5-1.5B-Instruct": 0.88
+ }
+}

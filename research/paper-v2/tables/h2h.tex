@@ -1,0 +1,12 @@
+\begin{table*}[t]\centering\scriptsize
+\caption{Head-to-head on the held-out test split (strict independent truth), 3 repetitions. A case counts as correct when it is correct in the majority of its repetitions; 95\% Wilson intervals; exact McNemar test on the discordant cases ($b$ = only Jev right, $c$ = only the production LLM path right). Mode and QA gate: the production path is Claude; read/change: the production path is the local semantic router. \textbf{PROVISIONAL -- pending human labels}.}
+\label{tab:h2h}
+\begin{tabular}{l l r l l r r r}\toprule
+Decision & Jev model & $n$ & Production path acc.\ \% [95\% CI] & Jev acc.\ \% [95\% CI] & $b/c$ & McNemar $p$ & Fallback \%\\\midrule
+Mode (direct / orchestrate) & 0.5B & 39 & 100.0 [91.0, 100.0] & 100.0 [91.0, 100.0] & 0/0 & 1.000 & 5 \\
+Read / change & 0.5B & 42 & 83.3 [69.4, 91.7] & 83.3 [69.4, 91.7] & 1/1 & 1.000 & 12 \\
+QA gate & 0.5B & 7 & 71.4 [35.9, 91.8] & 71.4 [35.9, 91.8] & 0/0 & 1.000 & 100 \\
+Mode (direct / orchestrate) & 1.5B & 39 & 100.0 [91.0, 100.0] & 100.0 [91.0, 100.0] & 0/0 & 1.000 & 5 \\
+Read / change & 1.5B & 42 & 83.3 [69.4, 91.7] & 88.1 [75.0, 94.8] & 3/1 & 0.625 & 0 \\
+QA gate & 1.5B & 7 & 71.4 [35.9, 91.8] & 71.4 [35.9, 91.8] & 0/0 & 1.000 & 100 \\
+\bottomrule\end{tabular}\end{table*}

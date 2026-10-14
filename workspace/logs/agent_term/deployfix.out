@@ -1,0 +1,13 @@
+PATCHED (backup: deploy.sh.bak_ufwfix)
+=== bash -n syntax check ===
+SYNTAX_OK
+=== new ufw block (lines around the rotate) ===
+193:       "sudo ufw allow 80/tcp" \
+194:       "sudo ufw allow 443/tcp" \
+195:       "sudo ufw allow from ${MYIP} to any port 22 proto tcp" \
+196:       "sudo ufw status numbered | grep '22/tcp' | grep -E 'ALLOW IN|DENY IN' | grep -v '${MYIP}' | tr -d '[]' | awk '{print \$1}' | sort -rn | while read n; do sudo ufw --force delete \"\$n\"; done" \
+197:       "sudo ufw deny 22/tcp" \
+198:       "sudo ufw allow 80/tcp" \
+199:       "sudo ufw allow 443/tcp" \
+201:       "sudo ufw status numbered" >>"$LOG" 2>&1; then
+DONE_DEPLOYFIX

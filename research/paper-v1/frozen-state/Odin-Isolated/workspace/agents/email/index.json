@@ -1,0 +1,15 @@
+{
+  "name": "Email",
+  "role": "Email & Lifecycle",
+  "nature": "operational",
+  "avatar": "generic",
+  "projects": [
+    "Email — Klaviyo workflows (read-only)",
+    "Revealer"
+  ],
+  "skill_file_hint": "data/projects/<pid>/skills/email.md",
+  "note": "INDEX/REFERENCE ONLY — not moved yet (Phase 1a)",
+  "type": "operational",
+  "typeConfig": "shared/config/agent-types/operational.json",
+  "group": "marketing"
+}

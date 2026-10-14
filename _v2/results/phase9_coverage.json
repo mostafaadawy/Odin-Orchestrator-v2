@@ -1,0 +1,26 @@
+{
+ "Odin-Consolidated": {
+  "files": 4231,
+  "covered": 4231,
+  "bytes": 4877198582,
+  "bytes_covered": 4877198582,
+  "missing_by_folder": [],
+  "missing_sample": []
+ },
+ "Odin-Isolated": {
+  "files": 2173,
+  "covered": 2173,
+  "bytes": 391743329,
+  "bytes_covered": 391743329,
+  "missing_by_folder": [],
+  "missing_sample": []
+ },
+ "odin-v2-staging": {
+  "files": 113,
+  "covered": 113,
+  "bytes": 15817959,
+  "bytes_covered": 15817959,
+  "missing_by_folder": [],
+  "missing_sample": []
+ }
+}

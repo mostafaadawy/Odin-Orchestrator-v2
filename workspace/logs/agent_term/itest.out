@@ -1,0 +1,29 @@
+=== python: /Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/.venv/bin/python ===
+=== unit tests (repo venv) ===
+PASS case1 mode=direct
+PASS case1 scoped=True
+PASS case1 requirements is ONE item (not the brief)
+PASS case1 no governance/handoff/helper reqs leaked
+PASS case2 mode=direct (diagnosis, not build)
+PASS case2 forbids deploy
+PASS case3 action=approve
+PASS case3 mode=direct
+PASS case4 '✅ passed' w/o evidence blocked
+PASS case4 'done' WITH diff evidence accepted
+PASS case4 plain analysis (no claim) not blocked
+PASS case5 real build -> orchestrate
+PASS case6 deploy NOT forbidden (owner asked to deploy)
+PASS case6 db_rebase forbidden
+PASS case6 mode=orchestrate (real deploy op)
+PASS case7 question -> direct
+
+RESULT: ALL GREEN
+unit_exit=0
+=== import patched api_v2 under real deps ===
+api_v2 IMPORT OK
+  mode=direct      forbid=[] :: i need you to update the trigger script for deploy list
+  mode=direct      forbid=['deploy'] :: no deployment, only diagnosis: find why new users get a
+  mode=direct      forbid=[] :: i approve you to update these lists
+  mode=orchestrate forbid=[] :: build the full app frontend backend and deploy it
+  _direct_member( zoom-real-flow ) -> Audio Capture Agent
+DONE_ITEST

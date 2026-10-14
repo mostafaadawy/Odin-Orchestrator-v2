@@ -1,0 +1,21 @@
+{
+  "project": "Odin Markets Platform",
+  "organization": "Odin AI Systems",
+  "updatedUtc": "2026-06-22T17:10:00Z",
+  "phase": "Azure VM connected (read-only) · Claude CLI engine · cockpit live",
+  "progressPercent": 85,
+  "phases": [
+    { "id": 1, "name": "Foundation & folder structure", "status": "complete" },
+    { "id": 2, "name": "Specialized agent team", "status": "complete" },
+    { "id": 3, "name": "Approval & safety gate", "status": "complete" },
+    { "id": 4, "name": "Dashboard + Cockpit (streaming)", "status": "complete" },
+    { "id": 5, "name": "Azure VM connection (read-only live)", "status": "complete" },
+    { "id": 6, "name": "Deploy/sync (.env-safe) + IP rotation", "status": "ready-when-owner-says" }
+  ],
+  "features": {
+    "planned": ["Rules/memory system", "History/audit + revert", "Agent team", "Approval gate", "Dashboard", "Voice (EN+AR)", "Claude CLI engine", "Streaming cockpit", "Mobile", "Azure VM connected (read-only)", "Deploy/sync (.env-safe)"],
+    "completed": ["Rules/memory system", "History/audit + revert", "Agent team", "Approval gate", "Dashboard", "Voice (EN+AR)", "Claude CLI engine", "Streaming cockpit", "Mobile", "Azure VM connected (read-only)"]
+  },
+  "pending": ["Deploy/sync to VM (.env-safe) — when owner is ready", "IP rotation for scp path", "Phone terminal", "Custom billing model"],
+  "deliveryStatus": "Connected to django-vm via Azure control plane — read-only inspection is LIVE (list folders, check status); any change is approval-gated and refused by default per owner ('not rigid enough to touch running sites yet'). Engine = Claude CLI with terminal access; voice EN+AR; cockpit streaming."
+}

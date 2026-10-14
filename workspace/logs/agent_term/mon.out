@@ -1,0 +1,19 @@
+==========================================================================
+PHASE 7 — MONITORED TEST HARNESS  (parent monitor + per-project child tests)
+==========================================================================
+excluded (protected/production): ['organics-prod-deploy']
+workspace violations at start: 10
+--------------------------------------------------------------------------
+  [PASS] daily-egypt-amazon-product-poster          288ms  checks 7/7  monitor_ok=True
+  [PASS] email-klaviyo-workflows-read-only-18ca     300ms  checks 7/7  monitor_ok=True
+  [PASS] fulfillment-vq-status-read-only-dc1e       304ms  checks 7/7  monitor_ok=True
+  [PASS] full-services-19jul                        304ms  checks 7/7  monitor_ok=True
+  [PASS] hubspot-crm-operator                       299ms  checks 7/7  monitor_ok=True
+  [PASS] odin-external-arms                         301ms  checks 7/7  monitor_ok=True
+  [PASS] redberry-continuous-soc                    315ms  checks 7/7  monitor_ok=True
+  [PASS] revealer-6978                              300ms  checks 7/7  monitor_ok=True
+  [PASS] vm-sentinel                                295ms  checks 7/7  monitor_ok=True
+  [PASS] zoom-real-flow                             300ms  checks 7/7  monitor_ok=True
+--------------------------------------------------------------------------
+RESULT: 10/10 projects PASS + monitor-clean | avg 301ms | workspace violations after: 0
+PHASE7_MONITOR: ALL GREEN ✅

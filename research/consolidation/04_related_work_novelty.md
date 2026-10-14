@@ -1,0 +1,26 @@
+# Related work and novelty, per feature (2026-10-06)
+
+For each feature: closest prior work, then what is new in Odin. Novelty claims are kept modest. Where Odin re-arrived at a known pattern independently, the pattern is cited and the claim is about combining it with agents.
+
+| # | Feature | Closest prior work | What is new in Odin |
+|---|---|---|---|
+| 1 | Component reuse (DRY): shared scripts are components, deltas are props | Component-based software (McIlroy 1968); React components; software product lines and delta-oriented programming (Schaefer et al., SPLC 2010); agent skill libraries (Voyager 2023, Agent Workflow Memory 2024, ASI 2025, PolySkill 2026); SkillOps (Pu et al., 2026) | The component and delta discipline is applied to the operational scripts that LLM agents run across many projects. A near match becomes a small delta that points to a shared base, instead of a regenerated script. Prior skill libraries target one agent or one benchmark environment, not many owners' projects. |
+| 2 | Delta plus middleware semantic router | Semantic caching (GPTCache 2023, MeanCache 2025); model routing (RouteLLM 2025); agentic plan caching (Zhang et al., NeurIPS 2025) | The router decides between reusing a base and adding a delta, and an exact rule layer sits under it. Measured on our 162 real requests, the deterministic router agrees with Odin's own logged lead agent 43% of the time. This is a baseline, not a claim. |
+| 3 | Shared-script library with a context-indexed database ("use existing key?") | Tool retrieval (Gorilla, NeurIPS 2024); case-based reasoning (Aamodt and Plaza 1994); skill-library maintenance (SkillOps 2026) | The database is the ONLY registry: there are no parallel JSON registries, and the audit enforces this. Every create goes through one door that writes the file and its row together. The owner is asked before an existing key is reused. |
+| 4 | WhatsApp-style live sync | Local-first software and CRDTs (Kleppmann et al., Onward! 2019); Lamport sequence numbers (1978) | This is pragmatic, not a CRDT: a durable mirror, a per-scope monotonic sequence number, delta pulls by sequence, and a "stale" flag. It was forced by the 4 July failure, when an in-memory mirror was wiped by restarts. |
+| 5 | Queue at the Anchor point (RabbitMQ-style) | Message brokers and AMQP (Vinoski 2006) | The Mac pulls by polling, so it works without a static IP. Measured: 97–99% of request time is waiting in the queue for the poll, which is the price of not needing an inbound connection. |
+| 6 | Stripe-style callback / return URL | Webhooks with retries and at-least-once delivery (industry practice, e.g. Stripe) | Two-way contract: a client→server request is answered by a server→client webhook, with retries until acknowledged. Measured with 20% injected callback failures: every request was eventually delivered, one only in the following run. |
+| 7 | Cross-project agent reuse | Multi-agent frameworks (AutoGen, MetaGPT, ChatDev); MAST failure taxonomy (Cemri et al., NeurIPS 2025) | Agents belong to an org-wide roster in the database. A project LINKS existing agents instead of cloning them. Reuse is checked: the owner's lifecycle test re-links 3 agents with 0 duplicates. |
+| 8 | Dynamic-IP firewall (a FEATURE) | Zero trust (BeyondCorp, 2014); port knocking | Deploy-time firewall rotation to a single /32 address, replaced rather than stacked, for operators without a static IP. |
+| 9 | Smart mapping-file deploy flow | Incremental deployment; regression test selection (Ekstazi, ISSTA 2015) | Changed files are found by date, the operator is asked before updating, and seed and database files are excluded unless asked. A database rebase is asked separately, and real endpoints are verified after restart. |
+| 10 | Smart CI/CD, self-healing deploy agent | LLM program and build repair (RepairAgent, ICSE 2025; CI-repair studies 2025) | Deterministic "hands" plus an AI "brain" with a learned-faults memory. It probes by area and re-runs to verify, and stops for human-only failures. |
+| 11 | Audit layer (and truth gate) | Architecture conformance checking (software reflexion models, FSE 1995); runtime enforcement for agents (AgentSpec, ICSE 2026); guardrails (NeMo); CaMeL (SaTML 2026) | Structural conformance is enforced over agent OUTPUTS (folders and registry) at rest, then healed automatically. A separate truth gate rejects "done" claims that lack evidence. This targets the verification failures MAST reports. |
+
+Also represented as context features (no novelty claimed): on-device Whisper speech-to-text and text-to-speech, the Zoom meeting pipeline, and phone and web control through the Anchor point.
+
+## Central novelty claim (for the paper)
+Consistency is enforced by construction (one creation door, a database as the only registry, an owner-scope guard) and checked at rest (the audit plus healing). Together they keep a multi-project agentic ecosystem consistent as projects and agents grow. Our own measurements:
+- Scripted workload: the violation rate stayed at 0 for 1, 2, 5 and 10 projects through the door, against 22–31% without it.
+- The owner's lifecycle test scored 3/3 all green.
+
+The closest prior work either studies failures (MAST) or manages one skill library (SkillOps). None of it enforces a multi-owner workspace schema for LLM agents.

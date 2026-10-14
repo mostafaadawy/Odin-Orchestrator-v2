@@ -1,0 +1,11 @@
+ M workspace/projects/redberry-continuous-soc/agents.json
+ M workspace/projects/revealer-6978/dependencies/manifest.json
+ M workspace/projects/zoom-real-flow/agents.json
+ M workspace/projects/zoom-real-flow/docs/final_report.md
+ M workspace/shared/infra/deploy.sh
+ M workspace/shared/infra/deploy_changes.py
+?? workspace/projects/revealer-6978/deploy/deploy-config.json
+?? workspace/projects/revealer-6978/deploy/revealer-6978.config.sh
+?? workspace/shared/directions/PHASE7-HANDOFF.md
+?? workspace/shared/infra/deploy-lists/revealer-6978/
+?? workspace/shared/testing/phase7_prompt_loop.py

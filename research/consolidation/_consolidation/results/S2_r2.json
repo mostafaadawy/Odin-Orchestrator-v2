@@ -1,0 +1,717 @@
+{
+ "scenario": "S2",
+ "rep": 2,
+ "pid": "backend-sandbox-rep-2",
+ "seconds": 197.1,
+ "cost_usd": 1.5741,
+ "spent_total": 12.7289,
+ "record": {
+  "intake": [
+   {
+    "action": "propose",
+    "spec": {
+     "name": "Backend Sandbox Rep 2",
+     "type": "Backend deployment setup (sandbox)",
+     "stack": "Node/TypeScript backend deployed to the shared sandbox VM (django-vm, host 52.180.154.225, user mostafa) via the existing shared deploy engine shared/infra/deploy_changes.py + a per-project *.config.sh delta \u2014 same approach the Revealer sandbox (revealer-6978) uses. PLATFORM: deploy/DevOps setup only, no new application code built in this step.",
+     "description": "SECOND SANDBOX (rep 2). Prepare \u2014 but do NOT run \u2014 the deployment setup for a NEW small backend on our sandbox VM, reusing the SAME deployment approach the Revealer sandbox project (revealer-6978) already uses. Deliver the deploy SETUP ONLY; do not deploy now.\n\nWHAT 'same approach' means (mirrored from revealer-6978): the deterministic shared deploy engine shared/infra/deploy_changes.py configured by a per-project delta config (deploy/<project>.config.sh + deploy/deploy-config.json) that only holds project-specific values; firewall/connectivity handled automatically (control plane refreshes ufw/NSG port 22 to the owner's current single IP; 80/443 stay open); rsync over SSH as user mostafa (never root); sandbox-isolated \u2014 OWN folder, OWN database/data, NO domain, NO nginx changes, internal port only, and it MUST NEVER touch bendcore/organics or any production app, DB, config, nginx, or external ports.\n\nDIFFERENCE FROM REVEALER (the one explicit change): this project must NOT run database migrations on every deploy \u2014 set migration mode to 'none' (CFG_BACKEND_MIG=\"none\" / \"migration\":\"none\"), so no migrate step runs on any deploy.\n\nOWN FOLDER + PORT: this backend uses its OWN folder (separate from revealer-sandbox) and listens on PORT 4200. Target host 52.180.154.225, user mostafa, reboot false, sandbox true, domain null. Proposed folders (following Revealer's convention \u2014 confirm/adjust names): local source /Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/_external/VolatileWorkSpace/rep2-backend ; VM path /home/mostafa/rep2-sandbox/backend. Backend excludes: .env*, node_modules, dist, logs. Build command mirrors Revealer's backend ('rm -rf dist && npm run build' plus its seed step if the new backend has one) \u2014 adjust to the new backend's actual build once its code exists. Single backend target only (no frontend target, unlike Revealer which also has one).\n\nDELIVERABLE: the generated deploy/<project>.config.sh and deploy/deploy-config.json for this project, wired to the shared engine, with migration=none, port 4200, own local+VM folders, sandbox safety notes \u2014 ready to run later. DO NOT execute a deploy in this step.",
+     "features": [
+      "Per-project deploy config (deploy/deploy-config.json + deploy/<project>.config.sh) reusing shared/infra/deploy_changes.py \u2014 identical mechanism to revealer-6978",
+      "Migration mode set to 'none' \u2014 NO database migration runs on any deploy",
+      "Single backend target bound to port 4200 on its OWN local and VM folders, isolated from the Revealer sandbox and from all production apps",
+      "Sandbox safety: own DB/data, no domain, no nginx, internal port only; never touch bendcore/organics, their DB/config/nginx or external ports; 80/443 preserved",
+      "SSH-as-mostafa rsync deploy with excludes (.env*, node_modules, dist, logs); automatic firewall refresh to owner's single current IP via control plane",
+      "Setup prepared only \u2014 no deploy executed in this step"
+     ],
+     "team": [
+      "DevOps"
+     ],
+     "recommendations": {
+      "features": [
+       {
+        "name": "Health-check verification after first real deploy",
+        "why": "When the backend is eventually deployed, poll http://VM:4200 health with retry until HTTP 200 before declaring it online \u2014 matches the owner's deploy playbook."
+       },
+       {
+        "name": "Explicit build/seed command confirmation",
+        "why": "The new backend's real build (and whether it seeds its own DB) is unknown; confirm the exact backend commands so the config matches reality instead of copying Revealer's verbatim."
+       }
+      ],
+      "members": [
+       {
+        "name": "QA",
+        "why": "Only needed later to verify the deploy comes online; not required to prepare the config now."
+       },
+       {
+        "name": "Fullstack",
+        "why": "Only if the actual backend source/code must be written or scaffolded; the current request is deploy setup only, so not staffed now."
+       }
+      ]
+     },
+     "readiness": [
+      {
+       "item": "Reuse shared deploy engine with a per-project config delta (migration=none, port 4200, own folders)",
+       "status": "ready",
+       "by": "team",
+       "need": ""
+      },
+      {
+       "item": "VM connectivity (control-plane firewall refresh + SSH rsync as mostafa)",
+       "status": "ready",
+       "by": "azure",
+       "need": ""
+      },
+      {
+       "item": "Sandbox isolation (own folder/DB, no nginx/domain, internal port, production untouched)",
+       "status": "ready",
+       "by": "team",
+       "need": ""
+      },
+      {
+       "item": "Exact backend build/seed commands and final folder names",
+       "status": "needs",
+       "by": "team",
+       "need": "Owner to confirm the new backend's build command, whether it seeds its own DB, and the chosen local/VM folder names (defaults proposed: rep2-backend / /home/mostafa/rep2-sandbox/backend)"
+      }
+     ],
+     "dependencies": [
+      {
+       "name": "shared/infra/deploy_changes.py (shared deploy engine)",
+       "status": "have",
+       "why": "Same engine Revealer uses; the new project only adds a config delta."
+      },
+      {
+       "name": "Azure CLI control plane + SSH creds (oth/.cred)",
+       "status": "have",
+       "why": "Needed to refresh the firewall and rsync/deploy as mostafa when a real deploy is later run."
+      },
+      {
+       "name": "New backend source code",
+       "status": "need",
+       "why": "The folder/port/migration config is being prepared now; the actual backend code (and its real build command) must exist before an actual deploy."
+      }
+     ],
+     "identifier": "backend-sandbox-rep-2"
+    }
+   }
+  ],
+  "recommended_team": [
+   "DevOps"
+  ],
+  "recommendations": {
+   "features": [
+    {
+     "name": "Health-check verification after first real deploy",
+     "why": "When the backend is eventually deployed, poll http://VM:4200 health with retry until HTTP 200 before declaring it online \u2014 matches the owner's deploy playbook."
+    },
+    {
+     "name": "Explicit build/seed command confirmation",
+     "why": "The new backend's real build (and whether it seeds its own DB) is unknown; confirm the exact backend commands so the config matches reality instead of copying Revealer's verbatim."
+    }
+   ],
+   "members": [
+    {
+     "name": "QA",
+     "why": "Only needed later to verify the deploy comes online; not required to prepare the config now."
+    },
+    {
+     "name": "Fullstack",
+     "why": "Only if the actual backend source/code must be written or scaffolded; the current request is deploy setup only, so not staffed now."
+    }
+   ]
+  },
+  "readiness": [
+   {
+    "item": "Reuse shared deploy engine with a per-project config delta (migration=none, port 4200, own folders)",
+    "status": "ready",
+    "by": "team",
+    "need": ""
+   },
+   {
+    "item": "VM connectivity (control-plane firewall refresh + SSH rsync as mostafa)",
+    "status": "ready",
+    "by": "azure",
+    "need": ""
+   },
+   {
+    "item": "Sandbox isolation (own folder/DB, no nginx/domain, internal port, production untouched)",
+    "status": "ready",
+    "by": "team",
+    "need": ""
+   },
+   {
+    "item": "Exact backend build/seed commands and final folder names",
+    "status": "needs",
+    "by": "team",
+    "need": "Owner to confirm the new backend's build command, whether it seeds its own DB, and the chosen local/VM folder names (defaults proposed: rep2-backend / /home/mostafa/rep2-sandbox/backend)"
+   }
+  ],
+  "dependencies": [
+   {
+    "name": "shared/infra/deploy_changes.py (shared deploy engine)",
+    "status": "have",
+    "why": "Same engine Revealer uses; the new project only adds a config delta."
+   },
+   {
+    "name": "Azure CLI control plane + SSH creds (oth/.cred)",
+    "status": "have",
+    "why": "Needed to refresh the firewall and rsync/deploy as mostafa when a real deploy is later run."
+   },
+   {
+    "name": "New backend source code",
+    "status": "need",
+    "why": "The folder/port/migration config is being prepared now; the actual backend code (and its real build command) must exist before an actual deploy."
+   }
+  ],
+  "owner_decision": {
+   "dropped": [],
+   "kept": [
+    "DevOps"
+   ]
+  },
+  "validate": {
+   "known": [
+    "DevOps"
+   ],
+   "unknown": [],
+   "catalog": [
+    "Fullstack",
+    "Mobile",
+    "DevOps",
+    "QA",
+    "Security",
+    "Embedded",
+    "Data",
+    "GameDev",
+    "XR",
+    "Designer",
+    "HubSpot",
+    "CloudDebug",
+    "Marketing",
+    "Email",
+    "Content",
+    "Support",
+    "Sales",
+    "Fulfillment",
+    "EasyPost",
+    "Analytics",
+    "Writer",
+    "Finance",
+    "SEO",
+    "Reporter",
+    "SecCTO",
+    "SecArchitect",
+    "SecInvestigator",
+    "AssetSurface",
+    "Predictor",
+    "Recovery",
+    "BehaviorIDS",
+    "MeetingVoice"
+   ]
+  },
+  "create": {
+   "id": "backend-sandbox-rep-2",
+   "name": "Sandbox Two r2",
+   "type": "backend_deployment_setup_sandbox",
+   "members": [
+    "DevOps",
+    "EasyPost"
+   ],
+   "_error": null
+  },
+  "run": {
+   "events": [
+    [
+     "status",
+     {
+      "icon": "\ud83d\udd12",
+      "text": "This touches Azure/the VM \u2014 every change will wait for your Approve/Discard (read-only checks run free)."
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\ud83e\udded",
+      "text": "Project CTO is reviewing the team & resources, then planning\u2026"
+     }
+    ],
+    [
+     "plan",
+     {
+      "steps": "[{'member': 'DevOps', 'depends_on': [], 'task': \"Prepare this project's deployment setup reusing what already exists. Do not deploy, no VM access. Constraint: do NOT deploy, rsync, build on the VM, migrate, or reboot -- no VM/production state change. Local file/config edits the owner explicitly asked for (e.g. updating a list) ARE allowed -- only deployment is off-limits.\", 'objective': 'Do EXACTLY what the owner asked -- nothing else.', 'deliverable': 'The exact thing asked, shown with real evidence (diff / command output / file).', 'acceptance_criteria': 'The request is satisfied and proven "
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u23f1\ufe0f",
+      "text": "E2E timer started (cached)"
+     }
+    ],
+    [
+     "delegate",
+     {
+      "pid": "backend-sandbox-rep-2",
+      "to": "DevOps",
+      "step": "1",
+      "of": "1",
+      "task": "Prepare this project's deployment setup reusing what already exists. Do not deploy, no VM access. Constraint: do NOT deploy, rsync, build on the VM, migrate, or reboot -- no VM/production state change. Local file/config edits the owner explicitly asked for (e.g. updating a list) ARE allowed -- only deployment is off-limits."
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\ud83d\udde3\ufe0f",
+      "text": "CTO briefs DevOps with a bounded mandate"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u2699\ufe0f",
+      "text": "DevOps is working\u2026"
+     }
+    ],
+    [
+     "token",
+     {
+      "member": "DevOps",
+      "t": "I'll start with a readiness check, which means first understanding what deployment assets already exist in this workspace."
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u2699\ufe0f",
+      "text": "DevOps: \u2699\ufe0f ls -la workspace/shared/infra/ 2>/dev/null; echo \"---PROJECTS---\"; ls \u2026"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u2705",
+      "text": "DevOps: total 400 drwxr-xr-x  23 mostafaadawy  staff    736 Aug 22 22:34 . drwxr-xr-x  17 mostafaa"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u2699\ufe0f",
+      "text": "DevOps: \u2699\ufe0f echo \"=== backend-sandbox-rep-2 ===\"; find workspace/projects/backend-\u2026"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u2705",
+      "text": "DevOps: === backend-sandbox-rep-2 === workspace/projects/backend-sandbox-rep-2 workspace/projects/"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u23f3",
+      "text": "DevOps: still working\u2026 (2s since last output)"
+     }
+    ],
+    [
+     "token",
+     {
+      "member": "DevOps",
+      "t": "\"Sandbox Two r2\" fuzzy-matches `backend-sandbox-rep-2` (rep-2 = r2). Let me confirm its identity and inspect the existing deployment assets."
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u2699\ufe0f",
+      "text": "DevOps: \u2699\ufe0f echo \"=== index.json ===\"; cat workspace/projects/backend-sandbox-rep-\u2026"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u2705",
+      "text": "DevOps: === index.json === {   \"id\": \"backend-sandbox-rep-2\",   \"name\": \"Sandbox Two r2\",   \"type\""
+     }
+    ],
+    [
+     "token",
+     {
+      "member": "DevOps",
+      "t": "This is a well-specified task. Now let me study the reference implementation (revealer-6978) that I must mirror."
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u2699\ufe0f",
+      "text": "DevOps: \u2699\ufe0f echo \"=== revealer deploy-lists dir ===\"; find workspace/shared/infra/\u2026"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u2705",
+      "text": "DevOps: === revealer deploy-lists dir === workspace/shared/infra/deploy-lists/revealer-6978/fronte"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u23f3",
+      "text": "DevOps: still working\u2026 (4s since last output)"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u2699\ufe0f",
+      "text": "DevOps: \u2699\ufe0f echo \"=== revealer-6978.config.sh ===\"; cat workspace/projects/reveale\u2026"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u2705",
+      "text": "DevOps: === revealer-6978.config.sh === # GENERATED BY THE SYSTEM for project/revealer-6978 \u2014 delt"
+     }
+    ],
+    [
+     "token",
+     {
+      "member": "DevOps",
+      "t": "I have the exact reference pattern. Let me quickly confirm how the shared engine discovers per-project config, so my files are correctly wired."
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u2699\ufe0f",
+      "text": "DevOps: \u2699\ufe0f cd workspace/shared/infra; echo \"=== how configs are referenced ===\"; \u2026"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u2705",
+      "text": "DevOps: === how configs are referenced === deploy_changes.py:38:#     workspace/projects/<pid>/dep"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u23f3",
+      "text": "DevOps: still working\u2026 (2s since last output)"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u23f3",
+      "text": "DevOps: still working\u2026 (2s since last output)"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u23f3",
+      "text": "DevOps: still working\u2026 (18s since last output)"
+     }
+    ],
+    [
+     "token",
+     {
+      "member": "DevOps",
+      "t": "I have everything needed \u2014 no missing inputs. Here's my readiness check and the prepared setup.\n\n## Readiness check\n- **Target project** \u2014 \"Sandbox Two r2\" = `backend-sandbox-rep-2` (rep-2 = r2). \u2705 confirmed via `index.json` (`\"name\": \"Sandbox Two r2\"`).\n- **Reference to reuse** \u2014 revealer-6978's `deploy/*.config.sh` + `deploy/deploy-config.json`. \u2705 have it.\n- **Shared engine wiring** \u2014 `deploy_changes.py` reads `workspace/projects/<pid>/deploy/deploy-config.json` (`.targets[]`); `deploy.sh` reads `CFG_BACKEND_*`. \u2705 confirmed.\n- **All project-specific values** (host, user, folders, port 4200, "
+     }
+    ],
+    [
+     "approval",
+     {
+      "id": "956e891b7fce",
+      "pid": "backend-sandbox-rep-2",
+      "member": "DevOps",
+      "title": "DevOps: Prepare this project's deployment setup reusing wh (try 1)",
+      "summary": "Generate backend-sandbox-rep-2 deploy setup (config.sh + deploy-config.json) mirroring revealer-6978: backend-only, port 4200, migration=none, own folders. No deploy.",
+      "files": "[{'path': 'workspace/projects/backend-sandbox-rep-2/deploy/backend-sandbox-rep-2.config.sh', 'action': 'create', 'why': 'Per-project delta read by deploy.sh (via ODIN_DEPLOY_CONFIG). Backend-only, migration=none, port 4200, own local+VM folders; no frontend lines.\\n\\n--- FILE CONTENTS ---\\n# GENERATED BY THE SYSTEM for project/backend-sandbox-rep-2 \u2014 delta over shared capability: shared/infra/deploy_changes.py\\n# Only project-specific values live here; the engine itself stays shared and generic.\\n# SECOND SANDBOX (rep 2). Mirrors revealer-6978; BACKEND-ONLY; DB migrations DISABLED (none).\\nCFG",
+      "commands": "[]"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\ud83d\udd14",
+      "text": "Approval needed \u2014 DevOps: 2 file(s) + 0 command(s). Approve in the popup or say 'approve' in chat; it runs the instant you do."
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\ud83d\udd0e",
+      "text": "CTO reviewing DevOps"
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u2705",
+      "text": "DevOps's part passed (QA+audit)"
+     }
+    ],
+    [
+     "step_done",
+     {
+      "member": "DevOps",
+      "step": "1",
+      "result": "\u2705 QA passed. Needs fix: DevOps described the plan correctly but never produced the deliverable \u2014 `workspace/projects/backend-sandbox-rep-2/deploy/` still contains only `.gitkeep`; neither `backend-sandbox-rep-2.config.sh` nor `deploy-config.json` was written. The report's own phrasing (\"The files land in \u2026 currently only `.gitkeep`\") confirms it's intended, not done \u2014 so there's nothing to review "
+     }
+    ],
+    [
+     "status",
+     {
+      "icon": "\u23f1\ufe0f",
+      "text": "E2E finished in 113.69s (cached)"
+     }
+    ],
+    [
+     "done",
+     {
+      "pid": "backend-sandbox-rep-2",
+      "steps": "1",
+      "ok": "True",
+      "timing": "{'seconds': 113.69, 'cached': True, 'compare': {'cached': {'pid': 'backend-sandbox-rep-2', 'task': \"Prepare this project's deployment setup reusing what already exists. Do not deploy, no VM access.\", 'cached': True, 'ok': True, 'seconds': 113.69, 'ts': 1791664492}, 'non_cached': None, 'speedup': None, 'saved_seconds': None}}"
+     }
+    ]
+   ],
+   "n_events": 36,
+   "text": "[DevOps] I'll start with a readiness check, which means first understanding what deployment assets already exist in this workspace.[DevOps] \"Sandbox Two r2\" fuzzy-matches `backend-sandbox-rep-2` (rep-2 = r2). Let me confirm its identity and inspect the existing deployment assets.[DevOps] This is a well-specified task. Now let me study the reference implementation (revealer-6978) that I must mirror.[DevOps] I have the exact reference pattern. Let me quickly confirm how the shared engine discovers per-project config, so my files are correctly wired.[DevOps] I have everything needed \u2014 no missing inputs. Here's my readiness check and the prepared setup.\n\n## Readiness check\n- **Target project** \u2014 \"Sandbox Two r2\" = `backend-sandbox-rep-2` (rep-2 = r2). \u2705 confirmed via `index.json` (`\"name\": \"Sandbox Two r2\"`).\n- **Reference to reuse** \u2014 revealer-6978's `deploy/*.config.sh` + `deploy/deploy-config.json`. \u2705 have it.\n- **Shared engine wiring** \u2014 `deploy_changes.py` reads `workspace/projects/<pid>/deploy/deploy-config.json` (`.targets[]`); `deploy.sh` reads `CFG_BACKEND_*`. \u2705 confirmed.\n- **All project-specific values** (host, user, folders, port 4200, migration=none, excludes, build) \u2014 \u2705 given in the mandate.\n\n**Ready** \u2014 no VM access or deploy required (and none will be done).\n\n## What I'm reusing vs. changing\nI reuse the **shared deploy engine unchanged** and only generate this project's two delta files, mirroring revealer-6978, with its specified differences:\n\n| | revealer-6978 | **backend-sandbox-rep-2** |\n|---|---|---|\n| targets | backend + frontend | **backend only** |\n| port | 4113 | **4200** |\n| local folder | revealer-backend | **rep2-backend** |\n| VM path | revealer-sandbox/backend | **rep2-sandbox/backend** |\n| migration | none | **none** (explicit) |\n| build | `rm -rf dist && npm run build && node dist/seed.js` | **`rm -rf dist && npm run build`** (no seed \u2014 no code yet) |\n| sandbox/domain/reboot | true / null / false | same |\n\nThe files land in `workspace/projects/backend-sandbox-rep-2/deploy/` (currently only `.gitkeep`), exactly where the engine looks. This is setup only \u2014 **no deploy, no VM access, nothing touched on the VM or on production (80/443 untouched)**.\n\n```proposal\n{\n  \"summary\": \"Generate backend-sandbox-rep-2 deploy setup (config.sh + deploy-config.json) mirroring revealer-6978: backend-only, port 4200, migration=none, own folders. No deploy.\",\n  \"files\": [\n    {\n      \"path\": \"workspace/projects/backend-sandbox-rep-2/deploy/backend-sandbox-rep-2.config.sh\",\n      \"action\": \"create\",\n      \"why\": \"Per-project delta read by deploy.sh (via ODIN_DEPLOY_CONFIG). Backend-only, migration=none, port 4200, own local+VM folders; no frontend lines.\\n\\n--- FILE CONTENTS ---\\n# GENERATED BY THE SYSTEM for project/backend-sandbox-rep-2 \u2014 delta over shared capability: shared/infra/deploy_changes.py\\n# Only project-specific values live here; the engine itself stays shared and generic.\\n# SECOND SANDBOX (rep 2). Mirrors revealer-6978; BACKEND-ONLY; DB migrations DISABLED (none).\\nCFG_BACKEND_LOCAL=\\\"/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/_external/VolatileWorkSpace/rep2-backend\\\"\\nCFG_BACKEND_VM=\\\"/home/mostafa/rep2-sandbox/backend\\\"\\nCFG_BACKEND_MIG=\\\"none\\\"\\nCFG_BACKEND_BUILD=\\\"rm -rf dist && npm run build\\\"\\nCFG_BACKEND_PORT=\\\"4200\\\"\\nCFG_REBOOT=\\\"0\\\"\"\n    },\n    {\n      \"path\": \"workspace/projects/backend-sandbox-rep-2/deploy/deploy-config.json\",\n      \"action\": \"create\",\n      \"why\": \"Per-project targets[] read by deploy_changes.py. Single backend target, port 4200, migration=none, sandbox safety notes.\\n\\n--- FILE CONTENTS ---\\n{\\n  \\\"host\\\": \\\"52.180.154.225\\\",\\n  \\\"user\\\": \\\"mostafa\\\",\\n  \\\"reboot\\\": false,\\n  \\\"sandbox\\\": true,\\n  \\\"domain\\\": null,\\n  \\\"notes\\\": \\\"SECOND SANDBOX (rep 2). Reuses the shared engine (shared/infra/deploy_changes.py) via this per-project delta \u2014 same approach as revealer-6978. BACKEND-ONLY (no frontend target). migration=none => NO DB migrate step on any deploy. OWN folder + OWN data, NO domain, NO nginx changes, internal port 4200 only (outside reverse-proxy range). MUST NEVER touch bendcore/organics or any production app, DB, config, nginx, or external ports (80/443 stay open).\\\",\\n  \\\"targets\\\": [\\n    {\\n      \\\"name\\\": \\\"backend\\\",\\n      \\\"local\\\": \\\"/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/_external/VolatileWorkSpace/rep2-backend\\\",\\n      \\\"vm\\\": \\\"/home/mostafa/rep2-sandbox/backend\\\",\\n      \\\"port\\\": 4200,\\n      \\\"excludes\\\": [\\\".env*\\\", \\\"node_modules\\\", \\\"dist\\\", \\\"logs\\\"],\\n      \\\"migration\\\": \\\"none\\\",\\n      \\\"commands\\\": [\\\"rm -rf dist && npm run build\\\"]\\n    }\\n  ]\\n}\"\n    }\n  ],\n  \"commands\": []\n}\n```\n\nAfter approval these two files are written and the setup is ready to run later via the shared engine. One open item to confirm when the backend code lands: whether to add a seed step (`node dist/seed.js`) to the build \u2014 omitted now since there's no code/seed yet."
+  },
+  "owner_approvals": [
+   {
+    "id": "956e891b7fce",
+    "member": "DevOps",
+    "kind": "change",
+    "files": [
+     "workspace/projects/backend-sandbox-rep-2/deploy/backend-sandbox-rep-2.config.sh",
+     "workspace/projects/backend-sandbox-rep-2/deploy/deploy-config.json"
+    ],
+    "commands": [],
+    "approved": true,
+    "files_exist_after": {
+     "workspace/projects/backend-sandbox-rep-2/deploy/backend-sandbox-rep-2.config.sh": true,
+     "workspace/projects/backend-sandbox-rep-2/deploy/deploy-config.json": true
+    }
+   }
+  ]
+ },
+ "diff": {
+  "counts": {
+   "projects": 1,
+   "project_agents": 2,
+   "files": 5
+  },
+  "shared_added": [],
+  "shared_removed": [],
+  "manifests_new_or_changed": {},
+  "agents_changed": [],
+  "agents_db_added": []
+ },
+ "project": {
+  "files": [
+   "agents.json",
+   "data/jsons/approvals.json",
+   "data/jsons/main_tasks.json",
+   "deploy/backend-sandbox-rep-2.config.sh",
+   "deploy/deploy-config.json",
+   "index.json",
+   "instructions/instructions.md"
+  ],
+  "manifest": null,
+  "team_db": [
+   "DevOps",
+   "EasyPost"
+  ],
+  "agent_scope": [],
+  "delta_like_files": {
+   "agents.json": "{\n  \"agents\": [\n    {\n      \"name\": \"DevOps\",\n      \"role\": \"DevOps\",\n      \"avatar\": \"generic\",\n      \"description\": \"Owns ALL cloud & delivery \u2014 ANY provider (Azure/AWS/GCP/\u2026), CI/CD (CircleCI, GitHub Actions, \u2026), Git/GitHub sync, Kubernetes, load balancers, releases & rollbacks. Deploys/operates what others built; writes NO application feature code. Runs LAST, after QA approves.\",\n      \"skills\": [],\n      \"responsibilities\": [],\n      \"restrictions\": [],\n      \"model\": \"\",\n      \"nature\": \"technical\",\n      \"mode\": \"\",\n      \"resources\": \"=== ALLOWED RESOURCES & DEPENDENCIES (read FIRST; REASON before you ask \u2014 never ask for anything already here or already in the brief/shared pool) ===\\n\u2022 ACCESS: deploy/cloud access. Reach the VM over SSH as user `mostafa` (password in workspace/shared/oth/.cred); the `az` control plane runs on the Mac, NOT on the VM. Tools: rsync, ssh, docker, nginx, systemctl, CI/CD.\\n\u2022 FIREWALL / PORTS (CONFIRMED RULES \u2014 obey exactly, do NOT widen): SSH port 22 must stay open to EXACTLY ONE IP \u2014 your current public IP \u2014 and no other; never open 22 to 0.0.0.0/0. Ports 80 and 443 (the reverse proxy) are already configured and serve traffic \u2014 do NOT change, close, or reorder their rules. When you touch UFW/NSG, ADD only the single-IP rule for 22 if it's missing; leave 80/443 and every other rule untouched. If SSH/22 is blocked, re-pin 22 to your current IP, then RETRY the transport before aborting \u2014 do not give up on the first hiccup.\\n\u2022 VERIFY EVERY COM",
+   "index.json": "{\n  \"id\": \"backend-sandbox-rep-2\",\n  \"name\": \"Sandbox Two r2\",\n  \"type\": \"backend_deployment_setup_sandbox\",\n  \"category\": \"Node/TypeScript backend deployed to the shared sandbox VM (django-vm, host 52.180.154.225, user mostafa) via the existing shared deploy engine shared/infra/deploy_changes.py + a per-project *.config.sh delta \u2014 same approach the Revealer sandbox (revealer-6978) uses. PLATFORM: deploy/DevOps setup only, no new application code built in this step.\",\n  \"description\": \"SECOND SANDBOX (rep 2). Prepare \u2014 but do NOT run \u2014 the deployment setup for a NEW small backend on our sandbox VM, reusing the SAME deployment approach the Revealer sandbox project (revealer-6978) already uses. Deliver the deploy SETUP ONLY; do not deploy now.\\n\\nWHAT 'same approach' means (mirrored from revealer-6978): the deterministic shared deploy engine shared/infra/deploy_changes.py configured by a per-project delta config (deploy/<project>.config.sh + deploy/deploy-config.json) that only holds project-specific values; firewall/connectivity handled automatically (control plane refreshes ufw/NSG port 22 to the owner's current single IP; 80/443 stay open); rsync over SSH as user mostafa (never root); sandbox-isolated \u2014 OWN folder, OWN database/data, NO domain, NO nginx changes, internal port only, and it MUST NEVER touch bendcore/organics or any production app, DB, config, nginx, or external ports.\\n\\nDIFFERENCE FROM REVEALER (the one explicit change): this project must NOT run database mig",
+   "deploy/backend-sandbox-rep-2.config.sh": "# GENERATED BY THE SYSTEM for project/backend-sandbox-rep-2 \u2014 delta over shared capability: shared/infra/deploy_changes.py\n# Only project-specific values live here; the engine itself stays shared and generic.\n# SECOND SANDBOX (rep 2). Mirrors revealer-6978; BACKEND-ONLY; DB migrations DISABLED (none).\nCFG_BACKEND_LOCAL=\"/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/_external/VolatileWorkSpace/rep2-backend\"\nCFG_BACKEND_VM=\"/home/mostafa/rep2-sandbox/backend\"\nCFG_BACKEND_MIG=\"none\"\nCFG_BACKEND_BUILD=\"rm -rf dist && npm run build\"\nCFG_BACKEND_PORT=\"4200\"\nCFG_REBOOT=\"0\"\n",
+   "deploy/deploy-config.json": "{\n  \"host\": \"52.180.154.225\",\n  \"user\": \"mostafa\",\n  \"reboot\": false,\n  \"sandbox\": true,\n  \"domain\": null,\n  \"notes\": \"SECOND SANDBOX (rep 2). Reuses the shared engine (shared/infra/deploy_changes.py) via this per-project delta \u2014 same approach as revealer-6978. BACKEND-ONLY (no frontend target). migration=none => NO DB migrate step on any deploy. OWN folder + OWN data, NO domain, NO nginx changes, internal port 4200 only (outside reverse-proxy range). MUST NEVER touch bendcore/organics or any production app, DB, config, nginx, or external ports (80/443 stay open).\",\n  \"targets\": [\n    {\n      \"name\": \"backend\",\n      \"local\": \"/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Consolidated/_external/VolatileWorkSpace/rep2-backend\",\n      \"vm\": \"/home/mostafa/rep2-sandbox/backend\",\n      \"port\": 4200,\n      \"excludes\": [\".env*\", \"node_modules\", \"dist\", \"logs\"],\n      \"migration\": \"none\",\n      \"commands\": [\"rm -rf dist && npm run build\"]\n    }\n  ]\n}\n"
+  },
+  "agents_json": "{\n  \"agents\": [\n    {\n      \"name\": \"DevOps\",\n      \"role\": \"DevOps\",\n      \"avatar\": \"generic\",\n      \"description\": \"Owns ALL cloud & delivery \u2014 ANY provider (Azure/AWS/GCP/\u2026), CI/CD (CircleCI, GitHub Actions, \u2026), Git/GitHub sync, Kubernetes, load balancers, releases & rollbacks. Deploys/operates what others built; writes NO application feature code. Runs LAST, after QA approves.\",\n      \"skills\": [],\n      \"responsibilities\": [],\n      \"restrictions\": [],\n      \"model\": \"\",\n      \"nature\": \"technical\",\n      \"mode\": \"\",\n      \"resources\": \"=== ALLOWED RESOURCES & DEPENDENCIES (read FIRST; REASON before you ask \u2014 never ask for anything already here or already in the brief/shared pool) ===\\n\u2022 ACCESS: deploy/cloud access. Reach the VM over SSH as user `mostafa` (password in workspace/shared/oth/.cred); the `az` control plane runs on the Mac, NOT on the VM. Tools: rsync, ssh, docker, nginx, systemctl, CI/CD.\\n\u2022 FIREWALL / PORTS (CONFIRMED RULES \u2014 obey exactly, do NOT widen): SSH port 22 must stay open to EXACTLY ONE IP \u2014 your current public IP \u2014 and no other; never open 22 to 0.0.0.0/0. Ports 80 and 443 (the reverse proxy) are already configured and serve traffic \u2014 do NOT change, close, or reorder their rules. When you touch UFW/NSG, ADD only the single-IP rule for 22 if it's missing; leave 80/443 and every other rule untouched. If SSH/22 is blocked, re-pin 22 to your current IP, then RETRY the transport before aborting \u2014 do not give up on the first hiccup.\\n\u2022 VERIFY EVERY COMMAND (do NOT assume success): after EACH remote command, READ its real result \u2014 the exit code AND the output \u2014 and decide from that, not from the fact that it ran. A non-zero exit, a stderr error, or empty/unexpected output means it did NOT succeed; report the exact output and fix or retry. Never report a step done on an assumed/blind success.\\n\u2022 FILE UPDATES MUST OVERWRITE AT CONTENT LEVEL (line-level), not just add missing files: sync with rsync `--checksum` so a changed file ALWAYS overwrites the VM copy by CONTENT (not mtime/size). After syncing, CONFIRM it actually updated: re-run rsync with `--checksum --dry-run --itemize-changes` and expect ZERO pending files (or `md5sum` the changed files on BOTH local and VM and confirm they match). If anything is still pending, the update did NOT take \u2014 investigate (permissions, wrong path, excluded by filter) and redo until the VM content matches local exactly.\\n\u2022 NEEDS: a deploy TARGET (host + path) and the QA-approved build from Fullstack. If the target, credentials, or deploy URL is missing, ask the CTO ONCE.\\n\u2022 BOUNDARY: you deploy/operate; you write NO application feature code. You run LAST, after QA passes.\\n\",\n      \"env\": [],\n      \"asset\": \"\",\n      \"rules\": [],\n      \"stats\": {\n        \"invocations\": 1,\n        \"lastActive\": 1791664500.3688178\n      },\n      \"created\": 1791664486.8344588\n    },\n    {\n      \"name\": \"EasyPost\",\n      \"role\": \"EasyPost Shipping & Tracking Operator\",\n      \"avatar\": \"generic\",\n      \"description\": \"NON-technical operator connected to EasyPost for multi-carrier shipment TRACKING and rates via its API. Answers live carrier progress (in_transit / out_for_delivery / delivered), tracking numbers, ETAs and exceptions across carriers. Complements Fulfillment/Veeqo: Veeqo owns pre-shipping ORDER state, EasyPost owns POST-shipping CARRIER tracking. Holds the EasyPost API key; supplies only the key early and writes NO app code (Fullstack builds any in-app EasyPost integration). READ-ONLY integration \u2014 no label/postage writes.\",\n      \"skills\": [],\n      \"responsibilities\": [],\n      \"restrictions\": [],\n      \"model\": \"\",\n      \"nature\": \"technical\",\n      \"mode\": \"\",\n      \"resources\": \"=== ALLOWED RESOURCES & DEPENDENCIES (read FIRST; REASON before you ask \u2014 never ask for anything already here or already in the brief/shared pool) ===\\n\u2022 ROLE: NON-technical operator of EasyPost via its API. You write NO app code and define no API contract (Fullstack owns integration code).\\n\u2022 DEFAUL",
+  "members_api": [
+   "DevOps",
+   "EasyPost"
+  ]
+ },
+ "audit_project": [
+  {
+   "type": "unindexed",
+   "path": "workspace/projects/backend-sandbox-rep-2/instructions/instructions.md"
+  },
+  {
+   "type": "unindexed",
+   "path": "workspace/projects/backend-sandbox-rep-2/deploy/backend-sandbox-rep-2.config.sh"
+  },
+  {
+   "type": "unindexed",
+   "path": "workspace/projects/backend-sandbox-rep-2/deploy/deploy-config.json"
+  },
+  {
+   "type": "unindexed",
+   "path": "workspace/projects/backend-sandbox-rep-2/data/jsons/main_tasks.json"
+  },
+  {
+   "type": "unindexed",
+   "path": "workspace/projects/backend-sandbox-rep-2/data/jsons/approvals.json"
+  },
+  {
+   "type": "duplicate",
+   "name": "deploy-config.json",
+   "paths": [
+    "workspace/projects/backend-sandbox-rep-2/deploy/deploy-config.json",
+    "workspace/projects/revealer-6978/deploy/deploy-config.json"
+   ],
+   "identical": false,
+   "reason": "same filename, different content in >=2 projects \u2014 promote shared base + custom deltas"
+  }
+ ],
+ "earlier_projects": {
+  "revealer-6978": {
+   "deps": [
+    {
+     "name": "testing",
+     "base_exists": true,
+     "overlay": "tests/",
+     "overlay_exists": true
+    },
+    {
+     "name": "deploy_changes.py",
+     "base_exists": true,
+     "overlay": "deploy/revealer-6978.config.sh",
+     "overlay_exists": true
+    },
+    {
+     "name": "project_test.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    },
+    {
+     "name": "dup_test_r2.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    },
+    {
+     "name": "dup_test_r3.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    }
+   ],
+   "audit_issues": 1
+  },
+  "hubspot-crm-operator": {
+   "deps": [
+    {
+     "name": "project_test.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    },
+    {
+     "name": "dup_test_r2.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    },
+    {
+     "name": "dup_test_r3.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    }
+   ],
+   "audit_issues": 0
+  },
+  "fulfillment-vq-status-read-only-dc1e": {
+   "manifest": false
+  },
+  "brand2-email-reporting": {
+   "manifest": false
+  },
+  "odin-landing-lead-0d48": {
+   "manifest": false
+  },
+  "odin-external-arms": {
+   "deps": [
+    {
+     "name": "anchor_web_deploy",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    }
+   ],
+   "audit_issues": 0
+  },
+  "zoom-real-flow": {
+   "manifest": false
+  },
+  "odin-landing-lead": {
+   "manifest": false
+  },
+  "email-klaviyo-workflows-read-only-18ca": {
+   "manifest": false
+  },
+  "full-services-19jul": {
+   "deps": [
+    {
+     "name": "deploy_changes.py",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    },
+    {
+     "name": "INSTALL_SOC_SENSOR.md",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    }
+   ],
+   "audit_issues": 0
+  },
+  "customer-orders-portal": {
+   "manifest": false
+  },
+  "customers-orders-portal-rep-2": {
+   "manifest": false
+  },
+  "brand2-email-reporting-b491": {
+   "manifest": false
+  },
+  "real-deployment-and-diagnosis-organics-07d7": {
+   "manifest": false
+  },
+  "daily-egypt-amazon-product-poster": {
+   "manifest": false
+  },
+  "redberry-continuous-soc": {
+   "deps": [
+    {
+     "name": "INSTALL_SOC_SENSOR.md",
+     "base_exists": true,
+     "overlay": null,
+     "overlay_exists": null
+    }
+   ],
+   "audit_issues": 0
+  },
+  "sandbox2-backend": {
+   "manifest": false
+  },
+  "vm-sentinel": {
+   "manifest": false
+  }
+ }
+}

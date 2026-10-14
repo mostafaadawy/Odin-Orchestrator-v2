@@ -1,0 +1,6 @@
+\section{Conclusion}\label{sec:conclusion}
+A multi-project agentic ecosystem stays consistent as it grows when consistency is a property of the architecture rather than a request to the model. In \sys{}, one creation door with an owner-scope guard, a database that is the only registry, and an audit that heals at rest kept violations at zero from one to ten concurrent projects in a scripted demonstration. Removing the door produced interference that no later audit could undo. With real agents, the first measurement showed the gap: the agents' own write tools sat outside the door. We closed it without adding a rule. Agents now start in their own folder, and a pre-tool hook applies the existing owner-scope rule and sends shared changes through the door. Correct placement rose from 17--67\% to 100\%, and agents told to break the rule were stopped and used the door instead. Every component in \sys{} exists because something broke. We hope the failure timeline, and the before-and-after evidence, are as useful to other builders as the components themselves.
+\ifanon\else
+\section*{Acknowledgment}
+The author thanks the CEO and Founder for permission to describe the system.
+\fi

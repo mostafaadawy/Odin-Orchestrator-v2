@@ -1,0 +1,19 @@
+{
+  "_about": "Paper tab catalog — read LIVE by the desktop app from this v2 folder. Edit groups/labels here; no app rebuild needed. Order = display order.",
+  "roots": [
+    { "dir": "research/paper-v1/paper-v1-submission", "group": "Paper v1 — Odin-Orchestrator (frozen, submission copy, due 30 Oct)", "status": "11 Oct 2026 · submission copy (9 p) · frozen" },
+    { "dir": "research/paper-v2", "group": "Paper v2 — Jev local decider (NEW, provisional until labels)", "status": "14 Oct 2026 · provisional until labels" },
+    { "dir": "research/consolidation/deliverables/final3", "group": "Older drafts", "prefix": "6 Oct 2026 — 9-page v1 'final3' (basis of the submission copy)", "status": "6 Oct 2026 · superseded by the 11 Oct corrected copy" },
+    { "dir": "research/consolidation/deliverables", "skip": "^final3/", "group": "Older drafts", "prefix": "6 Oct 2026 — 7-page v1 draft", "status": "6 Oct 2026 · draft · superseded by final3" },
+    { "dir": "research/consolidation/rescued/paper", "group": "Older drafts", "prefix": "5 Oct 2026 — rescued LaTeX source", "status": "5 Oct 2026 · archive" },
+    { "dir": "research/resulted-papers-and-documents", "only": "^odin_paper\\.", "group": "Older drafts", "prefix": "25 Jun 2026 — first Odin paper draft (4 p)", "status": "25 Jun 2026 · early draft · superseded" },
+    { "dir": "research/resulted-papers-and-documents", "skip": "^odin_paper\\.", "group": "Other papers & documents", "status": "document" }
+  ],
+  "singles": [
+    { "file": "research/paper-v1/PAPER_V1_ACCURACY_CHECK.md", "group": "Paper v1 — Odin-Orchestrator (frozen, submission copy, due 30 Oct)", "status": "check record" },
+    { "file": "research/phase4/TIMING_DIAGNOSIS.md", "group": "Paper v2 — Jev local decider (NEW, provisional until labels)", "status": "14 Oct 2026 · measured (local logs)" },
+    { "file": "research/phase4/P4a_decision_points.md", "group": "Paper v2 — Jev local decider (NEW, provisional until labels)", "status": "design record" },
+    { "file": "CHANGES.md", "group": "Records", "status": "current" },
+    { "file": "CHANGELOG.md", "group": "Records", "status": "current" }
+  ]
+}

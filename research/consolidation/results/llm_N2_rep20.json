@@ -1,0 +1,223 @@
+{
+ "N": 2,
+ "rep": 20,
+ "model": "haiku",
+ "cap_s": 840,
+ "env_start": {
+  "label": "llm N=2 rep=20 start",
+  "utc": "2026-10-06T17:10:42.864944Z",
+  "machine": {
+   "cpu": "",
+   "ncpu": 12,
+   "ram_gb": 24.0,
+   "os": "26.5.2",
+   "arch": "arm64"
+  },
+  "load": {
+   "loadavg": [
+    8.3798828125,
+    6.173828125,
+    4.53125
+   ],
+   "cpu_pct_total": 34.6,
+   "mem_used_pct": 81.1
+  },
+  "competing_top": [
+   {
+    "pid": 65096,
+    "name": "CGPDFService",
+    "cpu_pct": 40.1,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 64611,
+    "name": "Python",
+    "cpu_pct": 37.4,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 41966,
+    "name": "Claude Helper",
+    "cpu_pct": 19.7,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 42398,
+    "name": "Claude Helper (Renderer)",
+    "cpu_pct": 15.7,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46967,
+    "name": "Firefox GPU Helper",
+    "cpu_pct": 13.1,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 61113,
+    "name": "plugin-container",
+    "cpu_pct": 7.4,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46964,
+    "name": "firefox",
+    "cpu_pct": 5.1,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 607,
+    "name": "SystemUIServer",
+    "cpu_pct": 4.4,
+    "is_real_odin": false,
+    "is_isolated": false
+   }
+  ],
+  "real_odin_cpu_pct": 0,
+  "soc_reports_last_hour": []
+ },
+ "env_end": {
+  "label": "end",
+  "utc": "2026-10-06T17:11:50.701188Z",
+  "machine": {
+   "cpu": "",
+   "ncpu": 12,
+   "ram_gb": 24.0,
+   "os": "26.5.2",
+   "arch": "arm64"
+  },
+  "load": {
+   "loadavg": [
+    6.869140625,
+    6.2568359375,
+    4.68798828125
+   ],
+   "cpu_pct_total": 24.5,
+   "mem_used_pct": 78.3
+  },
+  "competing_top": [
+   {
+    "pid": 41966,
+    "name": "Claude Helper",
+    "cpu_pct": 26.1,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 42398,
+    "name": "Claude Helper (Renderer)",
+    "cpu_pct": 15.9,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46967,
+    "name": "Firefox GPU Helper",
+    "cpu_pct": 9.9,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 61113,
+    "name": "plugin-container",
+    "cpu_pct": 6.5,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46964,
+    "name": "firefox",
+    "cpu_pct": 4.8,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 43890,
+    "name": "VTDecoderXPCService",
+    "cpu_pct": 3.9,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 15124,
+    "name": "WhatsApp",
+    "cpu_pct": 3.6,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46975,
+    "name": "plugin-container",
+    "cpu_pct": 2.1,
+    "is_real_odin": false,
+    "is_isolated": false
+   }
+  ],
+  "real_odin_cpu_pct": 0,
+  "soc_reports_last_hour": []
+ },
+ "projects": [
+  {
+   "pid": "llm20-n2-p0",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.04178559382756551
+  },
+  {
+   "pid": "llm20-n2-p1",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.07159762609572638
+  }
+ ],
+ "writes_changed_files": 6,
+ "own_project_files": {
+  "llm20-n2-p0": 3,
+  "llm20-n2-p1": 3
+ },
+ "cross_project_files": 0,
+ "stray_outside_projects": [],
+ "n_stray": 0,
+ "wrong_folder": 0,
+ "audit_issues": 6,
+ "audit_types": {
+  "unindexed": 6
+ },
+ "claude_calls": 2,
+ "cost_usd": 0.1532677,
+ "cost_per_task_usd": 0.07663385,
+ "tokens": {
+  "input_tokens": 140,
+  "cache_creation_input_tokens": 34609,
+  "cache_read_input_tokens": 537327,
+  "output_tokens": 5260
+ },
+ "llm_busy_share_of_wall": 0.9197167277395355,
+ "orchestration_overhead_share": 0.0802832722604645,
+ "server_tree": {
+  "wall_s": 65.14882802963257,
+  "cpu_s": 0.43325812799999985,
+  "cpu_share_of_wall": 0.006650282761846996,
+  "cpu_share_of_machine": 0.0005541902301539163,
+  "rss_mb_end": 89.875
+ }
+}

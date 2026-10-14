@@ -1,0 +1,19 @@
+pid= repro-signal-guard2
+msgs before run: 0
+  t+  6s  msgs=2
+  t+ 12s  msgs=2
+  t+ 18s  msgs=2
+  t+ 24s  msgs=2
+  t+ 30s  msgs=2
+  t+ 36s  msgs=2
+  t+ 42s  msgs=2
+  t+ 48s  msgs=2
+  t+ 54s  msgs=2
+  t+ 60s  msgs=2
+  t+ 66s  msgs=2
+  t+ 72s  msgs=2
+  t+ 78s  msgs=2
+  t+ 84s  msgs=2
+  t+ 90s  msgs=2
+FINAL msgs: 2 -> produced_output: True
+deleted; global violations now: 0

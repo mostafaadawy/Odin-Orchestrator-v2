@@ -1,0 +1,50 @@
+{
+  "id": "redberry-continuous-soc",
+  "name": "RedBerry Continuous SOC",
+  "type": "operational",
+  "cadence": "periodical",
+  "members": [
+    "CTO Orchestrator",
+    "Security Intelligence & Threat-Hunting Architect",
+    "Security Operations Investigator",
+    "Reporting & Documentation Agent",
+    "AssetSurface",
+    "Predictor",
+    "Recovery",
+    "BehaviorIDS",
+    "Reporter",
+    "Asset, Exposure & Attack-Surface Agent",
+    "Threat Prediction & Prevention Agent",
+    "Recovery & Resilience Agent",
+    "Intrusion Detection & Behavioral Analytics Agent"
+  ],
+  "status": "active",
+  "current_data_dir": "data/projects/redberry-continuous-soc",
+  "localPath": "/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator-v2/workspace/projects/redberry-continuous-soc/code",
+  "note": "INDEX/REFERENCE ONLY — real files still live at current_data_dir; nothing moved yet (Phase 1a)",
+  "category": "operational",
+  "typeConfig": "shared/config/project-types/periodical.json",
+  "config": {
+    "period": "periodical"
+  },
+  "features": [],
+  "stack": "operational — SOC (read-only, approval-gated)",
+  "url": "",
+  "mode": "build",
+  "sources": [],
+  "auto_approve": false,
+  "periodic": {
+    "enabled": true,
+    "schedule": {
+      "kind": "daily",
+      "hhmm": "23:00",
+      "tz": "America/New_York"
+    },
+    "requireApproval": false
+  },
+  "rules": [],
+  "description": "Production-grade continuous multi-agent SOC. Observe -> Correlate -> Verify -> Report -> Request approval -> Act only if approved. Monitors cloud infra, VMs, apps, DBs, APIs, dependencies and security telemetry; general + incident-specific threat hunting; read-only and approval-gated; starts in Monitor-and-report-only mode.",
+  "created": 1784105809.783943,
+  "mappings": [],
+  "scope": "project:redberry-continuous-soc"
+}

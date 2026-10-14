@@ -1,0 +1,433 @@
+\documentclass[10pt,twocolumn]{article}
+
+% ---------- packages ----------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{balance}
+\usepackage[hidelinks]{hyperref}
+\usepackage{caption}
+
+% ---------- style ----------
+\definecolor{codebg}{rgb}{0.96,0.97,0.99}
+\definecolor{kw}{rgb}{0.20,0.30,0.70}
+\lstset{
+  basicstyle=\ttfamily\scriptsize,
+  backgroundcolor=\color{codebg},
+  keywordstyle=\color{kw}\bfseries,
+  columns=fullflexible,
+  breaklines=true,
+  frame=single,
+  framesep=4pt,
+  aboveskip=6pt, belowskip=6pt,
+  showstringspaces=false
+}
+\titlespacing*{\section}{0pt}{8pt}{4pt}
+\titlespacing*{\subsection}{0pt}{6pt}{3pt}
+\setlist{leftmargin=1.2em,itemsep=1pt,topsep=2pt}
+
+\newtheorem{definition}{Definition}
+\newtheorem{property}{Property}
+\newtheorem{principle}{Principle}
+
+\captionsetup{font=small,labelfont=bf}
+
+% ---------- title ----------
+\title{\vspace{-2.2em}\textbf{\large Trustworthy Orchestration of an AI Software Company:\\
+Un-Gameable Evaluation, Shared-Context Single-Agent Design,\\ and Production Safety}}
+\author{\normalsize Mostafa Adawy\\[-2pt]
+  \small Odin Markets \\[-2pt]
+  \small \texttt{tech@odinmarkets.com}}
+\date{\vspace{-1.2em}\small Preprint --- \today}
+
+\begin{document}
+\maketitle
+
+% ======================================================================
+\begin{abstract}
+\small
+Large language model (LLM) agents are increasingly assembled into multi-agent
+``software companies'' that decompose a goal across specialised roles
+(architect, frontend, backend, DevOps). In practice these systems fail less
+from weak models than from \emph{coordination and evaluation} failures:
+context is lost across hand-offs, agents silently \emph{report success that did
+not happen}, and unsupervised automation damages live infrastructure. We
+present \textsc{Odin-Orchestrator}, a desktop multi-agent development system,
+and report the engineering principles that made it trustworthy. Our central
+contribution is an \emph{un-gameable evaluation methodology}: (i) runtime-minted
+random tokens that must propagate across agent hops, making
+``context-was-shared'' impossible to fake by string echoing; (ii) a
+\emph{hidden-fault scanner} (``snake-hunter'') that audits nominally green runs
+for masked errors; and (iii) a production-fingerprint safety guard with
+sandbox isolation that proves destructive operations never touch live systems.
+We further describe a deliberate move from naive multi-agent fan-out to a
+\emph{single strong agent over a shared, append-only context pool}, a
+provenance-gated cache of reusable action modules, and an approval-gated
+scheduler for recurring work. We document two instructive incidents---a
+self-inflicted firewall outage and a caught self-deceiving test---and a phased
+acceptance gate (context, database-migration safety, product features) that the
+system must pass before promotion. Our experience supports the position that
+\emph{measurement integrity}, not model capability, is the binding constraint
+for autonomous software agents.
+\end{abstract}
+
+% ======================================================================
+\section{Introduction}
+A growing body of tooling frames autonomous software development as a
+\emph{company} of LLM agents: a manager decomposes a request, specialist
+workers implement parts, and a reviewer checks the result. The appeal is
+intuitive---division of labour---but field reports and recent studies converge
+on an uncomfortable finding: most failures are not reasoning failures of the
+underlying model, they are \emph{system} failures of specification,
+coordination, and verification~\cite{mast,cognition,anthropic}.
+
+Three failure modes dominated our own build of such a system:
+\begin{enumerate}[label=(F\arabic*)]
+\item \textbf{Context loss across hand-offs.} When a task is split, each agent
+sees only its slice; details drift and the parts no longer compose.
+\item \textbf{Fake success.} An agent (or a poorly designed test) reports a
+task as complete when it is not---the most corrosive failure, because it
+defeats the very mechanism meant to catch the others.
+\item \textbf{Unsafe automation.} An agent with infrastructure access can take
+down production while ``succeeding'' at a narrow subtask.
+\end{enumerate}
+
+This paper is an \emph{experience report} grounded in a working system. Our
+thesis is that the binding constraint on autonomous software agents today is
+\textbf{measurement integrity}: unless an evaluation cannot be gamed---by the
+agent \emph{or} by a well-meaning engineer tuning a test to pass---reported
+progress is not evidence of real progress. We make the following contributions:
+
+\begin{itemize}
+\item A formalisation of the \emph{fake-success} problem and an
+\textbf{un-gameable propagation test} based on runtime-minted random tokens
+(\S\ref{sec:eval}), which certifies cross-agent context sharing without any
+string an agent could pre-emptively echo.
+\item A \textbf{hidden-fault audit} (``snake-hunter'') that scans green runs
+for masked errors, plus an \emph{anti-fake-success} gate that distinguishes a
+claim of success from evidence of it (\S\ref{sec:eval}).
+\item A \textbf{production-safety protocol}---fingerprinting plus sandbox
+isolation---that proves destructive database and deployment operations never
+mutate live systems (\S\ref{sec:safety}).
+\item A \textbf{shared-context single-agent architecture} with a
+provenance-gated module cache and an approval-gated recurring scheduler
+(\S\ref{sec:arch}), and two documented incidents that motivated them
+(\S\ref{sec:results}).
+\end{itemize}
+
+% ======================================================================
+\section{Problem Formulation}\label{sec:problem}
+We model an AI software company as a tuple
+$\mathcal{C} = \langle \mathcal{A}, \Pi, \Sigma, E \rangle$ where
+$\mathcal{A}=\{a_1,\dots,a_n\}$ is a set of role-tagged agents, $\Pi$ a planner
+(the ``CTO''), $\Sigma$ a shared state, and $E$ an evaluator. A user goal $g$
+induces an ordered plan $\Pi(g) = (s_1,\dots,s_m)$ of subtasks, each $s_i$
+assigned to an agent $a_{\rho(i)}$ by a role map $\rho$.
+
+\paragraph{Context sharing.}
+Let $\Sigma_i$ be the state visible to the agent executing $s_i$. Naive
+fan-out gives $\Sigma_i = \mathrm{brief}(s_i)$: each agent sees only its slice.
+We instead require a \emph{shared, append-only pool}
+\[
+\Sigma_i \;=\; \sigma_0 \,\Vert\, \bigcup_{j<i} o_j,
+\]
+where $\sigma_0$ is the verbatim goal plus the planner's decomposition and
+$o_j$ is the output produced at step $j$. Each agent appends its result,
+$o_i = a_{\rho(i)}(\Sigma_i)$, so the pool grows monotonically and every agent
+inherits the full history. This is the formal statement of (F1)'s remedy.
+
+\paragraph{The evaluation problem.}
+For a subtask $s$ with acceptance predicate $\phi_s$, let $r$ be an agent's
+\emph{report} and $w$ the \emph{world effect} actually produced. Define
+\[
+\mathrm{claim}(r) = \mathbb{1}[r \text{ asserts success}], \quad
+\mathrm{truth}(w) = \mathbb{1}[\phi_s(w)].
+\]
+\emph{Fake success} is the event
+$\mathrm{claim}(r)=1 \wedge \mathrm{truth}(w)=0$. A trustworthy evaluator $E$
+must satisfy two properties.
+
+\begin{property}[Soundness against fakery]\label{prop:sound}
+$E$ accepts $s$ only if $\mathrm{truth}(w)=1$; in particular it never accepts on
+the basis of $\mathrm{claim}(r)$ alone.
+\end{property}
+
+\begin{property}[Un-gameability]\label{prop:ungame}
+There is no fixed output $r^\star$, constructible without actually performing
+$s$, that causes $E$ to accept. Formally, for every $r^\star$ independent of
+$w$, $\Pr[E(r^\star)=\text{accept}]$ is negligible.
+\end{property}
+
+Property~\ref{prop:ungame} is the crux. A test that scans the transcript for an
+expected string (e.g.\ ``the API returns 200'') violates it, because an agent
+can emit that string without doing the work---and, worse, an engineer can
+\emph{tune} the agent to emit it, manufacturing a passing test. Our token
+construction (\S\ref{sec:eval}) is designed to make $r^\star$ impossible to
+guess.
+
+\paragraph{Safety.}
+Let $H$ be a fingerprint of the production system (schema hash, row counts,
+service reachability). An operation $\theta$ is \emph{production-safe} iff
+$H_{\text{before}} = H_{\text{after}}$ and all public service ports remain
+reachable throughout. The evaluator must \emph{prove}, not assume, safety.
+
+% ======================================================================
+\section{Related Work}\label{sec:related}
+\paragraph{Multi-agent orchestration.}
+Anthropic's orchestrator--workers and evaluator--optimizer
+patterns~\cite{anthropic} recommend multi-agent decomposition primarily for
+\emph{parallelisable} sub-problems, and pair generation with an explicit
+critique loop. We adopt the evaluator--optimizer loop but argue against
+multi-agent fan-out for inherently sequential development work.
+
+\paragraph{Single continuous agents.}
+Cognition (Devin) argue that fragile context-passing makes long-horizon
+engineering better served by a \emph{single continuous thread} that carries
+full, curated context rather than summaries~\cite{cognition}. Our shared-pool
+design (\S\ref{sec:arch}) is a concrete realisation of that position, with the
+``role'' demoted from a separate brain to a \emph{task tag} on one agent.
+
+\paragraph{Why multi-agent systems fail.}
+The MAST taxonomy~\cite{mast} attributes the majority of multi-agent failures
+to specification and inter-agent misalignment (including context loss and
+premature or incorrect termination) rather than to the base model. Our (F1)
+and (F2) correspond directly to these categories; our evaluation methodology
+targets them.
+
+\paragraph{Evaluation and ``LLM-as-judge''.}
+A large literature uses an LLM to grade another LLM. Such judges are
+susceptible to sycophancy and to superficial cues, i.e.\ they can be gamed in
+the sense of Property~\ref{prop:ungame}. Our contribution is orthogonal: rather
+than a smarter judge, we construct \emph{verifiable artefacts} (random tokens,
+fingerprints) whose presence is causally tied to the work having occurred.
+
+% ======================================================================
+\section{System Architecture}\label{sec:arch}
+\textsc{Odin-Orchestrator} is a desktop application: an Electron/React frontend,
+a Python (FastAPI) backend, and an LLM command-line engine invoked
+one-shot per turn. The orchestration layer---not the model---is where our
+contributions live.
+
+\subsection{Shared context pool}
+The pool is a typed, durable object created from the user's verbatim goal and
+the planner's decomposition. Three operations define it:
+\texttt{append(who, text)}, \texttt{pool\_text(limit)} (the curated view handed
+to the active agent), and \texttt{reconcile(delivered)}, an omission guard that
+checks every extracted requirement against what was actually produced. Each
+agent's prompt \emph{leads} with the pool, so the ``big picture'' is never
+summarised away. This implements $\Sigma_i$ of \S\ref{sec:problem}.
+
+\subsection{Single strong agent, role as a tag}
+Rather than $n$ independent agents, one capable agent executes each step with
+the full pool, tagged by the role required ($\rho(i)$). This eliminates the
+serialization/deserialization of context that the literature identifies as the
+dominant failure surface, while retaining specialised behaviour through the
+role tag and role-specific tooling.
+
+\subsection{Provenance-gated module cache}
+A \emph{Fast-Actions Library} stores reusable, parameterised scripts (e.g.\ a
+generic cloud-VM deploy/ops module) under per-role folders with sidecar
+metadata (\texttt{summary}, \texttt{inputs}, \texttt{status},
+\texttt{provenance}). On a new task the \emph{role} agent fetches its folder,
+reads the metadata, and \emph{decides} whether a module matches---configuring
+and reusing it, or working from scratch. A strict rule governs growth:
+
+\begin{principle}[Earned cache]\label{prin:cache}
+A module enters the library \emph{only after} it has succeeded on a real task,
+then is generalised and documented. The library is never pre-populated with
+unproven ``filler''.
+\end{principle}
+
+This makes the cache a record of \emph{demonstrated} competence, not
+aspiration, and keeps every entry auditable via its provenance.
+
+\subsection{Approval-gated recurring scheduler}
+Projects may be \emph{periodical}. A lightweight runner computes the next due
+time per schedule. Crucially, recurring runs are \emph{not} executed
+unattended: when a task is due \emph{and the operator's device is online}, the
+system raises an approval request; the operator approves (run) or skips (roll
+forward). If the due moment was missed because the device was offline (overdue
+beyond a grace window), the task rolls silently to the next slot. This keeps a
+human in the loop precisely where autonomy is riskiest, while never firing
+stale work.
+
+% ======================================================================
+\section{Evaluation Methodology}\label{sec:eval}
+This section is the core of the paper: how we make acceptance satisfy
+Properties~\ref{prop:sound} and~\ref{prop:ungame}.
+
+\subsection{Un-gameable propagation tokens}
+To certify (F1)---that context truly crosses hops---we mint a fresh random
+token per run, $t \sim \mathrm{Uniform}(\{\texttt{ODIN-}\Sigma^6\})$ over an
+alphanumeric alphabet $\Sigma$, giving $\approx 36^6 \approx 2{\times}10^9$
+possibilities. The token is introduced at agent $a_1$ under a labelled slot and
+must reappear, unchanged, in the output of a downstream agent $a_k$ that only
+receives it \emph{through the pool}:
+\[
+\mathrm{reuse} \;=\; \mathbb{1}\bigl[t \in o_1 \wedge t \in o_k \wedge \text{label-bound}\bigr].
+\]
+Because $t$ is sampled at runtime, no fixed transcript $r^\star$ can contain it
+(Property~\ref{prop:ungame}); reuse is possible \emph{only} if the pool
+actually carried the value. We extract tokens by their explicit labels (not by
+matching any \texttt{ODIN-} substring) so that a quoted \emph{instruction}
+cannot be mistaken for the minted value---a subtlety that caused an early
+false positive (\S\ref{sec:results}).
+
+\subsection{The snake-hunter: auditing green runs}
+A run can be ``green'' at the top level while hiding faults (a swallowed
+exception, a \texttt{command not found}, a silent timeout). The snake-hunter
+scans the full transcript for danger patterns and reports any found even when
+the run claims success:
+\[
+\mathrm{snakes}(w) = \{\, p \in \mathcal{D} : p \text{ matches } \mathrm{trace}(w)\,\} \setminus \mathcal{B},
+\]
+where $\mathcal{D}$ is a danger lexicon and $\mathcal{B}$ a benign allow-list
+(e.g.\ the literal ``0 failed'' in a summary line) added to suppress false
+positives. \emph{Fake success} is then flagged precisely when
+$\mathrm{claim}(r){=}1 \wedge \mathrm{snakes}(w){\neq}\emptyset$, operationalising
+Property~\ref{prop:sound}.
+
+\subsection{Actions, not mentions}
+A recurring temptation is to score an agent for \emph{mentioning} the right
+step. We instead measure \emph{usage}: the evaluator checks that the operation
+was invoked and produced the required world effect, not that the transcript
+discusses it.
+
+\subsection{The phased acceptance gate}
+Promotion is gated by a single test with independent parts; all must pass and
+\textbf{later phases never relax earlier ones}:
+\begin{itemize}
+\item \textbf{Phase 1 --- Context.} A three-agent flow with two token hops and a
+typed hand-off; pool growth, token reuse, and a clean snake scan are all
+required.
+\item \textbf{Phase 2 --- Migration safety.} A database migration
+(\texttt{deploy} then \texttt{reset}) is exercised on a \emph{throwaway} role
+and database, behind a guard that aborts unless the connection string targets
+the sandbox; production is fingerprinted before and after.
+\item \textbf{Phase 3 --- Product features.} Project-type classification with a
+recommendation engine, operational (non-technical) agents with
+normal/theoretical modes, and the periodical run gate
+(\emph{due$\to$pending$\to$approve/skip}, plus missed-while-offline roll-forward)
+are checked by construction, with all test artefacts created and then deleted so
+the suite never pollutes real data.
+\end{itemize}
+
+\subsection{Sandbox isolation}\label{sec:safety}
+Every test that could touch infrastructure is redirected to an isolated
+sandbox via an environment override; real production deployment is refused
+unless an explicit allow-flag is set. Database tests create a dedicated
+throwaway role and database through the superuser, never the application role,
+and drop them afterward. The production fingerprint $H$ is captured before and
+after; a divergence aborts and is reported as a safety failure, satisfying the
+safety predicate of \S\ref{sec:problem}.
+
+% ======================================================================
+\section{Results and Case Studies}\label{sec:results}
+We report qualitative outcomes verified at the time of writing; quantitative
+throughput results from the timing harness are being collected and will be
+added in the camera-ready (\S\ref{sec:limits}).
+
+\subsection{The phased gate}
+The Phase-1 context test passes with genuine cross-hop token reuse, a typed
+hand-off, monotonic pool growth, and a clean snake scan. The Phase-2 migration
+runs on the throwaway database with the production fingerprint unchanged. The
+Phase-3 feature checks pass and leave \emph{zero} residual test data. Critically,
+the gate distinguishes a \emph{massaged} pass from a real one (next).
+
+\subsection{Case study: a caught self-deceiving test}
+An early ``detail-propagation'' check scanned the transcript for specific
+expected strings. We could make it pass by instructing the agent to echo those
+exact strings---a textbook violation of Property~\ref{prop:ungame}. We recorded
+this as a \emph{gamed} pass and replaced the measurement with runtime tokens;
+the relabelled check now certifies brief fidelity without any echo-able target.
+The lesson generalises: \emph{a test you can satisfy without doing the work is
+not a test}.
+
+\subsection{Case study: a self-inflicted production outage}
+While hardening firewall rotation, a rule set defaulted to deny and left only
+SSH open, taking public web ports (80/443) offline. Diagnosis confirmed the
+local services were healthy but externally blocked. The fix had three parts:
+(i) immediate restoration of 80/443; (ii) a rewritten rotation that opens the
+web ports \emph{first} and idempotently, then manages \emph{only} SSH; and
+(iii) a codified invariant---``the public web ports are sacred''---enforced in
+the rotation logic and an additive-only recovery script. This incident is why
+our safety predicate (\S\ref{sec:problem}) includes continuous port
+reachability, not just data integrity.
+
+\subsection{Token false-positive and its fix}
+A placeholder of the same shape as a real token (\texttt{ODIN-XXXXXX}) was
+matched by a permissive regex, so the test read the placeholder instead of the
+minted value and reported \emph{no} reuse when reuse had in fact occurred.
+Switching to label-bound extraction removed the collision. We include this to
+underline that un-gameable tests must also be \emph{precise}: a sound idea with
+a sloppy matcher yields both false negatives and exploitable false positives.
+
+% ======================================================================
+\section{Discussion}
+\paragraph{Measurement integrity as the binding constraint.}
+Across every incident, the decisive factor was not model capability but whether
+our \emph{measurements} were honest. The single highest-leverage practice was
+adversarial scepticism toward our own green checkmarks.
+
+\paragraph{When to prefer one agent.}
+For inherently sequential engineering, a single agent over a shared pool
+avoided the serialization failures that the literature attributes to fan-out.
+We still expect genuine parallelism (independent sub-problems) to benefit from
+multiple workers under an orchestrator; our claim is scoped to sequential,
+context-heavy work.
+
+\paragraph{Human-in-the-loop where it matters.}
+The approval-gated scheduler and the universal approval gate for
+infrastructure-changing actions concentrate human attention on the riskiest
+decisions while leaving low-risk work autonomous.
+
+% ======================================================================
+\section{Limitations and Threats to Validity}\label{sec:limits}
+This is a single-system experience report; our quantitative comparison
+(cached vs.\ non-cached task time) is pending and the qualitative results,
+while reproducible in our gate, are not yet a controlled multi-system study.
+The danger lexicon of the snake-hunter is heuristic and may miss novel failure
+strings; the benign allow-list trades a small false-negative risk for far fewer
+false positives. The token test certifies \emph{propagation}, not semantic
+correctness of the work; it is necessary, not sufficient, and is paired with
+the omission guard and feature checks for coverage.
+
+% ======================================================================
+\section{Conclusion}
+We argued, from the experience of building a working multi-agent development
+system, that the binding constraint on autonomous software agents is
+measurement integrity. We gave a formal account of fake success and an
+un-gameable evaluation methodology---runtime tokens, a hidden-fault scanner,
+and a production-safety protocol---together with a shared-context single-agent
+architecture, a provenance-gated module cache, and an approval-gated scheduler.
+Our incidents show that the same scepticism that catches a lying \emph{agent}
+must be turned on one's own \emph{tests}. A red test that finds a real bug is a
+better outcome than a green test that was massaged to pass.
+
+\balance
+% ======================================================================
+\begin{thebibliography}{9}
+\small
+\bibitem{cognition} Cognition AI. \emph{Don't Build Multi-Agents}. 2024.
+\url{https://cognition.ai/blog/dont-build-multi-agents}.
+\bibitem{anthropic} Anthropic. \emph{Building Effective Agents}. 2024.
+\url{https://www.anthropic.com/research/building-effective-agents}.
+\bibitem{mast} M. Cemri et al. \emph{Why Do Multi-Agent LLM Systems Fail?}
+A Multi-Agent System Failure Taxonomy (MAST). 2025.
+\bibitem{react} S. Yao et al. \emph{ReAct: Synergizing Reasoning and Acting in
+Language Models}. ICLR 2023.
+\bibitem{reflexion} N. Shinn et al. \emph{Reflexion: Language Agents with Verbal
+Reinforcement Learning}. NeurIPS 2023.
+\bibitem{swebench} C. Jimenez et al. \emph{SWE-bench: Can Language Models
+Resolve Real-World GitHub Issues?} ICLR 2024.
+\bibitem{judge} L. Zheng et al. \emph{Judging LLM-as-a-Judge with MT-Bench and
+Chatbot Arena}. NeurIPS 2023.
+\end{thebibliography}
+
+\end{document}

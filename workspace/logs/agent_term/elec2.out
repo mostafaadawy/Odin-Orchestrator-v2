@@ -1,0 +1,58 @@
+=== reinstall electron FRESH (no re-sign this time) ===
+rebuilt dependencies successfully
+
+=== remove quarantine ONLY (targeted; do NOT re-sign) ===
+quarantine removed (rc=0)
+remaining xattrs on app:
+com.apple.provenance
+
+=== shipped signature validity (should be adhoc + VALID) ===
+Identifier=com.github.Electron
+CodeDirectory v=20400 size=332 flags=0x2(adhoc) hashes=4+3 location=embedded
+Signature=adhoc
+TeamIdentifier=not set
+--- verify strict ---
+--prepared:/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/desktop/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/Current/Helpers/chrome_crashpad_handler
+--validated:/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/desktop/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/Current/Helpers/chrome_crashpad_handler
+--validated:/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/desktop/node_modules/electron/dist/Electron.app/Contents/Frameworks/Electron Framework.framework/Versions/Current/.
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/desktop/node_modules/electron/dist/Electron.app: valid on disk
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/desktop/node_modules/electron/dist/Electron.app: satisfies its Designated Requirement
+--- entitlements (look for allow-jit / unsigned-executable-memory) ---
+
+=== LAUNCH TEST: run electron on the app for 8s, see if it survives ===
+RESULT: STILL ALIVE after 8s  => launches OK
+--- electron stderr tail ---
+INFO:     127.0.0.1:54985 - "GET /hubspot/overview HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55002 - "GET /notifications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55003 - "GET /ui/projects HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55004 - "GET /ui/agents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55005 - "GET /ui/types HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55006 - "GET /ui/connectors HTTP/1.1" 200 OK
+
+=== binary still present after launch? (was it trashed again?) ===
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/desktop/node_modules/electron/dist/Electron.app/Contents/MacOS/Electron
+PRESENT
+
+=== AMFI / XProtect / codesign verdict, last 2 min ===
+2026-07-24 00:48:34.709 Df kernel[0:270e5] (AppleMobileFileIntegrity) AMFI: code signature validation failed.
+2026-07-24 00:48:35.030 Df kernel[0:270e5] (AppleMobileFileIntegrity) AMFI: code signature validation failed.
+2026-07-24 00:48:35.050 Df kernel[0:270e5] (AppleMobileFileIntegrity) AMFI: code signature validation failed.
+2026-07-24 00:48:35.062 Df kernel[0:270e5] (AppleMobileFileIntegrity) AMFI: code signature validation failed.
+2026-07-24 00:48:35.077 Df kernel[0:270e5] (AppleMobileFileIntegrity) AMFI: code signature validation failed.
+2026-07-24 00:48:35.093 Df kernel[0:270e5] (AppleMobileFileIntegrity) AMFI: code signature validation failed.
+2026-07-24 00:48:35.141 Df kernel[0:270e5] (AppleMobileFileIntegrity) AMFI: code signature validation failed.
+2026-07-24 00:48:35.159 Df kernel[0:270e5] (AppleMobileFileIntegrity) AMFI: code signature validation failed.
+2026-07-24 00:48:35.172 Df kernel[0:270e5] (AppleMobileFileIntegrity) AMFI: code signature validation failed.
+2026-07-24 00:48:35.187 Df kernel[0:270e5] (AppleMobileFileIntegrity) AMFI: code signature validation failed.
+2026-07-24 00:48:35.220 Df kernel[0:270e5] (AppleMobileFileIntegrity) AMFI: code signature validation failed.
+2026-07-24 00:48:36.055 Df kernel[0:270e5] (AppleMobileFileIntegrity) AMFI: code signature validation failed.
+2026-07-24 00:48:36.093 Df kernel[0:270e5] (AppleMobileFileIntegrity) AMFI: code signature validation failed.
+2026-07-24 00:48:36.108 Df kernel[0:270e5] (AppleMobileFileIntegrity) AMFI: code signature validation failed.
+2026-07-24 00:48:36.217 Df kernel[0:270e5] (AppleMobileFileIntegrity) AMFI: code signature validation failed.
+2026-07-24 00:48:36.511 Df kernel[0:270e5] (AppleMobileFileIntegrity) AMFI: code signature validation failed.
+2026-07-24 00:48:36.528 Df kernel[0:270e5] (AppleMobileFileIntegrity) AMFI: code signature validation failed.
+2026-07-24 00:48:36.560 Df kernel[0:270e5] (AppleMobileFileIntegrity) AMFI: code signature validation failed.
+2026-07-24 00:48:36.573 Df kernel[0:270e5] (AppleMobileFileIntegrity) AMFI: code signature validation failed.
+2026-07-24 00:48:36.586 Df log[21475:27270] [com.apple.log:] log run noninteractively, parent: 21297 (bash), args: 'log' 'show' '--last' '2m' '--style' 'compact' '--predicate' 'senderImagePath CONTAINS "AppleMobileFileIntegrity" OR process CONTAINS[c] "xprotect" OR eventMessage CONTAINS[c] "code signature" OR event
+(end)
+DONE_ELEC2

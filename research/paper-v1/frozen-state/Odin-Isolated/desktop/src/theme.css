@@ -1,0 +1,250 @@
+/* Odin — premium dark theme. Hand-crafted (no framework) for full control of the look. */
+:root {
+  --bg: #0a0c12;
+  --bg-2: #0f1320;
+  --panel: rgba(22, 27, 42, 0.72);
+  --panel-solid: #161b2a;
+  --stroke: rgba(255, 255, 255, 0.08);
+  --stroke-strong: rgba(255, 255, 255, 0.16);
+  --txt: #e8ecf6;
+  --txt-dim: #9aa4bf;
+  --txt-faint: #5f6885;
+  --brand: #6c8cff;
+  --brand-2: #7af0d0;
+  --accent: #b07cff;
+  --danger: #ff6b81;
+  --ok: #4be3a0;
+  --warn: #ffce6b;
+  --frontend: #5ad1ff;
+  --backend: #b07cff;
+  --devops: #ffb15a;
+  --security: #ff6b81;
+  --qa: #4be3a0;
+  --database: #6c8cff;
+  --generic: #9aa4bf;
+  --radius: 16px;
+  --shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+  font-synthesis: none;
+}
+
+* { box-sizing: border-box; }
+html, body, #root { height: 100%; margin: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", system-ui, sans-serif;
+  color: var(--txt);
+  background:
+    radial-gradient(1200px 700px at 12% -10%, rgba(108,140,255,0.16), transparent 60%),
+    radial-gradient(900px 600px at 110% 10%, rgba(176,124,255,0.12), transparent 55%),
+    radial-gradient(800px 800px at 50% 120%, rgba(122,240,208,0.08), transparent 60%),
+    var(--bg);
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.10); border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.18); }
+
+/* ---------- layout ---------- */
+.app { display: grid; grid-template-columns: 264px 1fr; height: 100%; }
+.sidebar {
+  background: linear-gradient(180deg, rgba(16,19,32,0.9), rgba(10,12,18,0.9));
+  border-right: 1px solid var(--stroke);
+  display: flex; flex-direction: column; padding: 18px 14px; gap: 14px;
+  backdrop-filter: blur(14px); min-height: 0; overflow: hidden;
+}
+/* the project/chat list scrolls INSIDE the sidebar so the bottom items (Settings, status) stay pinned
+   and the inputs/links are never pushed off-screen. */
+.nav.scroll { flex: 1; min-height: 0; overflow-y: auto; overflow-x: hidden; }
+.brand { display: flex; align-items: center; gap: 12px; padding: 4px 6px 10px; }
+.brand .mark {
+  width: 38px; height: 38px; border-radius: 11px;
+  background: conic-gradient(from 220deg, var(--brand), var(--accent), var(--brand-2), var(--brand));
+  display: grid; place-items: center; font-weight: 800; color: #0a0c12;
+  box-shadow: 0 0 0 1px var(--stroke-strong), 0 8px 24px rgba(108,140,255,0.4);
+}
+.brand h1 { font-size: 15px; margin: 0; letter-spacing: 0.3px; }
+.brand small { color: var(--txt-faint); font-size: 11px; }
+
+.nav { display: flex; flex-direction: column; gap: 4px; }
+.nav button, .navitem {
+  display: flex; align-items: center; gap: 10px; width: 100%;
+  background: transparent; border: 0; color: var(--txt-dim);
+  padding: 9px 11px; border-radius: 11px; cursor: pointer; font-size: 13.5px; text-align: left;
+  transition: 0.15s;
+}
+.nav button:hover, .navitem:hover { background: rgba(255,255,255,0.05); color: var(--txt); }
+.nav button.active { background: rgba(108,140,255,0.16); color: #fff; box-shadow: inset 0 0 0 1px rgba(108,140,255,0.35); }
+
+.main { position: relative; overflow: hidden; display: flex; flex-direction: column; }
+.topbar {
+  display: flex; align-items: center; gap: 14px; padding: 12px 18px;
+  border-bottom: 1px solid var(--stroke); backdrop-filter: blur(8px); flex-shrink: 0;
+}
+.topbar .crumbs { font-size: 14px; color: var(--txt-dim); display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+.topbar .crumbs b { color: var(--txt); }
+.topbar .spacer { flex: 1; }
+/* action buttons NEVER overflow off-screen: one row that scrolls horizontally, uniform button height,
+   nothing wraps or is hidden behind the edge. */
+.topbar-actions {
+  flex: 1; min-width: 0; display: flex; align-items: center; gap: 8px;
+  /* flex-start (NOT flex-end): overflow spills to the RIGHT where scrollLeft can actually reach it.
+     With flex-end the overflow spills left into an unscrollable region and the ‹ › arrows do nothing. */
+  overflow-x: auto; overflow-y: hidden; justify-content: flex-start;
+  padding-bottom: 2px; scrollbar-width: thin; scroll-behavior: smooth;
+}
+.topbar-actions::-webkit-scrollbar { height: 6px; }
+.topbar-actions > * { flex-shrink: 0; }
+/* always-visible ‹ › arrows to scroll the toolbar so no button is ever unreachable when narrow */
+.topbar-arrow {
+  flex-shrink: 0; height: 32px; width: 26px; display: grid; place-items: center;
+  border: 1px solid var(--stroke-strong); background: rgba(255,255,255,0.05); color: var(--txt);
+  border-radius: 9px; cursor: pointer; font-size: 18px; line-height: 1; padding: 0;
+}
+.topbar-arrow:hover { background: rgba(255,255,255,0.12); }
+/* every top-bar control is the SAME height and never wraps; long labels ellipsize (full text on hover). */
+.topbar-actions .btn, .topbar-actions > button, .topbar-actions > span.btn {
+  height: 32px; display: inline-flex; align-items: center; gap: 6px;
+  white-space: nowrap; max-width: 190px; overflow: hidden; text-overflow: ellipsis; line-height: 1;
+}
+
+.content { flex: 1; min-height: 0; overflow: auto; padding: 22px; }
+/* a section that must NOT push others down / overlap them: it caps its height and scrolls internally. */
+.sec-scroll { max-height: 360px; overflow-y: auto; }
+.scroll-y { overflow-y: auto; min-height: 0; }
+
+/* ---------- glass cards ---------- */
+.card {
+  background: var(--panel); border: 1px solid var(--stroke); border-radius: var(--radius);
+  box-shadow: var(--shadow); backdrop-filter: blur(16px);
+}
+.card.pad { padding: 18px; }
+.grid { display: grid; gap: 16px; }
+.grid.cards { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+
+.h-title { font-size: 18px; font-weight: 700; margin: 0 0 2px; }
+.muted { color: var(--txt-dim); }
+.faint { color: var(--txt-faint); }
+.row { display: flex; align-items: center; gap: 10px; }
+.col { display: flex; flex-direction: column; gap: 10px; }
+.between { justify-content: space-between; }
+.wrap { flex-wrap: wrap; }
+.pill {
+  font-size: 11px; padding: 3px 9px; border-radius: 999px; border: 1px solid var(--stroke-strong);
+  color: var(--txt-dim); background: rgba(255,255,255,0.03);
+}
+
+/* ---------- buttons / inputs ---------- */
+.btn {
+  border: 1px solid var(--stroke-strong); background: rgba(255,255,255,0.04); color: var(--txt);
+  padding: 9px 14px; border-radius: 11px; cursor: pointer; font-size: 13.5px; transition: 0.15s;
+}
+.btn:hover { background: rgba(255,255,255,0.09); }
+.btn.primary {
+  background: linear-gradient(180deg, var(--brand), #5274ff); border-color: transparent; color: #fff;
+  box-shadow: 0 8px 22px rgba(108,140,255,0.35);
+}
+.btn.primary:hover { filter: brightness(1.08); }
+.btn.ghost { background: transparent; }
+.btn.danger { color: var(--danger); border-color: rgba(255,107,129,0.35); }
+.btn.sm { padding: 6px 10px; font-size: 12px; border-radius: 9px; }
+input, textarea, select {
+  background: rgba(8,10,16,0.7); border: 1px solid var(--stroke-strong); color: var(--txt);
+  border-radius: 11px; padding: 10px 12px; font-size: 13.5px; outline: none; width: 100%;
+  font-family: inherit;
+}
+input:focus, textarea:focus, select:focus { border-color: rgba(108,140,255,0.6); }
+label { font-size: 12px; color: var(--txt-dim); margin-bottom: 5px; display: block; }
+
+/* ---------- status dot ---------- */
+.dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+.dot.ok { background: var(--ok); box-shadow: 0 0 0 4px rgba(75,227,160,0.16); }
+.dot.warn { background: var(--warn); box-shadow: 0 0 0 4px rgba(255,206,107,0.16); }
+.dot.bad { background: var(--danger); box-shadow: 0 0 0 4px rgba(255,107,129,0.16); }
+
+/* ---------- agent avatar + heartbeat ---------- */
+.avatar { position: relative; width: 56px; height: 56px; border-radius: 16px; display: grid; place-items: center; }
+.avatar .glyph {
+  width: 100%; height: 100%; border-radius: 16px; display: grid; place-items: center;
+  font-weight: 800; font-size: 18px; color: #0a0c12;
+  border: 1px solid var(--stroke-strong);
+}
+.avatar.lg { width: 84px; height: 84px; }
+.avatar.sm { width: 40px; height: 40px; }
+.avatar.sm .glyph { font-size: 14px; border-radius: 12px; }
+.heart-ring {
+  position: absolute; inset: -5px; border-radius: 20px; border: 2px solid currentColor; opacity: 0;
+}
+/* IDLE = calm/static. Animation MEANS the agent is really working (no fake "alive" idle). */
+.avatar:not(.active) .glyph { animation: none; opacity: 0.96; }
+/* working = strong heartbeat ring + glow + a fancy rotating halo (premium, not basic blink) */
+.avatar.active .heart-ring { animation: heartbeat 1.4s ease-out infinite; }
+.avatar.active .glyph { animation: pulseGlow 1.4s ease-in-out infinite; }
+.avatar.active::before {
+  content: ""; position: absolute; inset: -7px; border-radius: 21px; z-index: -1; filter: blur(3px); opacity: 0.7;
+  background: conic-gradient(from 0deg, transparent, currentColor, transparent 45%);
+  animation: spin 2.6s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes heartbeat {
+  0% { transform: scale(0.86); opacity: 0.8; }
+  70% { transform: scale(1.22); opacity: 0; }
+  100% { opacity: 0; }
+}
+@keyframes pulseGlow {
+  0%,100% { box-shadow: 0 0 0 0 rgba(255,255,255,0); }
+  50% { box-shadow: 0 0 26px 3px currentColor; }
+}
+.blink { animation: blink 1.1s steps(2, start) infinite; }
+@keyframes blink { 50% { opacity: 0.25; } }
+
+/* ---------- chat ---------- */
+.chat { display: flex; flex-direction: column; height: 100%; }
+.chat-side { width: 184px; flex-shrink: 0; border-right: 1px solid var(--stroke); padding: 12px 10px; overflow: auto; }
+.chat-main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.chat-item { display: flex; align-items: center; justify-content: space-between; gap: 6px; width: 100%; text-align: left; background: transparent; border: 0; color: var(--txt-dim); padding: 6px 8px; border-radius: 8px; cursor: pointer; font-size: 12px; }
+.chat-item:hover { background: rgba(255,255,255,0.05); color: var(--txt); }
+.chat-item.active { background: rgba(108,140,255,0.16); color: #fff; box-shadow: inset 0 0 0 1px rgba(108,140,255,0.3); }
+.chat-item .x { opacity: 0; font-size: 11px; }
+.chat-item:hover .x { opacity: 0.6; }
+.chat-scroll { flex: 1; overflow: auto; padding: 18px; display: flex; flex-direction: column; gap: 14px; }
+.msg { max-width: 84%; padding: 12px 14px; border-radius: 14px; font-size: 14px; line-height: 1.5; }
+.msg.user { align-self: flex-end; background: linear-gradient(180deg, rgba(108,140,255,0.22), rgba(108,140,255,0.12)); border: 1px solid rgba(108,140,255,0.3); }
+.msg.assistant { align-self: flex-start; background: rgba(255,255,255,0.04); border: 1px solid var(--stroke); }
+.msg pre { background: #0a0c14; border: 1px solid var(--stroke); border-radius: 10px; padding: 12px; overflow: auto; font-size: 12.5px; }
+.msg code { font-family: "SF Mono", ui-monospace, Menlo, monospace; }
+.msg table { border-collapse: collapse; width: 100%; margin: 6px 0; font-size: 13px; }
+.msg th, .msg td { border: 1px solid var(--stroke-strong); padding: 6px 9px; text-align: left; }
+.msg th { background: rgba(255,255,255,0.05); }
+
+.status-rail { display: flex; flex-direction: column; gap: 6px; padding: 0 18px 6px; }
+.status-step { display: flex; align-items: center; gap: 9px; font-size: 12.5px; color: var(--txt-dim); }
+.status-step .ic { width: 18px; text-align: center; }
+
+.composer { display: flex; gap: 10px; padding: 14px 18px; border-top: 1px solid var(--stroke); align-items: flex-end; }
+.composer textarea { resize: none; min-height: 44px; max-height: 140px; }
+.iconbtn {
+  width: 44px; height: 44px; border-radius: 12px; border: 1px solid var(--stroke-strong);
+  background: rgba(255,255,255,0.04); color: var(--txt); cursor: pointer; display: grid; place-items: center; font-size: 17px;
+}
+.iconbtn.live { color: var(--danger); border-color: rgba(255,107,129,0.4); }
+
+/* ---------- flow rail ---------- */
+.flow { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.flow .node { padding: 5px 10px; border-radius: 9px; border: 1px solid var(--stroke-strong); font-size: 12px; }
+.flow .arrow { color: var(--brand-2); }
+
+/* ---------- modal ---------- */
+/* overlays/modals sit ABOVE all page content. Notifications (1000) < normal modals (1000) < approvals alarm
+   dialog (1200) so the approval decision is always the top-most thing you see. */
+.overlay { position: fixed; inset: 0; background: rgba(4,6,12,0.6); backdrop-filter: blur(6px); display: grid; place-items: center; z-index: 1000; }
+.modal { width: min(560px, 92vw); max-height: 88vh; overflow-y: auto; }
+
+/* ---------- usage bar ---------- */
+.bar { height: 9px; border-radius: 999px; background: rgba(255,255,255,0.06); overflow: hidden; }
+.bar > span { display: block; height: 100%; border-radius: 999px; }
+
+.statbar { display: flex; gap: 16px; align-items: center; }
+.kpi { display: flex; flex-direction: column; }
+.kpi b { font-size: 18px; }
+.kpi span { font-size: 11px; color: var(--txt-faint); }
+.empty { color: var(--txt-faint); text-align: center; padding: 40px; }

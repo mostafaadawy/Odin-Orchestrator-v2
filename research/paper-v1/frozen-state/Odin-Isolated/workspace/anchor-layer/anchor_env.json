@@ -1,0 +1,43 @@
+{
+  "_comment": "Single source of truth for Anchor environments (Dev/Prod), seeded prompts, and the request/webhook links. Read by the desktop app, the Flutter app, and the CD-flow simulator (anchor_sim.html). phase3_up.sh fills the production anchor/webhook with the real VM ip:port at cutover — switching the dropdown to 'production' is then the only change needed.",
+  "default": "development",
+  "environments": {
+    "development": {
+      "label": "Development (Phase 2 — ALL LOCAL, tested before deploy)",
+      "mode": "direct",
+      "brain":  "http://localhost:8000",
+      "anchor": "http://localhost:9100",
+      "webhook": "http://localhost:9300",
+      "anchorApiKeyFrom": "oth/.cred:ANCHOR_API_KEY"
+    },
+    "production": {
+      "label": "Production (Phase 3 — anchor + web ONLINE on the Azure VM; desktop stays local)",
+      "mode": "anchor",
+      "_note": "Remote web/mobile CANNOT reach the local brain — EVERYTHING goes through the online anchor (async: request -> fast ack -> local desktop -> webhook/poll result). Ports are hard-to-guess on purpose.",
+      "vm_ip": "52.180.154.225",
+      "_ports_note": "48619/48620 are LOCALHOST-only on the VM (never public). The public entry is nginx 443 via the reverse proxy paths below — no new ports, only 80/443/22 open.",
+      "anchor_local_port": 48619,
+      "web_local_port": 48620,
+      "brain":  "",
+      "anchor": "https://anchor.odinmarkets.com/odin-anchor",
+      "web":    "https://anchor.odinmarkets.com/odin-web",
+      "webhook": "https://anchor.odinmarkets.com/odin-anchor",
+      "anchorApiKeyFrom": "oth/.cred:ANCHOR_API_KEY"
+    }
+  },
+  "seeded_prompts": [
+    { "label": "Recent orders (Veeqo / Fulfillment)", "prompt": "How many orders did we get this week, and what is the recent shipping status?" },
+    { "label": "Klaviyo workflows (Email)",           "prompt": "List our recent Klaviyo email workflows with their live vs draft counts." },
+    { "label": "Total order count",                    "prompt": "What is our total order count right now?" },
+    { "label": "Sandbox deploy status",                "prompt": "What is the current deployment status of the sandbox app?" }
+  ],
+  "links": {
+    "anchor_create":  "/anchor/v1/requests",
+    "anchor_status":  "/anchor/v1/requests/{id}",
+    "anchor_result":  "/anchor/v1/requests/{id}/result",
+    "anchor_poll":    "/anchor/v1/poll",
+    "anchor_admin":   "/anchor/v1/admin/requests",
+    "webhook_cb":     "/cb",
+    "webhook_list":   "/list"
+  }
+}

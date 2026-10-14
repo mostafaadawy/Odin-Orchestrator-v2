@@ -1,0 +1,16 @@
+[
+  {
+    "name": "deploy_changes.py",
+    "source": "shared/infra/deploy_changes.py",
+    "kind": "code",
+    "mode": "as-is",
+    "overlay": null
+  },
+  {
+    "name": "INSTALL_SOC_SENSOR.md",
+    "source": "shared/utils/INSTALL_SOC_SENSOR.md",
+    "kind": "code",
+    "mode": "as-is",
+    "overlay": null
+  }
+]

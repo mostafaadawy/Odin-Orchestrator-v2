@@ -1,0 +1,15 @@
+{
+  "runs_after": [
+    "Security Intelligence & Threat-Hunting Architect",
+    "Security Operations Investigator",
+    "Intrusion Detection & Behavioral Analytics Agent"
+  ],
+  "runs_before": [
+    "Intrusion Detection & Behavioral Analytics Agent",
+    "Security Operations Investigator"
+  ],
+  "collaborates_with": [
+    "Security Intelligence & Threat-Hunting Architect",
+    "Intrusion Detection & Behavioral Analytics Agent"
+  ]
+}

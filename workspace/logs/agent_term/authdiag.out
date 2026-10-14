@@ -1,0 +1,3 @@
+ssh: connect to host 52.180.154.225 port 22: Operation timed out
+EXIT=255
+DONE_AUTH1

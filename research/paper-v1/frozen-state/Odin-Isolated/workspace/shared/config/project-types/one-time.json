@@ -1,0 +1,16 @@
+{
+  "type": "one-time",
+  "requires": {
+    "schedule": false
+  },
+  "config_schema": {
+    "followups": "list"
+  },
+  "ui": {
+    "chip": "One-time",
+    "controls": [
+      "run-once"
+    ]
+  },
+  "means": "runs once, then small follow-up requirements"
+}

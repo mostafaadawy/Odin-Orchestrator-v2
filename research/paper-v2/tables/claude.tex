@@ -1,0 +1,10 @@
+\begin{table*}[t]\centering\scriptsize
+\caption{Read/change: Jev against a Claude classifier (plan login, same standing context and definition) and the production router. Strict = log-outcome truth with owner acceptance; extended = additional log rules for this decision only, lower confidence (Section~\ref{sec:truth}). McNemar against Claude. \textbf{PROVISIONAL -- pending human labels}.}
+\label{tab:claude}
+\begin{tabular}{l l r r l l r r}\toprule
+Truth set & Jev & $n$ & Router \% & Claude \% [95\% CI] & Jev \% [95\% CI] & $b/c$ & McNemar $p$\\\midrule
+strict & 0.5B & 42 & 83.3 & 73.8 [58.9, 84.7] & 83.3 [69.4, 91.7] & 5/1 & 0.219 \\
+strict & 1.5B & 42 & 83.3 & 73.8 [58.9, 84.7] & 88.1 [75.0, 94.8] & 8/2 & 0.109 \\
+strict + extended & 0.5B & 67 & 74.6 & 74.6 [63.1, 83.5] & 80.6 [69.6, 88.3] & 7/3 & 0.344 \\
+strict + extended & 1.5B & 67 & 74.6 & 74.6 [63.1, 83.5] & 83.6 [72.9, 90.6] & 11/5 & 0.210 \\
+\bottomrule\end{tabular}\end{table*}

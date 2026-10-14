@@ -1,0 +1,12 @@
+{
+  "name": "Compliance & Config-Baseline Agent",
+  "role": "Compliance & Config-Baseline Agent",
+  "nature": "operational",
+  "mode": "normal",
+  "projects": [
+    "redberry-continuous-soc"
+  ],
+  "type": "security",
+  "typeConfig": "shared/config/agent-types/security.json",
+  "group": "compliance"
+}

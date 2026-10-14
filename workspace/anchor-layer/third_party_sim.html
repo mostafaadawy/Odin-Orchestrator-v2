@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Third-Party Simulator → Odin Anchor</title>
+<style>
+  :root{--bg:#0a0c12;--panel:#161b2a;--stroke:rgba(255,255,255,.12);--txt:#e8ecf6;--dim:#9aa4bf;--brand:#6c8cff;--ok:#4be3a0;--warn:#ffce6b;--danger:#ff6b81;}
+  *{box-sizing:border-box;font-family:-apple-system,Segoe UI,system-ui,sans-serif}
+  body{margin:0;background:radial-gradient(900px 500px at 10% -10%,rgba(108,140,255,.16),transparent 60%),var(--bg);color:var(--txt);min-height:100vh;padding:28px}
+  .wrap{max-width:760px;margin:0 auto}
+  h1{font-size:19px;margin:0 0 4px}
+  .sub{color:var(--dim);font-size:13px;margin-bottom:18px}
+  .card{background:var(--panel);border:1px solid var(--stroke);border-radius:14px;padding:18px;margin-bottom:14px}
+  label{display:block;font-size:12px;color:var(--dim);margin:10px 0 4px}
+  input,textarea,select{width:100%;background:#0a0c14;border:1px solid var(--stroke);color:var(--txt);border-radius:10px;padding:10px 12px;font-size:14px;outline:none}
+  textarea{min-height:90px;resize:vertical}
+  .row{display:flex;gap:10px}.row>*{flex:1}
+  button{margin-top:14px;background:linear-gradient(180deg,var(--brand),#5274ff);color:#fff;border:0;border-radius:10px;padding:11px 16px;font-size:14px;cursor:pointer}
+  button:disabled{opacity:.5;cursor:default}
+  .pill{display:inline-block;font-size:11px;padding:3px 10px;border-radius:999px;border:1px solid var(--stroke);margin:2px 4px 2px 0}
+  .log{font-family:ui-monospace,Menlo,monospace;font-size:12px;background:#0a0c14;border:1px solid var(--stroke);border-radius:10px;padding:12px;white-space:pre-wrap;max-height:300px;overflow:auto;margin-top:12px}
+  .muted{color:var(--dim);font-size:12px}
+  .ok{color:var(--ok)}.warn{color:var(--warn)}.bad{color:var(--danger)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>🛰️ Third-Party Simulator</h1>
+  <div class="sub">Acts as an <b>external application</b> sending a request to your Odin <b>Anchor</b> (e.g. ask Klaviyo / Shipping). This is the missing puzzle piece — it is NOT you; it's the outside caller. Your web/mobile app is <i>you</i>.</div>
+
+  <div class="card">
+    <div class="row">
+      <div><label>Anchor URL</label><input id="anchor" value="http://localhost:9100" /></div>
+      <div><label>X-API-Key (ANCHOR_API_KEY — required)</label><input id="key" value="" placeholder="paste the anchor key (F-14: never stored in this page)" /></div>
+    </div>
+    <label>Target project identifier (the project id)</label>
+    <input id="project" placeholder="e.g. the Email/Klaviyo or Shipping/Veeqo project id" />
+    <label>Prompt (only this — like a real third party)</label>
+    <textarea id="prompt" placeholder="How many orders did we get this week?"></textarea>
+    <button id="send" onclick="send()">Send request as third party →</button>
+  </div>
+
+  <div class="card">
+    <b style="font-size:13px">Result</b>
+    <div class="muted">Submits to <code>POST /anchor/v1/requests</code>, then polls <code>/anchor/v1/requests/{id}</code> until finished — exactly the contract a real third party uses.</div>
+    <div id="status"></div>
+    <div class="log" id="log">(no request sent yet)</div>
+  </div>
+</div>
+
+<script>
+const $ = (id) => document.getElementById(id);
+function logln(t){ const l=$("log"); l.textContent = (l.textContent==="(no request sent yet)"?"":l.textContent+"\n")+t; l.scrollTop=l.scrollHeight; }
+function headers(){ const h={"Content-Type":"application/json"}; const k=$("key").value.trim(); if(k) h["X-API-Key"]=k; return h; }
+
+async function send(){
+  const base=$("anchor").value.replace(/\/+$/,"");
+  const project=$("project").value.trim();
+  const prompt=$("prompt").value.trim();
+  if(!project||!prompt){ alert("Enter a project id and a prompt."); return; }
+  $("send").disabled=true; $("status").innerHTML=""; $("log").textContent="";
+  try{
+    logln("→ POST "+base+"/anchor/v1/requests");
+    const r=await fetch(base+"/anchor/v1/requests",{method:"POST",headers:headers(),
+      body:JSON.stringify({project,prompt,webhook_url:"",sender:"third-party-sim"})});
+    const d=await r.json();
+    if(!r.ok){ logln("✗ "+r.status+" "+JSON.stringify(d)); $("send").disabled=false; return; }
+    const id=d.request_id;
+    logln("✓ queued: "+id+" ("+d.status+")");
+    poll(base,id);
+  }catch(e){ logln("✗ "+e); $("send").disabled=false; }
+}
+
+async function poll(base,id){
+  const seen=new Set(); let tries=0;
+  const t=setInterval(async ()=>{
+    tries++;
+    try{
+      const r=await fetch(base+"/anchor/v1/requests/"+id,{headers:headers()});
+      const d=await r.json();
+      if(!seen.has(d.status)){ seen.add(d.status); logln("  • "+d.status);
+        $("status").innerHTML='<span class="pill">'+[...seen].join('</span><span class="pill">')+'</span>'; }
+      if(["finished","failed","cancelled"].includes(d.status)){
+        clearInterval(t); $("send").disabled=false;
+        logln((d.status==="finished"?"✅":"❌")+" "+d.status+"  acked="+d.acked+"  webhook×"+(d.webhook_attempts||0));
+        logln("\nRESULT:\n"+(typeof d.result==="string"?d.result:JSON.stringify(d.result,null,2)));
+      }
+    }catch(e){ logln("  (poll error: "+e+")"); }
+    if(tries>200){ clearInterval(t); $("send").disabled=false; }
+  },3000);
+}
+</script>
+</body>
+</html>

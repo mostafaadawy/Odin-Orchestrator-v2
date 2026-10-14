@@ -1,0 +1,304 @@
+{
+ "summary": {
+  "PROVEN": 31,
+  "PENDING": 0,
+  "DOC": 11,
+  "FAIL": 0
+ },
+ "rows": [
+  {
+   "id": "CH2-11",
+   "group": "A (G1 false success)",
+   "by": "fix #2 parts 1\u20133",
+   "evidence": "fix2_unit + fix2c_unit",
+   "status": "PROVEN"
+  },
+  {
+   "id": "CH4-2",
+   "group": "A (G1 false success)",
+   "by": "fix #2 parts 1\u20133",
+   "evidence": "fix2_unit + fix2c_unit",
+   "status": "PROVEN"
+  },
+  {
+   "id": "CH4-5",
+   "group": "A (G1 false success)",
+   "by": "fix #2 part 4",
+   "evidence": "fix2_unit + fix2c_unit",
+   "status": "PROVEN"
+  },
+  {
+   "id": "CH2-1",
+   "group": "A (G1 false success)",
+   "by": "fix #2 part 2",
+   "evidence": "fix2_unit + fix2c_unit",
+   "status": "PROVEN"
+  },
+  {
+   "id": "CH2-3",
+   "group": "A (G1 false success)",
+   "by": "fix #2 part 5",
+   "evidence": "fix2_unit + fix2c_unit",
+   "status": "PROVEN"
+  },
+  {
+   "id": "CH3-3",
+   "group": "A (G1 false success)",
+   "by": "fix #2 part 5",
+   "evidence": "fix2_unit + fix2c_unit",
+   "status": "PROVEN"
+  },
+  {
+   "id": "CH0-5",
+   "group": "A (G1 false success)",
+   "by": "fix #2 part 2",
+   "evidence": "fix2_unit + fix2c_unit",
+   "status": "PROVEN"
+  },
+  {
+   "id": "CH4-1",
+   "group": "A (G1 false success)",
+   "by": "fix #2 part 6",
+   "evidence": "fix2_unit + fix2c_unit",
+   "status": "PROVEN"
+  },
+  {
+   "id": "CH4-4",
+   "group": "A (G1 false success)",
+   "by": "fix #2 part 6",
+   "evidence": "fix2_unit + fix2c_unit",
+   "status": "PROVEN"
+  },
+  {
+   "id": "CH0-4",
+   "group": "A (G1 false success)",
+   "by": "fix #2 part 2",
+   "evidence": "fix2_unit + fix2c_unit",
+   "status": "PROVEN"
+  },
+  {
+   "id": "CH2-7",
+   "group": "A (G1 false success)",
+   "by": "fix #2 part 2",
+   "evidence": "fix2_unit + fix2c_unit",
+   "status": "PROVEN"
+  },
+  {
+   "id": "CH4-3",
+   "group": "A (G1 false success)",
+   "by": "fix #2 parts 2\u20133",
+   "evidence": "fix2_unit + fix2c_unit",
+   "status": "PROVEN"
+  },
+  {
+   "id": "CH5-1",
+   "group": "A (G1 false success)",
+   "by": "fix #2 part 2",
+   "evidence": "fix2_unit + fix2c_unit",
+   "status": "PROVEN"
+  },
+  {
+   "id": "CH0-3",
+   "group": "B",
+   "by": "P8-2",
+   "evidence": "stepG_test.log",
+   "status": "PROVEN"
+  },
+  {
+   "id": "CH3-4",
+   "group": "B",
+   "by": "P8-2",
+   "evidence": "stepG_test.log",
+   "status": "PROVEN"
+  },
+  {
+   "id": "CH1-5",
+   "group": "B",
+   "by": "P8-2",
+   "evidence": "stepG_test.log",
+   "status": "PROVEN"
+  },
+  {
+   "id": "CH0-7",
+   "group": "B",
+   "by": "G12",
+   "evidence": "g12_test.log",
+   "status": "PROVEN"
+  },
+  {
+   "id": "CH2-9",
+   "group": "B",
+   "by": "G12",
+   "evidence": "g12_test.log",
+   "status": "PROVEN"
+  },
+  {
+   "id": "CH1-1",
+   "group": "B",
+   "by": "G9",
+   "evidence": "g9_test.log",
+   "status": "PROVEN"
+  },
+  {
+   "id": "CH5-4",
+   "group": "B",
+   "by": "F-23 fix #3",
+   "evidence": "fix3_test.log",
+   "status": "PROVEN"
+  },
+  {
+   "id": "CH4-7",
+   "group": "B",
+   "by": "F-23 fix #3",
+   "evidence": "fix3_test.log",
+   "status": "PROVEN"
+  },
+  {
+   "id": "CH2-5",
+   "group": "B",
+   "by": "F-06",
+   "evidence": "f06_test.log",
+   "status": "PROVEN"
+  },
+  {
+   "id": "CH2-6",
+   "group": "B",
+   "by": "F-06",
+   "evidence": "f06_test.log",
+   "status": "PROVEN"
+  },
+  {
+   "id": "CH0-1",
+   "group": "C (inventory was wrong)",
+   "by": "MFI correction",
+   "evidence": "PHASE3_FIX2_PLAN group C",
+   "status": "DOC"
+  },
+  {
+   "id": "CH0-2",
+   "group": "C (inventory was wrong)",
+   "by": "MFI correction",
+   "evidence": "PHASE3_FIX2_PLAN group C",
+   "status": "DOC"
+  },
+  {
+   "id": "CH1-3",
+   "group": "C (inventory was wrong)",
+   "by": "MFI correction",
+   "evidence": "PHASE3_FIX2_PLAN group C",
+   "status": "DOC"
+  },
+  {
+   "id": "CH1-6",
+   "group": "C (inventory was wrong)",
+   "by": "MFI correction",
+   "evidence": "PHASE3_FIX2_PLAN group C",
+   "status": "DOC"
+  },
+  {
+   "id": "CH2-8",
+   "group": "C (inventory was wrong)",
+   "by": "MFI correction",
+   "evidence": "PHASE3_FIX2_PLAN group C",
+   "status": "DOC"
+  },
+  {
+   "id": "CH2-10",
+   "group": "C (inventory was wrong)",
+   "by": "MFI correction",
+   "evidence": "PHASE3_FIX2_PLAN group C",
+   "status": "DOC"
+  },
+  {
+   "id": "CH3-1",
+   "group": "C (inventory was wrong)",
+   "by": "MFI correction",
+   "evidence": "PHASE3_FIX2_PLAN group C",
+   "status": "DOC"
+  },
+  {
+   "id": "CH3-2",
+   "group": "C (inventory was wrong)",
+   "by": "MFI correction",
+   "evidence": "PHASE3_FIX2_PLAN group C",
+   "status": "DOC"
+  },
+  {
+   "id": "CH5-2",
+   "group": "C (inventory was wrong)",
+   "by": "MFI correction",
+   "evidence": "PHASE3_FIX2_PLAN group C",
+   "status": "DOC"
+  },
+  {
+   "id": "CH5-3",
+   "group": "C (inventory was wrong)",
+   "by": "MFI correction",
+   "evidence": "PHASE3_FIX2_PLAN group C",
+   "status": "DOC"
+  },
+  {
+   "id": "CH4-6",
+   "group": "C (inventory was wrong)",
+   "by": "MFI correction",
+   "evidence": "PHASE3_FIX2_PLAN group C",
+   "status": "DOC"
+  },
+  {
+   "id": "CH1-4",
+   "group": "D",
+   "by": "F-25",
+   "evidence": "stepA_test.log",
+   "status": "PROVEN"
+  },
+  {
+   "id": "CH1-7",
+   "group": "D",
+   "by": "F-27",
+   "evidence": "stepA_test.log",
+   "status": "PROVEN"
+  },
+  {
+   "id": "CH2-2",
+   "group": "D",
+   "by": "F-28",
+   "evidence": "stepA_test.log",
+   "status": "PROVEN"
+  },
+  {
+   "id": "CH2-4",
+   "group": "D",
+   "by": "F-29",
+   "evidence": "stepA_test.log",
+   "status": "PROVEN"
+  },
+  {
+   "id": "CH2-12",
+   "group": "D",
+   "by": "F-30",
+   "evidence": "stepA_test.log",
+   "status": "PROVEN"
+  },
+  {
+   "id": "CH5-5",
+   "group": "D",
+   "by": "F-31",
+   "evidence": "stepA_test.log",
+   "status": "PROVEN"
+  },
+  {
+   "id": "CH2-16",
+   "group": "D",
+   "by": "F-24",
+   "evidence": "stepC_test.log",
+   "status": "PROVEN"
+  },
+  {
+   "id": "CH1-2",
+   "group": "D",
+   "by": "F-26 secret-file rule",
+   "evidence": "f26_test.log",
+   "status": "PROVEN"
+  }
+ ]
+}

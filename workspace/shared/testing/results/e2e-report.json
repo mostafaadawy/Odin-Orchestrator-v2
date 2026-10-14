@@ -1,0 +1,282 @@
+{
+  "ts": "2026-06-23 23:06:50",
+  "base": "http://localhost:8000",
+  "counts": {
+    "PASS": 45,
+    "FAIL": 0,
+    "WARN": 0,
+    "SKIP": 0
+  },
+  "results": [
+    {
+      "req": "status",
+      "name": "Backend /health reachable",
+      "status": "PASS",
+      "detail": "{'ok': True, 'engine': 'Claude CLI (Claude Code)', 'voice_enabled': True, 'ollama_model': 'qwen2.5:7b-instruct-q4_K_M'}"
+    },
+    {
+      "req": "status",
+      "name": "Engine is Claude CLI (real brain, has tools)",
+      "status": "PASS",
+      "detail": "Claude CLI (Claude Code)"
+    },
+    {
+      "req": "status",
+      "name": "Voice enabled",
+      "status": "PASS",
+      "detail": "True"
+    },
+    {
+      "req": "deps",
+      "name": "Capabilities: knows what's connected",
+      "status": "PASS",
+      "detail": "have=Claude Code (engine), Local models (Ollama), Azure CLI, Azure VM"
+    },
+    {
+      "req": "deps",
+      "name": "Capabilities: can recommend integrations",
+      "status": "PASS",
+      "detail": "can-connect=Apple App Store, Google Play, Cloudinary, Stripe, GitHub"
+    },
+    {
+      "req": "loc",
+      "name": "Testing folder is OUTSIDE the app folder",
+      "status": "PASS",
+      "detail": "/Users/mostafaadawy/Desktop/OdinTesting"
+    },
+    {
+      "req": "loc",
+      "name": "[E2E Landing 244732] folder created on disk at chosen location",
+      "status": "PASS",
+      "detail": "/Users/mostafaadawy/Desktop/OdinTesting/e2e-landing-244732"
+    },
+    {
+      "req": "plan",
+      "name": "[E2E Landing 244732] team correct (has ['Frontend'])",
+      "status": "PASS",
+      "detail": "team=Frontend"
+    },
+    {
+      "req": "plan",
+      "name": "[E2E Landing 244732] NO hallucinated agents (['DevOps', 'Backend'])",
+      "status": "PASS",
+      "detail": "team=Frontend"
+    },
+    {
+      "req": "loc",
+      "name": "[E2E Shop 244732] folder created on disk at chosen location",
+      "status": "PASS",
+      "detail": "/Users/mostafaadawy/Desktop/OdinTesting/e2e-shop-244732"
+    },
+    {
+      "req": "plan",
+      "name": "[E2E Shop 244732] team correct (has ['Frontend', 'Backend', 'Database'])",
+      "status": "PASS",
+      "detail": "team=Frontend, Backend, Database, Security"
+    },
+    {
+      "req": "plan",
+      "name": "[E2E Shop 244732] NO hallucinated agents (n/a)",
+      "status": "PASS",
+      "detail": "team=Frontend, Backend, Database, Security"
+    },
+    {
+      "req": "loc",
+      "name": "[E2E Desk 244732] folder created on disk at chosen location",
+      "status": "PASS",
+      "detail": "/Users/mostafaadawy/Desktop/OdinTesting/e2e-desk-244732"
+    },
+    {
+      "req": "plan",
+      "name": "[E2E Desk 244732] team correct (has ['Frontend', 'DevOps'])",
+      "status": "PASS",
+      "detail": "team=Frontend, DevOps, QA"
+    },
+    {
+      "req": "plan",
+      "name": "[E2E Desk 244732] NO hallucinated agents (n/a)",
+      "status": "PASS",
+      "detail": "team=Frontend, DevOps, QA"
+    },
+    {
+      "req": "fake",
+      "name": "No fake 'active' agents right after creation",
+      "status": "PASS",
+      "detail": "[]"
+    },
+    {
+      "req": "agent",
+      "name": "Add-member: suggests a name + role",
+      "status": "PASS",
+      "detail": "Testwright / QA & Testing"
+    },
+    {
+      "req": "agent",
+      "name": "Add-member: registered",
+      "status": "PASS",
+      "detail": "Testwright"
+    },
+    {
+      "req": "agent",
+      "name": "Save custom rule on a member",
+      "status": "PASS",
+      "detail": "1 rule(s)"
+    },
+    {
+      "req": "agent",
+      "name": "Per-project skills folder written",
+      "status": "PASS",
+      "detail": "/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator-v2/data/projects/e2e-landing-244732/skills"
+    },
+    {
+      "req": "agent",
+      "name": "Usage stats available (% per agent)",
+      "status": "PASS",
+      "detail": "2 agents"
+    },
+    {
+      "req": "models",
+      "name": "Model catalog listed",
+      "status": "PASS",
+      "detail": "6 models"
+    },
+    {
+      "req": "models",
+      "name": "Set model per member / project / main",
+      "status": "PASS",
+      "detail": "set 3 levels"
+    },
+    {
+      "req": "sched",
+      "name": "Create + list per-project schedule",
+      "status": "PASS",
+      "detail": "1 task(s)"
+    },
+    {
+      "req": "chat",
+      "name": "Chat works at scope 'company'",
+      "status": "PASS",
+      "detail": "3 chats"
+    },
+    {
+      "req": "chat",
+      "name": "Chat works at scope 'project'",
+      "status": "PASS",
+      "detail": "1 chats"
+    },
+    {
+      "req": "chat",
+      "name": "Chat works at scope 'member'",
+      "status": "PASS",
+      "detail": "1 chats"
+    },
+    {
+      "req": "chat",
+      "name": "Project can view its members' chats (interconnected)",
+      "status": "PASS",
+      "detail": "2 members"
+    },
+    {
+      "req": "custom",
+      "name": "Project creation honors your choices (type/stack/team)",
+      "status": "PASS",
+      "detail": "Mobile/Flutter team=['Frontend']"
+    },
+    {
+      "req": "scope",
+      "name": "Member chats are isolated per project (no cross-project leak)",
+      "status": "PASS",
+      "detail": "A has marker, B titles=[]"
+    },
+    {
+      "req": "company",
+      "name": "Create a company-level agent",
+      "status": "PASS",
+      "detail": "['SecMan']"
+    },
+    {
+      "req": "company",
+      "name": "Company agent is auto-added (native) to a new project",
+      "status": "PASS",
+      "detail": "['Frontend', 'SecMan']"
+    },
+    {
+      "req": "connect",
+      "name": "Add external connector with API key + status badge",
+      "status": "PASS",
+      "detail": "{'id': '9edc9f00', 'name': 'Google Analytics', 'type': 'analytics', 'hasKey': True, 'status': 'connected', 'created': 1782244737.402354}"
+    },
+    {
+      "req": "sched",
+      "name": "Periodic task assignable to a specific agent (visible)",
+      "status": "PASS",
+      "detail": "1 task(s)"
+    },
+    {
+      "req": "infra",
+      "name": "Azure connect-test is READ-ONLY (no config change)",
+      "status": "PASS",
+      "detail": "True django-vm"
+    },
+    {
+      "req": "voice",
+      "name": "TTS endpoint returns audio (EN)",
+      "status": "PASS",
+      "detail": "HTTP 200"
+    },
+    {
+      "req": "intake",
+      "name": "Adaptive intake asks then adapts to the answer",
+      "status": "PASS",
+      "detail": "What genre/type of game is it, and is the multiplayer real-time (players act sim"
+    },
+    {
+      "req": "smart",
+      "name": "Intake gathers ENOUGH info (real chat + digest) before starting the project",
+      "status": "PASS",
+      "detail": "asked=2 digest=True brief_len=3361"
+    },
+    {
+      "req": "memory",
+      "name": "Real engine answers + keeps chat memory across turns",
+      "status": "PASS",
+      "detail": "The codeword is **FALCON-77**."
+    },
+    {
+      "req": "convo",
+      "name": "CTO delegates to members + auto hand-off",
+      "status": "PASS",
+      "detail": "delegated=Frontend, Frontend, Testwright"
+    },
+    {
+      "req": "convo",
+      "name": "Project chat is a Chief\u2194CTO dialogue (brief\u2192plan\u2192report)",
+      "status": "PASS",
+      "detail": "3 msgs"
+    },
+    {
+      "req": "convo",
+      "name": "Frontend chat is a real dialogue (brief\u2192work\u2192review)",
+      "status": "PASS",
+      "detail": "3 msgs roles=['user', 'assistant', 'user'] review=True"
+    },
+    {
+      "req": "feedback",
+      "name": "Intervening on a member feeds back up to the CTO",
+      "status": "PASS",
+      "detail": "project chats=['\u21b3 team updates', '\u25b6 Outline and set up the basic s', 'memory', 'e2e']"
+    },
+    {
+      "req": "auto",
+      "name": "A finding auto-triggers the team to fix (DevOps redeploy stays gated)",
+      "status": "PASS",
+      "detail": "chats=['\ud83d\udee1\ufe0f Auto-remediation', '\u21b3 team updates', '\u25b6 Outline and set up the basic s', 'memory', 'e2e']"
+    },
+    {
+      "req": "cleanup",
+      "name": "Removed this run's test projects",
+      "status": "PASS",
+      "detail": "deleted 5"
+    }
+  ]
+}

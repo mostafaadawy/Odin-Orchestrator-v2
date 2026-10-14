@@ -1,0 +1,39 @@
+{"id": "e038e8457f40", "decision": "D2_action", "pred": "read", "label": "read", "ms": 4888.9, "usage_usd": 0.13019, "by": "claude"}
+{"id": "bb47c61942a2", "decision": "D2_action", "pred": "read", "label": "change", "ms": 37501.9, "usage_usd": 0.44518, "by": "claude", "first_raw_unparsed": true, "retry_raw": "read"}
+{"id": "610e33541c1e", "decision": "D2_action", "pred": "read", "label": "read", "ms": 16668.1, "usage_usd": 0.10242, "by": "claude"}
+{"id": "fbb8ab53c4ce", "decision": "D2_action", "pred": "read", "label": "change", "ms": 12178.6, "usage_usd": 0.10235, "by": "claude"}
+{"id": "b359bece4813", "decision": "D2_action", "pred": "read", "label": "read", "ms": 14125.9, "usage_usd": 0.11002, "by": "claude"}
+{"id": "e5ba3ba5c129", "decision": "D2_action", "pred": null, "label": "read", "ms": 35496.7, "usage_usd": 0.23665, "by": "claude", "first_raw_unparsed": true, "retry_raw": "This is the first message in our chat \u2014 just the one you sent (\"how many messages in this chat\"). So: 1 so far (this one), plus whatever I reply.\n\nI don't have a stored transcript to count beyond the "}
+{"id": "7c57d0153388", "decision": "D2_action", "pred": "change", "label": "read", "ms": 17932.4, "usage_usd": 0.11324, "by": "claude"}
+{"id": "f5a549eb3bb9", "decision": "D2_action", "pred": "read", "label": "read", "ms": 27139.3, "usage_usd": 0.33787, "by": "claude", "first_raw_unparsed": true, "retry_raw": "read"}
+{"id": "c39fcb554d3e", "decision": "D2_action", "pred": "read", "label": "read", "ms": 25939.3, "usage_usd": 0.22832, "by": "claude", "first_raw_unparsed": true, "retry_raw": "read"}
+{"id": "fbcc5b4236e4", "decision": "D2_action", "pred": "read", "label": "read", "ms": 11529.8, "usage_usd": 0.11215, "by": "claude"}
+{"id": "1161fa79a5d0", "decision": "D2_action", "pred": "read", "label": "read", "ms": 18229.2, "usage_usd": 0.11359, "by": "claude"}
+{"id": "c19e7958db71", "decision": "D2_action", "pred": "read", "label": "read", "ms": 11130.4, "usage_usd": 0.10722, "by": "claude"}
+{"id": "f3724b0d120b", "decision": "D2_action", "pred": "change", "label": "read", "ms": 63874.9, "usage_usd": 0.42904, "by": "claude"}
+{"id": "222b9d881fa4", "decision": "D2_action", "pred": "read", "label": "read", "ms": 13707.4, "usage_usd": 0.11969, "by": "claude"}
+{"id": "b435293bc330", "decision": "D2_action", "pred": "change", "label": "read", "ms": 13645.5, "usage_usd": 0.11142, "by": "claude"}
+{"id": "d9cddcd998e7", "decision": "D2_action", "pred": "read", "label": "read", "ms": 12269.2, "usage_usd": 0.11104, "by": "claude"}
+{"id": "ee6d9f530719", "decision": "D2_action", "pred": "change", "label": "read", "ms": 28527.5, "usage_usd": 0.11307, "by": "claude"}
+{"id": "2fc060878a4a", "decision": "D2_action", "pred": "read", "label": "read", "ms": 9318.8, "usage_usd": 0.10875, "by": "claude"}
+{"id": "6dd548ef3f68", "decision": "D2_action", "pred": "read", "label": "read", "ms": 7199.4, "usage_usd": 0.10719, "by": "claude"}
+{"id": "074d23066ca9", "decision": "D2_action", "pred": "read", "label": "read", "ms": 8603.4, "usage_usd": 0.10756, "by": "claude"}
+{"id": "3c68d796d752", "decision": "D2_action", "pred": "read", "label": "read", "ms": 10238.8, "usage_usd": 0.11149, "by": "claude"}
+{"id": "a8851d066c3b", "decision": "D2_action", "pred": "change", "label": "change", "ms": 18397.9, "usage_usd": 0.12868, "by": "claude"}
+{"id": "d5239a84d4ae", "decision": "D2_action", "pred": null, "label": "read", "ms": 39587.8, "usage_usd": 0.22431, "by": "claude", "first_raw_unparsed": true, "retry_raw": "Ready. What do you need?"}
+{"id": "476a396302c9", "decision": "D2_action", "pred": "read", "label": "read", "ms": 10728.5, "usage_usd": 0.11442, "by": "claude"}
+{"id": "18acfee0c736", "decision": "D2_action", "pred": "read", "label": "read", "ms": 8108.3, "usage_usd": 0.10798, "by": "claude"}
+{"id": "b5bb9747ce75", "decision": "D2_action", "pred": "read", "label": "read", "ms": 12883.4, "usage_usd": 0.11409, "by": "claude"}
+{"id": "4e6e970048ad", "decision": "D2_action", "pred": "read", "label": "read", "ms": 15663.2, "usage_usd": 0.11609, "by": "claude"}
+{"id": "2354a4989d8d", "decision": "D2_action", "pred": "read", "label": "change", "ms": 140806.8, "usage_usd": 0.73969, "by": "claude"}
+{"id": "c64c82f43e3e", "decision": "D2_action", "pred": "read", "label": "read", "ms": 8131.0, "usage_usd": 0.10953, "by": "claude"}
+{"id": "0faa1ab44e9d", "decision": "D2_action", "pred": "read", "label": "read", "ms": 6151.3, "usage_usd": 0.10564, "by": "claude"}
+{"id": "21564b288750", "decision": "D2_action", "pred": "read", "label": "change", "ms": 21759.5, "usage_usd": 0.13074, "by": "claude"}
+{"id": "80c9b91f43fd", "decision": "D2_action", "pred": "change", "label": "change", "ms": 15281.5, "usage_usd": 0.11744, "by": "claude"}
+{"id": "ddc523d14140", "decision": "D2_action", "pred": "change", "label": "change", "ms": 12585.2, "usage_usd": 0.11517, "by": "claude"}
+{"id": "0353ae7098d0", "decision": "D2_action", "pred": "read", "label": "change", "ms": 14269.1, "usage_usd": 0.11992, "by": "claude"}
+{"id": "d6c6361a7aff", "decision": "D2_action", "pred": "read", "label": "read", "ms": 30744.6, "usage_usd": 0.10902, "by": "claude"}
+{"id": "991ced3a5b70", "decision": "D2_action", "pred": "read", "label": "read", "ms": 14250.0, "usage_usd": 0.12198, "by": "claude"}
+{"id": "e3aacb8c1709", "decision": "D2_action", "pred": "read", "label": "read", "ms": 31980.8, "usage_usd": 0.11056, "by": "claude"}
+{"id": "27551b1ef03b", "decision": "D2_action", "pred": null, "label": "read", "ms": 21230.2, "usage_usd": 0.14316, "by": "claude", "first_raw_unparsed": true, "retry_raw": "\u0648\u0639\u0644\u064a\u0643\u0645 \u0627\u0644\u0633\u0644\u0627\u0645 \u0648\u0631\u062d\u0645\u0629 \u0627\u0644\u0644\u0647 \ud83d\udc4b\n\n\u0623\u0647\u0644\u0627\u064b \u0628\u0643. \u0643\u064a\u0641 \u0623\u0642\u062f\u0631 \u0623\u0633\u0627\u0639\u062f\u0643 \u0627\u0644\u0646\u0647\u0627\u0631\u062f\u0629\u061f"}
+{"id": "06e7217f525e", "decision": "D2_action", "pred": "read", "label": "read", "ms": 35319.7, "usage_usd": 0.27914, "by": "claude"}

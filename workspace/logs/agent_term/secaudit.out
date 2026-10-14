@@ -1,0 +1,57 @@
+#### C2) 8011 as a PORT (listen/proxy_pass/PORT/EXPOSE/:8011) ####
+(end C2)
+
+#### D) ufw commands (all shell) ####
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/workspace/shared/infra/ensure-connection.sh:12:sudo ufw allow 80/tcp  || true
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/workspace/shared/infra/ensure-connection.sh:13:sudo ufw allow 443/tcp || true
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/workspace/shared/infra/deploy.sh:188:#     and it NEVER runs `ufw reset`, `ufw disable`, or flushes rules. This is exactly the safe
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/workspace/shared/infra/deploy.sh:193:       "sudo ufw allow 80/tcp" \
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/workspace/shared/infra/deploy.sh:194:       "sudo ufw allow 443/tcp" \
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/workspace/shared/infra/deploy.sh:195:       "sudo ufw insert 1 allow from ${MYIP} to any port 22 proto tcp" \
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/workspace/shared/infra/deploy.sh:196:       "sudo ufw deny 22/tcp" \
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/workspace/shared/infra/deploy.sh:197:       "sudo ufw allow 80/tcp" \
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/workspace/shared/infra/deploy.sh:198:       "sudo ufw allow 443/tcp" \
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/workspace/shared/infra/deploy.sh:201:    record "firewall ufw 22<-${MYIP}/32" OK "80/443 preserved; allow inserted at 1"
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/workspace/shared/testing/test_anchor_online.py:176:    #    FIRST rotate the 22 allow-rule (ufw + NSG source) to your CURRENT IP — never app ports. Then a
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/workspace/shared/testing/test_anchor_online.py:305:    #    added (ufw + NSG) so inbound stays 80/443/22 only, then route via a SEPARATE nginx site.
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/workspace/shared/testing/test_anchor_online.py:306:    deploy_ssh.ssh_exec(f"sudo ufw delete allow {ANCHOR_PORT}/tcp 2>/dev/null; sudo ufw delete allow {ANCHOR_PORT} 2>/dev/null; true")
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/workspace/shared/testing/vm_security_audit.py:5:  • ufw status (which ports are allowed, and from where)
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/workspace/shared/testing/vm_security_audit.py:44:    show("ufw status (inbound allow rules)", "sudo ufw status verbose 2>/dev/null || echo 'ufw not present'")
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/workspace/shared/testing/vm_security_audit.py:71:            deploy_ssh.ssh_exec(f"sudo ufw delete allow {p}/tcp 2>/dev/null; sudo ufw delete allow {p} 2>/dev/null; true")
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/workspace/shared/testing/test_web_online.py:162:        deploy_ssh.ssh_exec(f"sudo ufw delete allow {WEB_PORT}/tcp 2>/dev/null; sudo ufw delete allow {WEB_PORT} 2>/dev/null; true")
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/server/security_sentinel.py:100:                         "fix_plan": "edge/UFW block, your IP allow-listed; on-demand, gated"})
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/server/soc_behavior.py:111:               "example_command": f"sudo ufw deny from <IP>  # for: {ips}  (owner runs / approves; never auto-applied)",
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/server/infra_rotate.py:96:        'sudo ufw allow 80/tcp\n'
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/server/infra_rotate.py:97:        'sudo ufw allow 443/tcp\n'
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/server/infra_rotate.py:99:        "sudo ufw status numbered | awk '/22\\/tcp/ && (/ALLOW IN/ || /DENY IN/) "
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/server/infra_rotate.py:101:        'while read -r n; do sudo ufw --force delete "$n"; done\n'
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/server/infra_rotate.py:102:        'sudo ufw allow from "$new_ip" to any port 22 proto tcp\n'
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/server/infra_rotate.py:103:        'sudo ufw deny 22/tcp\n'
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/server/infra_rotate.py:104:        '# 3) safety net: confirm 80/443 are present; if ufw is active they MUST be ALLOW.\n'
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/server/infra_rotate.py:105:        'sudo ufw allow 80/tcp >/dev/null 2>&1 || true\n'
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/server/infra_rotate.py:106:        'sudo ufw allow 443/tcp >/dev/null 2>&1 || true\n'
+(end D)
+
+#### E) az network nsg rule (any verb) call sites ####
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/workspace/shared/infra/ensure-connection.sh:32:echo "If a site still fails from the internet but 127.0.0.1 works here, check the Azure NSG (from your Mac: az network nsg rule list)."
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/workspace/shared/infra/deploy.sh:166:  RULE="$(az network nsg list -g "$RG" --query "[0].name" -o tsv 2>>"$LOG")"
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/workspace/shared/infra/deploy.sh:168:    SSHRULE="$(az network nsg rule list -g "$RG" --nsg-name "$RULE" \
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/workspace/shared/infra/deploy.sh:171:      az network nsg rule update -g "$RG" --nsg-name "$RULE" -n "$SSHRULE" \
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/workspace/shared/testing/test_anchor_online.py:64:            "NSG=$(az network nsg list --query '[0].name' -o tsv 2>/dev/null); "
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/workspace/shared/testing/test_anchor_online.py:65:            f"[ -n \"$NSG\" ] && az network nsg rule delete -g \"$RG\" --nsg-name \"$NSG\" "
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/workspace/shared/testing/vm_security_audit.py:48:         "NSG=$(az network nsg list --query '[0].name' -o tsv 2>/dev/null); "
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/workspace/shared/testing/vm_security_audit.py:49:         "if [ -n \"$NSG\" ]; then az network nsg rule list -g \"$RG\" --nsg-name \"$NSG\" "
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/workspace/shared/testing/vm_security_audit.py:74:                "NSG=$(az network nsg list --query '[0].name' -o tsv 2>/dev/null); "
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/workspace/shared/testing/vm_security_audit.py:75:                f"[ -n \"$NSG\" ] && az network nsg rule delete -g \"$RG\" --nsg-name \"$NSG\" -n odin-{p} 2>/dev/null; true")
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/server/soc_inventory.py:22:                 "how": "read-only SSH + `az network nsg` (both already wired)"},
+/Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Orchestrator/server/infra_rotate.py:8:  1. az network nsg rule update   -> set the NSG SSH inbound source to <new_ip>/32 (one IP)
+(end E)
+
+#### F) revealer: how the backend binds its port + any nginx/proxy ####
+/Users/mostafaadawy/Desktop/VolatileWorkSpace/revealer-backend/src/server.js:1:// SANDBOX backend — internal only (no domain, no nginx). Port chosen to avoid the reverse-proxy range.
+/Users/mostafaadawy/Desktop/VolatileWorkSpace/revealer-backend/src/server.js:3:const PORT=process.env.PORT||4113;
+/Users/mostafaadawy/Desktop/VolatileWorkSpace/revealer-backend/src/server.js:14:}).listen(PORT,()=>console.log("revealer backend (sandbox) on :"+PORT));
+/Users/mostafaadawy/Desktop/VolatileWorkSpace/revealer-frontend/server.js:2:const PORT=process.env.PORT||3112;
+/Users/mostafaadawy/Desktop/VolatileWorkSpace/revealer-frontend/server.js:8:}).listen(PORT,()=>console.log("revealer frontend (sandbox) on :"+PORT));
+(end F)
+DONE_SEC3

@@ -1,0 +1,13 @@
+\begin{table}[t]\centering\scriptsize
+\caption{Where end-to-end time goes in project runs: every available run (Normal 9 = 3 repetitions $\times$ 3 projects, Jev 6 = 2 $\times$ 3), split into LLM calls with the call ledger (start/end of every call). Mean / median seconds; turns = the agent's tool turns. \textbf{PROVISIONAL -- pending human labels}.}
+\label{tab:timing}
+\begin{tabular}{l r r}\toprule
+Stage & Normal & Jev\\\midrule
+Before the agent (mode + plan) & 17.5 / 16.3 & 10.1 / 10.2\\
+\quad of which mode decision & one LLM call, 5--20\,s & 42--61\,ms (local)\\
+Agent step & 113.6 / 118.4 & 119.8 / 123.7\\
+\quad tool turns (mean / median) & 9.7 / 11 & 11 / 13.5\\
+Review and answer & 26.4 / 20.7 & 31.5 / 30.3\\
+Non-LLM time (\sys{} code, waits) & 0.5--0.9 & 0.5--0.7\\\midrule
+\textbf{Total} & \textbf{154.5 / 154.7} & \textbf{158.3 / 171.1}\\
+\bottomrule\end{tabular}\end{table}

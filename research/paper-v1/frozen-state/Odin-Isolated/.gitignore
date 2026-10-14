@@ -1,0 +1,60 @@
+# Odin-Orchestrator — never commit secrets or local junk.
+
+# --- Secrets / keys (defense against leaks) ---
+*.pem
+*.key
+*.ppk
+id_rsa*
+id_ed25519*
+id_ecdsa*
+*_key
+*_key.*
+*.p12
+*.pfx
+.env
+.env.*
+*.secret
+secrets/
+**/authorized_keys
+**/known_hosts
+
+# --- Python / build ---
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# --- Desktop app (Electron/React) build artifacts — never commit these ---
+node_modules/
+desktop/node_modules/
+desktop/dist/
+desktop/release/
+dist/
+*.dmg
+*.app/
+*.asar
+
+# --- OS / editor ---
+.DS_Store
+*.swp
+
+# NOTE: SSH private keys must live in ~/.ssh, NOT in this project. Odin references the key by
+# path only (keyPath in infra/azure/connection.profile.json). The private key is never stored here.
+
+# Persistent chat transcripts (may contain sensitive content)
+chats/
+
+# Runtime data (projects, scopes, schedules, models)
+data/
+
+# local credentials (never commit)
+oth/
+.cred
+*.log
+
+# credentials (never commit)
+**/.cred
+**/.auth
+workspace/shared/oth/
+workspace/shared/core-registry/connector_keys.json

@@ -1,0 +1,135 @@
+=== orchestration markers in api_v2.py ===
+142:        return projects.classify_team(body.get("names") or [])
+400:    def orchestrate_start(pid: str, body: dict | None = None):
+404:    def orchestrate_status(pid: str):
+408:    def orchestrate_stop(pid: str):
+970:def _run_gated(pid, member, scope, cid, prompt, model, folder, task_label="proposed changes",
+1047:        if (not _is_operational(pid, member)) and any(k in (prompt or "").lower() for k in ("vm", "rsync", "ssh", "reboot", "/home/", "az vm", "deploy", "sync", "prisma", "migrate")):
+1068:        _build_now = (not _is_devops(pid, member)) and (not _is_operational(pid, member))
+1391:def orchestrate_blocking(pid: str, goal: str) -> bool:
+1567:def _orchestrate_gen(pid: str, goal: str):
+1592:        qa_enabled = bool(folder) and ("qa" in _team)
+1598:            qa_enabled = False
+1620:        if not qa_enabled and ("qa" not in _team):
+1627:        if not qa_enabled and not vm_work and not deploy_mode and not proj.get("qa_asked") and not proj.get("qa_declined"):
+1634:                    "data integrity). For a pure ops/deploy/sync or trivial task, say no.\n"
+1653:                           f"[Chief Engineer → Project CTO] For '{name}': {goal}. Plan it, assign the team, and report back.")
+1676:                               f"[Project CTO] Plan gap — not covered: {'; '.join(_missing[:6])}. Re-planning to include them.")
+1677:            steps = projects.plan_pipeline(pid, goal + "\n\nMUST also cover (do not omit): " + "; ".join(_missing))
+1703:        deliverables = {}   # member -> its produced deliverable (for STRUCTURED hand-off, not raw dumps)
+1708:        _qa_note = " QA tests each part." if qa_enabled else " (DevOps-only run — no QA, as you instructed.)"
+1710:                           f"[Project CTO → Chief] Plan: {plan_txt}. Briefing the team now.{_qa_note}")
+1794:                                   f"[Project CTO] Requirements checklist: {len(_mt['requirements'])} item(s) "
+1800:        passed_members = []   # members whose part PASSED QA (for dependency waits)
+1802:        def _run_engine(prompt, scope_model, who):
+1816:        def qa_gate(area_member, area_task):
+1817:            if not qa_enabled:
+2023:            waiting = [d for d in deps if d not in passed_members]
+2025:                done_deps = [d for d in deps if d in passed_members]
+2050:                deliverables[member] = _od
+2052:                passed_members.append(member)
+2063:            #    the member gets its bounded mandate + ONLY the upstream deliverables it depends on —
+2080:            _dep_block = "\n".join(f"- from {d}: {str(deliverables.get(d, '(not yet delivered)'))[:600]}" for d in _deps) or "(none — you start fresh)"
+2082:                     f"Upstream deliverables you build on:\n{_dep_block}\n\n"
+2119:                           f"Upstream deliverables you build on:\n{_dep_block}\n\n"
+2124:                           "upstream deliverables, permissions/tools.\n"
+2141:                                 f"▶ step start — is_devops={_is_devops(pid, member)} deploy_ctx={deploy_ctx} "
+2157:            if _is_operational(pid, member) and _HANDOFF_RE.search(task or ""):
+2171:            elif _is_devops(pid, member) and deploy_ctx and _deployed_once:
+2185:            elif _is_devops(pid, member) and deploy_ctx:
+2220:                    _mig = decision.get("migration_intent") or "; ".join(t.get("migration", "none") for t in decision["targets"])
+2276:                (range(1, 2) if _is_operational(pid, member) else
+2277:                 (range(1, 4) if not (_is_devops(pid, member) and deploy_ctx) else range(0)))
+2351:                    if (not _is_operational(pid, member)) and (not _is_devops(pid, member)) and folder \
+2389:            _is_build_step = (not _is_operational(pid, member)) and (not _is_devops(pid, member)) and bool(folder) \
+2439:            deliverables[member] = (reply or "").strip()   # structured hand-off to downstream members
+2452:            # qa_enabled already reflects your decision. The CTO does not skip it on its own.
+2459:            _skip_qa_gate = _is_operational(pid, member) or (_is_devops(pid, member) and deploy_ctx)
+2460:            if not _skip_qa_gate:
+2461:                qg = qa_gate(member, task)
+2469:                passed_members.append(member)
+2484:        all_ok = len(passed_members) >= len([s for s in steps if s]) if qa_enabled else True
+2486:        # OMISSION GUARD: reconcile every requirement against what was actually delivered. If any
+2488:        open_reqs = []
+2491:            delivered_all = "\n".join(f"{m}: {d}" for m, d in (deliverables or {}).items())
+2492:            open_reqs = main_task.reconcile(pid, delivered_all)
+2494:            open_reqs = []
+2500:        # with QA off and even if the heuristic reconcile happened to match requirement keywords.
+2503:            _efblob = ("\n".join(str(_d) for _d in (deliverables or {}).values()) + "\n" + "\n".join(str(_r.get("review") or "") for _r in (results or []))).lower()
+2506:        _engine_failed = any(_m in _efblob for _m in _engine_fail_markers)
+2518:        elif _engine_failed:
+2520:            verdict = "\u26a0\ufe0f Incomplete \u2014 a member's Claude engine could not authenticate (login/OAuth token expired). No real work was produced, so the run is NOT done. Re-run `claude` then /login, and retry."
+2521:        elif open_reqs:
+2523:            miss = "; ".join(r["text"][:70] for r in open_reqs[:6])
+2524:            verdict = f"⚠️ Incomplete — {len(open_reqs)} requirement(s) NOT addressed: {miss}"
+2526:            verdict = "Everything builds and passed QA ✅" if (qa_enabled and all_ok) else \
+2527:                      ("Some parts still have QA issues ⚠️" if qa_enabled else "All requirements addressed ✅")
+2593:def _is_operational(pid: str, member: str) -> bool:
+2609:def _is_devops(pid: str, member: str) -> bool:
+2632:def _run_preauthorized(goal: str) -> bool:
+2750:            msg = ("On it — the team is now running this in the background. You can switch between the "
+
+=== the same markers in projects.py / main_task.py / dispatcher if present ===
+--- projects.py ---
+4:A project is the unit the company CTO manages. It owns: a name/description, its team members
+29:                  "description": "Owns quality — tests, reviews and VERIFIES each part against the brief, runs lint/type-check/test suites, and audits every success claim against real evidence. READ-ONLY: it verifies, it does NOT implement features. Runs AFTER the thing it checks exists."},
+76:                       "Owns the run engine (server/soc_run.py). Add this + the security team to ANY security project."},
+156:ENV_SOURCES = "(1) the ENV/keys block in your mandate/brief, (2) the shared pool, (3) the project `.env`, (4) " + CRED_PATH
+163:    REASON-BEFORE-ASK: never ask for anything already listed here or already present in the brief/shared
+171:            "anything already here or already in the brief/shared pool) ===\n")
+252:    must NOT re-request) when it gathers requirements and orders the pipeline."""
+259:        return "has read/write; reads integration keys from the ENV/brief/pool/.env/.cred (NOT from operators)."
+272:# OPERATIONAL, and used to group the dashboard. The type does NOT replace the brief.
+365:def classify_team(names: list) -> dict:
+463:def infer_team(description: str) -> list:
+464:    """Decide the RIGHT team from the description — and RESPECT NEGATION/INTENT, not just
+467:    team; this is the smart default for the direct create path.)"""
+492:    # build) must NOT be force-staffed with Fullstack/QA/DevOps. Detect a real BUILD intent first; if
+493:    # there is none, staff only the relevant OPERATORS derived from the brief.
+494:    build_intent = mentioned((
+498:    if not build_intent:
+526:    team = ["Fullstack"]
+534:        team.append("DevOps")
+536:        team.append("Security")
+539:        team.append("Mobile")
+541:    # the team comes from the NEEDS, it is not hard-coded. The CTO then assigns each its operational part
+544:        team.append("Fulfillment")
+546:        team.append("Email")
+548:        team.append("Analytics")
+551:        team.append("QA")
+555:    for n in team:
+708:    # its brief on a cadence, gated by owner approval when due (see scheduler).
+764:    # seed the RIGHT team for this project (inferred from the description) — not every role.
+766:    seed = members if members is not None else infer_team(description)
+--- main_task.py ---
+6:    fragmented summaries thrown over a wall. Here, `brief_verbatim` + the live `status` IS that
+12:No raw-dump hand-offs. No omission (a requirements checklist guards it). No fake "done" (status +
+46:# ---------------------------------------------------------------- requirements
+47:def extract_requirements(brief: str) -> list:
+48:    """Split the brief into CHECKABLE requirements (the omission guard). Engine first, with a
+55:            p = ("Split this task brief into a checklist of CONCRETE, individually-verifiable "
+56:                 "requirements (each a single deliverable or rule). JSON array of short strings only:\n"
+57:                 '["…","…"]\n\nBrief:\n' + (brief or "")[:3000])
+65:        for line in re.split(r"[\n;]|(?<=[.])\s", brief or ""):
+87:def create(pid: str, brief_verbatim: str, objective: str = "") -> dict:
+90:        "objective": (objective or (brief_verbatim or "").strip().splitlines()[0] if brief_verbatim else "")[:200],
+91:        "brief_verbatim": brief_verbatim or "",        # the FULL curated context (Cognition)
+92:        "requirements": extract_requirements(brief_verbatim),
+96:        "pool": [{"who": "Owner (main prompt)", "text": brief_verbatim or "", "ts": time.time()}],
+103:    lands here, in order, so the whole team works from one continuous history (Cognition's rule)."""
+125:                 "and duplication. Write it as running context the whole team can rely on.\n\n" + raw[:24000])
+147:    header = ("===== SHARED CONTEXT POOL — the whole team's single running history; keep ALL of it in "
+190:    """A member finished: record its deliverable in shared state and flip covered requirements done."""
+195:    for r in mt["requirements"]:
+209:    reqs = mt.get("requirements", [])
+215:def open_requirements(pid: str) -> list:
+217:    return [r for r in mt.get("requirements", []) if r.get("status") != "done"]
+223:    This is what replaces the raw-dump: structured objective + verbatim brief + the live checklist +
+229:                     for r in mt.get("requirements", [])) or "  (none parsed)"
+236:        f"\"\"\"\n{mt.get('brief_verbatim','')}\n\"\"\"\n\n"
+261:    if not mt or not mt.get("requirements"):
+263:    rows = "\n".join(f"  [{'x' if r['status']=='done' else ' '}] {r['text']}" for r in mt["requirements"])
+264:    return ("THE WHOLE JOB — requirements checklist (your part is one slice; keep the rest in view, "
+268:def reconcile(pid: str, delivered_text: str) -> list:
+269:    """Heuristically mark requirements addressed if their key terms appear in the delivered work, and
+DONE_MAP2

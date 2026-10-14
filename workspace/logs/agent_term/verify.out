@@ -1,0 +1,51 @@
+=== FRONTEND: challengeToken usage on auth pages (the token I missed) ===
+/Users/mostafaadawy/Desktop/VolatileWorkSpace/organics-frontend/src/app/signin/page.tsx:220:        challengeToken: loginCaptchaToken,
+/Users/mostafaadawy/Desktop/VolatileWorkSpace/organics-frontend/src/app/signin/page.tsx:277:        challengeToken: twoFactorCaptchaToken,
+/Users/mostafaadawy/Desktop/VolatileWorkSpace/organics-frontend/src/app/signin/page.tsx:333:        challengeToken: loginCaptchaToken,
+/Users/mostafaadawy/Desktop/VolatileWorkSpace/organics-frontend/src/app/signup/page.tsx:154:        { ...data, challengeToken: registerCaptchaToken },
+/Users/mostafaadawy/Desktop/VolatileWorkSpace/organics-frontend/src/app/signup/page.tsx:183:        challengeToken: registerCaptchaToken,
+/Users/mostafaadawy/Desktop/VolatileWorkSpace/organics-frontend/src/app/forget-password/page.tsx:16:  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+/Users/mostafaadawy/Desktop/VolatileWorkSpace/organics-frontend/src/app/forget-password/page.tsx:33:        { email, challengeToken: captchaToken },
+/Users/mostafaadawy/Desktop/VolatileWorkSpace/organics-frontend/src/app/forget-password/page.tsx:152:              disabled={isSubmitting || (captchaRequired && !captchaToken)}
+
+=== all challengeToken senders in frontend ===
+/Users/mostafaadawy/Desktop/VolatileWorkSpace/organics-frontend/src/app/signup/page.tsx
+/Users/mostafaadawy/Desktop/VolatileWorkSpace/organics-frontend/src/app/signin/page.tsx
+/Users/mostafaadawy/Desktop/VolatileWorkSpace/organics-frontend/src/app/forget-password/page.tsx
+/Users/mostafaadawy/Desktop/VolatileWorkSpace/organics-frontend/src/app/quizzes/[slug]/page.tsx
+/Users/mostafaadawy/Desktop/VolatileWorkSpace/organics-frontend/src/components/footer/Footer.tsx
+/Users/mostafaadawy/Desktop/VolatileWorkSpace/organics-frontend/src/components/security/CaptchaChallenge.tsx
+
+=== BACKEND controller: which token fields it accepts (lines 38-46) ===
+  rbac?: RbacDecision;
+};
+type PublicSecurityChallengeBody = {
+  challengeToken?: unknown;
+  captchaToken?: unknown;
+  challengeProof?: unknown;
+  puzzleToken?: unknown;
+  securityPuzzleToken?: unknown;
+};
+=== BACKEND captcha service: which token it reads first (lines 50-67) ===
+    }
+  }
+
+  private challengeTokens(input: CaptchaEvaluationInput) {
+    const record = this.readTokenRecord(input.challengeToken);
+    const providerToken =
+      this.tokenString(record?.providerToken) ||
+      this.tokenString(record?.captchaToken) ||
+      this.tokenString(input.captchaToken) ||
+      this.tokenString(input.challengeToken);
+    const puzzleToken =
+      this.tokenString(record?.puzzleToken) ||
+      this.tokenString(record?.securityPuzzleToken) ||
+      this.tokenString(input.puzzleToken) ||
+      this.tokenString(input.securityPuzzleToken) ||
+      this.tokenString(input.challengeProof);
+    return { providerToken, puzzleToken };
+  }
+
+=== global ValidationPipe with whitelist/forbidNonWhitelisted? (main.ts) ===
+NONE in main.ts
+DONE_V

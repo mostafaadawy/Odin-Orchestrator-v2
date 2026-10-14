@@ -1,0 +1,78 @@
+\documentclass[10pt,conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% ---- build switch ---------------------------------------------------------
+% main_anon.tex defines \buildanon before \input{main}; main_named.tex does not.
+\newif\ifanon
+\ifdefined\buildanon \anontrue \else \anonfalse \fi
+
+\usepackage{cite}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage[table]{xcolor}
+\usepackage{url}
+\usepackage{listings}
+\usepackage{array}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,fit,calc,shapes.geometric,backgrounds,shadows}
+\usepackage[hidelinks]{hyperref}
+
+% ---- macros ---------------------------------------------------------------
+\newcommand{\sys}{\ifanon Keel\else Odin\fi}
+\newcommand{\embmodel}{all-MiniLM-L6-v2}
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+\newcommand{\tlo}{\tau_{\mathit{lo}}}
+\newcommand{\route}[1]{\textsc{#1}}
+\newcommand{\hub}{Anchor point}
+\newcommand{\vendors}{\ifanon CRM, fulfilment, e-mail-marketing\else HubSpot, Veeqo, Klaviyo, fulfilment\fi}
+\newcommand{\newrole}{\ifanon shipment-tracking\else EasyPost\fi}
+\newcommand{\bfx}{\textbf{Before fixes.} }
+
+% Okabe--Ito palette shared by all TikZ figures and the measured plots
+\definecolor{oiBlue}{HTML}{0072B2}
+\definecolor{oiOrange}{HTML}{E69F00}
+\definecolor{oiVerm}{HTML}{D55E00}
+\definecolor{oiGreen}{HTML}{009E73}
+\definecolor{oiSky}{HTML}{56B4E9}
+\definecolor{oiGrey}{HTML}{555555}
+
+\tikzset{
+  kbox/.style={draw=oiGrey,rounded corners=2pt,align=center,inner sep=2.5pt,
+               font=\sffamily\scriptsize,fill=white,line width=0.5pt},
+  kbase/.style={kbox,fill=oiSky!14,draw=oiBlue},
+  kguard/.style={kbox,fill=oiOrange!18,draw=oiVerm},
+  kllm/.style={kbox,fill=oiGreen!12,draw=oiGreen!70!black},
+  kdec/.style={draw=oiGrey,diamond,aspect=2.1,inner sep=0.6pt,align=center,
+               font=\sffamily\scriptsize,fill=white,line width=0.5pt},
+  kterm/.style={kbox,rounded corners=5pt,fill=oiGrey!8},
+  karr/.style={-{Stealth[length=1.5mm,width=1.2mm]},draw=oiGrey,line width=0.55pt},
+  kdash/.style={karr,dashed},
+  klab/.style={font=\sffamily\tiny,text=oiGrey,inner sep=1pt},
+}
+
+\lstset{basicstyle=\ttfamily\scriptsize,columns=fullflexible,breaklines=true,
+        frame=single,framerule=0.3pt,rulecolor=\color{oiGrey},
+        xleftmargin=2pt,xrightmargin=2pt,aboveskip=4pt,belowskip=0pt}
+
+\begin{document}
+\title{Consistency by Construction: Keeping a Multi-Project Agentic Ecosystem Correct as Projects and Agents Grow}
+\ifanon
+\author{\IEEEauthorblockN{Anonymous Author(s)}\IEEEauthorblockA{Affiliation withheld for double-anonymous review}}
+\else
+\author{\IEEEauthorblockN{Mostafa A. M. Sayed Adawy}\IEEEauthorblockA{[Affiliation to be confirmed by the author]\\ {mostafa\_adawy@ymail.com}}}
+\fi
+\maketitle
+\input{sections/00-abstract}
+\input{sections/01-introduction}
+\input{sections/02-timeline}
+\input{sections/03-architecture}
+\input{sections/04-method}
+\input{sections/05-results}
+\input{sections/06-discussion}
+\input{sections/07-threats}
+\input{sections/08-related}
+\input{sections/09-conclusion}
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+\end{document}

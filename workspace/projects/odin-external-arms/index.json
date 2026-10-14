@@ -1,0 +1,30 @@
+{
+  "id": "odin-external-arms",
+  "type": "arm",
+  "name": "Odin Platform — External Arms",
+  "category": "build",
+  "typeConfig": "shared/config/project-types/normal.json",
+  "config": {},
+  "features": [],
+  "stack": "",
+  "url": "",
+  "mode": "build",
+  "sources": [],
+  "auto_approve": false,
+  "cadence": "recurring",
+  "periodic": {
+    "enabled": false,
+    "schedule": {},
+    "requireApproval": true
+  },
+  "rules": [],
+  "description": "PROTECTED company ARM (not a deletable project): the application's external arms — anchor, backend API, desktop, and web/mobile. References the code where it runs and shares the SAME deployment/testing/security tooling and registry as every project, so no duplication and it inherits every new feature. Cannot be deleted or split.",
+  "localPath": "",
+  "created": 1784288392.361557,
+  "mappings": [],
+  "members": [],
+  "scope": "project:odin-external-arms",
+  "status": "active",
+  "protected": true,
+  "arm": true
+}

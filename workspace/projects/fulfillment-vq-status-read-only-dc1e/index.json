@@ -1,0 +1,35 @@
+{
+  "id": "fulfillment-vq-status-read-only-dc1e",
+  "name": "Fulfillment — VQ status (read-only)",
+  "type": "fulfillment",
+  "cadence": "once",
+  "members": [
+    "Fulfillment"
+  ],
+  "status": "active",
+  "current_data_dir": "data/projects/fulfillment-vq-status-read-only-dc1e",
+  "localPath": "",
+  "note": "INDEX/REFERENCE ONLY — real files still live at current_data_dir; nothing moved yet (Phase 1a)",
+  "category": "fulfillment",
+  "typeConfig": "shared/config/project-types/normal.json",
+  "config": {},
+  "features": [],
+  "stack": "",
+  "url": "",
+  "mode": "build",
+  "sources": [],
+  "auto_approve": false,
+  "periodic": {
+    "enabled": false,
+    "schedule": {},
+    "requireApproval": true
+  },
+  "rules": [
+    "VEEQO CATALOG RULE: whenever Veeqo is used, the Fulfillment agent MUST derive every field name and status value from the OFFICIAL Veeqo API catalog (https://developers.veeqo.com/api/) and from workspace/shared/tutorials/veeqo_fulfillment_api.md (READ FIRST). Never guess/intuit field names or reuse a prior buggy assumption. order.status enum stops at 'shipped'; out_for_delivery/delivered come ONLY from GET /shipping/tracking_events/{shipment_id} (or the carrier when the label wasn't bought in Veeqo)."
+  ],
+  "description": "Shipping/fulfillment via the Veeqo (VQ) provider — READ ONLY. Do NOT create or change anything. Tasks: (1) check the VQ connection status, (2) return the total number of orders, (3) list the channels/vendors, (4) confirm you are ready to answer future status requests for any order. Use ONLY the Fulfillment agent. No folders are needed for this project.",
+  "created": 1782880906.1477802,
+  "mappings": [],
+  "scope": "project:fulfillment-vq-status-read-only-dc1e",
+  "qa_declined": true
+}

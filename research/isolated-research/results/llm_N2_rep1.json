@@ -1,0 +1,227 @@
+{
+ "N": 2,
+ "rep": 1,
+ "model": "haiku",
+ "cap_s": 840,
+ "env_start": {
+  "label": "llm N=2 rep=1 start",
+  "utc": "2026-10-06T15:07:37.440943Z",
+  "machine": {
+   "cpu": "",
+   "ncpu": 12,
+   "ram_gb": 24.0,
+   "os": "26.5.2",
+   "arch": "arm64"
+  },
+  "load": {
+   "loadavg": [
+    4.4931640625,
+    3.681640625,
+    3.7890625
+   ],
+   "cpu_pct_total": 33.9,
+   "mem_used_pct": 83.7
+  },
+  "competing_top": [
+   {
+    "pid": 39842,
+    "name": "Python",
+    "cpu_pct": 35.9,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 40258,
+    "name": "CGPDFService",
+    "cpu_pct": 16.5,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46967,
+    "name": "Firefox GPU Helper",
+    "cpu_pct": 12.8,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 40353,
+    "name": "CGPDFService",
+    "cpu_pct": 11.5,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 42398,
+    "name": "Claude Helper (Renderer)",
+    "cpu_pct": 11.3,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46964,
+    "name": "firefox",
+    "cpu_pct": 10.6,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 61113,
+    "name": "plugin-container",
+    "cpu_pct": 8.0,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 20775,
+    "name": "VTDecoderXPCService",
+    "cpu_pct": 3.0,
+    "is_real_odin": false,
+    "is_isolated": false
+   }
+  ],
+  "real_odin_cpu_pct": 0,
+  "soc_reports_last_hour": []
+ },
+ "env_end": {
+  "label": "end",
+  "utc": "2026-10-06T15:08:40.288714Z",
+  "machine": {
+   "cpu": "",
+   "ncpu": 12,
+   "ram_gb": 24.0,
+   "os": "26.5.2",
+   "arch": "arm64"
+  },
+  "load": {
+   "loadavg": [
+    5.4248046875,
+    4.0791015625,
+    3.92529296875
+   ],
+   "cpu_pct_total": 16.4,
+   "mem_used_pct": 83.2
+  },
+  "competing_top": [
+   {
+    "pid": 46967,
+    "name": "Firefox GPU Helper",
+    "cpu_pct": 14.8,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46964,
+    "name": "firefox",
+    "cpu_pct": 9.1,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 61113,
+    "name": "plugin-container",
+    "cpu_pct": 7.3,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 42398,
+    "name": "Claude Helper (Renderer)",
+    "cpu_pct": 5.7,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 20775,
+    "name": "VTDecoderXPCService",
+    "cpu_pct": 4.1,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46975,
+    "name": "plugin-container",
+    "cpu_pct": 2.0,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 707,
+    "name": "corespeechd",
+    "cpu_pct": 1.5,
+    "is_real_odin": false,
+    "is_isolated": false
+   },
+   {
+    "pid": 46979,
+    "name": "plugin-container",
+    "cpu_pct": 1.5,
+    "is_real_odin": false,
+    "is_isolated": false
+   }
+  ],
+  "real_odin_cpu_pct": 0,
+  "soc_reports_last_hour": []
+ },
+ "projects": [
+  {
+   "pid": "llm1-n2-p0",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": true,
+   "artifact_locations": [
+    "own-project/code"
+   ],
+   "secs_ratio_to_cap": 0.05966342602457319
+  },
+  {
+   "pid": "llm1-n2-p1",
+   "completed": true,
+   "fullstack_built": true,
+   "test_passes": true,
+   "qa_reported_pass": true,
+   "artifacts_in_code_slot": false,
+   "artifact_locations": [
+    "OUTSIDE-workspace:code"
+   ],
+   "secs_ratio_to_cap": 0.06562959267979576
+  }
+ ],
+ "writes_changed_files": 6,
+ "own_project_files": {
+  "llm1-n2-p0": 3,
+  "llm1-n2-p1": 0
+ },
+ "cross_project_files": 0,
+ "stray_outside_projects": [
+  "code/test_slugify.py",
+  "code/slugify.py",
+  "code/__pycache__/slugify.cpython-312.pyc"
+ ],
+ "n_stray": 3,
+ "wrong_folder": 0,
+ "audit_issues": 4,
+ "audit_types": {
+  "unindexed": 4
+ },
+ "claude_calls": 2,
+ "cost_usd": 0.1482826,
+ "cost_per_task_usd": 0.0741413,
+ "tokens": {
+  "input_tokens": 132,
+  "cache_creation_input_tokens": 35045,
+  "cache_read_input_tokens": 512196,
+  "output_tokens": 4626
+ },
+ "llm_busy_share_of_wall": 0.8944919751630073,
+ "orchestration_overhead_share": 0.10550802483699273,
+ "server_tree": {
+  "wall_s": 60.13571810722351,
+  "cpu_s": 0.4086636800000001,
+  "cpu_share_of_wall": 0.006795689697616022,
+  "cpu_share_of_machine": 0.0005663074748013351,
+  "rss_mb_end": 83.28125
+ }
+}

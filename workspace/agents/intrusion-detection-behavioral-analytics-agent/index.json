@@ -1,0 +1,14 @@
+{
+  "name": "Intrusion Detection & Behavioral Analytics Agent",
+  "role": "Intrusion Detection & Behavioral Analytics Agent",
+  "nature": "operational",
+  "avatar": "generic",
+  "projects": [
+    "RedBerry Continuous SOC"
+  ],
+  "skill_file_hint": "data/projects/<pid>/skills/intrusion-detection-behavioral-analytics-agent.md",
+  "note": "INDEX/REFERENCE ONLY — not moved yet (Phase 1a)",
+  "type": "security",
+  "typeConfig": "shared/config/agent-types/security.json",
+  "group": "ueba"
+}

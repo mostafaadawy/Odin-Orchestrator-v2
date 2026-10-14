@@ -1,0 +1,12 @@
+{
+  "name": "Detection Engineering & Purple-Team Validation Agent",
+  "role": "Detection Engineering & Purple-Team Validation Agent",
+  "nature": "operational",
+  "mode": "normal",
+  "projects": [
+    "redberry-continuous-soc"
+  ],
+  "type": "security",
+  "typeConfig": "shared/config/agent-types/security.json",
+  "group": "detection"
+}

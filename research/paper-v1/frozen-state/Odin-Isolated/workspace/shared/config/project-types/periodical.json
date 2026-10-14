@@ -1,0 +1,17 @@
+{
+  "type": "periodical",
+  "requires": {
+    "schedule": true
+  },
+  "config_schema": {
+    "period": "string"
+  },
+  "ui": {
+    "chip": "Periodical",
+    "controls": [
+      "play",
+      "period"
+    ]
+  },
+  "means": "runs at fixed periods (play button)"
+}

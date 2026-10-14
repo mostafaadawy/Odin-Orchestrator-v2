@@ -1,0 +1,14 @@
+{
+  "name": "Chunk Analysis Agent",
+  "role": "Chunk Analysis Agent",
+  "nature": "technical",
+  "avatar": "generic",
+  "projects": [
+    "Zoom Smart Meeting Notification Agent"
+  ],
+  "skill_file_hint": "data/projects/<pid>/skills/chunk-analysis-agent.md",
+  "note": "INDEX/REFERENCE ONLY — not moved yet (Phase 1a)",
+  "type": "operational",
+  "typeConfig": "shared/config/agent-types/operational.json",
+  "group": "voice-pipeline"
+}

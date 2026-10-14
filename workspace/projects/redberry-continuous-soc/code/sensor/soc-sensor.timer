@@ -1,0 +1,10 @@
+[Unit]
+Description=Run the Odin SOC sensor every 5 minutes (24/7 evidence capture)
+
+[Timer]
+OnBootSec=2min
+OnUnitActiveSec=5min
+AccuracySec=30s
+
+[Install]
+WantedBy=timers.target

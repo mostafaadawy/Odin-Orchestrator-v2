@@ -1,0 +1,44 @@
+server: 200
+== regression after: {"pass": 32, "fail": [], "regressions": [], "router_agree": 0.4307692307692308, "endpoint_ok": 1.0}
+== phase7_lifecycle after rep1 start_violations=1 rc=0 ::   CREATE [PASS] t7-revealer-multi      type=normal     monitor(placement=0,violations=0,in_db=True) | linked_agents=3 delta vs baseline: {'projects': 0, 'agents': 0, 'files': 0, 'folders': 0, 'dependencies': 0, 'project_agents': 0} PHASE7_LIFECYCLE: ALL GREEN ✅ 
+== phase7_lifecycle after rep2 start_violations=1 rc=0 ::   CREATE [PASS] t7-revealer-multi      type=normal     monitor(placement=0,violations=0,in_db=True) | linked_agents=3 delta vs baseline: {'projects': 0, 'agents': 0, 'files': 0, 'folders': 0, 'dependencies': 0, 'project_agents': 0} PHASE7_LIFECYCLE: ALL GREEN ✅ 
+== phase7_lifecycle after rep3 start_violations=1 rc=0 ::   CREATE [PASS] t7-revealer-multi      type=normal     monitor(placement=0,violations=0,in_db=True) | linked_agents=3 delta vs baseline: {'projects': 0, 'agents': 0, 'files': 0, 'folders': 0, 'dependencies': 0, 'project_agents': 0} PHASE7_LIFECYCLE: ALL GREEN ✅ 
+== phase7_strong after rep1 start_violations=1 rc=1 ::    [PASS] 0 violations after cleanup STRONG TEST: FAILURES: 0 GENERAL workspace violations PHASE7_STRONG: HAS FAILURES ❌ 
+== phase7_strong after rep2 start_violations=1 rc=1 ::    [PASS] 0 violations after cleanup STRONG TEST: FAILURES: 0 GENERAL workspace violations PHASE7_STRONG: HAS FAILURES ❌ 
+== phase7_strong after rep3 start_violations=1 rc=1 ::    [PASS] 0 violations after cleanup STRONG TEST: FAILURES: 0 GENERAL workspace violations PHASE7_STRONG: HAS FAILURES ❌ 
+g6: RESULT: ALL PASS
+g6b: RESULT: ALL PASS
+g8: g8b: g5: RESULT: ALL PASS
+g7: RESULT: ALL PASS
+f07: f37: RESULT: ALL PASS
+g11: RESULT: ALL PASS
+f38: RESULT: ALL PASS
+g12: RESULT: ALL PASS
+g9: RESULT: ALL PASS
+g9b: RESULT: ALL PASS
+g10: RESULT: ALL PASS
+g10r: RESULT: ALL PASS
+g13: RESULT: ALL PASS
+f41i: RESULT: ALL PASS
+f06: RESULT: ALL PASS
+f43: RESULT: 3 FAIL: ['1: legacy900 reproduces the old prompt BYTE-IDENTICAL for every agent (paper v1)', "3: full mode — Fullstack's restored charter 'Must honor' rules reach the prompt", "4b: ...and for those 2 the excerpt is now their OWN file (was the plain Security agent's)"]
+f08: stepA: RESULT: 1 FAIL: ['F25-2: one-command revert restores the old text']
+stepC: RESULT: ALL PASS
+stepD: RESULT: ALL PASS
+stepE: RESULT 9 pass 3 fail
+stepF: RESULT: ALL PASS
+stepG: RESULT: ALL PASS
+f10: RESULT: 6 FAIL: ['1: a violation by an agent creates a PENDING rule proposal for that agent', '3: running the audit again does not duplicate the proposal, and heal never edits rules', "4: on the owner's approval the rule is ADDED under Custom rules", '6: the approval is applied and records the owner', '7: one-command revert restores the file byte-identical', '8: rejecting a proposal changes nothing']
+f11: RESULT: ALL PASS
+f20: RESULT: ALL PASS
+f21: RESULT: ALL PASS
+f26: RESULT: ALL PASS
+pc5: RESULT: ALL PASS
+pc2: RESULT: ALL PASS
+p4e: RESULT: ALL PASS
+fix3: RESULT: ALL PASS
+f32g2_unit: RESULT: ALL PASS
+f32c_unit: RESULT: ALL PASS
+fix2c_unit: RESULT: ALL PASS
+f18:   DOC CH5-2 - MFI correction - PHASE3_FIX2_PLAN group C   DOC CH5-3 - MFI correction - PHASE3_FIX2_PLAN group C   DOC CH4-6 - MFI correction - PHASE3_FIX2_PLAN group C 
+SUITE-DONE

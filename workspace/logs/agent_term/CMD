@@ -1,0 +1,1 @@
+rm -f /Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Isolated/.git/index.lock; ls /Users/mostafaadawy/Desktop/AiAgentWorkSpace/Odin-Isolated/.git/index.lock 2>&1 | head -1

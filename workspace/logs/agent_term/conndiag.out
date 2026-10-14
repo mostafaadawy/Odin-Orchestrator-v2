@@ -1,0 +1,13 @@
+=== bridge egress IPv4 (compare to NSG 154.176.82.145) ===
+154.176.82.145
+=== VM power state (az read-only) ===
+VM running
+=== SSH test FROM BRIDGE (12s timeout) ===
+SSH_OK_FROM_BRIDGE
+django-vm
+--- who is listening on 22 ---
+LISTEN 0      4096         0.0.0.0:22         0.0.0.0:*                                              
+LISTEN 0      4096            [::]:22            [::]:*                                              
+--- ufw status ---
+ssh_exit=0
+DONE_CONN

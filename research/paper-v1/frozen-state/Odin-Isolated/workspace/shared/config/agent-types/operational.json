@@ -1,0 +1,19 @@
+{
+  "type": "operational",
+  "groups": [
+    "content",
+    "crm",
+    "fulfillment",
+    "marketing",
+    "notification",
+    "orchestration",
+    "reporting",
+    "review",
+    "shipping",
+    "storage",
+    "voice-pipeline"
+  ],
+  "ui": {
+    "chip": "Operational"
+  }
+}

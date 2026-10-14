@@ -1,0 +1,388 @@
+{
+  "requests": [
+    {
+      "id": "req_58635a110edb4f30",
+      "project": "email-klaviyo-2fe7",
+      "payload": {
+        "prompt": "How many flows are live vs draft?"
+      },
+      "sender": "odin_app",
+      "webhook_url": "http://127.0.0.1:49394/cb",
+      "api_key_id": "",
+      "status": "finished",
+      "result": "Klaviyo (live, read-only): 50 flows.\n\nRaw: {\"ok\": true, \"total\": 50, \"by_status\": {\"live\": 47, \"draft\": 3}}",
+      "created": 1784163797.265682,
+      "updated": 1784163798.319479,
+      "history": [
+        {
+          "status": "received",
+          "ts": 1784163797.265682
+        },
+        {
+          "status": "queued",
+          "ts": 1784163797.265682
+        },
+        {
+          "status": "sent_to_local",
+          "ts": 1784163797.2670999
+        },
+        {
+          "status": "response_received",
+          "ts": 1784163798.314881
+        },
+        {
+          "status": "webhook_sent",
+          "ts": 1784163798.316324
+        },
+        {
+          "status": "acknowledged",
+          "ts": 1784163798.318252
+        },
+        {
+          "status": "finished",
+          "ts": 1784163798.319477
+        }
+      ],
+      "webhook_attempts": 1,
+      "next_retry_at": 0.0,
+      "acked": true,
+      "error": ""
+    },
+    {
+      "id": "req_aa04b24cc2864c30",
+      "project": "shipping-veeqo-1dc9",
+      "payload": {
+        "prompt": "How many orders did we get this week?"
+      },
+      "sender": "odin_app",
+      "webhook_url": "http://127.0.0.1:49394/cb",
+      "api_key_id": "",
+      "status": "finished",
+      "result": "Veeqo (live, read-only): 23 orders since 2026-07-09T00:00:00Z.\n\nRaw: {\"ok\": true, \"count\": 23, \"since\": \"2026-07-09T00:00:00Z\"}",
+      "created": 1784163798.323088,
+      "updated": 1784163803.1064441,
+      "history": [
+        {
+          "status": "received",
+          "ts": 1784163798.323088
+        },
+        {
+          "status": "queued",
+          "ts": 1784163798.323088
+        },
+        {
+          "status": "sent_to_local",
+          "ts": 1784163798.324817
+        },
+        {
+          "status": "response_received",
+          "ts": 1784163803.103271
+        },
+        {
+          "status": "webhook_sent",
+          "ts": 1784163803.104374
+        },
+        {
+          "status": "acknowledged",
+          "ts": 1784163803.105775
+        },
+        {
+          "status": "finished",
+          "ts": 1784163803.1064441
+        }
+      ],
+      "webhook_attempts": 1,
+      "next_retry_at": 0.0,
+      "acked": true,
+      "error": ""
+    },
+    {
+      "id": "req_d761d18238e94f8f",
+      "project": "email-klaviyo-ce8f",
+      "payload": {
+        "prompt": "How many flows are live vs draft?"
+      },
+      "sender": "odin_app",
+      "webhook_url": "http://127.0.0.1:54224/cb",
+      "api_key_id": "",
+      "status": "finished",
+      "result": "Klaviyo (live, read-only): 50 flows.\n\nRaw: {\"ok\": true, \"total\": 50, \"by_status\": {\"live\": 47, \"draft\": 3}}",
+      "created": 1784180716.338148,
+      "updated": 1784180717.246389,
+      "history": [
+        {
+          "status": "received",
+          "ts": 1784180716.338148
+        },
+        {
+          "status": "queued",
+          "ts": 1784180716.338148
+        },
+        {
+          "status": "sent_to_local",
+          "ts": 1784180716.339382
+        },
+        {
+          "status": "response_received",
+          "ts": 1784180717.2403572
+        },
+        {
+          "status": "webhook_sent",
+          "ts": 1784180717.242157
+        },
+        {
+          "status": "acknowledged",
+          "ts": 1784180717.2448971
+        },
+        {
+          "status": "finished",
+          "ts": 1784180717.246387
+        }
+      ],
+      "webhook_attempts": 1,
+      "next_retry_at": 0.0,
+      "acked": true,
+      "error": ""
+    },
+    {
+      "id": "req_0574853330234817",
+      "project": "shipping-veeqo-7266",
+      "payload": {
+        "prompt": "How many orders did we get this week?"
+      },
+      "sender": "odin_app",
+      "webhook_url": "http://127.0.0.1:54224/cb",
+      "api_key_id": "",
+      "status": "finished",
+      "result": "Veeqo (live, read-only): 24 orders since 2026-07-09T00:00:00Z.\n\nRaw: {\"ok\": true, \"count\": 24, \"since\": \"2026-07-09T00:00:00Z\"}",
+      "created": 1784180717.250349,
+      "updated": 1784180719.269793,
+      "history": [
+        {
+          "status": "received",
+          "ts": 1784180717.250349
+        },
+        {
+          "status": "queued",
+          "ts": 1784180717.250349
+        },
+        {
+          "status": "sent_to_local",
+          "ts": 1784180717.252801
+        },
+        {
+          "status": "response_received",
+          "ts": 1784180719.2680051
+        },
+        {
+          "status": "webhook_sent",
+          "ts": 1784180719.2685661
+        },
+        {
+          "status": "acknowledged",
+          "ts": 1784180719.269372
+        },
+        {
+          "status": "finished",
+          "ts": 1784180719.269793
+        }
+      ],
+      "webhook_attempts": 1,
+      "next_retry_at": 0.0,
+      "acked": true,
+      "error": ""
+    },
+    {
+      "id": "req_2c80929ab5ca4c7a",
+      "project": "email-klaviyo-f4ca",
+      "payload": {
+        "prompt": "How many flows are live vs draft?"
+      },
+      "sender": "odin_app",
+      "webhook_url": "http://127.0.0.1:54301/cb",
+      "api_key_id": "",
+      "status": "finished",
+      "result": "Klaviyo (live, read-only): 50 flows.\n\nRaw: {\"ok\": true, \"total\": 50, \"by_status\": {\"live\": 47, \"draft\": 3}}",
+      "created": 1784180881.3403578,
+      "updated": 1784180882.08009,
+      "history": [
+        {
+          "status": "received",
+          "ts": 1784180881.3403578
+        },
+        {
+          "status": "queued",
+          "ts": 1784180881.3403578
+        },
+        {
+          "status": "sent_to_local",
+          "ts": 1784180881.34181
+        },
+        {
+          "status": "response_received",
+          "ts": 1784180882.07313
+        },
+        {
+          "status": "webhook_sent",
+          "ts": 1784180882.075946
+        },
+        {
+          "status": "acknowledged",
+          "ts": 1784180882.0788648
+        },
+        {
+          "status": "finished",
+          "ts": 1784180882.0800881
+        }
+      ],
+      "webhook_attempts": 1,
+      "next_retry_at": 0.0,
+      "acked": true,
+      "error": ""
+    },
+    {
+      "id": "req_ad0ab2ef2cfe4a3b",
+      "project": "shipping-veeqo-8ba7",
+      "payload": {
+        "prompt": "How many orders did we get this week?"
+      },
+      "sender": "odin_app",
+      "webhook_url": "http://127.0.0.1:54301/cb",
+      "api_key_id": "",
+      "status": "finished",
+      "result": "Veeqo (live, read-only): 24 orders since 2026-07-09T00:00:00Z.\n\nRaw: {\"ok\": true, \"count\": 24, \"since\": \"2026-07-09T00:00:00Z\"}",
+      "created": 1784180882.083335,
+      "updated": 1784180883.624383,
+      "history": [
+        {
+          "status": "received",
+          "ts": 1784180882.083335
+        },
+        {
+          "status": "queued",
+          "ts": 1784180882.083335
+        },
+        {
+          "status": "sent_to_local",
+          "ts": 1784180882.085508
+        },
+        {
+          "status": "response_received",
+          "ts": 1784180883.620766
+        },
+        {
+          "status": "webhook_sent",
+          "ts": 1784180883.621956
+        },
+        {
+          "status": "acknowledged",
+          "ts": 1784180883.623567
+        },
+        {
+          "status": "finished",
+          "ts": 1784180883.624383
+        }
+      ],
+      "webhook_attempts": 1,
+      "next_retry_at": 0.0,
+      "acked": true,
+      "error": ""
+    },
+    {
+      "id": "req_ffe1b32087bf485c",
+      "project": "email-klaviyo-c5ef",
+      "payload": {
+        "prompt": "How many flows are live vs draft?"
+      },
+      "sender": "odin_app",
+      "webhook_url": "http://127.0.0.1:54320/cb",
+      "api_key_id": "",
+      "status": "finished",
+      "result": "Klaviyo (live, read-only): 50 flows.\n\nRaw: {\"ok\": true, \"total\": 50, \"by_status\": {\"live\": 47, \"draft\": 3}}",
+      "created": 1784180935.403798,
+      "updated": 1784180936.4102862,
+      "history": [
+        {
+          "status": "received",
+          "ts": 1784180935.403798
+        },
+        {
+          "status": "queued",
+          "ts": 1784180935.403798
+        },
+        {
+          "status": "sent_to_local",
+          "ts": 1784180935.4053838
+        },
+        {
+          "status": "response_received",
+          "ts": 1784180936.4048939
+        },
+        {
+          "status": "webhook_sent",
+          "ts": 1784180936.4068449
+        },
+        {
+          "status": "acknowledged",
+          "ts": 1784180936.409227
+        },
+        {
+          "status": "finished",
+          "ts": 1784180936.4102862
+        }
+      ],
+      "webhook_attempts": 1,
+      "next_retry_at": 0.0,
+      "acked": true,
+      "error": ""
+    },
+    {
+      "id": "req_adb1b7d5d66342f3",
+      "project": "shipping-veeqo-5e6f",
+      "payload": {
+        "prompt": "How many orders did we get this week?"
+      },
+      "sender": "odin_app",
+      "webhook_url": "http://127.0.0.1:54320/cb",
+      "api_key_id": "",
+      "status": "finished",
+      "result": "Veeqo (live, read-only): 24 orders since 2026-07-09T00:00:00Z.\n\nRaw: {\"ok\": true, \"count\": 24, \"since\": \"2026-07-09T00:00:00Z\"}",
+      "created": 1784180936.4138272,
+      "updated": 1784180937.094103,
+      "history": [
+        {
+          "status": "received",
+          "ts": 1784180936.4138272
+        },
+        {
+          "status": "queued",
+          "ts": 1784180936.4138272
+        },
+        {
+          "status": "sent_to_local",
+          "ts": 1784180936.4158878
+        },
+        {
+          "status": "response_received",
+          "ts": 1784180937.0883698
+        },
+        {
+          "status": "webhook_sent",
+          "ts": 1784180937.0904388
+        },
+        {
+          "status": "acknowledged",
+          "ts": 1784180937.092771
+        },
+        {
+          "status": "finished",
+          "ts": 1784180937.094102
+        }
+      ],
+      "webhook_attempts": 1,
+      "next_retry_at": 0.0,
+      "acked": true,
+      "error": ""
+    }
+  ]
+}
