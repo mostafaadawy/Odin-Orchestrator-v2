@@ -1,7 +1,7 @@
 # Phase 9 — deletion list (for the owner's YES)
 
 Nothing is deleted without the owner's yes. Approved folders are MOVED to `~/Desktop/AiAgentWorkSpace/_to_delete/`
-(the owner empties it himself). **Never touched:** `Odin-Orchestrator` (v1), `~/Desktop/Odin`, `~/Desktop/Odin Testing`,
+(the owner empties it himself). **Never touched:** `Odin-Orchestrator` (v1), `~/Desktop/misc/Odin`, `~/Desktop/misc/Odin Testing`,
 the owner's local credentials files, and any folder outside these three.
 
 ## Proof that everything is in v2 (`_v2/results/phase9_coverage.txt`, re-run any time: `python3 _v2/cutover/coverage_proof.py`)

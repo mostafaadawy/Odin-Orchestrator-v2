@@ -5,7 +5,7 @@
 | 2026-10-10 | G12: EasyPost must NOT be auto-added to every project. Recommend it per project like any role; add it only after owner approval. | Phase 3 |
 | 2026-10-11 | Phase 0 approved. | — |
 | 2026-10-11 | Move `RedBerry-Continuous-SOC/soc/playbooks/fake-user-app-abuse-hunt.md`, `soc/knowledge/incident-history.md` and `soc/history/investigations/run-1784584358-charter.md` into v2. Do **not** copy `ACTIVE-RUN.lock`. | Phase 5 (v2 does not exist yet; staged as a pending integration item) |
-| 2026-10-11 | Never-delete list (Phase 9): **Odin-Orchestrator (v1), Odin-Orchestrator-v2, ~/Desktop/Odin, ~/Desktop/Odin Testing.** | Phase 9 |
+| 2026-10-11 | Never-delete list (Phase 9): **Odin-Orchestrator (v1), Odin-Orchestrator-v2, ~/Desktop/misc/Odin, ~/Desktop/misc/Odin Testing.** | Phase 9 |
 | 2026-10-11 | The three verification reports are saved as files in `AiAgentWorkSpace/odin-v2-staging/research/verification/`, to move into `v2/research/`. | Done now; moved in Phase 5 |
 
 **Staging folder:** `~/Desktop/AiAgentWorkSpace/odin-v2-staging/` holds only material that waits to go into v2. It is new and touches no other folder.

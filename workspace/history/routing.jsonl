@@ -379,3 +379,13 @@
 {"ts": "2026-10-14T12:44:18Z", "type": "ROUTE", "ref": "CTO Brain", "actor": "Dispatcher", "summary": "Routed to CTO Brain; approval=no."}
 {"ts": "2026-10-14T13:04:35Z", "type": "ROUTE", "ref": "Backend", "actor": "Dispatcher", "summary": "Routed to Backend; approval=YES()."}
 {"ts": "2026-10-14T13:14:07Z", "type": "ROUTE", "ref": "Backend", "actor": "Dispatcher", "summary": "Routed to Backend; approval=YES()."}
+{"ts": "2026-10-15T17:53:28Z", "type": "ROUTE", "ref": "Backend", "actor": "Dispatcher", "summary": "Routed to Backend; approval=YES()."}
+{"ts": "2026-10-15T18:02:10Z", "type": "ROUTE", "ref": "Backend", "actor": "Dispatcher", "summary": "Routed to Backend; approval=YES()."}
+{"ts": "2026-10-15T18:08:41Z", "type": "ROUTE", "ref": "Backend", "actor": "Dispatcher", "summary": "Routed to Backend; approval=YES()."}
+{"ts": "2026-10-15T18:13:38Z", "type": "ROUTE", "ref": "Backend", "actor": "Dispatcher", "summary": "Routed to Backend; approval=YES()."}
+{"ts": "2026-10-15T18:14:47Z", "type": "ROUTE", "ref": "DevOps & Cloud", "actor": "Dispatcher", "summary": "Routed to DevOps & Cloud; approval=no."}
+{"ts": "2026-10-15T18:22:36Z", "type": "ROUTE", "ref": "Security & Compliance", "actor": "Dispatcher", "summary": "Routed to Security & Compliance, DevOps & Cloud; approval=YES(azure-vm-action,secret-or-credential-change)."}
+{"ts": "2026-10-15T18:27:59Z", "type": "ROUTE", "ref": "Security & Compliance", "actor": "Dispatcher", "summary": "Routed to Security & Compliance, DevOps & Cloud; approval=YES(azure-vm-action,secret-or-credential-change)."}
+{"ts": "2026-10-15T18:35:47Z", "type": "ROUTE", "ref": "DevOps & Cloud", "actor": "Dispatcher", "summary": "Routed to DevOps & Cloud; approval=no."}
+{"ts": "2026-10-15T18:38:09Z", "type": "ROUTE", "ref": "DevOps & Cloud", "actor": "Dispatcher", "summary": "Routed to DevOps & Cloud; approval=no."}
+{"ts": "2026-10-15T18:39:30Z", "type": "ROUTE", "ref": "Security & Compliance", "actor": "Dispatcher", "summary": "Routed to Security & Compliance; approval=no."}

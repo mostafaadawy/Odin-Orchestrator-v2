@@ -28,7 +28,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import harness  # noqa: E402
 from harness import log  # noqa: E402
 
-SBX = pathlib.Path.home() / "Desktop" / "Odin Testing" / "deploy-overwrite-sandbox"
+SBX = pathlib.Path.home() / "Desktop" / "misc" / "Odin Testing" / "deploy-overwrite-sandbox"
 VM_SANDBOX = "/home/mostafa/sandbox-revealer"       # sandbox path on the VM — NEVER production
 MARKER = "REDEPLOY_MARKER.txt"
 

@@ -2640,7 +2640,7 @@ function LiveMeetingTab() {
 function DeployTab() {
   const steps = [
     { i: "📦", t: "The deployment project (e.g. “Organics Production Deploy (2VM)”) is created through the real intake flow — DevOps-only, no other agents." },
-    { i: "🔒", t: "Source-of-truth folders (organics-backend/frontend) are read-only. Working copy + a .git baseline live under ~/Desktop/Odin/." },
+    { i: "🔒", t: "Source-of-truth folders (organics-backend/frontend) are read-only. Working copy + a .git baseline live under ~/Desktop/misc/Odin/." },
     { i: "🚩", t: "Persistent first-time flag: first deploy ships everything; later deploys diff the .git baseline and ship ONLY changed files." },
     { i: "⚙️", t: "Preview the exact rsync + build commands + reboot, respecting the exclusion lists (.env, node_modules, dist, .next, migrations, package*.json, public, uploads…)." },
     { i: "🗄️", t: "Database reset runs only the first time; every later deploy ASKS before any DB reset. Nothing destructive runs without your approval." },

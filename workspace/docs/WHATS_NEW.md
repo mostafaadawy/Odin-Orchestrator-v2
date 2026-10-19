@@ -47,7 +47,7 @@ always the Azure VM.** Executed only by the **DevOps Agent**.
 1. The deployment project (e.g. *“Organics Production Deploy (2VM)”*) is created through the **real
    intake flow** — DevOps‑only, no other agents.
 2. The **source‑of‑truth** folders (`organics-backend`, `organics-frontend`) are **read‑only**. A working
-   copy plus a **`.git` baseline** live under `~/Desktop/Odin/`.
+   copy plus a **`.git` baseline** live under `~/Desktop/misc/Odin/`.
 3. A **persistent first‑time flag** (`.deploy_state`): the first corrected deploy ships all allowed
    files; later deploys **diff the `.git` baseline** and ship **only changed files**.
 4. Deploy from the project → you preview the exact **rsync + build commands + reboot**, honoring the

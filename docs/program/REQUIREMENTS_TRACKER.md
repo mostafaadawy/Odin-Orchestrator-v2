@@ -105,7 +105,7 @@
 | P8-6 | Anchor switched to run from v2 | Plan | 8 | open | — |
 | P8-7 | **Back up the installed Odin.app and its 240 MB of app data before installing the v2 DMG** | Tracker, P0 finding | 8 | open | Paths: `/Applications/Odin.app`, `~/Library/Application Support/odin-desktop` |
 | P8-8 | Post-cutover end-to-end test; roll back to v1 on any failure | Plan | 8 | open | — |
-| P9-1 | **Never-delete list: Odin-Orchestrator (v1), Odin-Orchestrator-v2, ~/Desktop/Odin, ~/Desktop/Odin Testing** | Plan, Gate0 | 9 | open (recorded) | `PROGRAM_DECISIONS.md` |
+| P9-1 | **Never-delete list: Odin-Orchestrator (v1), Odin-Orchestrator-v2, ~/Desktop/misc/Odin, ~/Desktop/misc/Odin Testing** | Plan, Gate0 | 9 | open (recorded) | `PROGRAM_DECISIONS.md` |
 | P9-2 | Delete a folder only with its checklist: unique content in v2 or waived; paper in v2/research; nothing depends on it; a verified archive exists; your written approval, one folder at a time | Plan | 9 | open | — |
 | P9-3 | **All paper material in `v2/research/` before any cleanup** (Isolated `_research`, `Resulted Papers and Documents`, verification reports, replication packages). Paper due 30 October. | Plan, Tracker | 5, 9 | in progress | Verification reports saved (P9-4) |
 | P9-4 | **The three verification reports saved as files** | Gate0 | 1 | done | `odin-v2-staging/research/verification/` (also the Phase 0 map and the decisions log) |

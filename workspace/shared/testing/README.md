@@ -11,7 +11,7 @@ every test uses `harness.py` for: smart time limits, automatic CTO-dialog handli
 | `real_production_deploy_devops_only.py` | **REAL** production deploy of organics/bendcore to the live Azure VM, DevOps-only (CTO is manager). Uses the owner's exact deploy prompt verbatim. | ⚠️ **DESTRUCTIVE** — wipes prod DB + reboots. Only runs with `ODIN_TEST_PROD_DEPLOY=1`. |
 | `readonly_shipping_vq_status.py` | Shipping/Veeqo (VQ) project, Shipping agent only, **no folder required**. Reads status, total orders, channels/vendors. | ✅ read-only |
 | `readonly_email_klaviyo_workflows.py` | Email/Klaviyo project, Email agent only (no DevOps). Reads live/draft/total workflows, metrics, lists. | ✅ read-only |
-| `sandbox_revealer_multiagent.py` | **"Revealer"** — full multi-agent build → QA → deploy to a **sandbox** (CTO+Frontend+Backend+QA+Shipping+Email). Uses `~/Desktop/Odin Testing/{frontend,backend}-sandbox`. | ✅ sandbox only |
+| `sandbox_revealer_multiagent.py` | **"Revealer"** — full multi-agent build → QA → deploy to a **sandbox** (CTO+Frontend+Backend+QA+Shipping+Email). Uses `~/Desktop/misc/Odin Testing/{frontend,backend}-sandbox`. | ✅ sandbox only |
 
 ## Run
 

@@ -5,7 +5,7 @@ The most comprehensive test. It builds a small real app and exercises the whole 
 how well the multi-agent system collaborates — without hallucinating agents and while respecting the
 rules. Everything is confined to a SANDBOX; production is never touched.
 
-Sandbox layout (on the desktop, NOT inside the app):  ~/Desktop/Odin Testing/{frontend-sandbox,backend-sandbox}
+Sandbox layout (on the desktop, NOT inside the app):  ~/Desktop/misc/Odin Testing/{frontend-sandbox,backend-sandbox}
 Cloud: a SANDBOX environment on Azure (never the production VM).
 App: a simple NestJS backend + Next.js frontend (2–3 tables, basic CRUD) whose backend can call the
 a fulfillment provider (Veeqo) and an email platform (Klaviyo) to read shipping status / email metrics.
@@ -23,7 +23,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import harness  # noqa: E402
 from harness import log  # noqa: E402
 
-DESKTOP = pathlib.Path.home() / "Desktop" / "Odin Testing"
+DESKTOP = pathlib.Path.home() / "Desktop" / "misc" / "Odin Testing"
 FE_SBX = DESKTOP / "frontend-sandbox"
 BE_SBX = DESKTOP / "backend-sandbox"
 

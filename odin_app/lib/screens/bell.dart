@@ -675,7 +675,7 @@ class _DeployTab extends StatelessWidget {
   Widget build(BuildContext context) {
     const steps = [
       ['📦', 'The deployment project (e.g. “Organics Production Deploy (2VM)”) is created through the real intake flow — DevOps‑only, no other agents.'],
-      ['🔒', 'Source‑of‑truth folders (organics‑backend / organics‑frontend) are read‑only. The working copy + a .git baseline live under ~/Desktop/Odin/.'],
+      ['🔒', 'Source‑of‑truth folders (organics‑backend / organics‑frontend) are read‑only. The working copy + a .git baseline live under ~/Desktop/misc/Odin/.'],
       ['🚩', 'A persistent first‑time flag: the first corrected deploy ships everything; later deploys diff the .git baseline and ship ONLY changed files.'],
       ['⚙️', 'Deploy from the project: preview the exact rsync + commands + reboot, respecting the exclusion lists (.env, node_modules, dist, .next, migrations, …).'],
       ['🗄️', 'Database: the reset runs only the first time; every later deploy ASKS before any DB reset. Nothing destructive runs without your approval.'],

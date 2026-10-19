@@ -21,7 +21,7 @@ This folder is a copy of Odin-Orchestrator at HEAD af2cbd8, taken on 2026-10-06.
 ## Neutralised references (reverse these maps when promoting)
 - `repath_changed_files.json`: 252 files and 7,042 references were redirected:
   - `.../AiAgentWorkSpace/Odin-Orchestrator` → `.../AiAgentWorkSpace/Odin-Consolidated`
-  - `~/Desktop/Odin`, `~/Desktop/OdinTesting` and `~/Desktop/VolatileWorkSpace` → `Odin-Consolidated/_external/...` (empty sandboxes)
+  - `~/Desktop/misc/Odin`, `~/Desktop/OdinTesting` and `~/Desktop/VolatileWorkSpace` → `Odin-Consolidated/_external/...` (empty sandboxes)
   - References to the deleted old copy: none found.
 - The same redirect was applied to dynamic home paths in 4 code files:
   - `deploy_changes.py` (RBO-Staging source)
